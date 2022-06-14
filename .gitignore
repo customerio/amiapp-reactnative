@@ -1,0 +1,18 @@
+node_modules
+.DS_Store
+
+# Android/IntelliJ
+#
+android/app
+android/build/
+.idea
+.gradle
+local.properties
+*.iml
+
+# CocoaPods
+/ios/Pods/
+ios/Podfile.lock
+
+package-lock.json
+yarn.lock
