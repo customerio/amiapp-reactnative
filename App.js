@@ -18,9 +18,9 @@ export default function App() {
   const routeNameRef = useRef();
   return (
     
-       
-        <NavigationContainer
-        // Automatic screen tracking - start
+       // MARK:- AUTO SCREEN TRACKING
+      // Start
+      <NavigationContainer
         ref={navigationRef}
         onReady={() => {
           routeNameRef.current = navigationRef.getCurrentRoute().name;
@@ -34,8 +34,9 @@ export default function App() {
           }
           routeNameRef.current = currentRouteName;
         }}
-        // Automatic screen tracking - end
+        // End
         >
+
       <Stack.Navigator initialRouteName="FeaturesUpdate">
         <Stack.Screen name="FeaturesUpdate"
         component={FeaturesUpdate}

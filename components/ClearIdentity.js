@@ -8,7 +8,9 @@ import { CustomerIO } from 'customerio-reactnative';
 const ClearIdentity = (props) => {
 
     const ClearUserIdentity = () => {
+        // MARK:- CLEAR USER IDENTITY
         CustomerIO.clearIdentify()
+        
         props.onClear()
     }
 

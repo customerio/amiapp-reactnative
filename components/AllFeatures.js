@@ -10,7 +10,6 @@ const AllFeatures = (props) => {
     <ScrollView style={styles.container}>
         <TrackEvent>
         </TrackEvent>
-
         <DeviceAttributes/>
         <ProfileAttributes/>
         <ClearIdentity onClear={props.onClear}/>

@@ -9,11 +9,13 @@ const DeviceAttributes = () => {
     const [customDeviceAttribute, setCustomDeviceAttribute] = useState('')
     const [additionalAttributes, setAdditionalAttributes] = useState('')
 
+    // MARK:- SET DEVICE ATTRIBUTES
+    // Start
       const setDeviceAttributes = () => {
         const deviceAttributes = {
             type : "Device attributes",
             detail : {
-                location : "New Delhi",
+                location : "SomeLocation",
                 model : "iPhone 13",
                 os : "iOS 14",
             },
@@ -21,6 +23,7 @@ const DeviceAttributes = () => {
             additionalAttributes : additionalAttributes
           };
         CustomerIO.setDeviceAttributes(deviceAttributes)
+    // End
         alert("Device attributes updated successfully.")
       }
       
@@ -52,6 +55,8 @@ const ProfileAttributes = () => {
     const [additionalAttributes, setAdditionalAttributes] = useState('')
 
     const setProfileAttributes = () => {
+      // MARK:- SET PROFILE ATTRIBUTES
+      // Start
         const profileAttributes = {
             type : "Profile attributes",
             favouriteFood : "Pizza",
@@ -60,6 +65,8 @@ const ProfileAttributes = () => {
             additionalAttributes : additionalAttributes
           };
         CustomerIO.setProfileAttributes(profileAttributes)
+        // End
+        
         alert("Profile attributes updated successfully.")
       }
 

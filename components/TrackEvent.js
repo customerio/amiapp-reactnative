@@ -11,14 +11,16 @@ const TrackEvent = () => {
         // Send random event
         switch (type) {
             case "Random" :
+                // MARK:- TRACK EVENT
                 CustomerIO.track("Button Click")
                 break;
             case "EventWithData":
+                // MARK:- TRACK EVENT WITH DATA
                 const trackEventAttributes = {
                   clicked : type,
                   name : "Super Ami",
-                  country : "India",
-                  city : "New Delhi",
+                  country : "USA",
+                  city : "New York",
                 };
                 CustomerIO.track("Data Event", trackEventAttributes)
                 break;
@@ -26,7 +28,7 @@ const TrackEvent = () => {
                 const shoppingEventAttributes = {
                     clicked : type,
                     product : "Clothing",
-                    price : "INR 999",
+                    price : "USD 99",
                     brand : "Trends",
                     detail : {
                         color : "Orange",
@@ -41,7 +43,7 @@ const TrackEvent = () => {
                 const charityEventAttributes = {
                     clicked : type,
                     org : "Percent Pledge",
-                    amount : "INR 500",
+                    amount : "USD 500",
                     to : "Urban Trees",
                     verified : false
                     };

@@ -8,14 +8,16 @@ const FeaturesUpdate = ({navigation}) => {
 
   useEffect(() => {
 
-    // Initialise package
+    // MARK:- INITIALIZE PACKAGE
     CustomerIO.initialize("170e2f38e7d3549025e5","2026a543170f633e55e3")
-    
+
+    // MARK:- UPDATE CONFIGURATIONS
+    // Start
     const data = new CustomerioConfig()
     data.logLevel = CioLogLevel.debug
     data.autoTrackDeviceAttributes = true
-    console.log(data)
     CustomerIO.config(data)
+    // End
 
   }, [])
   
