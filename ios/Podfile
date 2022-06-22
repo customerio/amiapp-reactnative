@@ -11,6 +11,8 @@ target 'SampleApp' do
   use_react_native!(:path => config["reactNativePath"])
   pod 'RCT-Folly', :podspec => '../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec'
   pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
+  pod 'CustomerIOMessagingPushAPN', :podspec => '../node_modules/customerio-reactnative/CustomerIOMessagingPushAPN.podspec'
+  
   # Uncomment to opt-in to using Flipper
   #
   # if !ENV['CI']
