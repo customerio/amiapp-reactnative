@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import { Button, StyleSheet, View } from "react-native";
+import { Button, StyleSheet, View, Text } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import FeatureButton from "./common/FeatureButton";
-import { SubHeaderText } from "./common/Text";
+import { SubHeaderText, SimpleText } from "./common/Text";
 import { CustomerIO } from "customerio-reactnative";
 
 const IdentifyUser = (props) => {
@@ -42,6 +42,9 @@ const IdentifyUser = (props) => {
                 title ="Identify User"
                 onPress = {() => IdentifyUser()}
                 ></FeatureButton>
+                <View style={styles.helpText}>
+                    <SimpleText label="Testing tip -  To test Push Notification, create a user with word 'ami' in the firstname, example Ami Aman, John D ami etc."></SimpleText>
+                </View>
             </View>
         </View>
     )
@@ -55,6 +58,15 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         marginTop: 5,
+    },
+    helpText:{
+        margin: 20,
+        marginTop: 40,
+        borderColor : '#808080',
+        borderRadius: 10,
+        borderWidth: 0.5,
+        padding: 10,
+        backgroundColor: '#F5F5F5'
     },
     input: {
         height: 40,

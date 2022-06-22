@@ -66,6 +66,7 @@ const FeaturesUpdate = ({navigation}) => {
           {key: 'Push Notification'},
           {key: 'Device Attributes'},
           {key: 'Profile Attributes'},
+          {key: 'Push Notifications'}
         ]}
         renderItem={({item}) => renderFeaturesAvailableCell(item)}
         ItemSeparatorComponent = {renderSeparator}
