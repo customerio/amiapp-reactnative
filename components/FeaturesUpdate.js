@@ -3,13 +3,14 @@ import { StyleSheet, Text, FlatList, View, Image, Button, ImageBackground} from 
 import { StatusBar } from 'expo-status-bar';
 import {SubHeaderText} from './common/Text'
 import { CustomerIO, CustomerioConfig, CioLogLevel } from "customerio-reactnative";
+import Env from "../env";
 
 const FeaturesUpdate = ({navigation}) => {
 
   useEffect(() => {
 
     // MARK:- INITIALIZE PACKAGE
-    CustomerIO.initialize("170e2f38e7d3549025e5","2026a543170f633e55e3")
+    CustomerIO.initialize(Env.siteId, Env.apiKey)
 
     // MARK:- UPDATE CONFIGURATIONS
     // Start
