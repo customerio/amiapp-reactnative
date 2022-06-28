@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           self.window?.rootViewController = rootViewController
           self.window?.makeKeyAndVisible()
               
-          // Remove before final PR
+          // TODO: - Remove before final PR
         CustomerIO.config{
           $0.logLevel = .debug
         }

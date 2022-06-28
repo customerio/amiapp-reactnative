@@ -10,33 +10,70 @@ import UserNotifications
 
 class NotificationService: UNNotificationServiceExtension {
    
-    override func didReceive(
-        _ request: UNNotificationRequest,
-        withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void
-    ) {
-        // For simple apps that only use Customer.io for sending rich push messages,
-        // This 1 line of code is all that you need!
-//        MessagingPush.shared.didReceive(request, withContentHandler: contentHandler)
-//
-//        // If you use a service other than Customer.io to send rich push,
-//        // you can check if the SDK handled the rich push for you. If it did not, you
-//        // know that the push was *not* sent by Customer.io and you can try another way.
-//        let handled = MessagingPush.shared.didReceive(request, withContentHandler: contentHandler)
-//        if !handled {
-//            // Rich push was *not* sent by Customer.io. Handle the rish push in another way.
-//        }
-//        // If you need to add features, like showing action buttons in your push,
-//        // you can set your own completion handler.
-//        MessagingPush.shared.didReceive(request) { notificationContent in
-//            if let mutableContent = notificationContent.mutableCopy() as? UNMutableNotificationContent {
-//                // Modify the push notification like adding action buttons!
-//            }
-//            contentHandler(notificationContent)
-//        }
+  var contentHandler : ((UNNotificationContent) -> Void)?
+      var content        : UNMutableNotificationContent?
+      
+      override func didReceive(_ request: UNNotificationRequest,
+                               withContentHandler contentHandler:
+                               @escaping (UNNotificationContent) -> Void) {
+        
+        self.contentHandler = contentHandler
+        self.content        = (request.content.mutableCopy()
+                               as? UNMutableNotificationContent)
+        
+        if let _ = self.content {
+          
+          
+          DispatchQueue.main.async {
+            guard let content = (request.content.mutableCopy() as? UNMutableNotificationContent) else {
+              return self.exitNotification(request: request)
+            }
+            let userInfo : [AnyHashable: Any] = request.content.userInfo
+            guard let cio = userInfo["CIO"] as? [String:Any], let push = cio["push"] as? [String:Any], let attachmentURL = push["image"] as? String else {
+              return self.exitNotification(request: request)
+            }
+            guard let imageData = try? Data(contentsOf: URL(string: attachmentURL)!) else {
+              return self.exitNotification(request: request)
+            }
+            guard let attachment = self.saveImage("image.png", data: imageData, options: nil) else {
+              return self.exitNotification(request: request)
+            }
+            content.attachments = [attachment]
+            contentHandler(content)
+          }
+        }
+      }
+  
+  func saveImage(_ identifier: String,
+            data: Data, options: [AnyHashable: Any]?)
+  -> UNNotificationAttachment? {
+    let directory = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(ProcessInfo.processInfo.globallyUniqueString,
+                                                                                        isDirectory: true)
+    do {
+      try FileManager.default.createDirectory(at: directory,
+                                              withIntermediateDirectories: true,
+                                              attributes: nil)
+      let fileURL = directory.appendingPathComponent(identifier)
+      try data.write(to: fileURL, options: [])
+      return try UNNotificationAttachment.init(identifier: identifier,
+                                               url: fileURL,
+                                               options: options)
+    } catch {}
+    return nil
+  }
+  
+  func exitNotification(_ reason: String = "", request: UNNotificationRequest) {
+    if let bca    = request.content.mutableCopy() as? UNMutableNotificationContent {
+      bca.title = reason
+      contentHandler!(bca)
     }
-   
-    override func serviceExtensionTimeWillExpire() {
-//        MessagingPush.shared.serviceExtensionTimeWillExpire()
-    }
+  }
+      
+      override func serviceExtensionTimeWillExpire() {
+          if let contentHandler = contentHandler, let bca =  self.content {
+              contentHandler(bca)
+          }
+      }
+  
 }
    
