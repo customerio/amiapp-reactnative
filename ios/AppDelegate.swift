@@ -28,7 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           self.window?.rootViewController = rootViewController
           self.window?.makeKeyAndVisible()
               
-        registerForPushNotifications()
+          // Remove before final PR
+        CustomerIO.config{
+          $0.logLevel = .debug
+        }
+          registerForPushNotifications()
           return true
       }
   
