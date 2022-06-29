@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, ImageBackground, StyleSheet, Text, Image } from "react-native";
+import { View, ImageBackground, StyleSheet, Image } from "react-native";
 import AllFeatures from "./AllFeatures";
 import {SubHeaderText, SimpleText} from './common/Text'
 import IdentifyUser from "./IdentifyUser";
