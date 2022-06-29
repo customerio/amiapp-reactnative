@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  SampleApp
-//
-//  Created by Amandeep Kaur on 18/05/22.
-//
-
 import Foundation
 import UIKit
 import CioTracking
