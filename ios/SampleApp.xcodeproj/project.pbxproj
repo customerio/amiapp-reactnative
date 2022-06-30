@@ -485,6 +485,7 @@
 					"\"${PODS_ROOT}/Headers/Public/hermes-engine\"",
 					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
 					"$(SRCROOT)/../node_modules/@react-native-community/push-notification-ios/ios",
+					"$(SRCROOT)/../node_modules/customerio-reactnative/ios",
 				);
 				INFOPLIST_FILE = SampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -559,6 +560,7 @@
 					"\"${PODS_ROOT}/Headers/Public/hermes-engine\"",
 					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
 					"$(SRCROOT)/../node_modules/@react-native-community/push-notification-ios/ios",
+					"$(SRCROOT)/../node_modules/customerio-reactnative/ios",
 				);
 				INFOPLIST_FILE = SampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

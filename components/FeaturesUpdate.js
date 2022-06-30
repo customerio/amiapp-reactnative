@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { StyleSheet, Text, FlatList, View, Image, Button, ImageBackground} from 'react-native';
+import { StyleSheet, Text, FlatList, View, Image, Button, ImageBackground, Linking} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {SubHeaderText} from './common/Text'
 import { CustomerIO, CustomerioConfig, CioLogLevel } from "customerio-reactnative";
@@ -46,6 +46,7 @@ const FeaturesUpdate = ({navigation}) => {
 
       // Navigate
       const goToFeaturesTrial = () => {
+        Linking.openURL("whatsapp://")
           CustomerIO.clearIdentify()
           navigation.navigate("FeaturesTrial")
       }

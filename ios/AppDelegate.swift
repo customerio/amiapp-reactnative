@@ -49,6 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
       MessagingPush.shared.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
   }
+  
+  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool
+  {
+    return RCTLinkingManager.application(app, open: url, options: options)
+  }
 }
 
 extension AppDelegate: RCTBridgeDelegate {
