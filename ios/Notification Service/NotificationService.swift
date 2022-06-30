@@ -9,31 +9,31 @@ class NotificationService: UNNotificationServiceExtension {
                                withContentHandler contentHandler:
                                @escaping (UNNotificationContent) -> Void) {
         
-        self.contentHandler = contentHandler
-        self.content        = (request.content.mutableCopy()
-                               as? UNMutableNotificationContent)
-        
-        if let _ = self.content {
-          
-          
-          DispatchQueue.main.async {
-            guard let content = (request.content.mutableCopy() as? UNMutableNotificationContent) else {
-              return self.exitNotification(request: request)
-            }
-            let userInfo : [AnyHashable: Any] = request.content.userInfo
-            guard let cio = userInfo["CIO"] as? [String:Any], let push = cio["push"] as? [String:Any], let attachmentURL = push["image"] as? String else {
-              return self.exitNotification(request: request)
-            }
-            guard let imageData = try? Data(contentsOf: URL(string: attachmentURL)!) else {
-              return self.exitNotification(request: request)
-            }
-            guard let attachment = self.saveImage("image.png", data: imageData, options: nil) else {
-              return self.exitNotification(request: request)
-            }
-            content.attachments = [attachment]
-            contentHandler(content)
-          }
-        }
+//        self.contentHandler = contentHandler
+//        self.content        = (request.content.mutableCopy()
+//                               as? UNMutableNotificationContent)
+//
+//        if let _ = self.content {
+//
+//
+//          DispatchQueue.main.async {
+//            guard let content = (request.content.mutableCopy() as? UNMutableNotificationContent) else {
+//              return self.exitNotification(request: request)
+//            }
+//            let userInfo : [AnyHashable: Any] = request.content.userInfo
+//            guard let cio = userInfo["CIO"] as? [String:Any], let push = cio["push"] as? [String:Any], let attachmentURL = push["image"] as? String else {
+//              return self.exitNotification(request: request)
+//            }
+//            guard let imageData = try? Data(contentsOf: URL(string: attachmentURL)!) else {
+//              return self.exitNotification(request: request)
+//            }
+//            guard let attachment = self.saveImage("image.png", data: imageData, options: nil) else {
+//              return self.exitNotification(request: request)
+//            }
+//            content.attachments = [attachment]
+//            contentHandler(content)
+//          }
+//        }
       }
   
   func saveImage(_ identifier: String,
@@ -62,9 +62,9 @@ class NotificationService: UNNotificationServiceExtension {
   }
       
       override func serviceExtensionTimeWillExpire() {
-          if let contentHandler = contentHandler, let bca =  self.content {
-              contentHandler(bca)
-          }
+//          if let contentHandler = contentHandler, let bca =  self.content {
+//              contentHandler(bca)
+//          }
       }
   
 }
