@@ -1,12 +1,4 @@
-//
-//  NotificationService.swift
-//  Notification Service
-//
-//  Created by Amandeep Kaur on 25/05/22.
-//
-
 import UserNotifications
-//import CioMessagingPushAPN
 
 class NotificationService: UNNotificationServiceExtension {
    

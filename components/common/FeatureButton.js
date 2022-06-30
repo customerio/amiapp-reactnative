@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { StyleSheet, Text, FlatList, View, Image, Button, ImageBackground} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { TouchableHighlight } from "react-native-gesture-handler";
