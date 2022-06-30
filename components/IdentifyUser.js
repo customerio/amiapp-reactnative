@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Button, StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import FeatureButton from "./common/FeatureButton";
 import { SubHeaderText, SimpleText } from "./common/Text";

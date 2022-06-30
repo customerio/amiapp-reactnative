@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { StyleSheet, View } from "react-native";
 import FeatureButton from "./common/FeatureButton";
 import { SubHeaderText } from "./common/Text";
