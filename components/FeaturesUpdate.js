@@ -46,7 +46,6 @@ const FeaturesUpdate = ({navigation}) => {
 
       // Navigate
       const goToFeaturesTrial = () => {
-        Linking.openURL("whatsapp://")
           CustomerIO.clearIdentify()
           navigation.navigate("FeaturesTrial")
       }
