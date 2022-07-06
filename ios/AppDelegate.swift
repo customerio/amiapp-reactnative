@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           rootViewController.view = rootView
           self.window?.rootViewController = rootViewController
           self.window?.makeKeyAndVisible()
-              
-        registerForPushNotifications()
+          
+          registerForPushNotifications()
           return true
       }
   
@@ -44,6 +44,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
       MessagingPush.shared.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
+  }
+  
+  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool
+  {
+    return RCTLinkingManager.application(app, open: url, options: options)
+  }
+  
+  func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool
+  {
+    return RCTLinkingManager.application(application, continue: userActivity, restorationHandler: restorationHandler)
   }
 }
 

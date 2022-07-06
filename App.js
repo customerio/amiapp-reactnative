@@ -8,20 +8,29 @@ import { CustomerIO } from 'customerio-reactnative';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-
   useEffect(() => {
     console.log("Welcome to Ami App ! ")
   }, [])
-  
+
   // Automatic screen tracking
   const navigationRef = useNavigationContainerRef();
   const routeNameRef = useRef();
+  const config = {
+    screens: {
+      FeaturesTrial: 'showtrial',
+    },
+  };
+  const linking = {
+    prefixes: ['amiapp://'],
+    config
+  };
   return (
     
        // MARK:- AUTO SCREEN TRACKING
       // Start
       <NavigationContainer
         ref={navigationRef}
+        linking={linking}
         onReady={() => {
           routeNameRef.current = navigationRef.getCurrentRoute().name;
         }}

@@ -23,6 +23,6 @@ target 'SampleApp' do
   # end
 end
 
-#target 'Notification Service' do
-#  pod "CustomerIOMessagingPushAPN", '~> 1.1.0-beta.1'
-#end
+target 'Notification Service' do
+  pod 'CustomerIOMessagingPushAPN', :podspec => 'https://raw.githubusercontent.com/customerio/customerio-ios/1.1.1/CustomerIOMessagingPushAPN.podspec'
+end
