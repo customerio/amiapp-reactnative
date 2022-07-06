@@ -1,6 +1,5 @@
 import UserNotifications
 import CioMessagingPush
-import CioTracking
 class NotificationService: UNNotificationServiceExtension {
    
       override func didReceive(_ request: UNNotificationRequest,
@@ -12,7 +11,7 @@ class NotificationService: UNNotificationServiceExtension {
       }
   
       override func serviceExtensionTimeWillExpire() {
-        
+        MessagingPush.shared.serviceExtensionTimeWillExpire()
       }
   
 }
