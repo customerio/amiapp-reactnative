@@ -31,9 +31,28 @@ cd ..
 **Note** : Make sure that the deployment target is set to minimum 10.0 in Xcode.
 
 # Running the app
-Use the following commands to run the app on iOS platform
+**To run the app on iOS Simulator**
+
+Use the following commands to run the app on iOS Simulator
 
 ```
 npx react-native run-ios
 ```
 **To run the app on device**
+
+To run using terminal
+
+```
+react-native run-ios --device "Max's iPhone"
+```
+To run using Xcode
+- Jump into ios folder and open ```.xcworkspace``` file
+- Select the device from the list of devices available
+- Run the app 
+
+# Testing the package using app 
+
+**Initialising the package**
+
+You need to make the following changes in `Env.js` file to use your own workspace.
+
