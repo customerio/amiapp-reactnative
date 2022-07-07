@@ -65,3 +65,11 @@ const Env = {
 Once this change is made, save and run the app.
 
 
+**Identify user**
+
+Before using any feature of the package, you need to identify a user. 
+- Tap on **Let's get started** button on the first screen, you will be taken to the next screen.
+- Enter Email Id & User name 
+- Tap on **Identify User** button to identify the user.
+
+**Track Event**
