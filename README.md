@@ -144,3 +144,21 @@ Note - Fields under device attributes are optional.
 ### Profile attributes
 
 Ami app also allows you flexibility to test Profile attributes. To send default static Profile attributes, tap on **Send profile attributes**.
+Just like, device attributes you can send custom profile attributes by entering value of your choice in the fields under Profile attributes section.
+```
+{
+    type : "Profile attributes",
+    favouriteFood : "Pizza",
+    favouriteDrink : "Mango Shake",
+    customProfileAttributes: "Your custom profile attributes 1",
+    additionalAttributes : "Your custom profile attributes 2"
+}
+```
+
+### Clear user identify
+Tap on **Clear Identity** button to clear the current user's session.
+
+### Push Notifications & Deep link
+To receive a push notification, identify (create) a user with word 'ami' in the first name. Note that you need to be a [customer.io](https://customer.io/) developer/tester to receive a notification. 
+
+On tapping the push notification, you will be taken to the second screen i.e. to identify a user.
