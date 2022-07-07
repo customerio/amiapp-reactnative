@@ -29,3 +29,11 @@ pod install
 cd ..
 ```
 **Note** : Make sure that the deployment target is set to minimum 10.0 in Xcode.
+
+# Running the app
+Use the following commands to run the app on iOS platform
+
+```
+npx react-native run-ios
+```
+**To run the app on device**
