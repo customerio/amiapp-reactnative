@@ -111,3 +111,31 @@ The app provides you four ways to test event tracking. Though the values are har
     verified : false
 }
 ```
+
+**Device attributes**
+
+To send default custom device attributes, simply tap on **Send device attributes** button. This will send following additional attributes :
+```
+{
+    type : "Device attributes",
+    detail : {
+        location : "SomeLocation",
+        model : "iPhone 13",
+        os : "iOS 14",
+    }
+}
+```
+
+You can also enter some values in **Want to send some custom attributes? Type here** and **Want to add some more?** fields to send additional custom attributes. For example, if you type *Testing device attributes* and *Success* respectively, then you can see these values in your workspace as :
+```
+{
+    type : "Device attributes",
+    detail : {
+        location : "SomeLocation",
+        model : "iPhone 13",
+        os : "iOS 14",
+    },
+    user_attributes : "Testing device attributes",
+    additional_attributes : "Success"
+}
+```
