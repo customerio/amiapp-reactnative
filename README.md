@@ -54,5 +54,14 @@ To run using Xcode
 
 **Initialising the package**
 
-You need to make the following changes in `Env.js` file to use your own workspace.
+Package gets initialised as soon as you launch the application.
+You need to change Site Id & API key in `Env.js` file to use your own workspace.
+```
+const Env = {
+    siteId: "YourSiteId",
+    apiKey: "YourApiKey"
+}
+```
+Once this change is made, save and run the app.
+
 
