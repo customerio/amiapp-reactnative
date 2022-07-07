@@ -52,7 +52,7 @@ To run using Xcode
 
 # Testing the package using app 
 
-**Initialising the package**
+### Initialising the package
 
 Package gets initialised as soon as you launch the application.
 You need to change Site Id & API key in `Env.js` file to use your own workspace.
@@ -65,14 +65,14 @@ const Env = {
 Once this change is made, save and run the app.
 
 
-**Identify user**
+### Identify user
 
 Before using any feature of the package, you need to identify a user. 
 - Tap on **Let's get started** button on the first screen, you will be taken to the next screen.
 - Enter Email Id & User name 
 - Tap on **Identify User** button to identify the user.
 
-**Track Event**
+## Track Event
 
 The app provides you four ways to test event tracking. Though the values are hard coded but this still helps you test multiple scenarios such as :
 
@@ -112,7 +112,7 @@ The app provides you four ways to test event tracking. Though the values are har
 }
 ```
 
-**Device attributes**
+### Device attributes
 
 To send default custom device attributes, simply tap on **Send device attributes** button. This will send following additional attributes :
 ```
@@ -139,3 +139,8 @@ You can also enter some values in **Want to send some custom attributes? Type he
     additional_attributes : "Success"
 }
 ```
+Note - Fields under device attributes are optional.
+
+### Profile attributes
+
+Ami app also allows you flexibility to test Profile attributes. To send default static Profile attributes, tap on **Send profile attributes**.
