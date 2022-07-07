@@ -73,3 +73,41 @@ Before using any feature of the package, you need to identify a user.
 - Tap on **Identify User** button to identify the user.
 
 **Track Event**
+
+The app provides you four ways to test event tracking. Though the values are hard coded but this still helps you test multiple scenarios such as :
+
+- **Any event** - Sends Button Click event 
+- **Event with data** - Triggers an event with following data
+```
+{
+    clicked : type,
+    name : "Super Ami",
+    country : "USA",
+    city : "New York",
+}
+```
+- **Shopping** - This button will send a Shopping event with a nested data such as:
+```
+{
+    clicked : type,
+    product : "Clothing",
+    price : "USD 99",
+    brand : "Trends",
+    detail : {
+        color : "Orange",
+        size : 30,
+        length : 34,
+        isNew : true
+    }
+}
+```
+- **Charity Event** - Triggers and event with event type Charity and additional data as:
+```
+{
+    clicked : type,
+    org : "Percent Pledge",
+    amount : "USD 500",
+    to : "Urban Trees",
+    verified : false
+}
+```
