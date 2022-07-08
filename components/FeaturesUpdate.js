@@ -64,7 +64,6 @@ const FeaturesUpdate = ({navigation}) => {
           {key: 'Identify user'},
           {key: 'Clear user identity'},
           {key: 'Track event'},
-          {key: 'Push Notification'},
           {key: 'Device Attributes'},
           {key: 'Profile Attributes'},
           {key: 'Push Notifications'}
