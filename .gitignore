@@ -1,6 +1,9 @@
 node_modules
 .DS_Store
 
+# iOS
+iOS/build
+
 # Android/IntelliJ
 #
 android/app
