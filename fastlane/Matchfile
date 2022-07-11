@@ -1,0 +1,5 @@
+storage_mode "google_cloud"
+type "development"
+api_key_path 'app_store_connect_creds.json'
+readonly true
+google_cloud_bucket_name "ami-app-reactnative-signing"

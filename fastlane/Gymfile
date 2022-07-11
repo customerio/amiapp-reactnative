@@ -1,0 +1,3 @@
+configuration 'Release'
+export_method 'ad-hoc'
+scheme "SampleApp" # scheme in XCode workspace of React Native generated iOS app
