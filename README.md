@@ -43,8 +43,9 @@ npx react-native run-ios
 To run using terminal
 
 ```
-react-native run-ios --device "Max's iPhone"
+react-native run-ios --device "Your iPhone"
 ```
+
 To run using Xcode
 - Jump into ios folder and open ```.xcworkspace``` file
 - Select the device from the list of devices available
