@@ -25,6 +25,10 @@ jobs:
         ENV_FILE_B64: "${{ secrets.ENV_FILE_B64 }}"
         FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH: ${{ secrets.FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH }}
         MATCH_GOOGLE_CLOUD_KEYS_B64: ${{ secrets.MATCH_GOOGLE_CLOUD_KEYS_B64 }}  
+      
+    - name: npm install because Podfile requires files from it 
+      run: npm ci 
+
     - name: pod install as React Native project requires it 
       working-directory: ios 
       run: pod install 

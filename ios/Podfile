@@ -9,13 +9,9 @@ target 'SampleApp' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])  
-  # Note: using temporary directory for podspecs until https://github.com/customerio/issues/issues/7697 is resolved. 
-  # Usually, you use the podspecs installed by npm inside of 'node_modules' directory. 
-  pod 'RCT-Folly', :podspec => '../temp-third-party-podspecs/RCT-Folly.podspec'
-  pod 'boost', :podspec => '../temp-third-party-podspecs/boost.podspec'
-  # pod 'RCT-Folly', :podspec => '../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec'
-  # pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
-  pod 'CustomerIOMessagingPushAPN', '~> 1.1.1'
+  pod 'RCT-Folly', :podspec => '../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec'
+  pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
+  pod 'CustomerIOMessagingPushAPN', :podspec => 'https://raw.githubusercontent.com/customerio/customerio-ios/1.1.1/CustomerIOMessagingPushAPN.podspec'
   
   # Uncomment to opt-in to using Flipper
   #
