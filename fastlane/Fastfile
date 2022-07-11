@@ -1,6 +1,7 @@
 require 'json'
 
 is_enterprise_app = false
+info_plist_file_path = "ios/SampleApp/Info.plist"
 
 platform :ios do  
 
