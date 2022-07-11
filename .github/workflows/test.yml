@@ -27,7 +27,7 @@ jobs:
         MATCH_GOOGLE_CLOUD_KEYS_B64: ${{ secrets.MATCH_GOOGLE_CLOUD_KEYS_B64 }}  
       
     - name: npm install because Podfile requires files from it 
-      run: npm install 
+      run: npm ci 
 
     - name: pod install as React Native project requires it 
       working-directory: ios 
