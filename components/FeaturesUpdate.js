@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { StyleSheet, Text, FlatList, View, Image, Button, ImageBackground} from 'react-native';
+import { StyleSheet, Text, FlatList, View, Image, Button, ImageBackground, Linking} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {SubHeaderText} from './common/Text'
 import { CustomerIO, CustomerioConfig, CioLogLevel } from "customerio-reactnative";
@@ -64,7 +64,6 @@ const FeaturesUpdate = ({navigation}) => {
           {key: 'Identify user'},
           {key: 'Clear user identity'},
           {key: 'Track event'},
-          {key: 'Push Notification'},
           {key: 'Device Attributes'},
           {key: 'Profile Attributes'},
           {key: 'Push Notifications'}
