@@ -19,6 +19,10 @@
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		C223C28195C18CAB9427A277 /* libPods-Notification Service.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5326B759A6CD7E273908FCF4 /* libPods-Notification Service.a */; };
 		F7052DB9287C788100560E20 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = F7052DB8287C788100560E20 /* FirebaseAppDistribution-Beta */; };
+		F7F8F0D8287DD7BF0002438E /* libCustomerIOTracking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F8F0D7287DD7BF0002438E /* libCustomerIOTracking.a */; };
+		F7F8F0DA287DD7C90002438E /* libCustomerIOMessagingPushAPN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F8F0D9287DD7C90002438E /* libCustomerIOMessagingPushAPN.a */; };
+		F7F8F0DC287DD7D30002438E /* libCustomerIOTracking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F8F0DB287DD7D30002438E /* libCustomerIOTracking.a */; };
+		F7F8F0DE287DD7D80002438E /* libCustomerIOMessagingPushAPN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F8F0DD287DD7D80002438E /* libCustomerIOMessagingPushAPN.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,10 @@
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F7F8F0D7287DD7BF0002438E /* libCustomerIOTracking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCustomerIOTracking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F8F0D9287DD7C90002438E /* libCustomerIOMessagingPushAPN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCustomerIOMessagingPushAPN.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F8F0DB287DD7D30002438E /* libCustomerIOTracking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCustomerIOTracking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F8F0DD287DD7D80002438E /* libCustomerIOMessagingPushAPN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCustomerIOMessagingPushAPN.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F8F0DE287DD7D80002438E /* libCustomerIOMessagingPushAPN.a in Frameworks */,
+				F7F8F0DC287DD7D30002438E /* libCustomerIOTracking.a in Frameworks */,
 				96905EF65AED1B983A6B3ABC /* libPods-SampleApp.a in Frameworks */,
 				F7052DB9287C788100560E20 /* FirebaseAppDistribution-Beta in Frameworks */,
 			);
@@ -101,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F8F0DA287DD7C90002438E /* libCustomerIOMessagingPushAPN.a in Frameworks */,
+				F7F8F0D8287DD7BF0002438E /* libCustomerIOTracking.a in Frameworks */,
 				C223C28195C18CAB9427A277 /* libPods-Notification Service.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +140,10 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7F8F0DD287DD7D80002438E /* libCustomerIOMessagingPushAPN.a */,
+				F7F8F0DB287DD7D30002438E /* libCustomerIOTracking.a */,
+				F7F8F0D9287DD7C90002438E /* libCustomerIOMessagingPushAPN.a */,
+				F7F8F0D7287DD7BF0002438E /* libCustomerIOTracking.a */,
 				467B1654283F7FA500104031 /* libCustomerIOMessagingPushAPN.a */,
 				467B1652283F7F7F00104031 /* libCustomerIOMessagingPushAPN.a */,
 				467B1650283F7B4F00104031 /* libCustomerIOMessagingPushAPN.a */,
