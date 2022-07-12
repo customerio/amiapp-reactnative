@@ -23,10 +23,26 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
-### ios reset_code_signing
+### ios setup_dev
 
 ```sh
-[bundle exec] fastlane ios reset_code_signing
+[bundle exec] fastlane ios setup_dev
+```
+
+
+
+### ios delete_code_signing
+
+```sh
+[bundle exec] fastlane ios delete_code_signing
+```
+
+
+
+### ios create_code_signing
+
+```sh
+[bundle exec] fastlane ios create_code_signing
 ```
 
 
