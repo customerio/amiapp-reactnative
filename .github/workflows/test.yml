@@ -27,7 +27,7 @@ jobs:
         MATCH_GOOGLE_CLOUD_KEYS_B64: ${{ secrets.MATCH_GOOGLE_CLOUD_KEYS_B64 }}  
       
     - name: npm install because Podfile requires files from it 
-      run: npm ci 
+      run: yarn --frozen-lockfile
 
     - name: pod install as React Native project requires it 
       working-directory: ios 

@@ -20,7 +20,3 @@ local.properties
 
 # CocoaPods
 /ios/Pods/
-ios/Podfile.lock
-
-# package-lock.json
-yarn.lock
