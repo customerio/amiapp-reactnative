@@ -29,13 +29,21 @@ target 'Notification Service' do
   pod 'CustomerIO/MessagingPushAPN', '~> 1.1'  
 end
 
-post_install do |installer|
-  work_dir = Dir.pwd
-  Dir.glob("Pods/Target Support Files/Pods-Demo/*.xcconfig") do |xc_config_filename|
-      full_path_name = "#{work_dir}/#{xc_config_filename}"
-      xc_config = File.read(full_path_name)
-      new_xc_config = new_xc_config.sub(/GCC_PREPROCESSOR_DEFINITIONS/, 'PODS_GCC_PREPROCESSOR_DEFINITIONS')
-      File.open(full_path_name, 'w') { |file| file << new_xc_config }
-  end
+cio_target_names = [
+  'CustomerIOTracking',
+  'CustomerIOMessagingPushAPN',
+  'CustomerIOMessagingPush'
+]
 
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if cio_target_names.include? target.name 
+      puts "Modifying target #{target.name}"
+  
+      target.build_configurations.each do |config|
+        puts "Setting build config settings for #{target.name}"
+        config.build_settings['APPLICATION_EXTENSION_API_ONLY'] ||= 'NO'
+      end
+    end
+  end
 end
