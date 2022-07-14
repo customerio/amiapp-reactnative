@@ -31,7 +31,9 @@ jobs:
 
     - name: pod install as React Native project requires it 
       working-directory: ios 
-      run: pod install 
+      run: |
+        pod install 
+        ruby scripts/modify-pods-xcodeproject.rb
 
     - name: Deploy development build via Fastlane 
       uses: maierj/fastlane-action@v2.0.1
