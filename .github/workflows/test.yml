@@ -33,6 +33,7 @@ jobs:
       working-directory: ios 
       run: |
         pod install 
+        gem install xcodeproj
         ruby scripts/modify-pods-xcodeproject.rb
 
     - name: Deploy development build via Fastlane 
