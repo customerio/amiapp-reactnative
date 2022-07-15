@@ -4,7 +4,7 @@ google_service_plist_file_path = "ios/SampleApp/GoogleService-Info.plist"
 google_cloud_ci_service_account_key_path = "./ami_app_ci_server-google_cloud_service_account.json"
 
 import_from_git(
-  url: "git@github.com:customerio/mobile.git",
+  url: "https://github.com/customerio/mobile.git",
   path: "fastlane/Fastfile", 
   branch: "levi/fastlane-certs"
   # version: "~> 1.0.0" 
