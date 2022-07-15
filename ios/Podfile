@@ -29,6 +29,9 @@ target 'Notification Service' do
   pod 'CustomerIO/MessagingPushAPN', '~> 1.1'  
 end
 
+
+# Workaround to fix compilation issue with Notification Service trying to compile with 
+# SDK giving errors. See: https://github.com/customerio/customerio-ios/issues/178
 cio_target_names = [
   'CustomerIOTracking',
   'CustomerIOMessagingPushAPN',

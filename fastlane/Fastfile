@@ -119,7 +119,7 @@ platform :ios do
     )       
   end
 
-  lane :setup_dev do 
+  lane :dev_setup do 
     match(
       type: "development",
       readonly: true 

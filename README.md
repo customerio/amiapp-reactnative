@@ -16,11 +16,13 @@ Ami app gives you flexibility to test multiple features such as :
 
 
 # Getting Started
+
 Ami app already includes all the dependencies required. To install the libraries using :
 ```
-npm install
+yarn
 ```
-**iOS only**
+
+## iOS setup
 
 iOS needs an additional step to install libraries using CocoaPods
 ```
@@ -28,7 +30,16 @@ cd ios
 pod install
 cd ..
 ```
+
+Next, [follow these steps](https://github.com/customerio/RemoteHabits-iOS/blob/main/docs/dev-notes/DEVELOPMENT.md#setup-code-signing-internal-team-member-only) to download the provisioning profiles and certificates for development to your machine. 
+
 **Note** : Make sure that the deployment target is set to minimum 10.0 in Xcode.
+
+## Connect the app to a workspace in Customer.io. 
+```
+cp env.sample.js env.js
+```
+Open `env.js` file that you just created and edit the site id and api key to a Customer.io workspace you want to connect to. 
 
 # Running the app
 **To run the app on iOS Simulator**
