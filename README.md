@@ -33,7 +33,7 @@ cd ..
 
 Next, [follow these steps](https://github.com/customerio/RemoteHabits-iOS/blob/main/docs/dev-notes/DEVELOPMENT.md#setup-code-signing-internal-team-member-only) to download the provisioning profiles and certificates for development to your machine. 
 
-**Note** : Make sure that the deployment target is set to minimum 10.0 in Xcode.
+**Note** : Make sure that the deployment target is set to the minimum [that the iOS SDK requires](https://github.com/customerio/customerio-ios#readme). 
 
 ## Connect the app to a workspace in Customer.io. 
 ```
