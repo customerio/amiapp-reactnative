@@ -3,27 +3,29 @@ import UIKit
 import CioTracking
 import CioMessagingPushAPN
 import UserNotifications
-
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
   var window: UIWindow?
 
-      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-          let bridge = RCTBridge(delegate: self, launchOptions: launchOptions)!
-          let rootView = RCTRootView(bridge: bridge, moduleName: "SampleApp", initialProperties: nil)
-          rootView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
-          self.window = UIWindow(frame: UIScreen.main.bounds)
-          let rootViewController = UIViewController()
-          rootViewController.view = rootView
-          self.window?.rootViewController = rootViewController
-          self.window?.makeKeyAndVisible()
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let bridge = RCTBridge(delegate: self, launchOptions: launchOptions)!
+        let rootView = RCTRootView(bridge: bridge, moduleName: "SampleApp", initialProperties: nil)
+        rootView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let rootViewController = UIViewController()
+        rootViewController.view = rootView
+        self.window?.rootViewController = rootViewController
+        self.window?.makeKeyAndVisible()
+        
+        // firebase used for app distribution.
+        FirebaseApp.configure()
           
-          registerForPushNotifications()
+        registerForPushNotifications()
           return true
-      }
+    }
   
   func registerForPushNotifications() {
       let center  = UNUserNotificationCenter.current()

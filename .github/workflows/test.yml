@@ -1,0 +1,46 @@
+name: Tests
+
+on:  
+  push:
+    branches-ignore: [main, beta, alpha] # skip for deployment branches. 
+    tags-ignore: ['*']
+  pull_request:
+    branches: ['*']
+
+env:
+  XCODE_VERSION: "13.0"
+  GITHUB_CONTEXT: ${{ toJSON(github) }} # used by fastlane for deploying app 
+  FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 6 # increase timeout for xcodebuild settings. We have seen this command take a bit longer to do on CI server. 
+
+jobs:
+  deploy-builds:
+    runs-on: macos-11
+    name: Deploy development builds 
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup environment for building and releasing app 
+      uses: ./.github/actions/prepare-for-app-build
+      with:
+        GOOGLE_SERVICES_BASE64: "${{ secrets.GOOGLE_SERVICES_BASE64 }}" # cat ios/SampleApp/Google-Services.plist | base64
+        ENV_FILE_B64: "${{ secrets.ENV_FILE_B64 }}" # cat env.js | base64
+        FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH: ${{ secrets.FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH }} # cat ami_app_ci_server-google_cloud_service_account.json | base64
+        MATCH_GOOGLE_CLOUD_KEYS_B64: ${{ secrets.MATCH_GOOGLE_CLOUD_KEYS_B64 }} # cat gc_keys.json | base64
+      
+    - name: npm install because Podfile requires files from it 
+      run: yarn --frozen-lockfile
+
+    - name: pod install as React Native project requires it 
+      working-directory: ios 
+      run: pod install         
+
+    - name: Deploy development build via Fastlane 
+      uses: maierj/fastlane-action@v2.0.1
+      with:
+        lane: 'ios deploy_app'
+        skip-tracking: true
+      env: 
+        FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }} # login to Firebase > select Ami project > project settings > select iOS app > App id. 
+        APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }} # found in 1password for Ami app
+        APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }} # found in 1password for Ami app
+        APP_STORE_CONNECT_API_KEY_CONTENT_B64: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT_B64 }} # found in 1password for Ami app
+
