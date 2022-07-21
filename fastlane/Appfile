@@ -1,0 +1,6 @@
+team_id "2YC97BQN3N"
+
+app_identifier([
+  "io.customer.ami", 
+  "io.customer.ami.richpush",  
+])

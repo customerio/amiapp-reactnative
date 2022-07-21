@@ -8,10 +8,10 @@ target 'SampleApp' do
   use_unimodules!
   config = use_native_modules!
 
-  use_react_native!(:path => config["reactNativePath"])
+  use_react_native!(:path => config["reactNativePath"])  
   pod 'RCT-Folly', :podspec => '../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec'
   pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
-  pod 'CustomerIOMessagingPushAPN', :podspec => 'https://raw.githubusercontent.com/customerio/customerio-ios/1.1.1/CustomerIOMessagingPushAPN.podspec'
+  pod 'CustomerIO/MessagingPushAPN', '~> 1.1'
   
   # Uncomment to opt-in to using Flipper
   #
@@ -24,5 +24,27 @@ target 'SampleApp' do
 end
 
 target 'Notification Service' do
-  pod 'CustomerIOMessagingPushAPN', :podspec => 'https://raw.githubusercontent.com/customerio/customerio-ios/1.1.1/CustomerIOMessagingPushAPN.podspec'
+  pod 'CustomerIO/MessagingPushAPN', '~> 1.1'  
+end
+
+
+# Workaround to fix compilation issue with Notification Service trying to compile with 
+# SDK giving errors. See: https://github.com/customerio/customerio-ios/issues/178
+cio_target_names = [
+  'CustomerIOTracking',
+  'CustomerIOMessagingPushAPN',
+  'CustomerIOMessagingPush'
+]
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if cio_target_names.include? target.name 
+      puts "Modifying target #{target.name}"
+  
+      target.build_configurations.each do |config|
+        puts "Setting build config settings for #{target.name}"
+        config.build_settings['APPLICATION_EXTENSION_API_ONLY'] ||= 'NO'
+      end
+    end
+  end
 end
