@@ -124,14 +124,20 @@ platform :ios do
       type: "development",
       readonly: true 
     )
+    match(
+      type: "adhoc",
+      readonly: true 
+    )
   end 
 
   lane :delete_code_signing do 
     match_nuke(
-      type: "development"
+      type: "development",
+      api_key_path: './app_store_connect_creds.json'
     )
     match_nuke(
-      type: "adhoc"
+      type: "adhoc",
+      api_key_path: './app_store_connect_creds.json'
     )
   end 
 
