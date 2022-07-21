@@ -44,9 +44,9 @@ jobs:
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_CONTENT_B64: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT_B64 }}
           
-      - name: Notify team of failure 
+      - name: Notify team of success 
         uses: slackapi/slack-github-action@v1.18.0
-        if: ${{ success() }} # only run this if any previous step failed 
+        if: steps.semantic-release.outputs.new_release_published == 'true' # only run if a git tag was made. 
         with:
           # Use block kit for format of the JSON payloads: https://app.slack.com/block-kit-builder
           payload: |
