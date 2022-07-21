@@ -42,3 +42,12 @@ runs:
       with:
         lane: 'list' # give action a lane that doesn't perform an action to get fastlane installed on machine to use later. 
         skip-tracking: true
+        
+    - name: npm install because Podfile requires files from it 
+      run: yarn --frozen-lockfile
+      shell: bash 
+
+    - name: pod install as React Native project requires it 
+      working-directory: ios 
+      run: pod install  
+      shell: bash 

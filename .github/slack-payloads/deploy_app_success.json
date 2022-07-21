@@ -1,0 +1,22 @@
+{
+    "text": "React Native Ami app *stable build* ready for installing",
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "*React Native Ami app stable build* ready for installing"
+            }
+        },
+        {
+            "type": "divider"
+        },
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "*Version ${{ steps.semantic-release.outputs.new_release_version }}* is ready for using!\n\nThis is a non-development build and therefore, is designed to be used by everyone in the company."
+            }
+        }
+    ]
+}
