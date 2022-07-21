@@ -49,7 +49,29 @@ jobs:
         if: ${{ success() }} # only run this if any previous step failed 
         with:
           # Use block kit for format of the JSON payloads: https://app.slack.com/block-kit-builder
-          payload-file-path: ".github/slack-payloads/deploy_app_success.json"
+          payload: |
+            {
+              "text": "React Native Ami app *stable build* ready for installing",
+              "blocks": [
+                  {
+                      "type": "section",
+                      "text": {
+                          "type": "mrkdwn",
+                          "text": "*React Native Ami app stable build* ready for installing"
+                      }
+                  },
+                  {
+                      "type": "divider"
+                  },
+                  {
+                      "type": "section",
+                      "text": {
+                          "type": "mrkdwn",
+                          "text": "*Version ${{ steps.semantic-release.outputs.new_release_version }}* is ready for using!\n\nThis is a non-development build and therefore, is designed to be used by everyone in the company."
+                      }
+                  }
+              ]
+            }
         env:
           # Incoming webhook URL that sends message into the correct Slack channel. 
           # Help on how to get the webhook URL: https://github.com/marketplace/actions/slack-send#setup-2
@@ -61,7 +83,29 @@ jobs:
         if: ${{ failure() }} # only run this if any previous step failed 
         with:
           # Use block kit for format of the JSON payloads: https://app.slack.com/block-kit-builder
-          payload-file-path: ".github/slack-payloads/deploy_app_fail.json"
+          payload: |
+            {
+              "text": "React Native Ami app *stable build* failed to build",
+              "blocks": [
+                  {
+                      "type": "section",
+                      "text": {
+                          "type": "mrkdwn",
+                          "text": "*React Native Ami app stable build* failed to build"
+                      }
+                  },
+                  {
+                      "type": "divider"
+                  },
+                  {
+                      "type": "section",
+                      "text": {
+                          "type": "mrkdwn",
+                          "text": "View <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}|CI server logs> to learn why and fix the issue."
+                      }
+                  }
+              ]
+            }
         env:
           # Incoming webhook URL that sends message into the correct Slack channel. 
           # Help on how to get the webhook URL: https://github.com/marketplace/actions/slack-send#setup-2
