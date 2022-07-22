@@ -1,7 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, FlatList, View, Image, Button, ImageBackground} from 'react-native';
+import { StyleSheet, Text, FlatList, View, Image, Button, ImageBackground, TouchableHighlight} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { TouchableHighlight } from "react-native-gesture-handler";
 
 const FeatureButton = (props) => {
   return(
