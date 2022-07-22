@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/customerio/amiapp-reactnative/compare/1.0.0...1.0.1) (2022-07-22)
+
+
+### Bug Fixes
+
+* to make the app run on android device ([#12](https://github.com/customerio/amiapp-reactnative/issues/12)) ([d059b48](https://github.com/customerio/amiapp-reactnative/commit/d059b48ef074e420b7ae4ba85252f17aab9f821a))
+
 # 1.0.0 (2022-07-21)
 
 
