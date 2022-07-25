@@ -10,20 +10,12 @@ const FeaturesUpdate = ({navigation}) => {
   useEffect(() => {
 
     // MARK:- INITIALIZE PACKAGE WITH CONFIG
+    // MARK:- UPDATE CONFIGURATIONS
+
     const data = new CustomerioConfig()
     data.logLevel = CioLogLevel.debug
     data.autoTrackDeviceAttributes = true
     CustomerIO.initialize(Env.siteId, Env.apiKey, Region.US, data) 
-
-
-    // MARK:- UPDATE CONFIGURATIONS
-    // Start
-    // const data = new CustomerioConfig()
-    // data.logLevel = CioLogLevel.debug
-    // data.autoTrackDeviceAttributes = true
-    // CustomerIO.config(data)
-    // End
-
   }, [])
   
   // Renderers
