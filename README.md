@@ -31,7 +31,7 @@ pod install
 cd ..
 ```
 
-Next, [follow these steps](https://github.com/customerio/RemoteHabits-iOS/blob/main/docs/dev-notes/DEVELOPMENT.md#setup-code-signing-internal-team-member-only) to download the provisioning profiles and certificates for development to your machine. 
+Next, [follow these steps](https://github.com/customerio/mobile/blob/main/ios_code_signing.md#how-do-i-setup-my-computer-for-code-signing) to download the provisioning profiles and certificates for development to your machine. 
 
 **Note** : Make sure that the deployment target is set to the minimum [that the iOS SDK requires](https://github.com/customerio/customerio-ios#readme). 
 
