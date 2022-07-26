@@ -10,8 +10,8 @@
 name: 'Prepare for building and releasing app'
 description: 'Do setup steps to setup the CI environment to be able to successfully build and deploy the app.'
 inputs:
-  GOOGLE_SERVICES_BASE64: 
-    description: 'GOOGLE_SERVICES_BASE64 from secrets'
+  IOS_GOOGLE_SERVICES_BASE64: 
+    description: 'IOS_GOOGLE_SERVICES_BASE64 from secrets'
     required: true
   ENV_FILE_B64: 
     description: 'ENV_FILE_B64 from secrets'
@@ -22,6 +22,10 @@ inputs:
   MATCH_GOOGLE_CLOUD_KEYS_B64:
     description: 'MATCH_GOOGLE_CLOUD_KEYS_B64 from secrets'
     required: true
+  ANDROID_GOOGLE_SERVICES_BASE64: 
+    description: 'ANDROID_GOOGLE_SERVICES_BASE64 from secrets'
+    required: true
+
 runs:
   using: "composite"
   steps:
@@ -33,10 +37,11 @@ runs:
     - name: Prepare app for building and deploying 
       shell: bash 
       run: |
-        echo "${{ inputs.GOOGLE_SERVICES_BASE64 }}" | base64 -d > "ios/SampleApp/GoogleService-Info.plist"
+        echo "${{ inputs.IOS_GOOGLE_SERVICES_BASE64 }}" | base64 -d > "ios/GoogleService-Info.plist"
         echo "${{ inputs.ENV_FILE_B64 }}" | base64 -d > "env.js"
         echo "${{ inputs.FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH }}" | base64 -d > ami_app_ci_server-google_cloud_service_account.json
         echo "${{ inputs.MATCH_GOOGLE_CLOUD_KEYS_B64 }}" | base64 -d > gc_keys.json
+        echo "${{ inputs.ANDROID_GOOGLE_SERVICES_BASE64 }}" | base64 -d > "android/app/google-services.json"
     - name: Install Fastlane 
       uses: maierj/fastlane-action@v2.0.1
       with:
@@ -51,3 +56,11 @@ runs:
       working-directory: ios 
       run: pod install  
       shell: bash 
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11' # Robolectric requires v9, but we choose LTS: https://adoptopenjdk.net/
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v2   

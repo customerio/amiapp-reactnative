@@ -10,18 +10,19 @@ env:
   FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 6 # increase timeout for xcodebuild settings. We have seen this command take a bit longer to do on CI server. 
 
 jobs:
-  deploy-app:
-    name: Deploy app
+  deploy-ios-app:
+    name: Deploy iOS app
     runs-on: macos-11
     steps:
       - uses: actions/checkout@v2
       - name: Setup environment for building and releasing app 
         uses: ./.github/actions/prepare-for-app-build
         with:
-          GOOGLE_SERVICES_BASE64: "${{ secrets.GOOGLE_SERVICES_BASE64 }}" # cat ios/SampleApp/Google-Services.plist | base64
+          IOS_GOOGLE_SERVICES_BASE64: "${{ secrets.IOS_GOOGLE_SERVICES_BASE64 }}" # cat ios/Google-Services.plist | base64
           ENV_FILE_B64: "${{ secrets.ENV_FILE_B64 }}" # cat env.js | base64
           FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH: ${{ secrets.FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH }} # cat ami_app_ci_server-google_cloud_service_account.json | base64
           MATCH_GOOGLE_CLOUD_KEYS_B64: ${{ secrets.MATCH_GOOGLE_CLOUD_KEYS_B64 }} # cat gc_keys.json | base64      
+          ANDROID_GOOGLE_SERVICES_BASE64: "${{ secrets.ANDROID_GOOGLE_SERVICES_BASE64 }}" # cat android/app/google-services.json | base64
             
       # Perform git related tasks inside of semantic-release because `git config user...` is already setup. It's easier to run commands in there with exec plugin.
       - name: Deploy app via semantic release 
@@ -111,3 +112,50 @@ jobs:
           # Help on how to get the webhook URL: https://github.com/marketplace/actions/slack-send#setup-2
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_NOTIFY_RELEASES_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK   
+
+  deploy-android-app:
+    runs-on: ubuntu-latest
+    name: Deploy Android app
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11' # Robolectric requires v9, but we choose LTS: https://adoptopenjdk.net/
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2      
+      - name: Prepare app for building
+        run: echo "${{ secrets.GOOGLE_SERVICES_BASE64 }}" | base64 -d > app/google-services.json
+        env:
+          GOOGLE_SERVICES_BASE64: "${{ secrets.GOOGLE_SERVICES_BASE64 }}"
+      - name: Create Local Properties File
+        run: touch local.properties
+      - name: Add CIO creds secret in local properties
+        run: |
+          echo "siteId=${{ secrets.CIO_SITE_ID }}" >> local.properties
+          echo "apiKey=${{ secrets.CIO_API_KEY }}" >> local.properties
+      - name: Setup Ruby to run Fastlane
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Setup for Firebase App Distribution
+        id: setup
+        run: |
+          echo "${{ secrets.FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH }}" | base64 -d > firebase_appdistribution_service_account.json
+          echo "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" | base64 -d > upload.keystore
+        env:
+          FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH: ${{ secrets.FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH }}
+          RELEASE_KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
+
+      - name: Deploy development build via Fastlane
+        uses: maierj/fastlane-action@v2.0.1
+        with:
+          lane: 'android deploy_app'
+          skip-tracking: true
+        env:
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+          ANDROID_SIGNING_ALIAS: ${{ secrets.ANDROID_SIGNING_ALIAS }}
+          ANDROID_SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
+          ANDROID_SIGNING_STORE_PASSWORD: ${{ secrets.ANDROID_SIGNING_STORE_PASSWORD }}

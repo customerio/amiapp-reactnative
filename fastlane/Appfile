@@ -1,6 +1,10 @@
 team_id "2YC97BQN3N"
 
+# for ios
 app_identifier([
   "io.customer.ami", 
   "io.customer.ami.richpush",  
 ])
+
+# for android
+package_name("io.customer.ami")
