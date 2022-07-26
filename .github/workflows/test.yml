@@ -37,4 +37,15 @@ jobs:
         APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }} # found in 1password for Ami app
         APP_STORE_CONNECT_API_KEY_CONTENT_B64: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT_B64 }} # found in 1password for Ami app
 
+    - uses: actions/upload-artifact@v3
+      name: Upload dsyms for viewing crashlytics later if needed
+      with:
+        name: dsyms
+        path: SampleApp.app.dSYM.zip
+    - uses: actions/upload-artifact@v3
+      name: Upload built app 
+      with:
+        name: ipa
+        path: SampleApp.ipa
+
     # at this time, we do not send a slack notification for development builds to avoid being too noisy to the channel. 
