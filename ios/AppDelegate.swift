@@ -11,6 +11,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // firebase used for app distribution.
+        FirebaseApp.configure()
+      
         let bridge = RCTBridge(delegate: self, launchOptions: launchOptions)!
         let rootView = RCTRootView(bridge: bridge, moduleName: "SampleApp", initialProperties: nil)
         rootView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
@@ -19,9 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         rootViewController.view = rootView
         self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
-        
-        // firebase used for app distribution.
-        FirebaseApp.configure()
           
         registerForPushNotifications()
           return true
