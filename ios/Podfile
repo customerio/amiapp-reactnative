@@ -33,7 +33,8 @@ end
 cio_target_names = [
   'CustomerIOTracking',
   'CustomerIOMessagingPushAPN',
-  'CustomerIOMessagingPush'
+  'CustomerIOMessagingPush',
+  'CustomerIOCommon'
 ]
 
 post_install do |installer|
