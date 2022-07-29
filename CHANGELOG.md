@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/customerio/amiapp-reactnative/compare/1.0.1...1.0.2) (2022-07-29)
+
+
+### Bug Fixes
+
+* set up config during initialisation ([#14](https://github.com/customerio/amiapp-reactnative/issues/14)) ([8760c3b](https://github.com/customerio/amiapp-reactnative/commit/8760c3bf28aed7415db34662ce68ede94160a965))
+
 ## [1.0.1](https://github.com/customerio/amiapp-reactnative/compare/1.0.0...1.0.1) (2022-07-22)
 
 
