@@ -2,24 +2,20 @@ import React, {useEffect} from "react";
 import { StyleSheet, Text, FlatList, View, Image, Button, ImageBackground, Linking} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {SubHeaderText} from './common/Text'
-import { CustomerIO, CustomerioConfig, CioLogLevel } from "customerio-reactnative";
+import { CustomerIO, CustomerioConfig, CioLogLevel, Region } from "customerio-reactnative";
 import Env from "../env";
 
 const FeaturesUpdate = ({navigation}) => {
 
   useEffect(() => {
 
-    // MARK:- INITIALIZE PACKAGE
-    CustomerIO.initialize(Env.siteId, Env.apiKey)
-
+    // MARK:- INITIALIZE PACKAGE WITH CONFIG
     // MARK:- UPDATE CONFIGURATIONS
-    // Start
+
     const data = new CustomerioConfig()
     data.logLevel = CioLogLevel.debug
     data.autoTrackDeviceAttributes = true
-    CustomerIO.config(data)
-    // End
-
+    CustomerIO.initialize(Env.siteId, Env.apiKey, Region.US, data) 
   }, [])
   
   // Renderers
