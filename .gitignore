@@ -11,7 +11,7 @@ iOS/build
 
 # Android/IntelliJ
 #
-android/app
+android/app/build
 android/build/
 .idea
 .gradle
