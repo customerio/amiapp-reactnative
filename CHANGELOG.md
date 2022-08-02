@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/customerio/amiapp-reactnative/compare/1.0.2...1.0.3) (2022-08-02)
+
+
+### Bug Fixes
+
+* adding app folder for ami app to run on android  ([#16](https://github.com/customerio/amiapp-reactnative/issues/16)) ([d441f60](https://github.com/customerio/amiapp-reactnative/commit/d441f60faea8dc4fccc453b6f7a33d3cf9f162fd))
+
 ## [1.0.2](https://github.com/customerio/amiapp-reactnative/compare/1.0.1...1.0.2) (2022-07-29)
 
 
