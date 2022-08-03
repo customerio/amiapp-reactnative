@@ -111,6 +111,7 @@
 		13B07FAE1A68108700A75B9A /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				465E0F33289AE2EC0086FCD9 /* Resources */,
 				4698397D283E4FAD003FBBA8 /* GoogleService-Info.plist */,
 				465AC79328353381000D21D9 /* AppDelegate.swift */,
 				465AC79428353381000D21D9 /* SampleApp-Bridging-Header.h */,
@@ -160,6 +161,13 @@
 				4632B4CB283E5CB800AF05BC /* Info.plist */,
 			);
 			path = "Notification Service";
+			sourceTree = "<group>";
+		};
+		465E0F33289AE2EC0086FCD9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
