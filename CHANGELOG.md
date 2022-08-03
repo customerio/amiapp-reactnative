@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/customerio/amiapp-reactnative/compare/1.0.3...1.0.4) (2022-08-03)
+
+
+### Bug Fixes
+
+* ami app crash issue on ci server ([#19](https://github.com/customerio/amiapp-reactnative/issues/19)) ([805e686](https://github.com/customerio/amiapp-reactnative/commit/805e686d024d36fea1db19f1c76a9a5ae2e2647d))
+
 ## [1.0.3](https://github.com/customerio/amiapp-reactnative/compare/1.0.2...1.0.3) (2022-08-02)
 
 
