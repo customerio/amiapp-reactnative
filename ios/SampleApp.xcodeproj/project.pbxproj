@@ -15,6 +15,7 @@
 		46357741283539870098BFB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AC79328353381000D21D9 /* AppDelegate.swift */; };
 		465AC78C2835304A000D21D9 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 465AC78B2835304A000D21D9 /* main.jsbundle */; };
 		465AC78D2835304E000D21D9 /* main.jsbundle in Sources */ = {isa = PBXBuildFile; fileRef = 465AC78B2835304A000D21D9 /* main.jsbundle */; };
+		465E0F32289AD1420086FCD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 465E0F31289AD1420086FCD9 /* GoogleService-Info.plist */; };
 		96905EF65AED1B983A6B3ABC /* libPods-SampleApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-SampleApp.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		C223C28195C18CAB9427A277 /* libPods-Notification Service.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5326B759A6CD7E273908FCF4 /* libPods-Notification Service.a */; };
@@ -69,6 +70,7 @@
 		465AC78B2835304A000D21D9 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		465AC79328353381000D21D9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		465AC79428353381000D21D9 /* SampleApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SampleApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		465E0F31289AD1420086FCD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		467B1650283F7B4F00104031 /* libCustomerIOMessagingPushAPN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCustomerIOMessagingPushAPN.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		467B1652283F7F7F00104031 /* libCustomerIOMessagingPushAPN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCustomerIOMessagingPushAPN.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		467B1654283F7FA500104031 /* libCustomerIOMessagingPushAPN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCustomerIOMessagingPushAPN.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +168,7 @@
 		465E0F30289AD11D0086FCD9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				465E0F31289AD1420086FCD9 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				465AC78C2835304A000D21D9 /* main.jsbundle in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
+				465E0F32289AD1420086FCD9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
