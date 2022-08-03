@@ -33,7 +33,7 @@ runs:
     - name: Prepare app for building and deploying 
       shell: bash 
       run: |
-        echo "${{ inputs.GOOGLE_SERVICES_BASE64 }}" | base64 -d > "ios/SampleApp/GoogleService-Info.plist"
+        echo "${{ inputs.GOOGLE_SERVICES_BASE64 }}" | base64 -d > "ios/SampleApp/Resources/GoogleService-Info.plist"
         echo "${{ inputs.ENV_FILE_B64 }}" | base64 -d > "env.js"
         echo "${{ inputs.FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH }}" | base64 -d > ami_app_ci_server-google_cloud_service_account.json
         echo "${{ inputs.MATCH_GOOGLE_CLOUD_KEYS_B64 }}" | base64 -d > gc_keys.json
