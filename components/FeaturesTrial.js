@@ -8,13 +8,15 @@ import IdentifyUser from "./IdentifyUser";
 const FeaturesTrial = () => {
 
     const [isUserIdentified, setisUserIdentified] = useState(false)
+    const [amiUserName, setAmiUserName] = useState("Ami")
 
     useEffect(() => {
       
   
     }, [])
     
-    const UserIdentified = () => {
+    const UserIdentified = (amiName) => {
+        setAmiUserName(amiName)
         setisUserIdentified(true)
     }
 
@@ -23,18 +25,19 @@ const FeaturesTrial = () => {
     }
 
     const info = isUserIdentified ? "Awesome ! Your playground is ready now." : "First, you need to identify a user to start using the other features of the app."
+    const packageInfo = `Hey ${amiUserName} ! Package is already initialised on the app launch.`
     return (
         <ImageBackground style={styles.container} source = {require('../assets/images/cio_dots_bg.png')}>
             <View style={styles.headerArea}>
                     <Image style={styles.waveAmiImage} source={require('../assets/images/cio_hand.png')}></Image>
-                    <SubHeaderText label="Hey Ami ! Package is already initialised on the app launch."/>
+                    <SubHeaderText label={packageInfo}/>
                     <SimpleText label={info}></SimpleText>
             </View>
 
             {isUserIdentified ? 
                 <AllFeatures onClear={() => OnClear()}/>
                 :
-                <IdentifyUser onPress = {() => UserIdentified()}/>
+                <IdentifyUser onPress = {(amiName) => UserIdentified(amiName)}/>
             }
             
 
