@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         // firebase used for app distribution.
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
           
         registerForPushNotifications()
           return true
