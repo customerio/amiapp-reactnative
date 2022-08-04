@@ -21,7 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         // firebase used for app distribution.
-//        FirebaseApp.configure()
+//      FirebaseOptions(contentsOfFile: <#T##String#>)
+      guard let plistPath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") else {
+          fatalError()
+      }
+               
+      guard let options = FirebaseOptions(contentsOfFile: plistPath) else {
+          fatalError()
+      }
+        FirebaseApp.configure(options: options)
           
         registerForPushNotifications()
           return true
