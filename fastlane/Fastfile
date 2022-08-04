@@ -2,7 +2,7 @@ require 'json'
 
 is_enterprise_app = false
 info_plist_file_path = "ios/SampleApp/Info.plist"
-google_service_plist_file_path = "ios/GoogleService-Info.plist"
+google_service_plist_file_path = "ios/SampleApp/GoogleService-Info.plist"
 
 platform :ios do  
 
