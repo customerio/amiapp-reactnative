@@ -19,7 +19,7 @@ const IdentifyUser = (props) => {
         // MARK:- IDENTIFY USER
         CustomerIO.identify(emailId, {"first_name": userName})
         
-        props.onPress()
+        props.onPress(userName)
     }
 
     return (
