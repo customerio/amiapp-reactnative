@@ -24,7 +24,7 @@ Ami app is still a work in progress and there are a list of features that aren't
 
 Ami app already includes all the dependencies required. To install the libraries using :
 ```
-yarn
+yarn install
 ```
 
 ## iOS setup
