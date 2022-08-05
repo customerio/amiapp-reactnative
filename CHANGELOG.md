@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/customerio/amiapp-reactnative/compare/1.0.5...1.1.0) (2022-08-05)
+
+
+### Features
+
+* show username after user identification ([#21](https://github.com/customerio/amiapp-reactnative/issues/21)) ([2b9a863](https://github.com/customerio/amiapp-reactnative/commit/2b9a8630687c3f51d828eb973a47894fd0521f5d))
+
 ## [1.0.5](https://github.com/customerio/amiapp-reactnative/compare/1.0.4...1.0.5) (2022-08-04)
 
 
