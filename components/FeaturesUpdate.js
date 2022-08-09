@@ -16,6 +16,8 @@ const FeaturesUpdate = ({navigation}) => {
     data.logLevel = CioLogLevel.debug
     data.autoTrackDeviceAttributes = true
     CustomerIO.initialize(Env.siteId, Env.apiKey, Region.US, data) 
+    // MARK:- INITIALIZE IN-APP
+    CustomerIO.initializeInApp(Env.organizationId)
   }, [])
   
   // Renderers
