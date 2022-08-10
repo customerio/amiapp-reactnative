@@ -11,6 +11,7 @@ const FeaturesUpdate = ({navigation}) => {
 
     // MARK:- INITIALIZE PACKAGE WITH CONFIG
     // MARK:- UPDATE CONFIGURATIONS
+    // MARK:- INITIALIZE IN-APP
 
     const data = new CustomerioConfig()
     data.logLevel = CioLogLevel.debug
@@ -22,8 +23,6 @@ const FeaturesUpdate = ({navigation}) => {
     env.organizationId = Env.organizationId
 
     CustomerIO.initialize(env, data) 
-    // MARK:- INITIALIZE IN-APP
-    // CustomerIO.initializeInApp(Env.organizationId)
   }, [])
   
   // Renderers
