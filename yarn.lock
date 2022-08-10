@@ -2525,10 +2525,10 @@ css-in-js-utils@^2.0.0:
     hyphenate-style-name "^1.0.2"
     isobject "^3.0.1"
 
-customerio-reactnative@1.0.0-alpha.2:
-  version "1.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/customerio-reactnative/-/customerio-reactnative-1.0.0-alpha.2.tgz#8b1d55347ad0701a93ac558a85baec2f2c2aef15"
-  integrity sha512-6QGn6m7kIM4Aqtq8UEAFZgS8G2eq1p47+tTUjX9KuTkkb0fRsF4RG38S1kHjDwinAKGUH8i1J4jWPkNacTeMug==
+customerio-reactnative@1.0.0-alpha.4:
+  version "1.0.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/customerio-reactnative/-/customerio-reactnative-1.0.0-alpha.4.tgz#38c1bce7d1fadfa6a8a90b52ed68e9942ce88df4"
+  integrity sha512-2kwPrEyWs/yPKbdPFEeQVtwLxOHaTFi3FX1C58t9CW7ZIkcQEXI72miZ8pyFClRg6xgphacvkjzTMnNy+MZFoA==
 
 dayjs@^1.8.15:
   version "1.11.3"
@@ -6160,5 +6160,4 @@ yargs@^15.1.0, yargs@^15.3.1:
 yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
-  integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
