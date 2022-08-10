@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/customerio/amiapp-reactnative/compare/1.1.0...1.2.0) (2022-08-10)
+
+
+### Features
+
+* in-app implementation in ami app ([#23](https://github.com/customerio/amiapp-reactnative/issues/23)) ([fe75b6e](https://github.com/customerio/amiapp-reactnative/commit/fe75b6ef0f96d351bdc2f20a862395f1820ec78e))
+
 # [1.1.0](https://github.com/customerio/amiapp-reactnative/compare/1.0.5...1.1.0) (2022-08-05)
 
 
