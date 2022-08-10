@@ -1,17 +1,21 @@
 PODS:
   - boost (1.76.0)
-  - customerio-reactnative (1.0.0-alpha.2):
-    - CustomerIOTracking (~> 1.1.1)
+  - customerio-reactnative (1.0.0-alpha.4):
+    - CustomerIOMessagingInApp (~> 1.2.0-alpha.3)
+    - CustomerIOTracking (~> 1.2.0-alpha.3)
     - React-Core
-  - CustomerIO/MessagingPushAPN (1.1.1):
-    - CustomerIOMessagingPushAPN (= 1.1.1)
-  - CustomerIO/Tracking (1.1.1):
-    - CustomerIOTracking (= 1.1.1)
-  - CustomerIOMessagingPush (1.1.1):
-    - CustomerIOTracking (= 1.1.1)
-  - CustomerIOMessagingPushAPN (1.1.1):
-    - CustomerIOMessagingPush (= 1.1.1)
-  - CustomerIOTracking (1.1.1)
+  - CustomerIO/MessagingPushAPN (1.2.0-alpha.3):
+    - CustomerIOMessagingPushAPN (= 1.2.0-alpha.3)
+  - CustomerIOCommon (1.2.0-alpha.3)
+  - CustomerIOMessagingInApp (1.2.0-alpha.3):
+    - CustomerIOTracking (= 1.2.0-alpha.3)
+    - Gist (~> 2.1.2)
+  - CustomerIOMessagingPush (1.2.0-alpha.3):
+    - CustomerIOTracking (= 1.2.0-alpha.3)
+  - CustomerIOMessagingPushAPN (1.2.0-alpha.3):
+    - CustomerIOMessagingPush (= 1.2.0-alpha.3)
+  - CustomerIOTracking (1.2.0-alpha.3):
+    - CustomerIOCommon (= 1.2.0-alpha.3)
   - DoubleConversion (1.1.6)
   - EXApplication (3.2.0):
     - UMCore
@@ -61,6 +65,7 @@ PODS:
     - React-jsi (= 0.69.1)
     - ReactCommon/turbomodule/core (= 0.69.1)
   - fmt (6.2.1)
+  - Gist (2.1.2)
   - glog (0.3.5)
   - RCT-Folly (2021.06.28.00-v2):
     - boost
@@ -392,8 +397,7 @@ PODS:
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - customerio-reactnative (from `../node_modules/customerio-reactnative`)
-  - CustomerIO/MessagingPushAPN (~> 1.1)
-  - CustomerIO/Tracking (~> 1.1)
+  - CustomerIO/MessagingPushAPN (~> 1.2.0-alpha.3)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXApplication (from `../node_modules/expo-application/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
@@ -452,10 +456,13 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - CustomerIO
+    - CustomerIOCommon
+    - CustomerIOMessagingInApp
     - CustomerIOMessagingPush
     - CustomerIOMessagingPushAPN
     - CustomerIOTracking
     - fmt
+    - Gist
 
 EXTERNAL SOURCES:
   boost:
@@ -569,11 +576,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  CustomerIO: 368df9fc1c99a2ffb250c048f72a67adc9961551
-  customerio-reactnative: a2c2284ba11e3ba6b58eff9a474714009881829e
-  CustomerIOMessagingPush: 1adebae78a0273eebf166d1e8adef6e116c00606
-  CustomerIOMessagingPushAPN: b4c892f2b7c679e4167e34e1387b460ccc9ab447
-  CustomerIOTracking: 30df1b0b2ee5c43545580083d0db748ac7bd1bcb
+  CustomerIO: 7a042cc4a364baae25f47266dc3fc71859ae8c81
+  customerio-reactnative: bd1cb1b2bc70afdb092d8b5e83e64a73fbf4d1df
+  CustomerIOCommon: 7f70ae375f8f2208da9741b4ed0fcac1c6232d6d
+  CustomerIOMessagingInApp: 6c8a1a45c5172ac3636e16a19b89433a4a3101df
+  CustomerIOMessagingPush: ceb89886adc1d63c43a872af9b6902936e77edc3
+  CustomerIOMessagingPushAPN: a4260806d5bfddfa8eed7bd5b3583cb34fe08e7f
+  CustomerIOTracking: ec5b810003c5e575d40cbdbf4b7f4a97c976cdea
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   EXApplication: 9ff2a206009d6e55bca6c20b3f33d07986b51ef3
   EXConstants: 4cb52b6d8f636c767104a44bf7db3873e9c01a6f
@@ -590,7 +599,8 @@ SPEC CHECKSUMS:
   FBLazyVector: 068141206af867f72854753423d0117c4bf53419
   FBReactNativeSpec: 546a637adc797fa436dd51d1c63c580f820de31c
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  glog: a772ddaac4a063538b61474783a62a9618216d47
+  Gist: 844199a79de01d267104daf64ec62f5dd2b19327
+  glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: ae07282b2ec9c90d7eb98251603bc3f82403d239
   RCTTypeSafety: a04dc1339af2e1da759ccd093bf11c310dce1ef6
@@ -628,6 +638,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 2be431101b73604e64fbfffcf759336f9d8fccbb
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 
-PODFILE CHECKSUM: 02532cd4eceefdc14aab4bc71b5112e107ac04ab
+PODFILE CHECKSUM: e5092d80ca6395da8e9b351184d6582bc655f4ee
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
