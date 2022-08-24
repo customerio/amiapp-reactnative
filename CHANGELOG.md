@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/customerio/amiapp-reactnative/compare/1.2.0...1.3.0) (2022-08-24)
+
+
+### Features
+
+* deep links in android ([0e65eca](https://github.com/customerio/amiapp-reactnative/commit/0e65eca14a0eb73d3124e975a48f995e9eb0f3ed))
+
 # [1.2.0](https://github.com/customerio/amiapp-reactnative/compare/1.1.0...1.2.0) (2022-08-10)
 
 
