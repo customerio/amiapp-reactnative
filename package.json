@@ -4,7 +4,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "expo start --web",
-    "start": "react-native start"
+    "start": "react-native start",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@react-native-community/push-notification-ios": "^1.10.1",
@@ -41,8 +42,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json}": [
       "prettier src --write",
-      "eslint src --fix",
-      "git add"
+      "eslint src --fix"
     ]
   }
 }
