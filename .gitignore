@@ -18,6 +18,9 @@ android/build/
 local.properties
 *.iml
 
+# Google-services.json 
+android/app/google-services.json
+
 # Gradle files
 .gradle/
 build/
