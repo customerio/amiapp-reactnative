@@ -5,7 +5,9 @@
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "prettier --check components",
+    "format": "prettier --write components"
   },
   "dependencies": {
     "@react-native-community/push-notification-ios": "^1.10.1",
