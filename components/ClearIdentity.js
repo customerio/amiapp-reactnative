@@ -17,7 +17,7 @@ const ClearIdentity = (props) => {
       <SubHeaderText label="CLEAR USER IDENTITY" />
       <View style={styles.innerContainer}>
         <FeatureButton
-          title="Clear user identity of the user"
+          title="Clear user identity"
           style={{ marginBottom: 20 }}
           onPress={() => ClearUserIdentity()}
         ></FeatureButton>
