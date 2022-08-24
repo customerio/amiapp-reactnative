@@ -29,5 +29,12 @@
   "devDependencies": {
     "@babel/core": "^7.9.0"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json}": [
+      "prettier src --write",
+      "eslint src --fix",
+      "git add"
+    ]
+  },
   "private": true
 }
