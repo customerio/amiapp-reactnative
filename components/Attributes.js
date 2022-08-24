@@ -55,7 +55,7 @@ const ProfileAttributes = () => {
     const [additionalAttributes, setAdditionalAttributes] = useState('')
 
     const setProfileAttributes = () => {
-      // MARK:- SET PROFILE ATTRIBUTES
+      // MARK:- SET PROFILE ATTRIBUTES, updating to test husku
       // Start
         const profileAttributes = {
             type : "Profile attributes",
