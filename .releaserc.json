@@ -2,6 +2,7 @@
     "tagFormat": "${version}",
     "branches": [
         "main",
+        "rehan/deploy-android-app",
         { "name": "beta", "prerelease": true },
         { "name": "alpha", "prerelease": true }
     ],
