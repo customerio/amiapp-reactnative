@@ -2,7 +2,7 @@
 name: Deploy non-development builds 
 on:
   push:
-    branches: [main, beta, alpha]
+    branches: [main, beta, alpha, rehan/deploy-android-app]
 
 env:
   XCODE_VERSION: "13.0"

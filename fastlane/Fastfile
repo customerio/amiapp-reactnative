@@ -313,15 +313,4 @@ platform :android do
       release_notes: release_notes
     )
   end 
-
-  lane :instrumentation_tests do |values|
-    build_android_app(
-      task: 'assemble',
-      build_type: 'Debug'
-    )
-    build_android_app(
-      task: 'assemble',
-      build_type: 'AndroidTest'
-    )
-  end 
 end
