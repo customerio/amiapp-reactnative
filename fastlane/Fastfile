@@ -227,6 +227,7 @@ class GitHub
 end 
 
 gradle_file_path = "android/app/build.gradle"
+gradle_path = "android/gradlew"
 
 platform :android do
 
@@ -305,7 +306,8 @@ platform :android do
 
     build_android_app(
       task: 'assemble',
-      build_type: 'Release'
+      build_type: 'Release',
+      gradle_path: gradle_path
     )
 
     firebase_app_distribution(
