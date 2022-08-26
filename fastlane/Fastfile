@@ -226,6 +226,8 @@ class GitHub
   end 
 end 
 
+gradle_file_path = "android/app/build.gradle"
+
 platform :android do
 
   # example for main builds: `bundle exec fastlane android deploy_app version:1.0.0"`
@@ -298,8 +300,8 @@ platform :android do
     UI.important("New app version: #{new_app_version}")
     UI.important("Firebase App testing groups: #{groups}")
 
-    android_set_version_name(version_name: new_app_version)
-    android_set_version_code(version_code: new_build_number)
+    android_set_version_name(version_name: new_app_version, gradle_file: gradle_file_path)
+    android_set_version_code(version_code: new_build_number, gradle_file: gradle_file_path)
 
     build_android_app(
       task: 'assemble',
