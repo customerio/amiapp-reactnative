@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/customerio/amiapp-reactnative/compare/1.3.0...1.4.0) (2022-08-26)
+
+
+### Features
+
+* updated classes package ([d2ef4ab](https://github.com/customerio/amiapp-reactnative/commit/d2ef4abd935c9d94ae2db912bf99da23d4e0ecea))
+
 # [1.3.0](https://github.com/customerio/amiapp-reactnative/compare/1.2.0...1.3.0) (2022-08-24)
 
 
