@@ -229,6 +229,8 @@ end
 gradle_file_path = "android/app/build.gradle"
 project_dir = "android"
 
+default_platform(:android)
+
 platform :android do
 
   # example for main builds: `bundle exec fastlane android deploy_app version:1.0.0"`
