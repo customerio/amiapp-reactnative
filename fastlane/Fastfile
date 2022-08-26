@@ -313,7 +313,7 @@ platform :android do
     )
 
     firebase_app_distribution(
-      app: ENV["FIREBASE_APP_ID"],
+      app: ENV["FIREBASE_ANDROID_APP_ID"],
       service_credentials_file: './ami_app_ci_server-google_cloud_service_account.json',
       groups: groups,
       release_notes: release_notes

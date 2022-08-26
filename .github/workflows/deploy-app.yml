@@ -47,7 +47,8 @@ jobs:
           # github access token to Ami CI shared github account. 
           # token scoped to just public repositories and is added as a collaborator to the project so it can push code. 
           GITHUB_TOKEN: ${{ secrets.WRITE_ACCESS_BOT_TOKEN }}           
-          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }} # for firebase app distribution 
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }} # for firebase ios app distribution 
+          FIREBASE_ANDROID_APP_ID: ${{ secrets.FIREBASE_ANDROID_APP_ID }} # for firebase android app distribution 
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_CONTENT_B64: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT_B64 }}
