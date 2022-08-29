@@ -22,6 +22,9 @@ inputs:
   MATCH_GOOGLE_CLOUD_KEYS_B64:
     description: 'MATCH_GOOGLE_CLOUD_KEYS_B64 from secrets'
     required: true
+  GOOGLE_SERVICES_ANDROID_BASE64:
+    description: 'GOOGLE_SERVICES_ANDROID_BASE64 from secrets'
+    required: true
 runs:
   using: "composite"
   steps:
@@ -37,6 +40,7 @@ runs:
         echo "${{ inputs.ENV_FILE_B64 }}" | base64 -d > "env.js"
         echo "${{ inputs.FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH }}" | base64 -d > ami_app_ci_server-google_cloud_service_account.json
         echo "${{ inputs.MATCH_GOOGLE_CLOUD_KEYS_B64 }}" | base64 -d > gc_keys.json
+        echo "${{ inputs.GOOGLE_SERVICES_ANDROID_BASE64 }}" | base64 -d > android/app/google-services.json
     - name: Install Fastlane 
       uses: maierj/fastlane-action@v2.0.1
       with:
