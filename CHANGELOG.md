@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/customerio/amiapp-reactnative/compare/1.4.0...1.4.1) (2022-08-29)
+
+
+### Bug Fixes
+
+* updated app icon and project name ([3a57330](https://github.com/customerio/amiapp-reactnative/commit/3a573300805dac9e005ca255e576bc9f84a85142))
+
 # [1.4.0](https://github.com/customerio/amiapp-reactnative/compare/1.3.0...1.4.0) (2022-08-26)
 
 
