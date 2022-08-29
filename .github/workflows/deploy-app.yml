@@ -2,7 +2,7 @@
 name: Deploy non-development builds 
 on:
   push:
-    branches: [main, beta, alpha, rehan/deploy-android-app]
+    branches: [main, beta, alpha]
 
 env:
   XCODE_VERSION: "13.0"
@@ -55,7 +55,7 @@ jobs:
           
       - name: Notify team of success 
         uses: slackapi/slack-github-action@v1.18.0
-        # if: steps.semantic-release.outputs.new_release_published == 'true' # only run if a git tag was made. 
+        if: steps.semantic-release.outputs.new_release_published == 'true' # only run if a git tag was made. 
         with:
           # Use block kit for format of the JSON payloads: https://app.slack.com/block-kit-builder
           payload: |
