@@ -18,6 +18,13 @@ jobs:
     name: Deploy development builds 
     steps:
     - uses: actions/checkout@v2
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11' # Robolectric requires v9, but we choose LTS: https://adoptopenjdk.net/
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v2
     - name: Setup environment for building and releasing app 
       uses: ./.github/actions/prepare-for-app-build
       with:
@@ -25,8 +32,17 @@ jobs:
         ENV_FILE_B64: "${{ secrets.ENV_FILE_B64 }}" # cat env.js | base64
         FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH: ${{ secrets.FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH }} # cat ami_app_ci_server-google_cloud_service_account.json | base64
         MATCH_GOOGLE_CLOUD_KEYS_B64: ${{ secrets.MATCH_GOOGLE_CLOUD_KEYS_B64 }} # cat gc_keys.json | base64                 
+        GOOGLE_SERVICES_ANDROID_BASE64: ${{ secrets.GOOGLE_SERVICES_ANDROID_BASE64 }} # cat android/app/google-services.json | base64      
 
-    - name: Deploy development build via Fastlane 
+    - name: Deploy Android development build via Fastlane 
+      uses: maierj/fastlane-action@v2.0.1
+      with:
+        lane: 'android deploy_app'
+        skip-tracking: true
+      env: 
+        FIREBASE_ANDROID_APP_ID: ${{ secrets.FIREBASE_ANDROID_APP_ID }} # for firebase android app distribution 
+
+    - name: Deploy iOS development build via Fastlane 
       uses: maierj/fastlane-action@v2.0.1
       with:
         lane: 'ios deploy_app'
