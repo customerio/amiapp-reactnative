@@ -1,21 +1,21 @@
 PODS:
   - boost (1.76.0)
-  - customerio-reactnative (1.0.0-alpha.4):
-    - CustomerIOMessagingInApp (~> 1.2.0-alpha.3)
-    - CustomerIOTracking (~> 1.2.0-alpha.3)
+  - customerio-reactnative (0.1.0):
+    - CustomerIOMessagingInApp (~> 1.2.0-alpha.4)
+    - CustomerIOTracking (~> 1.2.0-alpha.4)
     - React-Core
-  - CustomerIO/MessagingPushAPN (1.2.0-alpha.3):
-    - CustomerIOMessagingPushAPN (= 1.2.0-alpha.3)
-  - CustomerIOCommon (1.2.0-alpha.3)
-  - CustomerIOMessagingInApp (1.2.0-alpha.3):
-    - CustomerIOTracking (= 1.2.0-alpha.3)
+  - CustomerIO/MessagingPushAPN (1.2.0-beta.1):
+    - CustomerIOMessagingPushAPN (= 1.2.0-beta.1)
+  - CustomerIOCommon (1.2.0-beta.1)
+  - CustomerIOMessagingInApp (1.2.0-beta.1):
+    - CustomerIOTracking (= 1.2.0-beta.1)
     - Gist (~> 2.1.2)
-  - CustomerIOMessagingPush (1.2.0-alpha.3):
-    - CustomerIOTracking (= 1.2.0-alpha.3)
-  - CustomerIOMessagingPushAPN (1.2.0-alpha.3):
-    - CustomerIOMessagingPush (= 1.2.0-alpha.3)
-  - CustomerIOTracking (1.2.0-alpha.3):
-    - CustomerIOCommon (= 1.2.0-alpha.3)
+  - CustomerIOMessagingPush (1.2.0-beta.1):
+    - CustomerIOTracking (= 1.2.0-beta.1)
+  - CustomerIOMessagingPushAPN (1.2.0-beta.1):
+    - CustomerIOMessagingPush (= 1.2.0-beta.1)
+  - CustomerIOTracking (1.2.0-beta.1):
+    - CustomerIOCommon (= 1.2.0-beta.1)
   - DoubleConversion (1.1.6)
   - EXApplication (3.2.0):
     - UMCore
@@ -276,11 +276,11 @@ PODS:
   - React-jsinspector (0.69.1)
   - React-logger (0.69.1):
     - glog
-  - react-native-safe-area-context (4.3.1):
+  - react-native-safe-area-context (4.3.3):
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
-    - React
+    - React-Core
     - ReactCommon/turbomodule/core
   - React-perflogger (0.69.1)
   - React-RCTActionSheet (0.69.1):
@@ -397,7 +397,7 @@ PODS:
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - customerio-reactnative (from `../node_modules/customerio-reactnative`)
-  - CustomerIO/MessagingPushAPN (~> 1.2.0-alpha.3)
+  - CustomerIO/MessagingPushAPN (~> 1.2.0-alpha.4)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXApplication (from `../node_modules/expo-application/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
@@ -576,13 +576,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  CustomerIO: 7a042cc4a364baae25f47266dc3fc71859ae8c81
-  customerio-reactnative: bd1cb1b2bc70afdb092d8b5e83e64a73fbf4d1df
-  CustomerIOCommon: 7f70ae375f8f2208da9741b4ed0fcac1c6232d6d
-  CustomerIOMessagingInApp: 6c8a1a45c5172ac3636e16a19b89433a4a3101df
-  CustomerIOMessagingPush: ceb89886adc1d63c43a872af9b6902936e77edc3
-  CustomerIOMessagingPushAPN: a4260806d5bfddfa8eed7bd5b3583cb34fe08e7f
-  CustomerIOTracking: ec5b810003c5e575d40cbdbf4b7f4a97c976cdea
+  CustomerIO: 4d3d15b5e10a7402cd830e907644d6c0d8248746
+  customerio-reactnative: cf5f592af7c1bef04765e0f770a75bbde053da48
+  CustomerIOCommon: 76c3e01c7bc221755b31869fda6d87b2cf8c1901
+  CustomerIOMessagingInApp: 64b78a4f44b6b25449c1ae02320df83cd716d20d
+  CustomerIOMessagingPush: 18f4d2e17b647f1d8e6e64cc6dd4a31f88dbdf46
+  CustomerIOMessagingPushAPN: 43422698fbe2048a45ca952c38defffea1c3dfe9
+  CustomerIOTracking: cdfeb8e8a9f268796b333a3e8e50d4872146c276
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   EXApplication: 9ff2a206009d6e55bca6c20b3f33d07986b51ef3
   EXConstants: 4cb52b6d8f636c767104a44bf7db3873e9c01a6f
@@ -615,7 +615,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 758e70947c232828a66b5ddc42d02b4d010fa26e
   React-jsinspector: 55605caf04e02f9b0e05842b786f1c12dde08f4b
   React-logger: ca970551cb7eea2fd814d0d5f6fc1a471eb53b76
-  react-native-safe-area-context: 6c12e3859b6f27b25de4fee8201cfb858432d8de
+  react-native-safe-area-context: b456e1c40ec86f5593d58b275bd0e9603169daca
   React-perflogger: c9161ff0f1c769993cd11d2751e4331ff4ceb7cd
   React-RCTActionSheet: 2d885b0bea76a5254ef852939273edd8de116180
   React-RCTAnimation: 353fa4fc3c19060068832dd32e555182ec07be45
@@ -638,6 +638,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 2be431101b73604e64fbfffcf759336f9d8fccbb
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 
-PODFILE CHECKSUM: e5092d80ca6395da8e9b351184d6582bc655f4ee
+PODFILE CHECKSUM: a123c308149c0e99acf5ad91d6aba33a8b8e3af5
 
 COCOAPODS: 1.11.3
