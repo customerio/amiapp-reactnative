@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/customerio/amiapp-reactnative/compare/1.4.1...1.4.2) (2022-09-13)
+
+
+### Bug Fixes
+
+* updating pod & pod lock version ([f32b5cf](https://github.com/customerio/amiapp-reactnative/commit/f32b5cfb6a23d88cdbf611cef63d1fef0fd77f67))
+
 ## [1.4.1](https://github.com/customerio/amiapp-reactnative/compare/1.4.0...1.4.1) (2022-08-29)
 
 
