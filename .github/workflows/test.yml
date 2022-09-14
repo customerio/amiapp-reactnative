@@ -1,9 +1,10 @@
 name: Tests
 
 on:  
-  push:
-    branches-ignore: [main, beta, alpha] # skip for deployment branches. 
-    tags-ignore: ['*']
+  # Uncomment this if build on every push is needed
+  # push:
+  #   branches-ignore: [main, beta, alpha] # skip for deployment branches. 
+  #   tags-ignore: ['*']
   pull_request:
     branches: ['*']
 
