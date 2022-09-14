@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/customerio/amiapp-reactnative/compare/1.4.2...1.5.0) (2022-09-14)
+
+
+### Features
+
+* package version update ([c1a16b4](https://github.com/customerio/amiapp-reactnative/commit/c1a16b47c8b5b4b74d2dd88c50bf48e34be7daf5))
+
 ## [1.4.2](https://github.com/customerio/amiapp-reactnative/compare/1.4.1...1.4.2) (2022-09-13)
 
 
