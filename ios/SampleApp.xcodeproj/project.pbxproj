@@ -291,7 +291,7 @@
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			packageReferences = (
-				F7052DB7287C788100560E20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */,
+				F7052DB7287C788100560E20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
@@ -557,6 +557,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2YC97BQN3N;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2YC97BQN3N;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -622,6 +623,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.customer.ami;
 				PRODUCT_NAME = SampleApp;
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc io.customer.ami";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc io.customer.ami";
 				SWIFT_OBJC_BRIDGING_HEADER = "SampleApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -643,6 +645,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 2YC97BQN3N;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2YC97BQN3N;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Notification Service/Info.plist";
@@ -660,6 +663,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.customer.ami.richpush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development io.customer.ami.richpush";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development io.customer.ami.richpush";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -686,6 +690,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 2YC97BQN3N;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2YC97BQN3N;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Notification Service/Info.plist";
@@ -702,6 +707,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.customer.ami.richpush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc io.customer.ami.richpush";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc io.customer.ami.richpush";
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -855,7 +861,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F7052DB7287C788100560E20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {
+		F7052DB7287C788100560E20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -868,7 +874,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		F7052DB8287C788100560E20 /* FirebaseAppDistribution-Beta */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F7052DB7287C788100560E20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			package = F7052DB7287C788100560E20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAppDistribution-Beta";
 		};
 /* End XCSwiftPackageProductDependency section */

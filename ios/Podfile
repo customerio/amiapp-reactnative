@@ -27,25 +27,13 @@ target 'Notification Service' do
   pod 'CustomerIO/MessagingPushAPN', '~> 1.2.2'
 end
 
-
-# Workaround to fix compilation issue with Notification Service trying to compile with 
-# SDK giving errors. See: https://github.com/customerio/customerio-ios/issues/178
-cio_target_names = [
-  'CustomerIOTracking',
-  'CustomerIOMessagingPushAPN',
-  'CustomerIOMessagingPush',
-  'CustomerIOCommon'
-]
-
-post_install do |installer|
+# workaround for xcode14 for a react native dependency: https://github.com/expo/eas-cli/issues/1432#issuecomment-1285199900
+post_install do |installer| 
   installer.pods_project.targets.each do |target|
-    if cio_target_names.include? target.name 
-      puts "Modifying target #{target.name}"
-  
+    if target.respond_to?(:product_type) and target.product_type == "com.apple.product-type.bundle"
       target.build_configurations.each do |config|
-        puts "Setting build config settings for #{target.name}"
-        config.build_settings['APPLICATION_EXTENSION_API_ONLY'] ||= 'NO'
+          config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
       end
     end
   end
-end
+end 

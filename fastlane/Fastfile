@@ -145,24 +145,34 @@ platform :ios do
     )
   end 
 
-  lane :delete_code_signing do 
+  lane :delete_code_signing_development do 
     match_nuke(
       type: "development",
-      api_key_path: './app_store_connect_creds.json'
-    )
-    match_nuke(
-      type: "adhoc",
-      api_key_path: './app_store_connect_creds.json'
+      api_key_path: './app_store_connect_creds.json',
+      readonly: false 
     )
   end 
 
-  lane :create_code_signing do 
+  lane :delete_code_signing_release do 
+    match_nuke(
+      type: "adhoc",
+      api_key_path: './app_store_connect_creds.json',
+      readonly: false 
+    )
+  end
+
+  lane :create_code_signing_development do 
     match(
       type: "development",
+      api_key_path: './app_store_connect_creds.json',
       readonly: false
     )
+  end 
+
+  lane :create_code_signing_release do 
     match(
       type: "adhoc",
+      api_key_path: './app_store_connect_creds.json',
       readonly: false
     )
   end 
