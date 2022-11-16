@@ -53,5 +53,5 @@ runs:
 
     - name: pod install as React Native project requires it 
       working-directory: ios 
-      run: pod install  
+      run: pod install --repo-update
       shell: bash 
