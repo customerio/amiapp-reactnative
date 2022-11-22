@@ -2525,9 +2525,10 @@ css-in-js-utils@^2.0.0:
     hyphenate-style-name "^1.0.2"
     isobject "^3.0.1"
 
-"customerio-reactnative@https://github.com/customerio/customerio-reactnative#develop":
-  version "1.0.0"
-  resolved "https://github.com/customerio/customerio-reactnative#6605d563fe28fae7464d336c2673bb8620fdba5b"
+customerio-reactnative@1.0.1-alpha.2:
+  version "1.0.1-alpha.2"
+  resolved "https://registry.yarnpkg.com/customerio-reactnative/-/customerio-reactnative-1.0.1-alpha.2.tgz#762ff63b89a349f200c62940230a999fae14401d"
+  integrity sha512-9v9sCbcZOSGQh1ItvDeeYnAnShv3j4iyndthzqoR1EsZobAEKMVzZSFtezXVnEGNjRD983rus9C+ZAyTUzyRGw==
 
 dayjs@^1.8.15:
   version "1.11.3"
@@ -4971,6 +4972,11 @@ react-native-gradle-plugin@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.7.tgz#96602f909745239deab7b589443f14fce5da2056"
   integrity sha512-+4JpbIx42zGTONhBTIXSyfyHICHC29VTvhkkoUOJAh/XHPEixpuBduYgf6Y4y9wsN1ARlQhBBoptTvXvAFQf5g==
+
+react-native-permissions@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-3.6.1.tgz#73adcc1cef8cd57a9ef167b4507405f4ff5749c4"
+  integrity sha512-fzPpPQXeD34inUccqtoResSwYubfrwUguP4qrVUUv8+KSMjYSaHGoS5HaIJLZHlN9gO+TvLJZ2L5ZljTsb6qnQ==
 
 react-native-push-notification@^8.1.1:
   version "8.1.1"
