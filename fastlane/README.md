@@ -31,18 +31,34 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
-### ios delete_code_signing
+### ios delete_code_signing_development
 
 ```sh
-[bundle exec] fastlane ios delete_code_signing
+[bundle exec] fastlane ios delete_code_signing_development
 ```
 
 
 
-### ios create_code_signing
+### ios delete_code_signing_release
 
 ```sh
-[bundle exec] fastlane ios create_code_signing
+[bundle exec] fastlane ios delete_code_signing_release
+```
+
+
+
+### ios create_code_signing_development
+
+```sh
+[bundle exec] fastlane ios create_code_signing_development
+```
+
+
+
+### ios create_code_signing_release
+
+```sh
+[bundle exec] fastlane ios create_code_signing_release
 ```
 
 
