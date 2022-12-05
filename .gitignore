@@ -5,6 +5,7 @@ GoogleService-Info.plist
 node_modules
 .DS_Store
 env.js
+fastlane/report.xml
 
 # iOS
 iOS/build

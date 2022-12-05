@@ -5,14 +5,14 @@ on:
     branches: [main, beta, alpha]
 
 env:
-  XCODE_VERSION: "13.0"
+  XCODE_VERSION: "14.0"
   GITHUB_CONTEXT: ${{ toJSON(github) }} # used by fastlane for deploying app 
   FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 6 # increase timeout for xcodebuild settings. We have seen this command take a bit longer to do on CI server. 
 
 jobs:
   deploy-app:
     name: Deploy app
-    runs-on: macos-11
+    runs-on: macos-12
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK

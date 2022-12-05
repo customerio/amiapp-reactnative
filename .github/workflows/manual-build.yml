@@ -4,14 +4,14 @@ on:
   workflow_dispatch: # manually run the action
 
 env:
-  XCODE_VERSION: "13.0"
+  XCODE_VERSION: "14.0"
   GITHUB_CONTEXT: ${{ toJSON(github) }} # used by fastlane for deploying app 
   FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 6 # increase timeout for xcodebuild settings. We have seen this command take a bit longer to do on CI server. 
 
 jobs:
   deploy-app:
     name: Re-release the latest stable build 
-    runs-on: macos-11
+    runs-on: macos-12
     steps:
       - name: Get latest git tag 
         uses: octokit/request-action@v2.1.4
