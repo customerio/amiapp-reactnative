@@ -1,8 +1,8 @@
 PODS:
   - boost (1.76.0)
-  - customerio-reactnative (1.0.0):
-    - CustomerIOMessagingInApp (~> 1.2.2)
-    - CustomerIOTracking (~> 1.2.2)
+  - customerio-reactnative (1.0.1-alpha.1):
+    - CustomerIOMessagingInApp (~> 1.2.1)
+    - CustomerIOTracking (~> 1.2.1)
     - React-Core
   - CustomerIO/MessagingPushAPN (1.2.5):
     - CustomerIOMessagingPushAPN (= 1.2.5)
@@ -577,7 +577,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   CustomerIO: c7388e657496bb566a42d758fa0a40d2b79fa261
-  customerio-reactnative: 2410722e483c4f586b9823de28f3a05e69a01cb9
+  customerio-reactnative: cd077119931e9f1850dcd64225de26d4db939a36
   CustomerIOCommon: 803b2ffb186688f0a1199d66c43478f71007c7fd
   CustomerIOMessagingInApp: 437cfb3f45b928f4a93b709956fb3c9bf6c67dcd
   CustomerIOMessagingPush: 7244dfe1098580211b8bd3e5f1dacb0ee0393c72
@@ -600,7 +600,7 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: 546a637adc797fa436dd51d1c63c580f820de31c
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   Gist: 3269391440cbe3637db6733964dd53ea32a3ce56
-  glog: a772ddaac4a063538b61474783a62a9618216d47
+  glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: ae07282b2ec9c90d7eb98251603bc3f82403d239
   RCTTypeSafety: a04dc1339af2e1da759ccd093bf11c310dce1ef6
