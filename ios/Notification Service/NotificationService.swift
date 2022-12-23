@@ -8,6 +8,7 @@ class NotificationService: UNNotificationServiceExtension {
                                withContentHandler contentHandler:
                                @escaping (UNNotificationContent) -> Void) {
         
+        // TODO: Add Env.swift and fetch values from file, update values from CI secret keys
         CustomerIO.initialize(siteId: "", apiKey: "", region: .US) { config in
           config.autoTrackDeviceAttributes = true
           config.logLevel = .debug
