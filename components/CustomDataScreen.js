@@ -2,8 +2,8 @@ import React, {useLayoutEffect} from 'react'
 import { View, Text, TextInput, StyleSheet, YellowBox} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const CustomDataScreen = ({navigation}) => {
-
+const CustomDataScreen = ({route, navigation}) => {
+    const { featureType } = route.params
 
     const sendEventTapped = () => {
         alert("Custom event")
@@ -15,12 +15,21 @@ const CustomDataScreen = ({navigation}) => {
         })
       }, [navigation])
 
+    const getHeaderTitle = () => {
+        switch (featureType){
+            case "Custom Event":
+                return "Send Custom Events"
+            case "Device Attributes":
+                return "Set Custom Device Attributes"    
+            
+        }
+    }
     return (
         <View style={styles.container}>
             <View style={styles.innerContainer}>
                 <View style={styles.eventView}>
                     <Text style={styles.title}>
-                            Send Custom Event
+                            {getHeaderTitle()}
                     </Text>
                     <View style={styles.eventRowView}>
                     <View style={{flex: 0.5}}>

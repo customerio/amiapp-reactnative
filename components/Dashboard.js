@@ -6,10 +6,14 @@ const Dashboard = ({navigation}) => {
 
 
     const sendRandomEventTapped = () => {
-        alert("Random event")
-        navigation.navigate("CustomDataScreen")
+        alert("Add random event here")
     }
 
+    const sencCustomEventTapped = () => {
+        navigation.navigate("CustomDataScreen", {
+            featureType : "Custom Event"
+        })
+    }
     return (
         <View style={styles.container}>
             <View style={styles.settingsView}>
@@ -37,7 +41,7 @@ const Dashboard = ({navigation}) => {
 
                     <TouchableOpacity
                         style={styles.featureButton}
-                        onPress={() => loginTapped()}
+                        onPress={() => sencCustomEventTapped()}
                         underlayColor='#f194ff'>
                         <Text style={styles.featureTitleText}>Send Custom Event</Text>
                     </TouchableOpacity>
@@ -95,7 +99,7 @@ const styles = StyleSheet.create({
         padding:10,
         alignSelf:'center',
         paddingBottom:10,
-        backgroundColor:'#5721cc',
+        backgroundColor:'#3C437D',
         borderRadius:10,
         borderWidth: 1,
         borderColor: '#fff',
