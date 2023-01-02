@@ -1,13 +1,19 @@
-import React, {useState} from 'react'
+import React, {useLayoutEffect} from 'react'
 import { View, Text, TextInput, StyleSheet, YellowBox} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const CustomDataScreen = () => {
+const CustomDataScreen = ({navigation}) => {
 
 
     const sendEventTapped = () => {
         alert("Custom event")
     }
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+          headerShadowVisible: false,
+        })
+      }, [navigation])
 
     return (
         <View style={styles.container}>
@@ -72,7 +78,8 @@ const CustomDataScreen = () => {
 
 const styles = StyleSheet.create({
     container : {
-        flex : 1
+        flex : 1,
+        backgroundColor: '#fff'
     },
     innerContainer: {
         flex: 1,
