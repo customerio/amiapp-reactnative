@@ -27,6 +27,10 @@ const Dashboard = ({navigation}) => {
         })
     }
 
+    const viewLogsTapped = () => {
+        navigation.navigate("ViewLogs")
+    }
+
     const logoutTapped = () => {
         navigation.popToTop()
     }

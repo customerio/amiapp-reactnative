@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CustomerIO } from 'customerio-reactnative';
 import Dashboard from './components/Dashboard';
 import CustomDataScreen from './components/CustomDataScreen';
+import ViewLogs from './components/ViewLogs';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -65,7 +66,15 @@ export default function App() {
        options={{
           title:"",
           headerStyle: {
-            backgroundColor: '#ffffff'          },
+            backgroundColor: '#ffffff'},
+        }}
+       />
+       <Stack.Screen name="ViewLogs" component={ViewLogs}
+       options={{
+          title:"",
+          headerStyle: {
+            // backgroundColor: '#ffffff'
+          },
         }}
        />
        </Stack.Navigator>
