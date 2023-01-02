@@ -2,9 +2,12 @@ import React, {useEffect, useRef} from 'react';
 import { StyleSheet} from 'react-native';
 import FeaturesUpdate from './components/FeaturesUpdate';
 import FeaturesTrial from './components/FeaturesTrial';
+import Login from './components/Login';
 import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CustomerIO } from 'customerio-reactnative';
+import Dashboard from './components/Dashboard';
+import CustomDataScreen from './components/CustomDataScreen';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -46,19 +49,22 @@ export default function App() {
         // End
         >
 
-      <Stack.Navigator initialRouteName="FeaturesUpdate">
-        <Stack.Screen name="FeaturesUpdate"
-        component={FeaturesUpdate}
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login"
+        component={Login}
         options={{
           headerShown : false
         }}/>
-        <Stack.Screen name="FeaturesTrial" component={FeaturesTrial}
-        options={{
-          title : "Let's Play",
-          headerStyle: {
-            backgroundColor: '#F6F7F9',
-          },
-        }} />
+        <Stack.Screen name="Dashboard" component={Dashboard}
+        // options={{
+        //   headerShown : false
+        // }}
+       />
+       <Stack.Screen name="CustomDataScreen" component={CustomDataScreen}
+       // options={{
+        //   headerShown : false
+        // }}
+       />
        </Stack.Navigator>
     </NavigationContainer>
     );
