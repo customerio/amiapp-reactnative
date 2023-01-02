@@ -63,51 +63,7 @@ const Dashboard = ({navigation}) => {
                     {key: 'Logout'},
                     ]}
                     renderItem={({item}) => renderDashboardButtons(item)}
-                    // ItemSeparatorComponent = {renderSeparator}
                 />
-        {/*
-                    <TouchableOpacity
-                        style={styles.featureButton}
-                        onPress={() => sendRandomEventTapped()}
-                        underlayColor='#f194ff'>
-                        <Text style={styles.featureTitleText}>Send Random Event</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        style={styles.featureButton}
-                        onPress={() => sencCustomEventTapped()}
-                        underlayColor='#f194ff'>
-                        <Text style={styles.featureTitleText}>Send Custom Event</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        style={styles.featureButton}
-                        onPress={() => loginTapped()}
-                        underlayColor='#f194ff'>
-                        <Text style={styles.featureTitleText}>Set Device Attributes</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        style={styles.featureButton}
-                        onPress={() => loginTapped()}
-                        underlayColor='#f194ff'>
-                        <Text style={styles.featureTitleText}>Set Profile Attributes</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        style={styles.featureButton}
-                        onPress={() => loginTapped()}
-                        underlayColor='#f194ff'>
-                        <Text style={styles.featureTitleText}>View Logs</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        style={styles.featureButton}
-                        onPress={() => loginTapped()}
-                        underlayColor='#f194ff'>
-                        <Text style={styles.featureTitleText}>Log out</Text>
-                    </TouchableOpacity>
-        */}
                 </View>
             </View>
         </View>
