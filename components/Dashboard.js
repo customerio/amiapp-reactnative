@@ -24,12 +24,6 @@ const Dashboard = ({navigation}) => {
         })
     }
 
-    const dashboardButtons = () => {
-        buttons.map(p => (
-         <ThemedButton onClick={e=>{ this.sendCustomEventTapped()}} title={p}/>
-      ));
-    }
-
     const renderDashboardButtons = (item) => {
         return (
             <ThemedButton onClick={e=>{ this.sendCustomEventTapped()}} title={item.key}/>
@@ -40,7 +34,6 @@ const Dashboard = ({navigation}) => {
         <View style={styles.container}>
             <View style={styles.settingsView}>
                 <TouchableOpacity
-                    // style={styles.featureButton}
                     onPress={() => loginTapped()}>
 
                     <Text style={styles.featureTitleText, {color: '#000', fontWeight: '600', paddingRight: 30}}>Settings</Text>
