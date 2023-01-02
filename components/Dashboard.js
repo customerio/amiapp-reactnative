@@ -86,19 +86,7 @@ const styles = StyleSheet.create({
     featuresView: {
         width: '80%'
     },
-    featureButton:{
-        padding:10,
-        alignSelf:'center',
-        paddingBottom:10,
-        backgroundColor:'#3C437D',
-        borderRadius:10,
-        borderWidth: 1,
-        borderColor: '#fff',
-        marginTop: 20,
-        marginBottom: 10,
-        width: '75%'
-      },
-      featureTitleText:{
+    featureTitleText:{
         color:'#fff',
         textAlign:'center',
         fontWeight: '600',
