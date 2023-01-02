@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { View, Text, FlatList, StyleSheet} from 'react-native'
+import { View, Text, FlatList, StyleSheet, Image} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import ThemedButton from './common/Button'
 
@@ -48,8 +48,11 @@ const Dashboard = ({navigation}) => {
             <View style={styles.settingsView}>
                 <TouchableOpacity
                     onPress={() => loginTapped()}>
+                        <Image 
+                        source={require('../assets/images/black-settings-button.png')}>
 
-                    <Text style={styles.featureTitleText, {color: '#000', fontWeight: '600', paddingRight: 30}}>Settings</Text>
+                        </Image>
+                    {/* <Text style={styles.featureTitleText, {color: '#000', fontWeight: '600', paddingRight: 30}}>Settings</Text> */}
                 </TouchableOpacity>
             </View>
 
