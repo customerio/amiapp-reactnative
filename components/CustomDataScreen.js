@@ -1,11 +1,28 @@
-import React, {useLayoutEffect} from 'react'
-import { View, Text, TextInput, StyleSheet, YellowBox} from 'react-native'
+import React, {useLayoutEffect, useState, useEffect} from 'react'
+import { View, Text, TextInput, StyleSheet} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import ThemedButton from './common/Button'
 
 const CustomDataScreen = ({route, navigation}) => {
     const { featureType } = route.params
 
+    const [title, setTitle] = useState('')
+    const [propertyLabel, setPropertyLabel] = useState('')
+    const [showEventName, setShowEventName] = useState(true)
+    
+    useEffect(() => {
+        switch (featureType){
+            case "Custom Event":
+                setTitle("Send Custom Events")
+                setPropertyLabel("Property")
+                setShowEventName(true)  
+            case "Device Attributes":
+                setTitle("Set Custom Device Attributes")
+                setPropertyLabel("Attribute")
+                setShowEventName(false)  
+        }
+    }, [featureType])
+    
     const sendEventTapped = () => {
         alert("Custom event")
     }
@@ -17,21 +34,17 @@ const CustomDataScreen = ({route, navigation}) => {
       }, [navigation])
 
     const getHeaderTitle = () => {
-        switch (featureType){
-            case "Custom Event":
-                return "Send Custom Events"
-            case "Device Attributes":
-                return "Set Custom Device Attributes"    
-            
-        }
+        
     }
     return (
         <View style={styles.container}>
             <View style={styles.innerContainer}>
                 <View style={styles.eventView}>
                     <Text style={styles.title}>
-                            {getHeaderTitle()}
+                            {title}
                     </Text>
+                    
+                    { showEventName && 
                     <View style={styles.eventRowView}>
                     <View style={{flex: 0.5}}>
                         <Text style={styles.eventTitle}>Event Name</Text>
@@ -45,11 +58,11 @@ const CustomDataScreen = ({route, navigation}) => {
                             />
                         </View>
                     </View>
-
+                    }
                     <View style={styles.eventRowView}>
                     <View style={{flex: 0.5}}>
 
-                        <Text style={styles.eventTitle}>Property Name</Text>
+                        <Text style={styles.eventTitle}>{propertyLabel} Name</Text>
                         </View>
                         <View style={{flex: 0.5,alignItems:'flex-end'}}>
                         <TextInput
@@ -62,7 +75,7 @@ const CustomDataScreen = ({route, navigation}) => {
                     </View>
                     <View style={styles.eventRowView}>
                         <View style={{flex: 0.5}}>
-                            <Text style={styles.eventTitle}>Property Value</Text>
+                            <Text style={styles.eventTitle}>{propertyLabel} Value</Text>
                         </View>
                         <View style={{flex: 0.5, alignItems:'flex-end'}}>
                         <TextInput
