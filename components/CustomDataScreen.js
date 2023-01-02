@@ -9,17 +9,22 @@ const CustomDataScreen = ({route, navigation}) => {
     const [title, setTitle] = useState('')
     const [propertyLabel, setPropertyLabel] = useState('')
     const [showEventName, setShowEventName] = useState(true)
-    
+    const [buttonText, setButtonText] = useState('')
+
     useEffect(() => {
         switch (featureType){
             case "Custom Event":
                 setTitle("Send Custom Events")
                 setPropertyLabel("Property")
                 setShowEventName(true)  
+                setButtonText("event")
+                break
             case "Device Attributes":
                 setTitle("Set Custom Device Attributes")
                 setPropertyLabel("Attribute")
                 setShowEventName(false)  
+                setButtonText("device attributes")
+                break
         }
     }, [featureType])
     
@@ -87,7 +92,7 @@ const CustomDataScreen = ({route, navigation}) => {
                         </View>
                     </View>
                     <ThemedButton
-                    title ="Send Event"
+                    title ={`Send ${buttonText}`}
                     onPress={() => sendEventTapped()}></ThemedButton>
                 </View>
                 
