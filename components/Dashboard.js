@@ -48,40 +48,40 @@ const Dashboard = ({navigation}) => {
       
     return (
         <View style={styles.container}>
-            <View style={[styles.flexRow, styles.settingsView]}>
-                <View style={styles.settingsView}>
-                    <TouchableOpacity
-                        onPress={() => settingsTapped()}>
-                            <Image 
-                            style={styles.settingsImage}
-                            source={require('../assets/images/black-settings-button.png')}>
+            <View style={{flex:1,backgroundColor:'white', paddingTop: 50}}>
+                <View style={{justifyContent:'space-around'}}>
+                    <View style={{height:50,alignSelf:'stretch',margin:5}}>
+                        <View style={styles.settingsView}>
+                            <TouchableOpacity
+                                onPress={() => settingsTapped()}>
+                                    <Image 
+                                    style={styles.settingsImage}
+                                    source={require('../assets/images/black-settings-button.png')}>
 
-                            </Image>
-                        {/* <Text style={styles.featureTitleText, {color: '#000', fontWeight: '600', paddingRight: 30}}>Settings</Text> */}
-                    </TouchableOpacity>
+                                    </Image>
+                            </TouchableOpacity>
+                            </View>
+                        </View>  
                 </View>
-            </View>
-            
-        <View style={styles.flexRow}>
-            <View style={styles.innerContainer}>
-                <Text style={styles.title}>
-                    What would you like to test?
-                </Text>
+                <View style={styles.innerContainer}>
+                    <Text style={styles.title}>
+                        What would you like to test?
+                    </Text>
 
-                <View style={styles.featuresView}>
-                <FlatList style={styles.featuresList}
-                    data={[
-                    {key: 'Send Random Event', onClick: () => sendRandomEventTapped()},
-                    {key: 'Send Custom Event', onClick: () => sendCustomEventTapped()},
-                    {key: 'Set Device Attributes', onClick: () => setDeviceAttributesTapped()},
-                    {key: 'Set Profile Attributes', onClick: () => setProfileAttributesTapped()},
-                    {key: 'View Logs', onClick: () => viewLogsTapped()},
-                    {key: 'Logout', onClick: () => logoutTapped()},
-                    ]}
-                    renderItem={({item}) => renderDashboardButtons(item)}
-                />
+                    <View style={styles.featuresView}>
+                    <FlatList style={styles.featuresList}
+                        data={[
+                        {key: 'Send Random Event', onClick: () => sendRandomEventTapped()},
+                        {key: 'Send Custom Event', onClick: () => sendCustomEventTapped()},
+                        {key: 'Set Device Attributes', onClick: () => setDeviceAttributesTapped()},
+                        {key: 'Set Profile Attributes', onClick: () => setProfileAttributesTapped()},
+                        {key: 'View Logs', onClick: () => viewLogsTapped()},
+                        {key: 'Logout', onClick: () => logoutTapped()},
+                        ]}
+                        renderItem={({item}) => renderDashboardButtons(item)}
+                    />
+                    </View>
                 </View>
-            </View>
             </View>
         </View>
     )
@@ -92,12 +92,11 @@ const styles = StyleSheet.create({
         flex : 1
     },
     innerContainer: {
-        flex: 1,
-        paddingTop: 50,
-        alignContent: 'center',
-        alignItems: 'center',
-        justifyContent: 'center', 
-        // backgroundColor: 'pink'
+        flex:1,
+        alignItems:'center',
+        justifyContent:'center',
+        alignSelf:'stretch',
+        margin:5
     },
     title: {
         fontSize: 22
@@ -116,6 +115,8 @@ const styles = StyleSheet.create({
     settingsView: {    
         alignItems: 'flex-end',
         height: 50,
+        flex: 1,
+        paddingRight: 30,
     },
     settingsImage: {
         width: 50,
@@ -123,12 +124,7 @@ const styles = StyleSheet.create({
     },
     flexRow: {
         top: 75,
-        // flexDirection: 'row',
-        // backgroundColor: 'orange',
-        // justifyContent: 'space-between'
-            flexDirection: 'row', // inner items will be added vertically
-            // flexGrow: 1,            // all the available vertical space will be occupied by it
-            justifyContent: 'space-between' 
+        flexDirection: 'row',
     }
 })
 
