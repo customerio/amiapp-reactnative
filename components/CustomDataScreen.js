@@ -90,11 +90,13 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 22,
         fontWeight: '700',
-        bottom: 50
+        paddingBottom: 40
     },
     eventView:{
         width: '80%',
-        backgroundColor:'yellow'
+        alignContent:'center',
+        justifyContent:"center",
+        bottom: 50
     },
     eventRowView: {
         flexDirection: 'row',
