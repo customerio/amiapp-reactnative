@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import { StyleSheet} from 'react-native';
+import { Settings, StyleSheet} from 'react-native';
 import FeaturesUpdate from './components/FeaturesUpdate';
 import FeaturesTrial from './components/FeaturesTrial';
 import Login from './components/Login';
@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CustomerIO } from 'customerio-reactnative';
 import Dashboard from './components/Dashboard';
 import CustomDataScreen from './components/CustomDataScreen';
+import SettingsScreen from './components/SettingsScreen'
 import ViewLogs from './components/ViewLogs';
 const Stack = createNativeStackNavigator();
 
@@ -69,7 +70,12 @@ export default function App() {
             backgroundColor: '#ffffff'},
         }}
        />
-       <Stack.Screen name="ViewLogs" component={ViewLogs}
+       <Stack.Screen name="ViewLogsScreen" component={ViewLogs}
+       options={{
+          title:"",
+        }}
+       />
+       <Stack.Screen name="SettingsScreen" component={SettingsScreen}
        options={{
           title:"",
           headerStyle: {

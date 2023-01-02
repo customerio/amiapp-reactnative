@@ -9,6 +9,9 @@ const Dashboard = ({navigation}) => {
         alert("Add random event here")
     }
 
+    const settingsTapped = () => {
+        navigation.navigate("SettingsScreen")
+    }
     const sendCustomEventTapped = () => {
         navigation.navigate("CustomDataScreen", {
             featureType : "Custom Event"
@@ -45,17 +48,21 @@ const Dashboard = ({navigation}) => {
       
     return (
         <View style={styles.container}>
-            <View style={styles.settingsView}>
-                <TouchableOpacity
-                    onPress={() => loginTapped()}>
-                        <Image 
-                        source={require('../assets/images/black-settings-button.png')}>
+            <View style={[styles.flexRow, styles.settingsView]}>
+                <View style={styles.settingsView}>
+                    <TouchableOpacity
+                        onPress={() => settingsTapped()}>
+                            <Image 
+                            style={styles.settingsImage}
+                            source={require('../assets/images/black-settings-button.png')}>
 
-                        </Image>
-                    {/* <Text style={styles.featureTitleText, {color: '#000', fontWeight: '600', paddingRight: 30}}>Settings</Text> */}
-                </TouchableOpacity>
+                            </Image>
+                        {/* <Text style={styles.featureTitleText, {color: '#000', fontWeight: '600', paddingRight: 30}}>Settings</Text> */}
+                    </TouchableOpacity>
+                </View>
             </View>
-
+            
+        <View style={styles.flexRow}>
             <View style={styles.innerContainer}>
                 <Text style={styles.title}>
                     What would you like to test?
@@ -75,6 +82,7 @@ const Dashboard = ({navigation}) => {
                 />
                 </View>
             </View>
+            </View>
         </View>
     )
 }
@@ -85,9 +93,11 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         flex: 1,
+        paddingTop: 50,
         alignContent: 'center',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center', 
+        // backgroundColor: 'pink'
     },
     title: {
         fontSize: 22
@@ -103,9 +113,22 @@ const styles = StyleSheet.create({
         fontSize: 17,
         paddingRight : 10
     },
-    settingsView: {
-        top: 75,
+    settingsView: {    
         alignItems: 'flex-end',
+        height: 50,
+    },
+    settingsImage: {
+        width: 50,
+        height: 50
+    },
+    flexRow: {
+        top: 75,
+        // flexDirection: 'row',
+        // backgroundColor: 'orange',
+        // justifyContent: 'space-between'
+            flexDirection: 'row', // inner items will be added vertically
+            // flexGrow: 1,            // all the available vertical space will be occupied by it
+            justifyContent: 'space-between' 
     }
 })
 
