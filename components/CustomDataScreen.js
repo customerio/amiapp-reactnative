@@ -1,6 +1,7 @@
 import React, {useLayoutEffect} from 'react'
 import { View, Text, TextInput, StyleSheet, YellowBox} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import ThemedButton from './common/Button'
 
 const CustomDataScreen = ({route, navigation}) => {
     const { featureType } = route.params
@@ -72,12 +73,18 @@ const CustomDataScreen = ({route, navigation}) => {
                             />
                         </View>
                     </View>
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
                         style={styles.featureButton}
                         onPress={() => sendEventTapped()}
                         underlayColor='#f194ff'>
                         <Text style={styles.featureTitleText}>Send Event</Text>
                     </TouchableOpacity>
+                    
+                    */}
+
+                    <ThemedButton
+                    title ="Send Event"
+                    onPress={() => sendEventTapped()}></ThemedButton>
                 </View>
                 
             </View>
