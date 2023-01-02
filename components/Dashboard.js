@@ -1,19 +1,41 @@
 import React, {useState} from 'react'
-import { View, Text, TextInput, StyleSheet} from 'react-native'
+import { View, Text, FlatList, StyleSheet} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import ThemedButton from './common/Button'
 
 const Dashboard = ({navigation}) => {
 
 
+    const buttons = [
+        "Send Random Event",
+        "Send Custom Event",
+        "Set Device Attributes",
+        "Set Profile Attributes",
+        "View Logs",
+        "Logout"
+        ]
     const sendRandomEventTapped = () => {
         alert("Add random event here")
     }
 
-    const sencCustomEventTapped = () => {
+    const sendCustomEventTapped = () => {
         navigation.navigate("CustomDataScreen", {
             featureType : "Custom Event"
         })
     }
+
+    const dashboardButtons = () => {
+        buttons.map(p => (
+         <ThemedButton onClick={e=>{ this.sendCustomEventTapped()}} title={p}/>
+      ));
+    }
+
+    const renderDashboardButtons = (item) => {
+        return (
+            <ThemedButton onClick={e=>{ this.sendCustomEventTapped()}} title={item.key}/>
+        )
+      }
+      
     return (
         <View style={styles.container}>
             <View style={styles.settingsView}>
@@ -31,7 +53,19 @@ const Dashboard = ({navigation}) => {
                 </Text>
 
                 <View style={styles.featuresView}>
-
+                <FlatList style={styles.featuresList}
+                    data={[
+                    {key: 'Send Random Event'},
+                    {key: 'Send Custom Event'},
+                    {key: 'Set Device Attributes'},
+                    {key: 'Set Profile Attributes'},
+                    {key: 'View Logs'},
+                    {key: 'Logout'},
+                    ]}
+                    renderItem={({item}) => renderDashboardButtons(item)}
+                    // ItemSeparatorComponent = {renderSeparator}
+                />
+        {/*
                     <TouchableOpacity
                         style={styles.featureButton}
                         onPress={() => sendRandomEventTapped()}
@@ -73,6 +107,7 @@ const Dashboard = ({navigation}) => {
                         underlayColor='#f194ff'>
                         <Text style={styles.featureTitleText}>Log out</Text>
                     </TouchableOpacity>
+        */}
                 </View>
             </View>
         </View>
