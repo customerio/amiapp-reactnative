@@ -1,21 +1,28 @@
-import React from 'react'
+import React, {useLayoutEffect} from 'react'
 import { View, StyleSheet, Text} from 'react-native';
 
-const SettingsScreen = () => {
+const SettingsScreen = ({navigation}) => {
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShadowVisible: false,
+    })
+  }, [navigation])
+
   return (
     <View style={styles.container}>
-        <Text style={styles.textLabel}>
-        [CIO] (siteid:94541) added queue task data 
-2023-01-02 21:43:46.286381+0530 SampleApp[38143:31476366] [CIO] (siteid:94541) processing queue status QueueStatus(queueId: "94541e1bbff594682089", numTasksInQueue: 1).
-2023-01-02 21:43:46.286491+0530 SampleAp        
-    </Text>
+       <View style={{flex:1,backgroundColor:'white', paddingTop: 50}}>
+              <View style={{justifyContent:'space-around'}}>
+                  <Text> Settings</Text>
+            </View>
+        </View> 
     </View>
   )
 }
 const styles = StyleSheet.create({
     container: {
         flex:1,
-        backgroundColor: "#333333"
+        backgroundColor: "#fff"
     },
     textLabel: {
         padding: 20,
