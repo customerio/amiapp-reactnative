@@ -73,15 +73,6 @@ const CustomDataScreen = ({route, navigation}) => {
                             />
                         </View>
                     </View>
-                    {/* <TouchableOpacity
-                        style={styles.featureButton}
-                        onPress={() => sendEventTapped()}
-                        underlayColor='#f194ff'>
-                        <Text style={styles.featureTitleText}>Send Event</Text>
-                    </TouchableOpacity>
-                    
-                    */}
-
                     <ThemedButton
                     title ="Send Event"
                     onPress={() => sendEventTapped()}></ThemedButton>
@@ -133,27 +124,7 @@ const styles = StyleSheet.create({
       },
       eventTitle: {
         fontSize: 15
-      },
-      featureButton:{
-        padding:10,
-        alignSelf:'center',
-        paddingBottom:10,
-        backgroundColor:'#3C437D',
-        borderRadius:10,
-        borderWidth: 1,
-        borderColor: '#fff',
-        marginTop: 20,
-        marginBottom: 10,
-        width: '75%'
-      },
-      featureTitleText:{
-        color:'#fff',
-        textAlign:'center',
-        fontWeight: '600',
-        paddingLeft : 10,
-        fontSize: 17,
-        paddingRight : 10
-    },
+      }
 })
 
 
