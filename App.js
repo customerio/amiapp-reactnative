@@ -62,7 +62,10 @@ export default function App() {
        />
        <Stack.Screen name="CustomDataScreen" component={CustomDataScreen}
        options={{
-          headerShown : false
+          // headerShown : false
+          title:"",
+          headerStyle: {
+            backgroundColor: '#ffffff'          },
         }}
        />
        </Stack.Navigator>
