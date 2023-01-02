@@ -5,15 +5,6 @@ import ThemedButton from './common/Button'
 
 const Dashboard = ({navigation}) => {
 
-
-    const buttons = [
-        "Send Random Event",
-        "Send Custom Event",
-        "Set Device Attributes",
-        "Set Profile Attributes",
-        "View Logs",
-        "Logout"
-        ]
     const sendRandomEventTapped = () => {
         alert("Add random event here")
     }
@@ -24,11 +15,19 @@ const Dashboard = ({navigation}) => {
         })
     }
 
+    const setDeviceAttributesTapped = () => {
+        navigation.navigate("CustomDataScreen", {
+            featureType : "Device Attributes"
+        })
+    }
+
     const renderDashboardButtons = (item) => {
         return (
-            <ThemedButton onClick={e=>{ this.sendCustomEventTapped()}} title={item.key}/>
+            <ThemedButton onPress={ item.onClick} title={item.key}/>
         )
-      }
+    }
+
+    
       
     return (
         <View style={styles.container}>
@@ -48,12 +47,12 @@ const Dashboard = ({navigation}) => {
                 <View style={styles.featuresView}>
                 <FlatList style={styles.featuresList}
                     data={[
-                    {key: 'Send Random Event'},
-                    {key: 'Send Custom Event'},
-                    {key: 'Set Device Attributes'},
-                    {key: 'Set Profile Attributes'},
-                    {key: 'View Logs'},
-                    {key: 'Logout'},
+                    {key: 'Send Random Event', onClick: () => sendRandomEventTapped()},
+                    {key: 'Send Custom Event', onClick: () => sendCustomEventTapped()},
+                    {key: 'Set Device Attributes', onClick: () => setDeviceAttributesTapped()},
+                    {key: 'Set Profile Attributes', onClick: () => setProfileAttributesTapped()},
+                    {key: 'View Logs', onClick: () => viewLogsTapped()},
+                    {key: 'Logout', onClick: () => logoutTapped()},
                     ]}
                     renderItem={({item}) => renderDashboardButtons(item)}
                 />
