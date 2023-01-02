@@ -57,7 +57,8 @@ export default function App() {
         }}/>
         <Stack.Screen name="Dashboard" component={Dashboard}
         options={{
-          headerShown : false
+          headerShown : false,
+          gestureEnabled: false
         }}
        />
        <Stack.Screen name="CustomDataScreen" component={CustomDataScreen}

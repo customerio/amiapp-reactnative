@@ -25,6 +25,12 @@ const CustomDataScreen = ({route, navigation}) => {
                 setShowEventName(false)  
                 setButtonText("device attributes")
                 break
+            case "Profile Attributes":
+                setTitle("Set Custom Profile Attributes")
+                setPropertyLabel("Attribute")
+                setShowEventName(false)  
+                setButtonText("profile attributes")
+                break
         }
     }, [featureType])
     

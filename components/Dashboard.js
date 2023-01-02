@@ -21,6 +21,16 @@ const Dashboard = ({navigation}) => {
         })
     }
 
+    const setProfileAttributesTapped = () => {
+        navigation.navigate("CustomDataScreen", {
+            featureType : "Profile Attributes"
+        })
+    }
+
+    const logoutTapped = () => {
+        navigation.popToTop()
+    }
+
     const renderDashboardButtons = (item) => {
         return (
             <ThemedButton onPress={ item.onClick} title={item.key}/>
