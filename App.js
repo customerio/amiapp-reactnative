@@ -56,14 +56,14 @@ export default function App() {
           headerShown : false
         }}/>
         <Stack.Screen name="Dashboard" component={Dashboard}
-        // options={{
-        //   headerShown : false
-        // }}
+        options={{
+          headerShown : false
+        }}
        />
        <Stack.Screen name="CustomDataScreen" component={CustomDataScreen}
-       // options={{
-        //   headerShown : false
-        // }}
+       options={{
+          headerShown : false
+        }}
        />
        </Stack.Navigator>
     </NavigationContainer>
