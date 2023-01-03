@@ -8,7 +8,8 @@ const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(true)
 const [isPushEnabled, setIsPushEnabled] = useState(true)
 const [isTrackDeviceAttributesEnabled, setIsTrackDeviceAttributesEnabled] = useState(true)
 const [isTrackScreensEnabled, setIsTrackScreensEnabled] = useState(true)
-
+const [bgQDelay, setBgQDelay] = useState(30)
+const [bgQMinNumTasks, setBgQMinNumTasks] = useState(10)
 
 useLayoutEffect(() => {
     navigation.setOptions({
@@ -133,9 +134,8 @@ useLayoutEffect(() => {
                   <Text style={styles.textLabel}>backgroundQueueSecondsDelay</Text>
                   <TextInput
                     style={styles.input}
-                    value={deviceToken}
-                    placeholder="number"
-                    editable={false}
+                    value={bgQDelay}
+                    onChangeText={(e) => setBgQDelay(e)}
                   />
                   <View style={styles.copyToClipboardButton}></View>
                 </View>
@@ -146,9 +146,8 @@ useLayoutEffect(() => {
                   <Text style={styles.textLabel}>backgroundQueueMinNumberOfTasks</Text>
                   <TextInput
                     style={styles.input}
-                    value={deviceToken}
-                    placeholder="number"
-                    editable={false}
+                    value={bgQMinNumTasks}
+                    onChangeText={(e) => setBgQMinNumTasks(e)}
                   />
                   <View style={styles.copyToClipboardButton}></View>
                 </View>
