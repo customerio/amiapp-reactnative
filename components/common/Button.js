@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         borderColor: '#fff',
         marginTop: 20,
         marginBottom: 10,
-        width: '75%'
+        minWidth: '75%'
     },
     text : {
         color:'#fff',

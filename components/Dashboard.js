@@ -69,7 +69,7 @@ const Dashboard = ({navigation}) => {
                     </Text>
 
                     <View style={styles.featuresView}>
-                    <FlatList style={styles.featuresList}
+                    <FlatList
                         data={[
                         {key: 'Send Random Event', onClick: () => sendRandomEventTapped()},
                         {key: 'Send Custom Event', onClick: () => sendCustomEventTapped()},
