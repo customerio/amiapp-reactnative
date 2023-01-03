@@ -34,7 +34,7 @@ const Dashboard = ({navigation}) => {
     }
 
     const viewLogsTapped = () => {
-        navigation.navigate("ViewLogs")
+        navigation.navigate("ViewLogsScreen")
     }
 
     const logoutTapped = () => {
