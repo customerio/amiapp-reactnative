@@ -14,7 +14,7 @@ const [deviceToken, setDeviceToken] = useState('')
     <View style={styles.container}>
        <View style={styles.innerContainer}>
               <View style={styles.headerView}>
-                  <Text style={styles.textHeaderLabel}> Settings</Text>
+                  <Text style={styles.textHeaderLabel}>Settings</Text>
             </View>
             <View style={[styles.rowView, {marginTop: 10}]}>
                 <View style={styles.stackColumnView}>
@@ -131,6 +131,11 @@ const [deviceToken, setDeviceToken] = useState('')
                   <View style={styles.copyToClipboardButton}></View>
                 </View>
               </View>
+
+            {/* Features Header */}
+              <View style={[styles.headerView, {paddingTop: 50}]}>
+                  <Text style={styles.textHeaderLabel}>Features</Text>
+            </View>
         </View> 
     </View>
   )
