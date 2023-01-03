@@ -10,13 +10,32 @@ const Login = ({navigation}) => {
 
     const loginTapped = () => {
         setIsLoginTapped(true)
-        alert("Validation pending")
-        navigation.navigate("Dashboard")
+        
+        if (!IsAllFieldsFilled()) {
+          alert("Please enter name and email")
+          return
+        }
+        if (validateEmail(email)) {
+          return
+        }
+        // navigation.navigate("Dashboard")
     }
 
-    const IsFormValid = () => {
+    const IsAllFieldsFilled = () => {
       if (name.trim() == "" || email.trim() == "") {
+        return false
+      }
+      return true
+    }
 
+    const validateEmail = (email) => {
+      let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+      if (reg.test(email) === false) {
+        alert("Email is Not Correct");
+        return false;
+      }
+      else {
+        alert("Email is Correct");
       }
     }
 
