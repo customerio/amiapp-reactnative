@@ -14,6 +14,12 @@ const Login = ({navigation}) => {
         navigation.navigate("Dashboard")
     }
 
+    const IsFormValid = () => {
+      if (name.trim() == "" || email.trim() == "") {
+
+      }
+    }
+
     const generateUniqueUser = () => {
         const char = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
         const random = Array.from(
@@ -33,21 +39,19 @@ const Login = ({navigation}) => {
             <Text style={styles.headerText}>Ami App</Text>
             <Text style={styles.headerSubText}>React Native APN</Text>
         <View style={styles.nameView}>
-            <Text style={[styles.labelText, {paddingTop: 0}]}>First Name</Text>
               <TextInput
                   style={styles.input}
-                  onChangeText={(e) => setName(e.value)}
+                  onChangeText={(e) => setName(e)}
                   value={name}
-                  placeholder='John D'
+                  placeholder='First Name'
                 />
           </View>
           <View style={styles.nameView}>
-             <Text style={styles.labelText}>E-mail</Text>
               <TextInput
                   style={styles.input}
-                  onChangeText={(e) => setEmail(e.value)}
+                  onChangeText={(e) => setEmail(e)}
                   value={email}
-                  placeholder='you@company.com'
+                  placeholder='Email'
                 />
           </View>
           <TouchableOpacity
@@ -133,7 +137,10 @@ const styles = StyleSheet.create({
         borderColor:"#ebecf2",
         padding: 10,
         fontFamily:'Avenir',
-        color: '#4b4b60'
+        color: '#4b4b60',
+        borderWidth: 0, 
+        borderBottomWidth: 1,
+        borderColor: '#E0E0E0'
       },
       loginButton:{
         padding:10,
