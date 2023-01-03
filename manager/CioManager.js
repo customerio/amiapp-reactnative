@@ -17,6 +17,10 @@ class CioManager {
     profileAttributes(data) {
         CustomerIO.setProfileAttributes(data)
     }
+
+    identifyUser(emailId, data) {
+        CustomerIO.identify(emailId, data)
+    }
 }
 
 export default CioManager

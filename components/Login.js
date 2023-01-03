@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { View, Text, TextInput, StyleSheet} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import CioManager from '../manager/CioManager'
 
 const Login = ({navigation}) => {
 
@@ -19,6 +20,9 @@ const Login = ({navigation}) => {
           alert("Please enter a valid email")
           return
         }
+        const cioManager = new CioManager()
+        const data = {"firstName": name.trim()}
+        cioManager.identifyUser(email.trim(), data)
         navigation.navigate("Dashboard")
     }
 
