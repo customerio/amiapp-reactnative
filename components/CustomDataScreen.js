@@ -1,15 +1,22 @@
 import React, {useLayoutEffect, useState, useEffect} from 'react'
 import { View, Text, TextInput, StyleSheet} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import CioManager from '../manager/CioManager'
 import ThemedButton from './common/Button'
 
 const CustomDataScreen = ({route, navigation}) => {
     const { featureType } = route.params
 
+    // Labels
     const [title, setTitle] = useState('')
     const [propertyLabel, setPropertyLabel] = useState('')
     const [showEventName, setShowEventName] = useState(true)
     const [buttonText, setButtonText] = useState('')
+
+    // Values
+    const [eventName, setEventName] = useState('')
+    const [propertyName, setPropertyName] = useState('')
+    const [propertyValue, setPropertyValue] = useState('')
 
     useEffect(() => {
         switch (featureType){
@@ -35,9 +42,59 @@ const CustomDataScreen = ({route, navigation}) => {
     }, [featureType])
     
     const sendEventTapped = () => {
-        alert("Custom event")
+        if (!IsFormValid()) {
+            alert("Please fill in all fields")
+            return
+        }
+
+        const cioManager = new CioManager()
+        switch (featureType){
+            case "Custom Event":
+                sendCustomEvent(cioManager)
+                break
+            case "Device Attributes":
+                sendDeviceAttributes(cioManager)
+                break
+            case "Profile Attributes":
+                sendProfileAttributes(cioManager)
+                break
+        }
+        alert(`${featureType} sent`)
+        resetValues()
     }
 
+    const sendCustomEvent = (cioManager) => {
+        const data = {propertyName: propertyValue}
+        cioManager.customEvent(eventName, data)
+    }
+
+    const sendDeviceAttributes = (cioManager) => {
+        const data = {propertyName: propertyValue}
+        cioManager.deviceAttributes(data)
+    }
+
+    const sendProfileAttributes = (cioManager) => {
+        const data = {propertyName: propertyValue}
+        cioManager.profileAttributes(data)
+    }
+
+    const resetValues = () => {
+        setEventName("")
+        setPropertyName("")
+        setPropertyValue("")
+    }
+
+    const IsFormValid = () => {
+        if (featureType == "Custom Event" && eventName.trim() == "") {
+            return false
+        }
+        if (propertyName.trim() == "" || propertyValue.trim() == "")
+        {
+            return false
+        }
+        return true
+    }
+    
     useLayoutEffect(() => {
         navigation.setOptions({
           headerShadowVisible: false,
@@ -63,9 +120,9 @@ const CustomDataScreen = ({route, navigation}) => {
                         <View style={{flex: 0.5,alignItems:'flex-end'}}>
                         <TextInput
                             style={styles.input}
-                            onChangeText={(e) => setName(e.value)}
-                            value="khk"
-                            placeholder='John D'
+                            onChangeText={(e) => setEventName(e)}
+                            value={eventName}
+                            placeholder='purchase'
                             />
                         </View>
                     </View>
@@ -78,9 +135,9 @@ const CustomDataScreen = ({route, navigation}) => {
                         <View style={{flex: 0.5,alignItems:'flex-end'}}>
                         <TextInput
                             style={styles.input}
-                            onChangeText={(e) => setName(e.value)}
-                            value="khk"
-                            placeholder='John D'
+                            onChangeText={(e) => setPropertyName(e)}
+                            value={propertyName}
+                            placeholder='item'
                             />
                         </View>
                     </View>
@@ -91,9 +148,9 @@ const CustomDataScreen = ({route, navigation}) => {
                         <View style={{flex: 0.5, alignItems:'flex-end'}}>
                         <TextInput
                             style={styles.input}
-                            onChangeText={(e) => setName(e.value)}
-                            value="khk"
-                            placeholder='John D'
+                            onChangeText={(e) => setPropertyValue(e)}
+                            value={propertyValue}
+                            placeholder='socks'
                             />
                         </View>
                     </View>

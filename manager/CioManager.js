@@ -6,8 +6,16 @@ class CioManager {
         CustomerIO.track("RandomEvent")
     }
 
-    customEvent() {
-        
+    customEvent(name, data) {
+        CustomerIO.track(name, data)
+    }
+
+    deviceAttributes(data) {
+        CustomerIO.setDeviceAttributes(data)
+    }
+
+    profileAttributes(data) {
+        CustomerIO.setProfileAttributes(data)
     }
 }
 

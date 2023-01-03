@@ -6,8 +6,9 @@ import ThemedButton from './common/Button'
 
 const Dashboard = ({navigation}) => {
 
-    const cioManager = new CioManager()
+    
     const sendRandomEventTapped = () => {
+        const cioManager = new CioManager()
         cioManager.randomEvent()
     }
 
