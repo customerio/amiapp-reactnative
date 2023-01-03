@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 import { View, Text, FlatList, StyleSheet, Image} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import CioManager from '../manager/CioManager'
 import ThemedButton from './common/Button'
 
 const Dashboard = ({navigation}) => {
 
+    const cioManager = new CioManager()
     const sendRandomEventTapped = () => {
-        alert("Add random event here")
+        cioManager.randomEvent()
     }
 
     const settingsTapped = () => {
