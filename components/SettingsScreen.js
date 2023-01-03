@@ -1,9 +1,10 @@
 import React, {useLayoutEffect, useState} from 'react'
-import { View, StyleSheet, Text, Image} from 'react-native';
+import { View, StyleSheet, Text, Image, Switch} from 'react-native';
 import { TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 
 const SettingsScreen = ({navigation}) => {
 const [deviceToken, setDeviceToken] = useState('')
+const [isEnabled, setIsEnabled] = useState(true)
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShadowVisible: false,
@@ -133,9 +134,42 @@ const [deviceToken, setDeviceToken] = useState('')
               </View>
 
             {/* Features Header */}
-              <View style={[styles.headerView, {paddingTop: 50}]}>
+            <View style={[styles.headerView, {paddingTop: 50}]}>
                   <Text style={styles.textHeaderLabel}>Features</Text>
             </View>
+            <View style={[styles.rowView, {marginTop: 10}]}>
+                <View style={styles.stackColumnView}>
+                  <Text style={styles.textLabel}>Enable Push Notifications</Text>
+                  
+                </View>
+              </View>
+            {/* CIO Track URL */}
+              <View style={styles.rowView}>
+                <View style={styles.stackColumnView}>
+                  <Text style={styles.textLabel}>Track Screens</Text>
+                  
+                </View>
+              </View>
+
+              <View style={styles.rowView}>
+                <View style={styles.stackColumnView}>
+                  <Text style={styles.textLabel}>Track Device Attributes</Text>
+                  
+                </View>
+                </View>
+                <View style={styles.rowView}>
+                <View style={styles.stackColumnView}>
+                  <Text style={styles.textLabel}>Debug mode</Text>
+                  <Switch
+                    trackColor={{ false: "#767577", true: "#81b0ff" }}
+                    thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                    ios_backgroundColor="#3e3e3e"
+                    // onValueChange={toggleSwitch}
+                    value={isEnabled}
+                  />
+                
+              </View>
+              </View>
         </View> 
     </View>
   )
