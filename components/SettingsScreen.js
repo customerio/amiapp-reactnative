@@ -1,18 +1,19 @@
 import React, {useLayoutEffect, useState} from 'react'
 import { View, StyleSheet, Text, Image, Switch} from 'react-native';
-import { TextInput, TouchableOpacity} from 'react-native-gesture-handler';
+import { ScrollView, TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 
 const SettingsScreen = ({navigation}) => {
 const [deviceToken, setDeviceToken] = useState('')
-const [isEnabled, setIsEnabled] = useState(true)
+const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(true)
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShadowVisible: false,
     })
   }, [navigation])
 
+  const toggleSwitch = () => setIsDebugModeEnabled(previousState => !previousState);
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
        <View style={styles.innerContainer}>
               <View style={styles.headerView}>
                   <Text style={styles.textHeaderLabel}>Settings</Text>
@@ -140,38 +141,56 @@ const [isEnabled, setIsEnabled] = useState(true)
             <View style={[styles.rowView, {marginTop: 10}]}>
                 <View style={styles.stackColumnView}>
                   <Text style={styles.textLabel}>Enable Push Notifications</Text>
-                  
+                  <Switch
+                    trackColor={{ false: "#32BD54", true: "#32BD54" }}
+                    thumbColor={isDebugModeEnabled ? "#ffffff" : "#f4f3f4"}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={toggleSwitch}
+                    value={isDebugModeEnabled}
+                  />
                 </View>
               </View>
             {/* CIO Track URL */}
               <View style={styles.rowView}>
                 <View style={styles.stackColumnView}>
                   <Text style={styles.textLabel}>Track Screens</Text>
-                  
+                  <Switch
+                    trackColor={{ false: "#32BD54", true: "#32BD54" }}
+                    thumbColor={isDebugModeEnabled ? "#ffffff" : "#f4f3f4"}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={toggleSwitch}
+                    value={isDebugModeEnabled}
+                  />
                 </View>
               </View>
 
               <View style={styles.rowView}>
                 <View style={styles.stackColumnView}>
                   <Text style={styles.textLabel}>Track Device Attributes</Text>
-                  
+                  <Switch
+                    trackColor={{ false: "#32BD54", true: "#32BD54" }}
+                    thumbColor={isDebugModeEnabled ? "#ffffff" : "#f4f3f4"}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={toggleSwitch}
+                    value={isDebugModeEnabled}
+                  />
                 </View>
                 </View>
                 <View style={styles.rowView}>
                 <View style={styles.stackColumnView}>
                   <Text style={styles.textLabel}>Debug mode</Text>
                   <Switch
-                    trackColor={{ false: "#767577", true: "#81b0ff" }}
-                    thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                    trackColor={{ false: "#32BD54", true: "#32BD54" }}
+                    thumbColor={isDebugModeEnabled ? "#ffffff" : "#f4f3f4"}
                     ios_backgroundColor="#3e3e3e"
-                    // onValueChange={toggleSwitch}
-                    value={isEnabled}
+                    onValueChange={toggleSwitch}
+                    value={isDebugModeEnabled}
                   />
                 
               </View>
               </View>
         </View> 
-    </View>
+    </ScrollView>
   )
 }
 const styles = StyleSheet.create({
@@ -223,7 +242,7 @@ const styles = StyleSheet.create({
     innerContainer:{
       flex:1,
       backgroundColor:'white',
-      padding: 10
+      padding: 20
     },
     input: {
       width: '60%',
