@@ -5,13 +5,33 @@ import { ScrollView, TextInput, TouchableOpacity} from 'react-native-gesture-han
 const SettingsScreen = ({navigation}) => {
 const [deviceToken, setDeviceToken] = useState('')
 const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(true)
-  useLayoutEffect(() => {
+const [isPushEnabled, setIsPushEnabled] = useState(true)
+const [isTrackDeviceAttributesEnabled, setIsTrackDeviceAttributesEnabled] = useState(true)
+const [isTrackScreensEnabled, setIsTrackScreensEnabled] = useState(true)
+
+
+useLayoutEffect(() => {
     navigation.setOptions({
       headerShadowVisible: false,
     })
   }, [navigation])
 
-  const toggleSwitch = () => setIsDebugModeEnabled(previousState => !previousState);
+  const toggleSwitch = (type) => {
+    switch(type) {
+      case "Push":
+        setIsPushEnabled(previousState => !previousState)
+        break
+      case "Debug":
+        setIsDebugModeEnabled(previousState => !previousState);
+        break
+      case "DeviceAttr":
+        setIsTrackDeviceAttributesEnabled(previousState => !previousState);
+        break
+      case "Screens":
+        setIsTrackScreensEnabled(previousState => !previousState);
+        break
+    }
+  }
   return (
     <ScrollView style={styles.container}>
        <View style={styles.innerContainer}>
@@ -143,10 +163,10 @@ const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(true)
                   <Text style={styles.textLabel}>Enable Push Notifications</Text>
                   <Switch
                     trackColor={{ false: "#32BD54", true: "#32BD54" }}
-                    thumbColor={isDebugModeEnabled ? "#ffffff" : "#f4f3f4"}
+                    thumbColor={isPushEnabled ? "#ffffff" : "#f4f3f4"}
                     ios_backgroundColor="#3e3e3e"
-                    onValueChange={toggleSwitch}
-                    value={isDebugModeEnabled}
+                    onValueChange={() => toggleSwitch('Push')}
+                    value={isPushEnabled}
                   />
                 </View>
               </View>
@@ -156,10 +176,10 @@ const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(true)
                   <Text style={styles.textLabel}>Track Screens</Text>
                   <Switch
                     trackColor={{ false: "#32BD54", true: "#32BD54" }}
-                    thumbColor={isDebugModeEnabled ? "#ffffff" : "#f4f3f4"}
+                    thumbColor={isTrackScreensEnabled ? "#ffffff" : "#f4f3f4"}
                     ios_backgroundColor="#3e3e3e"
-                    onValueChange={toggleSwitch}
-                    value={isDebugModeEnabled}
+                    onValueChange={() => toggleSwitch('Screens')}
+                    value={isTrackScreensEnabled}
                   />
                 </View>
               </View>
@@ -169,10 +189,10 @@ const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(true)
                   <Text style={styles.textLabel}>Track Device Attributes</Text>
                   <Switch
                     trackColor={{ false: "#32BD54", true: "#32BD54" }}
-                    thumbColor={isDebugModeEnabled ? "#ffffff" : "#f4f3f4"}
+                    thumbColor={isTrackDeviceAttributesEnabled ? "#ffffff" : "#f4f3f4"}
                     ios_backgroundColor="#3e3e3e"
-                    onValueChange={toggleSwitch}
-                    value={isDebugModeEnabled}
+                    onValueChange={() => toggleSwitch('DeviceAttr')}
+                    value={isTrackDeviceAttributesEnabled}
                   />
                 </View>
                 </View>
@@ -183,7 +203,7 @@ const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(true)
                     trackColor={{ false: "#32BD54", true: "#32BD54" }}
                     thumbColor={isDebugModeEnabled ? "#ffffff" : "#f4f3f4"}
                     ios_backgroundColor="#3e3e3e"
-                    onValueChange={toggleSwitch}
+                    onValueChange={() => toggleSwitch('Debug')}
                     value={isDebugModeEnabled}
                   />
                 
