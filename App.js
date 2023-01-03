@@ -5,11 +5,14 @@ import FeaturesTrial from './components/FeaturesTrial';
 import Login from './components/Login';
 import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { CustomerIO } from 'customerio-reactnative';
+import { CustomerIO, CustomerioConfig, CioLogLevel, CustomerIOEnv } from "customerio-reactnative";
 import Dashboard from './components/Dashboard';
 import CustomDataScreen from './components/CustomDataScreen';
 import SettingsScreen from './components/SettingsScreen'
 import ViewLogs from './components/ViewLogs';
+import Env from "./env";
+import CioManager from './manager/CioManager';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -29,6 +32,26 @@ export default function App() {
     prefixes: ['amiapp://'],
     config
   };
+
+  useEffect(() => {
+    
+    initialiseCioPackage()
+  }, [])
+  
+  const initialiseCioPackage = () => {
+    const configuration = new CustomerioConfig()
+    configuration.logLevel = CioLogLevel.debug
+    configuration.autoTrackDeviceAttributes = true
+
+    const env = new CustomerIOEnv()
+    env.siteId = Env.siteId
+    env.apiKey = Env.apiKey
+    env.organizationId = Env.organizationId
+
+    const cioManager = new CioManager()
+    cioManager.initializeCio(env, configuration)
+  }
+
   return (
     
        // MARK:- AUTO SCREEN TRACKING

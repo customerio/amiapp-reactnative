@@ -21,7 +21,6 @@ const FeaturesUpdate = ({navigation}) => {
     env.siteId = Env.siteId
     env.apiKey = Env.apiKey
     env.organizationId = Env.organizationId
-
     CustomerIO.initialize(env, data) 
   }, [])
   

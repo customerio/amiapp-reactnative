@@ -25,6 +25,10 @@ class CioManager {
     clearUserIdentity() {
         CustomerIO.clearIdentify()
     }
+
+    initializeCio(env, config) {
+        CustomerIO.initialize(env, config) 
+    }
 }
 
 export default CioManager
