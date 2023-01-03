@@ -38,6 +38,8 @@ const Dashboard = ({navigation}) => {
     }
 
     const logoutTapped = () => {
+        const cioManager = new CioManager()
+        cioManager.clearUserIdentity()
         navigation.popToTop()
     }
 

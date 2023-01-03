@@ -21,6 +21,10 @@ class CioManager {
     identifyUser(emailId, data) {
         CustomerIO.identify(emailId, data)
     }
+
+    clearUserIdentity() {
+        CustomerIO.clearIdentify()
+    }
 }
 
 export default CioManager
