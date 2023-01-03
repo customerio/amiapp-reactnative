@@ -15,10 +15,11 @@ const Login = ({navigation}) => {
           alert("Please enter name and email")
           return
         }
-        if (validateEmail(email)) {
+        if (!validateEmail(email)) {
+          alert("Please enter a valid email")
           return
         }
-        // navigation.navigate("Dashboard")
+        navigation.navigate("Dashboard")
     }
 
     const IsAllFieldsFilled = () => {
@@ -31,12 +32,9 @@ const Login = ({navigation}) => {
     const validateEmail = (email) => {
       let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
       if (reg.test(email) === false) {
-        alert("Email is Not Correct");
         return false;
       }
-      else {
-        alert("Email is Correct");
-      }
+      return true
     }
 
     const generateUniqueUser = () => {
