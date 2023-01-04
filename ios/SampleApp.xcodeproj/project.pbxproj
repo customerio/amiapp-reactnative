@@ -471,6 +471,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SampleApp/SampleApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2YC97BQN3N;
@@ -625,7 +626,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.customer.ami;
 				PRODUCT_NAME = SampleApp;
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc io.customer.ami";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc io.customer.ami";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc io.customer.ami 1663275321";
 				SWIFT_OBJC_BRIDGING_HEADER = "SampleApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

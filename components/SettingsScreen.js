@@ -1,6 +1,7 @@
 import React, {useLayoutEffect, useState} from 'react'
 import { View, StyleSheet, Text, Image, Switch} from 'react-native';
 import { ScrollView, TextInput, TouchableOpacity} from 'react-native-gesture-handler';
+import Env from '../env';
 
 const SettingsScreen = ({navigation}) => {
 const [deviceToken, setDeviceToken] = useState('')
@@ -8,8 +9,8 @@ const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(true)
 const [isPushEnabled, setIsPushEnabled] = useState(true)
 const [isTrackDeviceAttributesEnabled, setIsTrackDeviceAttributesEnabled] = useState(true)
 const [isTrackScreensEnabled, setIsTrackScreensEnabled] = useState(true)
-const [bgQDelay, setBgQDelay] = useState(30)
-const [bgQMinNumTasks, setBgQMinNumTasks] = useState(10)
+const [bgQDelay, setBgQDelay] = useState("30")
+const [bgQMinNumTasks, setBgQMinNumTasks] = useState("10")
 
 useLayoutEffect(() => {
     navigation.setOptions({
@@ -94,7 +95,7 @@ useLayoutEffect(() => {
                   <Text style={styles.textLabel}>Site Id</Text>
                   <TextInput
                     style={styles.input}
-                    value={deviceToken}
+                    value={Env.siteId}
                     placeholder="siteId"
                     editable={false}
                   />
@@ -107,7 +108,7 @@ useLayoutEffect(() => {
                   <Text style={styles.textLabel}>API Key</Text>
                   <TextInput
                     style={styles.input}
-                    value={deviceToken}
+                    value={Env.apiKey}
                     placeholder="Api key"
                     editable={false}
                   />
@@ -120,7 +121,7 @@ useLayoutEffect(() => {
                   <Text style={styles.textLabel}>Org Id</Text>
                   <TextInput
                     style={styles.input}
-                    value={deviceToken}
+                    value={Env.organizationId}
                     placeholder="Gist Org id"
                     editable={false}
                   />
@@ -264,9 +265,10 @@ const styles = StyleSheet.create({
       padding: 20
     },
     input: {
-      width: '60%',
+      flex: 1,
       borderWidth: 1,
       padding:  5,
+      marginLeft: 10,
       backgroundColor: 'white',
       borderColor: '#fff',
       borderBottomColor: '#e6e6e6',
