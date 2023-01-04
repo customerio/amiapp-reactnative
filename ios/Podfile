@@ -12,7 +12,8 @@ target 'SampleApp' do
   pod 'RCT-Folly', :podspec => '../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec'
   pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
   pod 'CustomerIO/MessagingPushAPN', '~> 1.2.5'
-  
+  pod 'React-RCTPushNotification', :path => '../node_modules/react-native/Libraries/PushNotificationIOS'
+
   # Uncomment to opt-in to using Flipper
   #
   # if !ENV['CI']
