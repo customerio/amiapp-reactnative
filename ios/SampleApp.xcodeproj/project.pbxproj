@@ -14,9 +14,10 @@
 		4632B4CA283E5CB800AF05BC /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4632B4C9283E5CB800AF05BC /* NotificationService.swift */; };
 		4632B4CE283E5CB800AF05BC /* Notification Service.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4632B4C7283E5CB800AF05BC /* Notification Service.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		465AC78C2835304A000D21D9 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 465AC78B2835304A000D21D9 /* main.jsbundle */; };
-		465AC78D2835304E000D21D9 /* main.jsbundle in Sources */ = {isa = PBXBuildFile; fileRef = 465AC78B2835304A000D21D9 /* main.jsbundle */; };
 		46C29DB9296590D20099A118 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C29DB8296590D20099A118 /* AppDelegate.m */; };
 		46C29DBB2965912D0099A118 /* AmiAppCioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C29DBA2965912D0099A118 /* AmiAppCioManager.swift */; };
+		46FB06312965B4EC00001290 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FB06302965B4EC00001290 /* main.m */; };
+		46FB06322965B93E00001290 /* main.jsbundle in Sources */ = {isa = PBXBuildFile; fileRef = 465AC78B2835304A000D21D9 /* main.jsbundle */; };
 		70A1C0CD7AE0BE17519E378C /* libPods-Notification Service.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F69D4691C0AD460507881F /* libPods-Notification Service.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		F7052DB9287C788100560E20 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = F7052DB8287C788100560E20 /* FirebaseAppDistribution-Beta */; };
@@ -80,6 +81,7 @@
 		46C29DB7296590D20099A118 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		46C29DB8296590D20099A118 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		46C29DBA2965912D0099A118 /* AmiAppCioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmiAppCioManager.swift; sourceTree = "<group>"; };
+		46FB06302965B4EC00001290 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5F86445EE4624C8075385DB3 /* Pods-Notification Service.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notification Service.release.xcconfig"; path = "Target Support Files/Pods-Notification Service/Pods-Notification Service.release.xcconfig"; sourceTree = "<group>"; };
 		5FCB99A7A0FCE6EE9E8B6542 /* Pods-Notification Service.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notification Service.debug.xcconfig"; path = "Target Support Files/Pods-Notification Service/Pods-Notification Service.debug.xcconfig"; sourceTree = "<group>"; };
 		7027D8F2719E14592AE8C5B1 /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		13B07FAE1A68108700A75B9A /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				46FB06302965B4EC00001290 /* main.m */,
 				46C29DBA2965912D0099A118 /* AmiAppCioManager.swift */,
 				46C29DB7296590D20099A118 /* AppDelegate.h */,
 				46C29DB8296590D20099A118 /* AppDelegate.m */,
@@ -435,8 +438,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				465AC78D2835304E000D21D9 /* main.jsbundle in Sources */,
+				46FB06322965B93E00001290 /* main.jsbundle in Sources */,
 				46C29DB9296590D20099A118 /* AppDelegate.m in Sources */,
+				46FB06312965B4EC00001290 /* main.m in Sources */,
 				46C29DBB2965912D0099A118 /* AmiAppCioManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,8 +547,8 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-ObjC",
 					"-lc++",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.customer.ami;
 				PRODUCT_NAME = SampleApp;
@@ -623,8 +627,8 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-ObjC",
 					"-lc++",
+					"-ObjC",
 				);
 				"OTHER_LDFLAGS[arch=*]" = (
 					"$(inherited)",
