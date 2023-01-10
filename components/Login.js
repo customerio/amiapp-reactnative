@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { View, Text, TextInput, StyleSheet} from 'react-native'
+import { View, Text, TextInput, StyleSheet, Image} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import CioManager from '../manager/CioManager'
 
@@ -26,6 +26,9 @@ const Login = ({navigation}) => {
         navigation.navigate("Dashboard")
     }
 
+    const settingsTapped = () => {
+      navigation.navigate("SettingsScreen")
+    }
     const IsAllFieldsFilled = () => {
       if (name.trim() == "" || email.trim() == "") {
         return false
@@ -55,6 +58,22 @@ const Login = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <View style={{paddingTop: 50}}>
+                <View style={{justifyContent:'space-around'}}>
+                    <View style={{height:50,alignSelf:'stretch',margin:5}}>
+                        <View style={styles.settingsView}>
+                            <TouchableOpacity
+                                onPress={() => settingsTapped()}>
+                                    <Image 
+                                    style={styles.settingsImage}
+                                    source={require('../assets/images/black-settings-button.png')}>
+
+                                    </Image>
+                            </TouchableOpacity>
+                            </View>
+                        </View>  
+                </View>
+                </View>
         <View style={styles.innerContainer}>
         <View style={styles.loginViewContainer}>
             <Text style={styles.headerText}>Ami App</Text>
@@ -99,7 +118,16 @@ const Login = ({navigation}) => {
 
 
 const styles = StyleSheet.create({
-
+  settingsView: {    
+    alignItems: 'flex-end',
+    height: 50,
+    // flex: 1,
+    paddingRight: 30,
+},
+settingsImage: {
+  width: 50,
+  height: 50
+},
     container: {
         flex: 1,
     },
