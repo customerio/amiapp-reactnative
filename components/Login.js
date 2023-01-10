@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { View, Text, TextInput, StyleSheet, Image} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import CioManager from '../manager/CioManager'
+import CioKeyValueStorage from '../manager/KeyValueStorage'
 
 const Login = ({navigation}) => {
 
@@ -23,6 +24,10 @@ const Login = ({navigation}) => {
         const cioManager = new CioManager()
         const data = {"firstName": name.trim()}
         cioManager.identifyUser(email.trim(), data)
+
+        // Save login status
+        const keyStorageObj = new CioKeyValueStorage()
+        keyStorageObj.saveLoginStatus(true)
         navigation.navigate("Dashboard")
     }
 

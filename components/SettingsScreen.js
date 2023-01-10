@@ -1,10 +1,10 @@
 import React, {useLayoutEffect, useState} from 'react'
 import { View, StyleSheet, Text, Image, Switch} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ScrollView, TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import Env from '../env';
 import PushNotification from "react-native-push-notification";
 import ThemedButton from './common/Button';
+import CioKeyValueStorage from '../manager/KeyValueStorage';
 
 
 const SettingsScreen = ({navigation}) => {
@@ -48,8 +48,13 @@ useLayoutEffect(() => {
   });
 
   const saveSettings = () => {
-  
+    const keyStorageObj = new CioKeyValueStorage()
+    
+    if (trackUrl.trim() !== "") {
+      keyStorageObj.saveTrackingUrl(trackUrl.trim())
+    }
   }
+  
   return (
     <ScrollView style={styles.container}>
        <View style={styles.innerContainer}>
@@ -82,9 +87,10 @@ useLayoutEffect(() => {
                   <Text style={styles.textLabel}>CIO Track URL</Text>
                   <TextInput
                     style={styles.input}
+                    onChangeText={(e) => setTrackUrl(e)}
                     value={trackUrl}
                     placeholder="track.customer.io"
-                    editable={false}
+                    editable={true}
                 />
                 <View style={styles.copyToClipboardButton}></View>
                 </View>

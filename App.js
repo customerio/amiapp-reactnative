@@ -1,5 +1,5 @@
-import React, {useEffect, useRef} from 'react';
-import { Settings, StyleSheet} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import { Settings, StyleSheet, View} from 'react-native';
 import FeaturesUpdate from './components/FeaturesUpdate';
 import FeaturesTrial from './components/FeaturesTrial';
 import Login from './components/Login';
@@ -12,12 +12,40 @@ import SettingsScreen from './components/SettingsScreen'
 import ViewLogs from './components/ViewLogs';
 import Env from "./env";
 import CioManager from './manager/CioManager';
+import CioKeyValueStorage from './manager/KeyValueStorage';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
+  const [firstScreen, setFirstScreen] = useState(undefined)
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    console.log("Welcome to Ami App ! ")
+    (async () => {
+      const keyStorageObj = new CioKeyValueStorage()
+      const status = await keyStorageObj.getLoginStatus()
+      setLoading(false)
+      console.log("HELLO - ", JSON.parse(status))
+      if (JSON.parse(status) == true) {
+        setFirstScreen("Dashboard")
+        return
+      }
+      setFirstScreen("Login")
+      
+    })();
+    
+    
+    // keyStorageObj.getLoginStatus().then((status) => {
+    //   console.log("HELLO - ", status)
+    //   if (JSON.parse(status) === true) {
+    //     setFirstScreen("Dashboard")
+    //     return
+    //   }
+    //   setFirstScreen("Login")
+    // })
+
+    
   }, [])
 
   // Automatic screen tracking
@@ -52,9 +80,24 @@ export default function App() {
     cioManager.initializeCio(env, configuration)
   }
 
+  // const getInitialRouteName = async () => {
+  //   const keyStorageObj = new CioKeyValueStorage()
+  //   const status = await keyStorageObj.getLoginStatus()
+
+  //   if (JSON.parse(status) === true) {
+  //     return "Dashboard"
+  //   }
+  //   return "Login"
+  // }
+
+  if (loading == true ) {
+    return (
+       <View/>
+    ) 
+  } else {
   return (
     
-       // MARK:- AUTO SCREEN TRACKING
+      // MARK:- AUTO SCREEN TRACKING
       // Start
       <NavigationContainer
         ref={navigationRef}
@@ -73,8 +116,8 @@ export default function App() {
         }}
         // End
         >
-
-      <Stack.Navigator initialRouteName="Login">
+        
+      <Stack.Navigator initialRouteName={firstScreen}>
         <Stack.Screen name="Login"
         component={Login}
         options={{
@@ -107,8 +150,10 @@ export default function App() {
         }}
        />
        </Stack.Navigator>
+    
     </NavigationContainer>
     );
+    }
 }
 const styles = StyleSheet.create({
   mainView: {

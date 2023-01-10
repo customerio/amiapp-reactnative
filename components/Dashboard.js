@@ -41,6 +41,10 @@ const Dashboard = ({navigation}) => {
     const logoutTapped = () => {
         const cioManager = new CioManager()
         cioManager.clearUserIdentity()
+
+        const keyStorageObj = new CioKeyValueStorage()
+        keyStorageObj.saveLoginStatus(false)
+
         navigation.popToTop()
     }
 
