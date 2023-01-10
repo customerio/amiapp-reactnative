@@ -3,6 +3,7 @@ import { View, Text, FlatList, StyleSheet, Image} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import CioManager from '../manager/CioManager'
 import ThemedButton from './common/Button'
+import PushNotification from "react-native-push-notification";
 
 const Dashboard = ({navigation}) => {
 
@@ -49,7 +50,16 @@ const Dashboard = ({navigation}) => {
         )
     }
 
-    
+    PushNotification.configure({
+        /**
+         * (optional) default: true
+         * - Specified if permissions (ios) and token (android and ios) will requested or not,
+         * - if not, you must call PushNotificationsHandler.requestPermissions() later
+         * - if you are not using remote notification or do not have Firebase installed, use this:
+         *     requestPermissions: Platform.OS === 'ios'
+         */
+        requestPermissions: true,
+    })
       
     return (
         <View style={styles.container}>
