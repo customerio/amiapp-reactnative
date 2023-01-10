@@ -4,6 +4,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import CioManager from '../manager/CioManager'
 import ThemedButton from './common/Button'
 import PushNotification from "react-native-push-notification";
+import CioKeyValueStorage from '../manager/KeyValueStorage'
 
 const Dashboard = ({navigation}) => {
 
