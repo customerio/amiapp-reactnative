@@ -52,7 +52,6 @@ target 'SampleApp' do
   flags = get_default_flags()
 
     pod 'CustomerIO/MessagingPushAPN', '~> 1.2.5'
-#    pod 'React-RCTPushNotification', :path => '../node_modules/react-native/Libraries/PushNotificationIOS'
 
   use_react_native!(
     :path => config[:reactNativePath],
