@@ -4,6 +4,7 @@ import { ScrollView, TextInput, TouchableOpacity} from 'react-native-gesture-han
 import Env from '../env';
 import PushNotificationIOS from "@react-native-community/push-notification-ios";
 import PushNotification from "react-native-push-notification";
+import ThemedButton from './common/Button';
 
 
 const SettingsScreen = ({navigation}) => {
@@ -221,6 +222,9 @@ useLayoutEffect(() => {
               </View>
               </View>
         </View> 
+        <View>
+          <ThemedButton title="SAVE"/>
+        </View>
     </ScrollView>
   )
 }
