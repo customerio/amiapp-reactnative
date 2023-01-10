@@ -41,7 +41,7 @@ useLayoutEffect(() => {
   PushNotification.configure({
     // (optional) Called when Token is generated (iOS and Android)
     onRegister: function (token) {
-      console.log("TOKEN:", token);
+      setDeviceToken(token["token"])
     },
   
     // // (required) Called when a remote is received or opened, or local notification is opened
@@ -87,7 +87,6 @@ useLayoutEffect(() => {
     //  */
     // requestPermissions: true,
   });
-  
   return (
     <ScrollView style={styles.container}>
        <View style={styles.innerContainer}>
