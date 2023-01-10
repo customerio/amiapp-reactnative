@@ -1,8 +1,8 @@
 import React, {useLayoutEffect, useState} from 'react'
 import { View, StyleSheet, Text, Image, Switch} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ScrollView, TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import Env from '../env';
-import PushNotificationIOS from "@react-native-community/push-notification-ios";
 import PushNotification from "react-native-push-notification";
 import ThemedButton from './common/Button';
 
@@ -46,6 +46,10 @@ useLayoutEffect(() => {
       setDeviceToken(token["token"])
     }
   });
+
+  const saveSettings = () => {
+  
+  }
   return (
     <ScrollView style={styles.container}>
        <View style={styles.innerContainer}>
@@ -223,7 +227,7 @@ useLayoutEffect(() => {
               </View>
         </View> 
         <View>
-          <ThemedButton title="SAVE"/>
+          <ThemedButton onPress={() => saveSettings()} title="SAVE"/>
         </View>
     </ScrollView>
   )
