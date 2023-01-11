@@ -1,7 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import { ActivityIndicator, Settings, StyleSheet, View} from 'react-native';
-import FeaturesUpdate from './components/FeaturesUpdate';
-import FeaturesTrial from './components/FeaturesTrial';
+import { ActivityIndicator,StyleSheet} from 'react-native';
 import Login from './components/Login';
 import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -26,7 +24,6 @@ export default function App() {
       const keyStorageObj = new CioKeyValueStorage()
       const status = await keyStorageObj.getLoginStatus()
       setLoading(false)
-      console.log("HELLO - ", JSON.parse(status))
       if (JSON.parse(status) == true) {
         setFirstScreen("Dashboard")
         return
@@ -34,18 +31,6 @@ export default function App() {
       setFirstScreen("Login")
       
     })();
-    
-    
-    // keyStorageObj.getLoginStatus().then((status) => {
-    //   console.log("HELLO - ", status)
-    //   if (JSON.parse(status) === true) {
-    //     setFirstScreen("Dashboard")
-    //     return
-    //   }
-    //   setFirstScreen("Login")
-    // })
-
-    
   }, [])
 
   // Automatic screen tracking
@@ -79,16 +64,6 @@ export default function App() {
     const cioManager = new CioManager()
     cioManager.initializeCio(env, configuration)
   }
-
-  // const getInitialRouteName = async () => {
-  //   const keyStorageObj = new CioKeyValueStorage()
-  //   const status = await keyStorageObj.getLoginStatus()
-
-  //   if (JSON.parse(status) === true) {
-  //     return "Dashboard"
-  //   }
-  //   return "Login"
-  // }
 
   if (loading == true ) {
     return (
