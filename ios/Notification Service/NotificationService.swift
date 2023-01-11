@@ -1,18 +1,22 @@
+import Foundation
 import UserNotifications
-//import CioMessagingPush
-class NotificationService: UNNotificationServiceExtension {
-   
-      override func didReceive(_ request: UNNotificationRequest,
-                               withContentHandler contentHandler:
-                               @escaping (UNNotificationContent) -> Void) {
-        
-//        MessagingPush.shared.didReceive(request, withContentHandler: contentHandler)
+import CioTracking
+import CioMessagingPushAPN
 
-      }
-  
-      override func serviceExtensionTimeWillExpire() {
-//        MessagingPush.shared.serviceExtensionTimeWillExpire()
-      }
-  
+@objc
+public class NotificationServiceCioManager : NSObject {
+
+    public override init() {}
+
+    @objc(didReceive:withContentHandler:)
+    public func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+        CustomerIO
+        .initialize(siteId: "Env.customerIOSiteId", apiKey: "Env.customerIOApiKey", region: .US) { config in }
+        MessagingPush.shared.didReceive(request, withContentHandler: contentHandler)
+    }
+
+    @objc(serviceExtensionTimeWillExpire)
+    public func serviceExtensionTimeWillExpire() {
+        MessagingPush.shared.serviceExtensionTimeWillExpire()
+    }
 }
-   
