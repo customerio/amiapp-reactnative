@@ -51,7 +51,7 @@ target 'SampleApp' do
   # Flags change depending on the env values.
   flags = get_default_flags()
 
-  pod 'CustomerIO/MessagingPushAPN', '~> 2.0.2'  
+  pod 'CustomerIO/MessagingPushAPN', '2.0.1'  
 
   use_react_native!(
     :path => config[:reactNativePath],
@@ -70,7 +70,7 @@ target 'SampleApp' do
 end
 
 target 'Notification Service' do
-  pod 'CustomerIO/MessagingPushAPN', '~> 2.0.2'
+  pod 'CustomerIO/MessagingPushAPN', '2.0.1'
 end
 
 post_install do |installer|
