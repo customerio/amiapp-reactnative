@@ -15,7 +15,7 @@
 		4632B4CA283E5CB800AF05BC /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4632B4C9283E5CB800AF05BC /* NotificationService.swift */; };
 		4632B4CE283E5CB800AF05BC /* Notification Service.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4632B4C7283E5CB800AF05BC /* Notification Service.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		464F84BA296D5DD2005918DF /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 464F84B9296D5DD2005918DF /* main.jsbundle */; };
-		46C29DBB2965912D0099A118 /* AmiAppCioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C29DBA2965912D0099A118 /* AmiAppCioManager.swift */; };
+		46C29DBB2965912D0099A118 /* MyAppPushNotificationsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C29DBA2965912D0099A118 /* MyAppPushNotificationsHandler.swift */; };
 		46F118D6296C3764007E1D09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FB06302965B4EC00001290 /* main.m */; };
 		9752F0C1F3059AA826FAB5CE /* libPods-Notification Service.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A591060ADD68CA232C10D473 /* libPods-Notification Service.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
@@ -77,7 +77,7 @@
 		467ECBA3283E702300EDB363 /* libCustomerIOTracking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCustomerIOTracking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4698397D283E4FAD003FBBA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		46C29DB7296590D20099A118 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		46C29DBA2965912D0099A118 /* AmiAppCioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmiAppCioManager.swift; sourceTree = "<group>"; };
+		46C29DBA2965912D0099A118 /* MyAppPushNotificationsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAppPushNotificationsHandler.swift; sourceTree = "<group>"; };
 		46FB06302965B4EC00001290 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5F5D8D25C4C55AFCC90581F4 /* Pods-Notification Service.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notification Service.release.xcconfig"; path = "Target Support Files/Pods-Notification Service/Pods-Notification Service.release.xcconfig"; sourceTree = "<group>"; };
 		7027D8F2719E14592AE8C5B1 /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 				464F84B8296D5B7F005918DF /* SampleApp-Bridging-Header.h */,
 				4606A0C0296C7D6500B98CC8 /* AppDelegate.mm */,
 				46FB06302965B4EC00001290 /* main.m */,
-				46C29DBA2965912D0099A118 /* AmiAppCioManager.swift */,
+				46C29DBA2965912D0099A118 /* MyAppPushNotificationsHandler.swift */,
 				46C29DB7296590D20099A118 /* AppDelegate.h */,
 				4698397D283E4FAD003FBBA8 /* GoogleService-Info.plist */,
 				46347F672715616600050A1E /* SampleApp.entitlements */,
@@ -456,7 +456,7 @@
 			files = (
 				46F118D6296C3764007E1D09 /* main.m in Sources */,
 				4606A0C1296C7D6500B98CC8 /* AppDelegate.mm in Sources */,
-				46C29DBB2965912D0099A118 /* AmiAppCioManager.swift in Sources */,
+				46C29DBB2965912D0099A118 /* MyAppPushNotificationsHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
