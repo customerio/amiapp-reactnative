@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/customerio/amiapp-reactnative/compare/1.5.0...1.5.1) (2023-01-11)
+
+
+### Bug Fixes
+
+* added v2 support and fixed deep link ([c004c19](https://github.com/customerio/amiapp-reactnative/commit/c004c1998a49e1d0e1bdbfebeb2daae4725d0d7f))
+
 # [1.5.0](https://github.com/customerio/amiapp-reactnative/compare/1.4.2...1.5.0) (2022-09-14)
 
 

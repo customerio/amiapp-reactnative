@@ -1,21 +1,21 @@
 PODS:
   - boost (1.76.0)
-  - customerio-reactnative (1.0.0):
-    - CustomerIOMessagingInApp (~> 1.2.2)
-    - CustomerIOTracking (~> 1.2.2)
+  - customerio-reactnative (2.0.0-alpha.1):
+    - CustomerIOMessagingInApp (~> 2.0.0)
+    - CustomerIOTracking (~> 2.0.0)
     - React-Core
-  - CustomerIO/MessagingPushAPN (1.2.2):
-    - CustomerIOMessagingPushAPN (= 1.2.2)
-  - CustomerIOCommon (1.2.2)
-  - CustomerIOMessagingInApp (1.2.2):
-    - CustomerIOTracking (= 1.2.2)
-    - Gist (~> 2.2.0)
-  - CustomerIOMessagingPush (1.2.2):
-    - CustomerIOTracking (= 1.2.2)
-  - CustomerIOMessagingPushAPN (1.2.2):
-    - CustomerIOMessagingPush (= 1.2.2)
-  - CustomerIOTracking (1.2.2):
-    - CustomerIOCommon (= 1.2.2)
+  - CustomerIO/MessagingPushAPN (2.0.1):
+    - CustomerIOMessagingPushAPN (= 2.0.1)
+  - CustomerIOCommon (2.0.1)
+  - CustomerIOMessagingInApp (2.0.1):
+    - CustomerIOTracking (= 2.0.1)
+    - Gist (~> 2.2.1)
+  - CustomerIOMessagingPush (2.0.1):
+    - CustomerIOTracking (= 2.0.1)
+  - CustomerIOMessagingPushAPN (2.0.1):
+    - CustomerIOMessagingPush (= 2.0.1)
+  - CustomerIOTracking (2.0.1):
+    - CustomerIOCommon (= 2.0.1)
   - DoubleConversion (1.1.6)
   - EXApplication (3.2.0):
     - UMCore
@@ -65,7 +65,7 @@ PODS:
     - React-jsi (= 0.69.1)
     - ReactCommon/turbomodule/core (= 0.69.1)
   - fmt (6.2.1)
-  - Gist (2.2.0)
+  - Gist (2.2.4)
   - glog (0.3.5)
   - RCT-Folly (2021.06.28.00-v2):
     - boost
@@ -397,7 +397,7 @@ PODS:
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - customerio-reactnative (from `../node_modules/customerio-reactnative`)
-  - CustomerIO/MessagingPushAPN (~> 1.2.2)
+  - CustomerIO/MessagingPushAPN (~> 2.0.1)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXApplication (from `../node_modules/expo-application/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
@@ -576,13 +576,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  CustomerIO: 0a31ad1baed6cd952469b9098e2e73fa96cec70e
-  customerio-reactnative: 2410722e483c4f586b9823de28f3a05e69a01cb9
-  CustomerIOCommon: 3bf82c3574205819a69baa1f0bc5b47671dd2d19
-  CustomerIOMessagingInApp: 973a80bed2e7ee814f4e4d08265990639801503e
-  CustomerIOMessagingPush: 9d4c7096bdf27323599b781edee2394f23a3080c
-  CustomerIOMessagingPushAPN: 2f909d7effc20f639c354f450b23b21eed61bfe4
-  CustomerIOTracking: 101dc8c25eff807eadc8fbcf83b76f98fb5832a5
+  CustomerIO: 475bde679fccf3872d51d65240dc49fb208b1204
+  customerio-reactnative: 0050aea91361b9169a3a80fd8f0c69b4255f36b0
+  CustomerIOCommon: e767a1043b863e4b824d2b5b764f1d75a7dfc6a6
+  CustomerIOMessagingInApp: 1f795a80a5c9f31c24e47d7f1fd2ee258815954f
+  CustomerIOMessagingPush: e0949959ad12673b906d62061db4eca5feff4b69
+  CustomerIOMessagingPushAPN: 80b410fbc3efe3f45c0fa40a3fcbf14b1eabe19d
+  CustomerIOTracking: c5e06490a11aca6161c34a8eb130eca87426c16b
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   EXApplication: 9ff2a206009d6e55bca6c20b3f33d07986b51ef3
   EXConstants: 4cb52b6d8f636c767104a44bf7db3873e9c01a6f
@@ -599,7 +599,7 @@ SPEC CHECKSUMS:
   FBLazyVector: 068141206af867f72854753423d0117c4bf53419
   FBReactNativeSpec: 546a637adc797fa436dd51d1c63c580f820de31c
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  Gist: 6a40c012bc3faae9b6a3396a65fde6e3e00a38f2
+  Gist: df62edf9ce6ff2a4b6dbcf2b4f7c020d3ec260a4
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: ae07282b2ec9c90d7eb98251603bc3f82403d239
@@ -638,6 +638,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 2be431101b73604e64fbfffcf759336f9d8fccbb
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 
-PODFILE CHECKSUM: d2b0f4b53b059f1df00a0fbcc24f616cc29d453f
+PODFILE CHECKSUM: ef4fe59b28a3d390c0910cf8c1a92eeda301e656
 
 COCOAPODS: 1.11.3
