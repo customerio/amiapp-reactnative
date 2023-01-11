@@ -126,7 +126,6 @@ const styles = StyleSheet.create({
   settingsView: {    
     alignItems: 'flex-end',
     height: 50,
-    // flex: 1,
     paddingRight: 30,
 },
 settingsImage: {
