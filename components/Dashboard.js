@@ -45,8 +45,7 @@ const Dashboard = ({navigation}) => {
 
         const keyStorageObj = new CioKeyValueStorage()
         keyStorageObj.saveLoginStatus(false)
-
-        navigation.popToTop()
+        navigation.navigate("Login")
     }
 
     const renderDashboardButtons = (item) => {

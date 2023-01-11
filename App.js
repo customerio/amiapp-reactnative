@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import { Settings, StyleSheet, View} from 'react-native';
+import { ActivityIndicator, Settings, StyleSheet, View} from 'react-native';
 import FeaturesUpdate from './components/FeaturesUpdate';
 import FeaturesTrial from './components/FeaturesTrial';
 import Login from './components/Login';
@@ -92,7 +92,7 @@ export default function App() {
 
   if (loading == true ) {
     return (
-       <View/>
+      <ActivityIndicator/>
     ) 
   } else {
   return (
@@ -121,12 +121,15 @@ export default function App() {
         <Stack.Screen name="Login"
         component={Login}
         options={{
-          headerShown : false
+          headerShown : false,
+          gestureEnabled: false,
+          gestureDirection: 'vertical',
         }}/>
         <Stack.Screen name="Dashboard" component={Dashboard}
         options={{
           headerShown : false,
-          gestureEnabled: false
+          gestureEnabled: false,
+          
         }}
        />
        <Stack.Screen name="CustomDataScreen" component={CustomDataScreen}
