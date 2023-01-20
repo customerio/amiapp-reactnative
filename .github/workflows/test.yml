@@ -1,12 +1,6 @@
 name: Tests
 
-on:  
-  # Uncomment this if build on every push is needed
-  # push:
-  #   branches-ignore: [main, beta, alpha] # skip for deployment branches. 
-  #   tags-ignore: ['*']
-  pull_request:
-    branches: ['*']
+on: [push, pull_request]    
 
 env:
   XCODE_VERSION: "14.0"
