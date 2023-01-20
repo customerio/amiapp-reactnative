@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // In this line of code below, we are using `Env.` which allows us to not have to commit our api key
     // into our version control. You can do this pattern if you wish, or replace `Env.customerIOSiteId` and
     // `Env.customerIOApiKey` with Strings for your site id and api key.
-    CustomerIO.initialize(siteId: Env.customerIOSiteId, apiKey: Env.customerIOApiKey, region: Region.US)
+    CustomerIO.initialize(siteId: Env.customerIOSiteId, apiKey: Env.customerIOApiKey, region: Region.US, configure: nil)
     
     // firebase used for app distribution.
     // FirebaseApp.configure(options: options)
