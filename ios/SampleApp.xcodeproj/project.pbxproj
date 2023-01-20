@@ -19,6 +19,7 @@
 		70A1C0CD7AE0BE17519E378C /* libPods-Notification Service.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F69D4691C0AD460507881F /* libPods-Notification Service.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		F7052DB9287C788100560E20 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = F7052DB8287C788100560E20 /* FirebaseAppDistribution-Beta */; };
+		F7494160297B1FD700EBF7FC /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = F749415F297B1FD600EBF7FC /* Env.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		D8A905D4C5EE3A71C1C08253 /* libPods-SampleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SampleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F749415F297B1FD600EBF7FC /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		13B07FAE1A68108700A75B9A /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				F749415F297B1FD600EBF7FC /* Env.swift */,
 				4698397D283E4FAD003FBBA8 /* GoogleService-Info.plist */,
 				465AC79328353381000D21D9 /* AppDelegate.swift */,
 				465AC79428353381000D21D9 /* SampleApp-Bridging-Header.h */,
@@ -428,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7494160297B1FD700EBF7FC /* Env.swift in Sources */,
 				46357741283539870098BFB5 /* AppDelegate.swift in Sources */,
 				465AC78D2835304E000D21D9 /* main.jsbundle in Sources */,
 			);

@@ -147,17 +147,20 @@ platform :ios do
 
   lane :delete_code_signing_development do 
     match_nuke(
-      type: "development",
+      type: "development",      
       api_key_path: './app_store_connect_creds.json',
-      readonly: false 
+      readonly: false,
+      safe_remove_certs: true
     )
   end 
 
   lane :delete_code_signing_release do 
     match_nuke(
+      app_identifier: ["io.customer.ami", "io.customer.ami.richpush"],
       type: "adhoc",
       api_key_path: './app_store_connect_creds.json',
-      readonly: false 
+      readonly: false,
+      safe_remove_certs: true
     )
   end
 
