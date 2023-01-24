@@ -49,7 +49,7 @@ const FeaturesUpdate = ({navigation}) => {
 
       // Navigate
       const goToFeaturesTrial = () => {
-          CustomerIO.clearIdentify()
+          //CustomerIO.clearIdentify()
           navigation.navigate("FeaturesTrial")
       }
 

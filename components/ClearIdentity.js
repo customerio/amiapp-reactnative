@@ -9,7 +9,7 @@ const ClearIdentity = (props) => {
 
     const ClearUserIdentity = () => {
         // MARK:- CLEAR USER IDENTITY
-        CustomerIO.clearIdentify()
+        //CustomerIO.clearIdentify()
         
         props.onClear()
     }
