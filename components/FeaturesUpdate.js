@@ -22,7 +22,9 @@ const FeaturesUpdate = ({navigation}) => {
     env.apiKey = Env.apiKey
     env.organizationId = Env.organizationId
 
-    CustomerIO.initialize(env, data) 
+    CustomerIO.initialize(env, data)
+    
+    CustomerIO.identify("nicole_testuser_deviceregister@customer.io", {"first_name": "Nicole Ami"})
   }, [])
   
   // Renderers
