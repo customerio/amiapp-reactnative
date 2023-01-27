@@ -8,8 +8,7 @@ import ClearIdentity from './ClearIdentity';
 const AllFeatures = (props) => {
   return (
     <ScrollView style={styles.container}>
-        <TrackEvent>
-        </TrackEvent>
+        <TrackEvent/>
         <DeviceAttributes/>
         <ProfileAttributes/>
         <ClearIdentity onClear={props.onClear}/>
