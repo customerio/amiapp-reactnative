@@ -66,6 +66,7 @@ const FeaturesUpdate = ({navigation}) => {
           {key: 'Initialize package'},
           {key: 'Identify user'},
           {key: 'Clear user identity'},
+          {key: 'Register device token'},
           {key: 'Track event'},
           {key: 'Device Attributes'},
           {key: 'Profile Attributes'},
