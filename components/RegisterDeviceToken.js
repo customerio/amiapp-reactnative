@@ -7,21 +7,19 @@ import { CustomerIO } from 'customerio-reactnative';
 
 const RegisterDeviceToken = (props) => {
 
-    const ClearUserIdentity = () => {
-        // MARK:- CLEAR USER IDENTITY
-        CustomerIO.clearIdentify()
-        
-        props.onClear()
+    const registerDevice = (forToken) => {
+        // MARK:- REGISTER DEVICE TOKEN 
+        CustomerIO.registerDeviceToken(forToken)
     }
 
     return (
         <View style={styles.container}>
-            <SubHeaderText label = "CLEAR USER IDENTITY"/>
+            <SubHeaderText label = "REGISTER DEVICE TOKEN"/>
             <View style={styles.innerContainer}>
                 <FeatureButton
-                title ="Clear user identity"
+                title ="Register token"
                 style={{marginBottom: 20}}
-                onPress = {() => ClearUserIdentity()}></FeatureButton>
+                onPress = {() => registerDevice("stubTokenjsd86782hjd897d8whdjwd")}></FeatureButton>
             </View>
         </View>
     )

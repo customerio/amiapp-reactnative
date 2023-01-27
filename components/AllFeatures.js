@@ -4,11 +4,13 @@ import TrackEvent from "./TrackEvent";
 import {DeviceAttributes, ProfileAttributes} from "./Attributes";
 import { ScrollView } from 'react-native-gesture-handler';
 import ClearIdentity from './ClearIdentity';
+import RegisterDeviceToken from './RegisterDeviceToken';
 
 const AllFeatures = (props) => {
   return (
     <ScrollView style={styles.container}>
         <TrackEvent/>
+        <RegisterDeviceToken/>
         <DeviceAttributes/>
         <ProfileAttributes/>
         <ClearIdentity onClear={props.onClear}/>
