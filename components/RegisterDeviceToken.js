@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { StyleSheet, View } from "react-native";
 import FeatureButton from "./common/FeatureButton";
 import { SubHeaderText } from "./common/Text";
@@ -7,6 +7,7 @@ import { CustomerIO } from 'customerio-reactnative';
 
 const RegisterDeviceToken = (props) => {
 
+    const [deviceToken, setDeviceToken] = useState('')
     const registerDevice = () => {
 
         // For the sake of testing, we are generating a random
@@ -14,15 +15,16 @@ const RegisterDeviceToken = (props) => {
         // Customer.io expects a valid token to send push notifications
         // to the user.
         const token = generateRandomToken()
-        
         // MARK:- REGISTER DEVICE TOKEN 
         CustomerIO.registerDeviceToken(token)
+        setDeviceToken(deviceToken)
+        alert("Device token registered")
     }
 
     const generateRandomToken = () => {
         const char = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
         const random = Array.from(
-            {length: 15},
+            {length: 50},
             () => char[Math.floor(Math.random() * char.length)]
         );
         const randomString = random.join("");
