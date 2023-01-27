@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Platform } from "react-native";
 import FeatureButton from "./common/FeatureButton";
 import { SubHeaderText } from "./common/Text";
 import { CustomerIO } from 'customerio-reactnative';
@@ -22,9 +22,13 @@ const RegisterDeviceToken = (props) => {
     }
 
     const generateRandomToken = () => {
+        let length = 163
+        if (Platform.OS == "ios"){
+            length = 64
+        }
         const char = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
         const random = Array.from(
-            {length: 50},
+            {length: 64},
             () => char[Math.floor(Math.random() * char.length)]
         );
         const randomString = random.join("");
