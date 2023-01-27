@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import FeatureButton from "./common/FeatureButton";
 import { SubHeaderText } from "./common/Text";
 import { CustomerIO } from 'customerio-reactnative';
@@ -17,7 +17,7 @@ const RegisterDeviceToken = (props) => {
         const token = generateRandomToken()
         // MARK:- REGISTER DEVICE TOKEN 
         CustomerIO.registerDeviceToken(token)
-        setDeviceToken(deviceToken)
+        setDeviceToken(token)
         alert("Device token registered")
     }
 
@@ -39,6 +39,9 @@ const RegisterDeviceToken = (props) => {
                 title ="Register token"
                 style={{marginBottom: 20}}
                 onPress = {() => registerDevice()}></FeatureButton>
+            </View>
+            <View style={styles.deviceTokenText}>
+                <Text>{deviceToken}</Text>
             </View>
         </View>
     )
@@ -64,6 +67,11 @@ const styles = StyleSheet.create({
         borderColor: '#e6e6e6',
         borderRadius: 10
       },
+      deviceTokenText:{
+        flex:1,
+        paddingLeft:25,
+        paddingRight:25
+    }
 })
 
 export default RegisterDeviceToken;
