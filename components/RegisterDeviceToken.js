@@ -7,10 +7,27 @@ import { CustomerIO } from 'customerio-reactnative';
 
 const RegisterDeviceToken = (props) => {
 
-    const registerDevice = (forToken) => {
+    const registerDevice = () => {
+
+        // For the sake of testing, we are generating a random
+        // alphanumeric string and passing it as a token.
+        // Customer.io expects a valid token to send push notifications
+        // to the user.
+        const token = generateRandomToken()
+        
         // MARK:- REGISTER DEVICE TOKEN 
-        CustomerIO.registerDeviceToken(forToken)
+        CustomerIO.registerDeviceToken(token)
     }
+
+    const generateRandomToken = () => {
+        const char = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+        const random = Array.from(
+            {length: 15},
+            () => char[Math.floor(Math.random() * char.length)]
+        );
+        const randomString = random.join("");
+        return randomString
+      }
 
     return (
         <View style={styles.container}>
@@ -19,7 +36,7 @@ const RegisterDeviceToken = (props) => {
                 <FeatureButton
                 title ="Register token"
                 style={{marginBottom: 20}}
-                onPress = {() => registerDevice("stubTokenjsd86782hjd897d8whdjwd")}></FeatureButton>
+                onPress = {() => registerDevice()}></FeatureButton>
             </View>
         </View>
     )
