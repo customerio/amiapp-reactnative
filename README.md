@@ -1,9 +1,10 @@
 # Ami app
 
-This is a sample app using [Customer.io's React Native package](https://www.npmjs.com/package/customerio-reactnative). Ami app works for both Android and iOS devices.
+This is a sample app using [Customer.io's React Native package](https://www.npmjs.com/package/customerio-reactnative). Ami app works for both Android and iOS.
 
 # What all features can I test with Ami app ?
-Ami app gives you flexibility to test multiple features such as :
+
+Ami app gives you flexibility to test multiple features such as:
 
 - Package initialisation
 - Identify user
@@ -15,6 +16,7 @@ Ami app gives you flexibility to test multiple features such as :
 - Rich Push & deep links
 
 # What Ami app doesn't offer?
+
 Ami app is still a work in progress and there are a list of features that aren't available in this app such as:
 
 - Dark mode - Ami app works only in normal/light mode and doesn't support dark mode
