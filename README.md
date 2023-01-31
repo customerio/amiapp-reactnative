@@ -1,6 +1,6 @@
 # Ami app
 
-This is a sample app using [Customer.io's React Native package](https://www.npmjs.com/package/customerio-reactnative). Ami app currently works only on iOS devices. The work to get it on Android is in progress.
+This is a sample app using [Customer.io's React Native package](https://www.npmjs.com/package/customerio-reactnative). Ami app works for both Android and iOS devices.
 
 # What all features can I test with Ami app ?
 Ami app gives you flexibility to test multiple features such as :
