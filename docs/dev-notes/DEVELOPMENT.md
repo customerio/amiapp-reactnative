@@ -6,13 +6,13 @@ To get started with the project, you might need several tools to compile on your
 
 - First install IDE or Code Editor you like so you can navigate to code conveniently
   - [Visual Studio Code](https://code.visualstudio.com/) (Recommended) - Code Editor to navigate between project files
-  - [Android Studio](https://developer.android.com/studio) and [XCode](https://developer.apple.com/xcode/) (Recommended) - IDEs for setting up CLI tools and getting suggestions on native code
+  - [Android Studio](https://developer.android.com/studio) and [XCode](https://developer.apple.com/xcode/) (Required) - IDEs for setting up CLI tools and getting suggestions on native code
 - Setup react native development environment on your machine by following commands below
 
-> This guide assumes you have [homebrew](https://brew.sh/) installed on your machine and combines most of the commands you would need to setup the environment on your machine. If you want to read full guide, visit the [official docs](https://reactnative.dev/docs/environment-setup) -> React Native CLI Quickstart -> Your Development and Target OS
+> This guide assumes you have [homebrew](https://brew.sh/) installed and combines most of the commands you would need to setup the environment on your machine. If you want to read full guide, visit the [official docs](https://reactnative.dev/docs/environment-setup) -> React Native CLI Quickstart -> Your Development and Target OS
 
-  - Install node using `brew install node`
-  - Check if you have ruby installed on your machine by running `ruby --version`
+  - Install node using `brew install node` (Node 14 or newer required, prefer LTS versions)
+  - Check if you have ruby installed on your machine by running `ruby --version` (2.7.6 or later required)
 
 > We recommend installing some Ruby Manager to have different versions of Ruby installed on your machine without breaking other projects. [React Native docs have listed a few](https://reactnative.dev/docs/environment-setup#ruby), you can choose any of them and skip instructions for Ruby Version Manager if you want to go with a different option.
 
@@ -71,7 +71,7 @@ cd ..
 
 Next, [follow these steps](https://github.com/customerio/mobile/blob/main/ios_code_signing.md#how-do-i-setup-my-computer-for-code-signing) to download the provisioning profiles and certificates for development to your machine. 
 
-> **Note** : Make sure that the deployment target is set to the minimum [that the iOS SDK requires](https://github.com/customerio/customerio-ios#readme).
+> **Note** : Make sure that the deployment target is set to the minimum [required by the iOS SDK](https://github.com/customerio/customerio-ios#readme).
 
 #### Option 1: Using Command Line
 
