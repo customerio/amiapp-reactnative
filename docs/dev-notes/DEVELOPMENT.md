@@ -12,9 +12,9 @@ To get started with the project, you might need several tools to compile on your
 > This guide assumes you have [homebrew](https://brew.sh/) installed and combines most of the commands you would need to setup the environment on your machine. If you want to read full guide, visit the [official docs](https://reactnative.dev/docs/environment-setup) -> React Native CLI Quickstart -> Your Development and Target OS
 
   - Install node using `brew install node` (Node 14 or newer required, prefer LTS versions)
-  - Check if you have ruby installed on your machine by running `ruby --version` (2.7.6 or later required)
+  - Check if you have ruby installed on your machine by running `ruby --version` (React Native uses [this version](https://github.com/facebook/react-native/blob/main/template/_ruby-version) of Ruby)
 
-> We recommend installing some Ruby Manager to have different versions of Ruby installed on your machine without breaking other projects. [React Native docs have listed a few](https://reactnative.dev/docs/environment-setup#ruby), you can choose any of them and skip instructions for Ruby Version Manager if you want to go with a different option.
+> Currently, macOS 12.5.1 is shipped with Ruby 2.6.8, which is not what is required by React Native. We recommend installing some Ruby Manager to have different versions of Ruby installed on your machine without breaking other projects. [React Native docs have listed a few](https://reactnative.dev/docs/environment-setup#ruby), you can choose any of them and skip instructions for Ruby Version Manager if you want to go with a different option.
 
  - Install [rbenv](https://github.com/rbenv/rbenv) for managing Ruby versions by running `brew install rbenv ruby-build`
  - Load rbenv in your shell by running `rbenv init` and restarting the shell
