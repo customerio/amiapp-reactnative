@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/customerio/amiapp-reactnative/compare/1.5.1...1.5.2) (2023-01-31)
+
+
+### Bug Fixes
+
+* notifications runtime permission ([#36](https://github.com/customerio/amiapp-reactnative/issues/36)) ([7d6f5ed](https://github.com/customerio/amiapp-reactnative/commit/7d6f5ed00900842e5a22cee4d584d5256b16c8b2))
+
 ## [1.5.1](https://github.com/customerio/amiapp-reactnative/compare/1.5.0...1.5.1) (2023-01-11)
 
 
