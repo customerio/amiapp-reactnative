@@ -1,3 +1,27 @@
+###
+# How to configure what version of the iOS SDK is installed on your machine. 
+#
+# This is the order of priority for installing:
+# 
+# 1. Install local version of CIO SDK, if the source code is found on your local computer. 
+#    To enable this feature, pass environment variable with the path set to where on your computer the iOS SDK source code is. 
+install_ios_sdk_local_path = ENV['INSTALL_IOS_SDK_LOCAL'] || nil 
+# 2. Install from a CIO SDK git branch. 
+#    To install from a branch, pass environment varible with branch name
+install_ios_sdk_branch_name = ENV['INSTALL_IOS_SDK_BRANCH'] || nil 
+# 3. Install version of CIO SDK specified in `/ios/customer_io.podspec` file. 
+#
+###
+
+# All of the CIO pods that are listed as dependencies in `/ios/customer_io.podspec` need to be listed here in this array:
+all_ios_pods_flutter_plugin_needs = [
+  'CustomerIOCommon',
+  'CustomerIOTracking',
+  'CustomerIOMessagingInApp',
+  'CustomerIOMessagingPush',
+  'CustomerIOMessagingPushAPN'
+]
+
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/react-native-unimodules/cocoapods.rb'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
@@ -14,7 +38,26 @@ target 'SampleApp' do
   pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
   # Setting up push permission handler
   pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications"
-  pod 'CustomerIO/MessagingPushAPN', '~> 2.0.1'
+
+  if install_ios_sdk_local_path != nil then 
+    puts ""
+    puts "⚠️ Installing local version of the iOS SDK. Path of iOS SDK: #{install_ios_sdk_local_path}"
+    puts ""
+
+    all_ios_pods_flutter_plugin_needs.each { |podname| 
+      pod podname, :path => install_ios_sdk_local_path
+    }
+  elsif install_ios_sdk_branch_name != nil then 
+    puts ""
+    puts "⚠️ Installing CIO iOS SDK from git branch #{install_ios_sdk_branch_name}"
+    puts ""
+
+    all_ios_pods_flutter_plugin_needs.each { |podname| 
+      pod podname, :git => "https://github.com/customerio/customerio-ios.git", :branch => install_ios_sdk_branch_name
+    }
+  else 
+    pod 'CustomerIO/MessagingPushAPN', '~> 2.0.1'
+  end
   
   # Uncomment to opt-in to using Flipper
   #
@@ -27,7 +70,28 @@ target 'SampleApp' do
 end
 
 target 'Notification Service' do
-  pod 'CustomerIO/MessagingPushAPN', '~> 2.0.1'
+  # Modify the pods to install for the Notification Service scope. Remove pods that we don't need such as in-app. 
+  all_ios_pods_flutter_plugin_needs = all_ios_pods_flutter_plugin_needs.select { |podname| !podname.include? "InApp" }
+
+  if install_ios_sdk_local_path != nil then 
+    puts ""
+    puts "⚠️ Installing local version of the iOS SDK. Path of iOS SDK: #{install_ios_sdk_local_path}"
+    puts ""
+
+    all_ios_pods_flutter_plugin_needs.each { |podname| 
+      pod podname, :path => install_ios_sdk_local_path
+    }
+  elsif install_ios_sdk_branch_name != nil then 
+    puts ""
+    puts "⚠️ Installing CIO iOS SDK from git branch #{install_ios_sdk_branch_name}"
+    puts ""
+
+    all_ios_pods_flutter_plugin_needs.each { |podname| 
+      pod podname, :git => "https://github.com/customerio/customerio-ios.git", :branch => install_ios_sdk_branch_name
+    }
+  else 
+    pod 'CustomerIO/MessagingPushAPN', '~> 2.0.1'
+  end
 end
 
 # workaround for xcode14 for a react native dependency: https://github.com/expo/eas-cli/issues/1432#issuecomment-1285199900
