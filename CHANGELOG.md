@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/customerio/amiapp-reactnative/compare/1.5.2...1.6.0) (2023-02-01)
+
+
+### Features
+
+* register device from javascript using react native package ([#41](https://github.com/customerio/amiapp-reactnative/issues/41)) ([d232c9e](https://github.com/customerio/amiapp-reactnative/commit/d232c9e45f7f485e885c118ab14d22fe6c90f0fd))
+
 ## [1.5.2](https://github.com/customerio/amiapp-reactnative/compare/1.5.1...1.5.2) (2023-01-31)
 
 
