@@ -53,7 +53,7 @@ cp android/app/google-services.json.example android/app/google-services.json
 
 But if you want to do anything like push notifications, you will want to follow [Firebase setup](https://firebase.google.com/docs/android/setup) to add a new Android app to your Firebase project. This will give you a `google-services.json` file to download. Save this file at `android/app/google-services`. 
 
-#### Build app option 1: Using Command Line
+#### Build App - Option 1: Using Command Line
 
 Use the following commands to run the app
 
@@ -69,7 +69,7 @@ npx react-native run-android --deviceId=DEVICE_ID
 
 Where `DEVICE_ID` can be obtained by running `adb devices` command.
 
-#### Option 2: Using Android Studio
+#### Build App - Option 2: Using Android Studio
 
 - Open the `android` folder in Android Studio
 - Build the app in Android Studio
@@ -95,7 +95,7 @@ Next, follow these steps:
 > **Note:**
 > Make sure that the deployment target is set to the minimum [required by the iOS SDK](https://github.com/customerio/customerio-ios#readme).
 
-#### Option 1: Using Command Line
+#### Build App - Option 1: Using Command Line
 
 **To run the app on iOS Simulator**
 
@@ -112,7 +112,7 @@ To run using terminal
 npx react-native run-ios --device "Your iPhone"
 ```
 
-#### Option 2: Using XCode
+#### Build App - Option 2: Using XCode
 
 - Open [`.xcworkspace`](ios/SampleApp.xcworkspace) file in `ios` folder
 - Select the device from the list of devices available
