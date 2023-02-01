@@ -20,7 +20,7 @@ Ami app gives you flexibility to test multiple features such as:
 Ami app is still a work in progress and there are a list of features that aren't available in this app such as:
 
 - Dark mode - Ami app works only in normal/light mode and doesn't support dark mode
-- User login status - The app doesn not retain user's login status and resets itself when back button is tapped or the app is relaunched
+- User login status - The app does not retain user's login status and resets itself when back button is tapped or the app is relaunched
 
 # Getting Started
 
