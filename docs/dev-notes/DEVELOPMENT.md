@@ -109,7 +109,7 @@ npx react-native run-ios
 To run using terminal
 
 ```
-react-native run-ios --device "Your iPhone"
+npx react-native run-ios --device "Your iPhone"
 ```
 
 #### Option 2: Using XCode
