@@ -16,9 +16,10 @@ To get started with the project, you might need several tools to compile on your
 
 > Currently, macOS 12.5.1 is shipped with Ruby 2.6.8, which is not what is required by React Native. We recommend installing some Ruby Manager to have different versions of Ruby installed on your machine without breaking other projects. [React Native docs have listed a few](https://reactnative.dev/docs/environment-setup#ruby), you can choose any of them and skip instructions for Ruby Version Manager if you want to go with a different option.
 
- - Install [rbenv](https://github.com/rbenv/rbenv) for managing Ruby versions by running `brew install rbenv ruby-build`
- - Load rbenv in your shell by running `rbenv init` and restarting the shell
- - Make sure you have the required ruby version set locally. You can do this by running `rbenv local 2.7.6`
+ - If you do not have required version of ruby installed
+   - Install [rbenv](https://github.com/rbenv/rbenv) for managing Ruby versions by running `brew install rbenv ruby-build`
+   - Load rbenv in your shell by running `rbenv init` and restarting the shell
+   - Make sure you have the required ruby version set locally. You can do this by running `rbenv local 2.7.6`
  - Make sure you have Xcode Command Line Tools installed
 
 > Please make sure your are at root directory of the project before running commands mentioned below
@@ -86,7 +87,7 @@ cd ..
 
 Next, follow these steps:
 
-- Jump into `ios` folder and open [`.xcworkspace`](ios/SampleApp.xcworkspace) file to setup the project
+- Jump into `ios` folder and open [`.xcworkspace`](/ios/SampleApp.xcworkspace) file to setup the project
 - [Configure iOS Code Signing](https://github.com/customerio/mobile/blob/main/ios_code_signing.md#how-do-i-setup-my-computer-for-code-signing) to download the provisioning profiles and certificates for development to your machine. 
 
 > **Note** : Make sure that the deployment target is set to the minimum [required by the iOS SDK](https://github.com/customerio/customerio-ios#readme).
