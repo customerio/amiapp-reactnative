@@ -22,7 +22,9 @@ To get started with the project, you might need several tools to compile on your
    - Make sure you have the required ruby version set locally. You can do this by running `rbenv local 2.7.6`
  - Make sure you have Xcode Command Line Tools installed
 
-> Please make sure your are at root directory of the project before running commands mentioned below
+> **Warning**
+> 
+> **Please make sure you are at root directory of the project before running commands mentioned below**
 
 ### Connect the app to a workspace in Customer.io
 
@@ -90,7 +92,8 @@ Next, follow these steps:
 - Jump into `ios` folder and open [`.xcworkspace`](/ios/SampleApp.xcworkspace) file to setup the project
 - [Configure iOS Code Signing](https://github.com/customerio/mobile/blob/main/ios_code_signing.md#how-do-i-setup-my-computer-for-code-signing) to download the provisioning profiles and certificates for development to your machine. 
 
-> **Note** : Make sure that the deployment target is set to the minimum [required by the iOS SDK](https://github.com/customerio/customerio-ios#readme).
+> **Note:**
+> Make sure that the deployment target is set to the minimum [required by the iOS SDK](https://github.com/customerio/customerio-ios#readme).
 
 #### Option 1: Using Command Line
 
@@ -124,7 +127,9 @@ Did you just implement a bug fix or new feature to the [React Native SDK](https:
 3. Run `yarn install` to update code from dependencies if needed.
 4. Run the Ami App following the instructions above.
 
-> **Tip:** You can combine commands when running the app after making changes to native code
+> **Tip**
+> 
+> _You can combine commands when running the app after making changes to native code
 > <br/>e.g.
 > <br/>*Android:* `rm -rf node_modules && yarn install && npx react-native run-android`
-> <br/>*iOS:* `rm -rf node_modules && yarn install && npx react-native run-ios`
+> <br/>*iOS:* `rm -rf node_modules && yarn install && npx react-native run-ios`_
