@@ -53,7 +53,7 @@ cp android/app/google-services.json.example android/app/google-services.json
 
 But if you want to do anything like push notifications, you will want to follow [Firebase setup](https://firebase.google.com/docs/android/setup) to add a new Android app to your Firebase project. This will give you a `google-services.json` file to download. Save this file at `android/app/google-services`. 
 
-#### Option 1: Using Command Line
+#### Build app option 1: Using Command Line
 
 Use the following commands to run the app
 
