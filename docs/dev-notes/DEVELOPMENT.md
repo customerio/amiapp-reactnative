@@ -28,7 +28,15 @@ To get started with the project, you might need several tools to compile on your
 - Make a copy of `env.sample.js` by running `cp env.sample.js env.js` at project root directory
 - Update `env.js` with your `siteId` and `apiKey`
 
-Before running the app, make sure the dependencies are installed using `yarn install`. In case you add/update dependencies later, you will need to run the command again to install the updated dependencies.
+### Install Dependencies
+
+Before running any app, make sure the dependencies are installed by running following command:
+
+```
+yarn install
+```
+
+In case you add/update dependencies later, you will need to run this command again to install the updated dependencies.
 
 ### Android
 
@@ -50,6 +58,13 @@ Use the following commands to run the app
 npx react-native run-android
 ```
 
+Android app will be launched on physical device if connected using `adb`, if not, it should open an emulator and run the app on it. However, if you have multiple devices connected, you can run on a specific device by running following command:
+
+```
+npx react-native run-android --deviceId=DEVICE_ID
+```
+
+Where `DEVICE_ID` can be obtained by running `adb devices` command.
 
 #### Option 2: Using Android Studio
 
@@ -69,7 +84,10 @@ pod install
 cd ..
 ```
 
-Next, [follow these steps](https://github.com/customerio/mobile/blob/main/ios_code_signing.md#how-do-i-setup-my-computer-for-code-signing) to download the provisioning profiles and certificates for development to your machine. 
+Next, follow these steps:
+
+- Jump into `ios` folder and open [`.xcworkspace`](ios/SampleApp.xcworkspace) file to setup the project
+- [Configure iOS Code Signing](https://github.com/customerio/mobile/blob/main/ios_code_signing.md#how-do-i-setup-my-computer-for-code-signing) to download the provisioning profiles and certificates for development to your machine. 
 
 > **Note** : Make sure that the deployment target is set to the minimum [required by the iOS SDK](https://github.com/customerio/customerio-ios#readme).
 
@@ -92,7 +110,7 @@ react-native run-ios --device "Your iPhone"
 
 #### Option 2: Using XCode
 
-- Jump into ios folder and open ```.xcworkspace``` file
+- Open [`.xcworkspace`](ios/SampleApp.xcworkspace) file in `ios` folder
 - Select the device from the list of devices available
 - Run the app 
 
