@@ -20,7 +20,7 @@ To get started with the project, you might need several tools to compile on your
    - Install [rbenv](https://github.com/rbenv/rbenv) for managing Ruby versions by running `brew install rbenv ruby-build`
    - Load rbenv in your shell by running `rbenv init` and restarting the shell
    - Make sure you have the required ruby version set locally. You can do this by running `rbenv local 2.7.6`
- - Make sure you have Xcode Command Line Tools installed
+ - Make sure you have [Xcode Command Line Tools installed](https://stackoverflow.com/a/45566089)
 
 > **Warning**
 > 
@@ -51,7 +51,7 @@ This project requires Firebase setup in order to build the app. You can quickly 
 cp android/app/google-services.json.example android/app/google-services.json
 ```
 
-But if you want to do anything like push notifications, you will want to follow [Firebase setup](https://firebase.google.com/docs/android/setup) to add a new Android app to your Firebase project. This will give you a `google-services.json` file to download. Save this file at `android/app/google-services`. 
+But to make push notifications work, you need to setup the project and copy correct file. If you are a CIO employee, download `google-services.json` file from Firebase project named *Ami ReactNative*. If you are not an employee, you can follow [Firebase setup instructions](https://firebase.google.com/docs/android/setup) to add a new Android app to your Firebase project. This will give you a `google-services.json` file to download. Save this file at `android/app/google-services`. 
 
 #### Build App - Option 1: Using Command Line
 
@@ -109,8 +109,10 @@ npx react-native run-ios
 To run using terminal
 
 ```
-npx react-native run-ios --device "Your iPhone"
+npx react-native run-ios --device "DEVICE_NAME"
 ```
+
+Where `DEVICE_NAME` can be obtained by running `xcrun xctrace list devices` command.
 
 #### Build App - Option 2: Using XCode
 
@@ -123,13 +125,13 @@ npx react-native run-ios --device "Your iPhone"
 Did you just implement a bug fix or new feature to the [React Native SDK](https://github.com/customerio/customerio-reactnative) that you want to test your change locally in Ami App? Want to work on Ami App *and* the SDK at the same time on your local machine? You can! 
 
 1. Follow the [SDK docs](https://github.com/customerio/customerio-reactnative/blob/docs/dev-env/docs/dev-notes/DEVELOPMENT.md#work-on-amiapp-locally) to setup your SDK for Ami App to install.
-2. Changes made in JS/TS file will be visible instantly. However, if you made any changes to native code, you will need to re-run the app. We recommend removing `node_modules` folder using `rm -rf node_modules` before running the app again.
-3. Run `yarn install` to update code from dependencies if needed.
-4. Run the Ami App following the instructions above.
+1. Changes made in JS/TS file will be visible instantly. However, if you made any changes to native code, you will need to re-run the app. You can run `yarn upgrade customerio-reactnative --latest` to include the latest code.<br/>
+However, if you need a clean rebuild, you can do it by removing `node_modules` folder and reinstalling dependencies using `yarn install`.
+1. Run the Ami App following the instructions above.
 
-> **Tip**
-> 
-> _You can combine commands when running the app after making changes to native code
+> **Tip:**
+>
+> You can run npm scripts to for clean builds using single command
 > <br/>e.g.
-> <br/>*Android:* `rm -rf node_modules && yarn install && npx react-native run-android`
-> <br/>*iOS:* `rm -rf node_modules && yarn install && npx react-native run-ios`_
+> <br/>*Android:* `npm run clean-install-android` OR `npm run clean-install-android -- DEVICE_ID`
+> <br/>*iOS:* `npm run clean-install-ios` OR `npm run clean-install-ios -- DEVICE_NAME`
