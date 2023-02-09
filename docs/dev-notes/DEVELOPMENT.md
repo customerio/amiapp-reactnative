@@ -126,10 +126,9 @@ Did you just implement a bug fix or new feature to the [React Native SDK](https:
 
 1. Follow the [SDK docs](https://github.com/customerio/customerio-reactnative/blob/HEAD/docs/dev-notes/DEVELOPMENT.md#work-on-amiapp-locally) to setup your SDK for Ami App to install.
 1. Changes made in JS/TS file will be visible instantly. However, if you made any changes to native code, you will need to re-run the app and run `yarn upgrade customerio-reactnative` first to include the latest code.<br/>
-However, if you need a clean rebuild, you can do it by removing `node_modules` folder and reinstalling dependencies using `yarn install`.
 1. Run the Ami App following the instructions above.
 
-> **Tip:** You can run npm scripts to reinstall all dependencies and run builds using single command
+> **Tip:** If you need a clean rebuild, you can do it by removing `node_modules` folder and reinstalling dependencies using `yarn install`. Or you can run npm scripts to reinstall all dependencies and run builds using single command
 > <br/>
 > <br/>*Android:* `npm run clean-install-android` OR `npm run clean-install-android -- DEVICE_ID`
 > <br/>*iOS:* `npm run clean-install-ios` OR `npm run clean-install-ios -- DEVICE_NAME`
