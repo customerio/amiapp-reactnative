@@ -129,9 +129,7 @@ Did you just implement a bug fix or new feature to the [React Native SDK](https:
 However, if you need a clean rebuild, you can do it by removing `node_modules` folder and reinstalling dependencies using `yarn install`.
 1. Run the Ami App following the instructions above.
 
-> **Tip:**
->
-> You can run npm scripts to for clean builds using single command
-> <br/>e.g.
+> **Tip:** You can run npm scripts to reinstall all dependencies and run builds using single command
+> <br/>
 > <br/>*Android:* `npm run clean-install-android` OR `npm run clean-install-android -- DEVICE_ID`
 > <br/>*iOS:* `npm run clean-install-ios` OR `npm run clean-install-ios -- DEVICE_NAME`
