@@ -125,7 +125,7 @@ Where `DEVICE_NAME` can be obtained by running `xcrun xctrace list devices` comm
 Did you just implement a bug fix or new feature to the [React Native SDK](https://github.com/customerio/customerio-reactnative) that you want to test your change locally in Ami App? Want to work on Ami App *and* the SDK at the same time on your local machine? You can! 
 
 1. Follow the [SDK docs](https://github.com/customerio/customerio-reactnative/blob/HEAD/docs/dev-notes/DEVELOPMENT.md#work-on-amiapp-locally) to setup your SDK for Ami App to install.
-1. Changes made in JS/TS file will be visible instantly. However, if you made any changes to native code, you will need to re-run the app. You can run `yarn upgrade customerio-reactnative --latest` to include the latest code.<br/>
+1. Changes made in JS/TS file will be visible instantly. However, if you made any changes to native code, you will need to re-run the app. You can run `yarn upgrade customerio-reactnative` to include the latest code.<br/>
 However, if you need a clean rebuild, you can do it by removing `node_modules` folder and reinstalling dependencies using `yarn install`.
 1. Run the Ami App following the instructions above.
 
