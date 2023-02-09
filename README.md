@@ -1,9 +1,10 @@
 # Ami app
 
-This is a sample app using [Customer.io's React Native package](https://www.npmjs.com/package/customerio-reactnative). Ami app currently works only on iOS devices. The work to get it on Android is in progress.
+This is a sample app using [Customer.io's React Native package](https://www.npmjs.com/package/customerio-reactnative). Ami app works for both Android and iOS.
 
 # What all features can I test with Ami app ?
-Ami app gives you flexibility to test multiple features such as :
+
+Ami app gives you flexibility to test multiple features such as:
 
 - Package initialisation
 - Identify user
@@ -15,72 +16,21 @@ Ami app gives you flexibility to test multiple features such as :
 - Rich Push & deep links
 
 # What Ami app doesn't offer?
+
 Ami app is still a work in progress and there are a list of features that aren't available in this app such as:
 
 - Dark mode - Ami app works only in normal/light mode and doesn't support dark mode
-- User login status - The app doesn not retain user's login status and resets itself when back button is tapped or the app is relaunched
+- User login status - The app does not retain user's login status and resets itself when back button is tapped or the app is relaunched
 
 # Getting Started
 
-Ami app already includes all the dependencies required. To install the libraries using :
-```
-yarn install
-```
-
-## iOS setup
-
-iOS needs an additional step to install libraries using CocoaPods
-```
-cd ios
-pod install
-cd ..
-```
-
-Next, [follow these steps](https://github.com/customerio/mobile/blob/main/ios_code_signing.md#how-do-i-setup-my-computer-for-code-signing) to download the provisioning profiles and certificates for development to your machine. 
-
-**Note** : Make sure that the deployment target is set to the minimum [that the iOS SDK requires](https://github.com/customerio/customerio-ios#readme). 
-
-## Connect the app to a workspace in Customer.io. 
-```
-cp env.sample.js env.js
-```
-Open `env.js` file that you just created and edit the site id and api key to a Customer.io workspace you want to connect to. 
-
-# Running the app
-**To run the app on iOS Simulator**
-
-Use the following commands to run the app on iOS Simulator
-
-```
-npx react-native run-ios
-```
-**To run the app on device**
-
-To run using terminal
-
-```
-react-native run-ios --device "Your iPhone"
-```
-
-To run using Xcode
-- Jump into ios folder and open ```.xcworkspace``` file
-- Select the device from the list of devices available
-- Run the app 
+Ami app already includes all the dependencies required. To run the app locally, please follow the instructions in [our development document](docs/dev-notes/DEVELOPMENT.md) to get your development environment setup and running.
 
 # Testing the package using app 
 
 ### Initialising the package
 
 Package gets initialised as soon as you launch the application.
-You need to change Site Id & API key in `Env.js` file to use your own workspace.
-```
-const Env = {
-    siteId: "YourSiteId",
-    apiKey: "YourApiKey"
-}
-```
-Once this change is made, save and run the app.
-
 
 ### Identify user
 
@@ -179,3 +129,14 @@ Tap on **Clear Identity** button to clear the current user's session.
 To receive a push notification, identify (create) a user with word 'ami' in the first name. Note that you need to be a [customer.io](https://customer.io/) developer/tester to receive a notification. 
 
 On tapping the push notification, you will be taken to the second screen i.e. to identify a user.
+
+# Contributing
+
+Thanks for taking an interest in our project! We welcome your contributions. Check out [our development instructions](docs/dev-notes/DEVELOPMENT.md) to get your environment set up and start contributing.
+
+> **Note:**
+> We value an open, welcoming, diverse, inclusive, and healthy community for this project. We expect all  contributors to follow our [code of conduct](https://github.com/customerio/mobile/blob/HEAD/CODE_OF_CONDUCT.md).  
+
+# License
+
+[MIT](LICENSE)
