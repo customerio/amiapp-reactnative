@@ -16,11 +16,11 @@ const FeaturesUpdate = ({navigation}) => {
     const data = new CustomerioConfig()
     data.logLevel = CioLogLevel.debug
     data.autoTrackDeviceAttributes = true
+    data.enableInApp = true
 
     const env = new CustomerIOEnv()
     env.siteId = Env.siteId
     env.apiKey = Env.apiKey
-    env.organizationId = Env.organizationId
 
     CustomerIO.initialize(env, data) 
   }, [])
