@@ -13,7 +13,7 @@
     "@react-native-community/push-notification-ios": "^1.10.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
-    "customerio-reactnative": "git+https://github.com/customerio/customerio-reactnative#d54174bd48586b35033d18c90290e927f0fee970",
+    "customerio-reactnative": "git+https://github.com/customerio/customerio-reactnative#35dceb293b746845425e977df42e07959df8b60b",
     "expo": "~42.0.1",
     "expo-splash-screen": "~0.11.2",
     "expo-status-bar": "~1.0.4",
