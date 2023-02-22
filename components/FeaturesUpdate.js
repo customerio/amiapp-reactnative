@@ -49,8 +49,11 @@ const FeaturesUpdate = ({navigation}) => {
 
       // Navigate
       const goToFeaturesTrial = () => {
-          CustomerIO.clearIdentify()
-          navigation.navigate("FeaturesTrial")
+        CustomerIO.showPromptForPushNotifications().then(response => {
+          console.log("Guess it worked", response)
+        })
+          // CustomerIO.clearIdentify()
+          // navigation.navigate("FeaturesTrial")
       }
 
     return(

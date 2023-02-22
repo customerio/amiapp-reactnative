@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // firebase used for app distribution.
     // FirebaseApp.configure(options: options)
     
-    registerForPushNotifications()
+//    registerForPushNotifications()
     return true
   }
   
