@@ -1,6 +1,6 @@
 PODS:
   - boost (1.76.0)
-  - customerio-reactnative (1.0.0):
+  - customerio-reactnative (2.1.0):
     - CustomerIOMessagingInApp (~> 2.1.0-beta.2)
     - CustomerIOTracking (~> 2.1.0-beta.2)
     - React-Core
@@ -587,7 +587,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   CustomerIO: 12984963264bcfe4f16bb84934dbc81b85b7eccc
-  customerio-reactnative: f972ba5e4fefdb1282868d880c002947cb4bbdf0
+  customerio-reactnative: 3f6267bc684c96452c80dbf8e21669e2f2112405
   CustomerIOCommon: 26e771357e4add7bd95ba7f7754665a80f1175a0
   CustomerIOMessagingInApp: b3d4981fb1b8802ac0b64028a2493ae8dcbeac64
   CustomerIOMessagingPush: 58402854467375646496fb765e76ea55a1f40959
