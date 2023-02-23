@@ -46,15 +46,23 @@ const FeaturesUpdate = ({navigation}) => {
           </View>
         )
       }
+
+      const idothis = () => {
+        console.log("Reasonable here")
+      } 
     const requestPushPermissionPrompt = () => {
-      var options = {"ios" : {"sound" : true}}
-        CustomerIO.showPromptForPushNotifications(options).then(response => {
-          alert("Permission Status -> " + response)
-          console.log("Permission status is - ", response)
-        }).catch(error => {
-          alert("Failed to show push permission promt.")
-          console.log(error)
-        })
+
+      CustomerIO.getPushPermissionStatus((status) => {
+        console.log(status)
+      })
+      // var options = {"ios" : {"sound" : true}}
+      //   CustomerIO.showPromptForPushNotifications(options).then(response => {
+      //     alert("Permission Status -> " + response)
+      //     console.log("Permission status is - ", response)
+      //   }).catch(error => {
+      //     alert("Failed to show push permission promt.")
+      //     console.log(error)
+      //   })
     }
 
       // Navigate
