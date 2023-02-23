@@ -46,6 +46,16 @@ const FeaturesUpdate = ({navigation}) => {
           </View>
         )
       }
+    const requestPushPermissionPrompt = () => {
+      var options = {"ios" : {"sound" : true}}
+        CustomerIO.showPromptForPushNotifications(options).then(response => {
+          alert("Permission Status -> " + response)
+          console.log("Permission status is - ", response)
+        }).catch(error => {
+          alert("Failed to show push permission promt.")
+          console.log(error)
+        })
+    }
 
       // Navigate
       const goToFeaturesTrial = () => {
@@ -76,6 +86,7 @@ const FeaturesUpdate = ({navigation}) => {
         ItemSeparatorComponent = {renderSeparator}
       />
       <Button title="Let's get started" style={styles.getStartedButton} onPress={() => goToFeaturesTrial()}></Button>
+      <Button title="Show Push Prompt" style={styles.getStartedButton} onPress={() => requestPushPermissionPrompt()}></Button>
       </ImageBackground>
     )
 }
