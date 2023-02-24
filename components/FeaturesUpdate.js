@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     },
     featuresList: {
       width: '80%',
-      height: '40%',
+      height: '30%',
       flexGrow : 0,
     },
     featuresCell: {
