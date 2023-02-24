@@ -2527,7 +2527,7 @@ css-in-js-utils@^2.0.0:
 
 "customerio-reactnative@https://github.com/customerio/customerio-reactnative#aman/push-notifications":
   version "2.0.1"
-  resolved "https://github.com/customerio/customerio-reactnative#8e6ccc575b41782ef753527fb5923ab84e6c964f"
+  resolved "https://github.com/customerio/customerio-reactnative#2559412e2ab182a3cf3a0843de5ea3a3d798253b"
 
 dayjs@^1.8.15:
   version "1.11.3"

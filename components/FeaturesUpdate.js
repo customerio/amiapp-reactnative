@@ -47,22 +47,26 @@ const FeaturesUpdate = ({navigation}) => {
         )
       }
 
-      const idothis = () => {
-        console.log("Reasonable here")
-      } 
-    const requestPushPermissionPrompt = () => {
+    const performActionOnPushStatus = (status) => {
+      alert("Push permission status is - " + status)
+      console.log("Push permission status is - " + status)
+    } 
 
-      CustomerIO.getPushPermissionStatus((status) => {
-        console.log(status)
+    const getPushPermissionStatus = () => {
+      CustomerIO.getPushPermissionStatus((response) => {
+        performActionOnPushStatus(response)
       })
-      // var options = {"ios" : {"sound" : true}}
-      //   CustomerIO.showPromptForPushNotifications(options).then(response => {
-      //     alert("Permission Status -> " + response)
-      //     console.log("Permission status is - ", response)
-      //   }).catch(error => {
-      //     alert("Failed to show push permission promt.")
-      //     console.log(error)
-      //   })
+    }
+
+    const requestPushPermissionPrompt = () => {
+      var options = {"ios" : {"sound" : true}}
+      CustomerIO.showPromptForPushNotifications(options).then(response => {
+        alert("Permission Status -> " + response)
+        console.log("Permission status is - ", response)
+      }).catch(error => {
+        alert("Failed to show push permission promt.")
+        console.log(error)
+      })
     }
 
       // Navigate
@@ -94,7 +98,9 @@ const FeaturesUpdate = ({navigation}) => {
         ItemSeparatorComponent = {renderSeparator}
       />
       <Button title="Let's get started" style={styles.getStartedButton} onPress={() => goToFeaturesTrial()}></Button>
+      <Button title="Get push permission status" style={styles.getStartedButton} onPress={() => getPushPermissionStatus()}></Button>
       <Button title="Show Push Prompt" style={styles.getStartedButton} onPress={() => requestPushPermissionPrompt()}></Button>
+
       </ImageBackground>
     )
 }
