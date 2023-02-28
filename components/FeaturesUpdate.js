@@ -59,7 +59,7 @@ const FeaturesUpdate = ({navigation}) => {
     }
 
     const requestPushPermissionPrompt = () => {
-      var options = {"ios" : {"sound" : true}}
+      var options = {"ios" : {"sound" : true, "badge" : true}}
       CustomerIO.showPromptForPushNotifications(options).then(response => {
         alert("Permission Status -> " + response)
         console.log("Permission status is - ", response)
