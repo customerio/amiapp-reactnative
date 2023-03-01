@@ -4,51 +4,8 @@ import { TextInput } from "react-native-gesture-handler";
 import FeatureButton from "./common/FeatureButton";
 import { SubHeaderText, SimpleText } from "./common/Text";
 import { CustomerIO } from "customerio-reactnative";
-import { checkNotifications, requestNotifications, RESULTS } from "react-native-permissions";
 
 const IdentifyUser = (props) => {
-
-    const handlePermissionRequest = (permission, onGranted, onFailed) => {
-        permission
-            .then((result) => {
-                switch (result.status) {
-                    case RESULTS.GRANTED:
-                        onGranted();
-                        break;
-                    default:
-                        onFailed(result);
-                }
-            })
-            .catch((error) => {
-                console.log("Unable to request permission, error: ", error);
-            });
-    }
-
-    const requestNotificationsPermission = () => {
-        const notificationPermissionOptions = ['alert', 'sound'];
-        handlePermissionRequest(
-            checkNotifications(notificationPermissionOptions),
-            () => {
-                console.log("Notifications are enabled on this device for AmiApp");
-            },
-            (result) => {
-                console.log("Requesting for notifications permission. Current status: ", result);
-                handlePermissionRequest(
-                    requestNotifications(notificationPermissionOptions),
-                    () => {
-                        console.log("Notifications are now enabled on this device for AmiApp");
-                    },
-                    (result) => {
-                        console.log("Cannot send notifications, permission requested but not granted: ", result);
-                    }
-                );
-            }
-        );
-    };
-
-    useEffect(() => {
-        requestNotificationsPermission()
-    }, [])
 
     const [emailId, setEmailId] = useState("")
     const [userName, setUserName] = useState("")
