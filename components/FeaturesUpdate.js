@@ -59,6 +59,7 @@ const FeaturesUpdate = ({navigation}) => {
     }
 
     const requestPushPermissionPrompt = () => {
+      // Todo: change
       var options = {"ios" : {"sound" : true, "badge" : true}}
       CustomerIO.showPromptForPushNotifications(options).then(response => {
         alert("Permission Status -> " + response)
