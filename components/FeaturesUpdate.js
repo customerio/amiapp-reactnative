@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import {SubHeaderText} from './common/Text'
 import { CustomerIO, CustomerioConfig, CioLogLevel, CustomerIOEnv } from "customerio-reactnative";
 import Env from "../env";
+import {PushconfigOptions} from "customerio-reactnative/types";
 
 const FeaturesUpdate = ({navigation}) => {
 
@@ -53,8 +54,9 @@ const FeaturesUpdate = ({navigation}) => {
     } 
 
     const getPushPermissionStatus = () => {
-      CustomerIO.getPushPermissionStatus((response) => {
-        performActionOnPushStatus(response)
+      CustomerIO.getPushPermissionStatus().then(status => {
+        alert("Push permission status is - " + status)
+        console.log("Push permission status is - " + status)
       })
     }
 
