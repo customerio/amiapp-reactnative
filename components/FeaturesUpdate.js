@@ -46,12 +46,7 @@ const FeaturesUpdate = ({navigation}) => {
             <Text style={styles.item}>{item.key}</Text>
           </View>
         )
-      }
-
-    const performActionOnPushStatus = (status) => {
-      alert("Push permission status is - " + status)
-      console.log("Push permission status is - " + status)
-    } 
+      } 
 
     const getPushPermissionStatus = () => {
       CustomerIO.getPushPermissionStatus().then(status => {
