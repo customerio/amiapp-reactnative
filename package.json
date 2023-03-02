@@ -13,7 +13,7 @@
     "@react-native-community/push-notification-ios": "^1.10.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
-    "customerio-reactnative": "git+https://github.com/customerio/customerio-reactnative#8abcb6ea56ebdf9f5ae10366896c3adf6664f230",
+    "customerio-reactnative": "git+https://github.com/customerio/customerio-reactnative#fe1b2ecca9b7140f6fe9a8e1e213021ba0b2d511",
     "expo": "~42.0.1",
     "expo-splash-screen": "~0.11.2",
     "expo-status-bar": "~1.0.4",
@@ -30,7 +30,13 @@
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.9.0",
+    "@tsconfig/react-native": "^2.0.3",
+    "@types/jest": "^29.4.0",
+    "@types/react": "^18.0.28",
+    "@types/react-native": "^0.71.3",
+    "@types/react-test-renderer": "^18.0.0",
+    "typescript": "^4.9.5"
   },
   "private": true
 }
