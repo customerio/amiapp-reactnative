@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import { StyleSheet, Text, FlatList, View, Image, Button, ImageBackground, Linking} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {SubHeaderText} from './common/Text'
-import { CustomerIO, CustomerioConfig, CioLogLevel, CustomerIOEnv, PushPermissionOptions } from "customerio-reactnative";
+import { CustomerIO, CustomerioConfig, CioLogLevel, CustomerIOEnv, PushPermissionOptions, PushPermissionStatus } from "customerio-reactnative";
 import Env from "../env";
 
 const FeaturesUpdate = ({navigation}) => {
@@ -54,7 +54,7 @@ const FeaturesUpdate = ({navigation}) => {
       })
     }
 
-    const requestPushPermissionPrompt = () => {
+    const requestPushPermissionPrompt = async() => {
       let options: PushPermissionOptions = {
         ios: {
           sound: true,
@@ -62,13 +62,14 @@ const FeaturesUpdate = ({navigation}) => {
         }
       }
 
-      CustomerIO.showPromptForPushNotifications(options).then(response => {
+      try {
+        let response: PushPermissionStatus = await CustomerIO.showPromptForPushNotifications(options)
         alert("Permission Status -> " + response)
         console.log("Permission status is - ", response)
-      }).catch(error => {
+      } catch (error) {
         alert("Failed to show push permission promt.")
         console.log(error)
-      })
+      }
     }
 
       // Navigate
