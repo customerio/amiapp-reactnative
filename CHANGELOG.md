@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/customerio/amiapp-reactnative/compare/1.7.0...1.8.0) (2023-03-03)
+
+
+### Features
+
+* prompt for push notification permission ([#44](https://github.com/customerio/amiapp-reactnative/issues/44)) ([dda5e2b](https://github.com/customerio/amiapp-reactnative/commit/dda5e2bff418f9dea05b324a6a75973a3a11cbbc))
+
 # [1.7.0](https://github.com/customerio/amiapp-reactnative/compare/1.6.0...1.7.0) (2023-03-03)
 
 
