@@ -56,7 +56,7 @@ const FeaturesUpdate = ({navigation}) => {
         case "Denied":
           console.log("Push permission status is - Denied")
           break;
-        case "NotDetermined":
+        case "Notdetermined":
           console.log("Push permission status is - NotDetermined")
           break;
       }
