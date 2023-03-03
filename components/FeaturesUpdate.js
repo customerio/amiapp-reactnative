@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import { StyleSheet, Text, FlatList, View, Image, Button, ImageBackground, Linking} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {SubHeaderText} from './common/Text'
-import { CustomerIO, CustomerioConfig, CioLogLevel, CustomerIOEnv } from "customerio-reactnative";
+import { CustomerIO, CustomerioConfig, CioLogLevel, CustomerIOEnv, InAppMessageEventType, InAppMessageEvent } from "customerio-reactnative";
 import Env from "../env";
 import {PushconfigOptions} from "customerio-reactnative/types";
 
@@ -17,15 +17,52 @@ const FeaturesUpdate = ({navigation}) => {
     const data = new CustomerioConfig()
     data.logLevel = CioLogLevel.debug
     data.autoTrackDeviceAttributes = true
+    data.enableInApp = true
 
     const env = new CustomerIOEnv()
     env.siteId = Env.siteId
     env.apiKey = Env.apiKey
-    env.organizationId = Env.organizationId
 
     CustomerIO.initialize(env, data) 
   }, [])
   
+  useEffect(() => {
+    CustomerIO.inAppMessaging().registerEventsListener((event) => {
+      console.log(event)
+      switch (event.eventType) {
+        case InAppMessageEventType.messageShown:
+          CustomerIO.track(
+            "in-app event",
+            { "event_name": "message shown", "delivery_id": event.deliveryId ?? "NULL", "message_id": event.messageId }
+          )
+          break;
+        case InAppMessageEventType.messageDismissed:
+          CustomerIO.track(
+            "in-app event",
+            { "event_name": "message dismissed", "delivery_id": event.deliveryId ?? "NULL", "message_id": event.messageId }
+          )
+          break;
+        case InAppMessageEventType.errorWithMessage:
+          CustomerIO.track(
+            "in-app event",
+            { "event_name": "message error", "delivery_id": event.deliveryId ?? "NULL", "message_id": event.messageId }
+          )
+          break;
+        case InAppMessageEventType.messageActionTaken:
+          CustomerIO.track(
+            "in-app event",
+            { "event_name": "message action", "delivery_id": event.deliveryId ?? "NULL", "message_id": event.messageId, "action": event.actionValue, "name": event.actionName }
+          )
+          break;
+        default:
+          CustomerIO.track(
+            "in-app event",
+            { "event_name": "unsupported event", "event": event }
+          )
+      }
+    });
+  }, [])
+
   // Renderers
     const renderSeparator = () => {  
         return (  
