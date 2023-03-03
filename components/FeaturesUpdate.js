@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import {SubHeaderText} from './common/Text'
 import { CustomerIO, CustomerioConfig, CioLogLevel, CustomerIOEnv, InAppMessageEventType, InAppMessageEvent } from "customerio-reactnative";
 import Env from "../env";
+import {PushconfigOptions} from "customerio-reactnative/types";
 
 const FeaturesUpdate = ({navigation}) => {
 
@@ -82,7 +83,38 @@ const FeaturesUpdate = ({navigation}) => {
             <Text style={styles.item}>{item.key}</Text>
           </View>
         )
+      } 
+
+    const handlePushPermissionStatus = (status) => {
+      switch(status) {
+        case "Granted":
+          console.log("Push permission status is - Granted")
+          break;
+        case "Denied":
+          console.log("Push permission status is - Denied")
+          break;
+        case "Notdetermined":
+          console.log("Push permission status is - NotDetermined")
+          break;
       }
+      alert("Permission Status -> " + status)
+    }
+
+    const getPushPermissionStatus = () => {
+      CustomerIO.getPushPermissionStatus().then(status => {
+        handlePushPermissionStatus(status)
+      })
+    }
+
+    const requestPushPermissionPrompt = () => {
+      var options = {"ios" : {"sound" : true, "badge" : true}}
+      CustomerIO.showPromptForPushNotifications(options).then(status => {
+        handlePushPermissionStatus(status)
+      }).catch(error => {
+        alert("Failed to show push permission prompt.")
+        console.log(error)
+      })
+    }
 
       // Navigate
       const goToFeaturesTrial = () => {
@@ -113,6 +145,9 @@ const FeaturesUpdate = ({navigation}) => {
         ItemSeparatorComponent = {renderSeparator}
       />
       <Button title="Let's get started" style={styles.getStartedButton} onPress={() => goToFeaturesTrial()}></Button>
+      <Button title="Get push permission status" style={styles.getStartedButton} onPress={() => getPushPermissionStatus()}></Button>
+      <Button title="Show Push Prompt" style={styles.getStartedButton} onPress={() => requestPushPermissionPrompt()}></Button>
+
       </ImageBackground>
     )
 }
@@ -124,7 +159,7 @@ const styles = StyleSheet.create({
     },
     featuresList: {
       width: '80%',
-      height: '40%',
+      height: '30%',
       flexGrow : 0,
     },
     featuresCell: {

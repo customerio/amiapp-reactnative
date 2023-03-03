@@ -2525,10 +2525,10 @@ css-in-js-utils@^2.0.0:
     hyphenate-style-name "^1.0.2"
     isobject "^3.0.1"
 
-customerio-reactnative@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/customerio-reactnative/-/customerio-reactnative-2.1.0.tgz#740f9e6e937d05041ddcc1f2f47d43d1253e1ce5"
-  integrity sha512-qzgcgvizUWzpXxSiFsCAGTaLgce7l6LW8Nx8UMZUt//ldFMvLHGFFz6/dHvTXNn3mswe2VwIceyjXYHYiDDuPQ==
+customerio-reactnative@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/customerio-reactnative/-/customerio-reactnative-2.2.0.tgz#27d3ea800efcaa438fd9584e55679ad9b28bc169"
+  integrity sha512-wwzG4kQkcqFe0DiOa9udkyEqYn039qqeWduikM6loKFuAMYASkJqq19yLeec7eyjcz1OWROQ/IsjPLubtiH7Uw==
 
 dayjs@^1.8.15:
   version "1.11.3"
@@ -4972,11 +4972,6 @@ react-native-gradle-plugin@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.7.tgz#96602f909745239deab7b589443f14fce5da2056"
   integrity sha512-+4JpbIx42zGTONhBTIXSyfyHICHC29VTvhkkoUOJAh/XHPEixpuBduYgf6Y4y9wsN1ARlQhBBoptTvXvAFQf5g==
-
-react-native-permissions@^3.6.1:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-3.6.1.tgz#73adcc1cef8cd57a9ef167b4507405f4ff5749c4"
-  integrity sha512-fzPpPQXeD34inUccqtoResSwYubfrwUguP4qrVUUv8+KSMjYSaHGoS5HaIJLZHlN9gO+TvLJZ2L5ZljTsb6qnQ==
 
 react-native-push-notification@^8.1.1:
   version "8.1.1"

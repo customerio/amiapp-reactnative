@@ -7,14 +7,11 @@ platform :ios, '13.0'
 target 'SampleApp' do
   use_unimodules!
   config = use_native_modules!
-  permissions_path = '../node_modules/react-native-permissions/ios'
 
   use_react_native!(:path => config["reactNativePath"])  
   pod 'RCT-Folly', :podspec => '../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec'
   pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
-  # Setting up push permission handler
-  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications"
-  pod 'CustomerIO/MessagingPushAPN', '~> 2.1.0-beta.2'
+  pod 'CustomerIO/MessagingPushAPN', '~> 2.1.0'
   
   # Uncomment to opt-in to using Flipper
   #
@@ -27,8 +24,15 @@ target 'SampleApp' do
 end
 
 target 'Notification Service' do
-  pod 'CustomerIO/MessagingPushAPN', '~> 2.1.0-beta.2'
+  pod 'CustomerIO/MessagingPushAPN', '~> 2.1.0'
 end
+
+cio_target_names = [
+  'CustomerIOTracking',
+  'CustomerIOCommon',
+  'CustomerIOMessagingPushAPN',
+  'CustomerIOMessagingPush'
+]
 
 # workaround for xcode14 for a react native dependency: https://github.com/expo/eas-cli/issues/1432#issuecomment-1285199900
 post_install do |installer| 
@@ -36,6 +40,14 @@ post_install do |installer|
     if target.respond_to?(:product_type) and target.product_type == "com.apple.product-type.bundle"
       target.build_configurations.each do |config|
           config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+      end
+    end
+    if cio_target_names.include? target.name 
+      puts "Modifying target #{target.name}"
+  
+      target.build_configurations.each do |config|
+        puts "Setting build config settings for #{target.name}"
+        config.build_settings['APPLICATION_EXTENSION_API_ONLY'] ||= 'NO'
       end
     end
   end

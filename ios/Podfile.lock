@@ -4,18 +4,18 @@ PODS:
     - CustomerIOMessagingInApp (~> 2.1.0-beta.2)
     - CustomerIOTracking (~> 2.1.0-beta.2)
     - React-Core
-  - CustomerIO/MessagingPushAPN (2.1.0-beta.2):
-    - CustomerIOMessagingPushAPN (= 2.1.0-beta.2)
-  - CustomerIOCommon (2.1.0-beta.2)
-  - CustomerIOMessagingInApp (2.1.0-beta.2):
-    - CustomerIOTracking (= 2.1.0-beta.2)
+  - CustomerIO/MessagingPushAPN (2.1.0):
+    - CustomerIOMessagingPushAPN (= 2.1.0)
+  - CustomerIOCommon (2.1.0)
+  - CustomerIOMessagingInApp (2.1.0):
+    - CustomerIOTracking (= 2.1.0)
     - Gist (~> 3.0.4)
-  - CustomerIOMessagingPush (2.1.0-beta.2):
-    - CustomerIOTracking (= 2.1.0-beta.2)
-  - CustomerIOMessagingPushAPN (2.1.0-beta.2):
-    - CustomerIOMessagingPush (= 2.1.0-beta.2)
-  - CustomerIOTracking (2.1.0-beta.2):
-    - CustomerIOCommon (= 2.1.0-beta.2)
+  - CustomerIOMessagingPush (2.1.0):
+    - CustomerIOTracking (= 2.1.0)
+  - CustomerIOMessagingPushAPN (2.1.0):
+    - CustomerIOMessagingPush (= 2.1.0)
+  - CustomerIOTracking (2.1.0):
+    - CustomerIOCommon (= 2.1.0)
   - DoubleConversion (1.1.6)
   - EXApplication (3.2.0):
     - UMCore
@@ -67,8 +67,6 @@ PODS:
   - fmt (6.2.1)
   - Gist (3.0.4)
   - glog (0.3.5)
-  - Permission-Notifications (3.6.1):
-    - RNPermissions
   - RCT-Folly (2021.06.28.00-v2):
     - boost
     - DoubleConversion
@@ -354,8 +352,6 @@ PODS:
     - React-Core
   - RNGestureHandler (1.10.3):
     - React-Core
-  - RNPermissions (3.6.1):
-    - React-Core
   - RNReanimated (2.2.4):
     - DoubleConversion
     - FBLazyVector
@@ -401,7 +397,7 @@ PODS:
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - customerio-reactnative (from `../node_modules/customerio-reactnative`)
-  - CustomerIO/MessagingPushAPN (~> 2.1.0-beta.2)
+  - CustomerIO/MessagingPushAPN (~> 2.1.0)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXApplication (from `../node_modules/expo-application/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
@@ -418,7 +414,6 @@ DEPENDENCIES:
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - Permission-Notifications (from `../node_modules/react-native-permissions/ios/Notifications`)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
@@ -450,7 +445,6 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCPushNotificationIOS (from `../node_modules/@react-native-community/push-notification-ios`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
-  - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - UMAppLoader (from `../node_modules/unimodules-app-loader/ios`)
@@ -507,8 +501,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/React/FBReactNativeSpec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
-  Permission-Notifications:
-    :path: "../node_modules/react-native-permissions/ios/Notifications"
   RCT-Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
   RCTRequired:
@@ -567,8 +559,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/push-notification-ios"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
-  RNPermissions:
-    :path: "../node_modules/react-native-permissions"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -586,13 +576,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  CustomerIO: 12984963264bcfe4f16bb84934dbc81b85b7eccc
+  CustomerIO: 6c7899e4e02e81977ca7ceb85396a1ac2db33439
   customerio-reactnative: 3f6267bc684c96452c80dbf8e21669e2f2112405
-  CustomerIOCommon: 26e771357e4add7bd95ba7f7754665a80f1175a0
-  CustomerIOMessagingInApp: b3d4981fb1b8802ac0b64028a2493ae8dcbeac64
-  CustomerIOMessagingPush: 58402854467375646496fb765e76ea55a1f40959
-  CustomerIOMessagingPushAPN: 853e23e5beafd45119a5206841405bbe4c0c8316
-  CustomerIOTracking: fbb66324aa8a687585e29db377aa056a989e756b
+  CustomerIOCommon: b0d7bb7668c12df97154bf70fe68e5c82f21f8ab
+  CustomerIOMessagingInApp: 9bd4cc9a85fdb81b403c4ee099fecb347f57a688
+  CustomerIOMessagingPush: 24f627c7d78fcb4fbd2477f92b483663ff113f4e
+  CustomerIOMessagingPushAPN: 8e7dcad63ad2a0e56cce1f990b248ca63d2ccb04
+  CustomerIOTracking: 98b68ef6f96fd2e8fd099d58507bd60892300817
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   EXApplication: 9ff2a206009d6e55bca6c20b3f33d07986b51ef3
   EXConstants: 4cb52b6d8f636c767104a44bf7db3873e9c01a6f
@@ -611,7 +601,6 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   Gist: 1d680df00ff6dbcc4fac9844b90454f30778dcbc
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
-  Permission-Notifications: 150484ae586eb9be4e32217582a78350a9bb31c3
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: ae07282b2ec9c90d7eb98251603bc3f82403d239
   RCTTypeSafety: a04dc1339af2e1da759ccd093bf11c310dce1ef6
@@ -641,7 +630,6 @@ SPEC CHECKSUMS:
   ReactCommon: e30ec17dfb1d4c4f3419eac254350d6abca6d5a2
   RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
-  RNPermissions: dcdb7b99796bbeda6975a6e79ad519c41b251b1c
   RNReanimated: e2414d403cc8da634e44103c1ec7a13e87bd6333
   RNScreens: 21b73c94c9117e1110a79ee0ee80c93ccefed8ce
   UMAppLoader: 21af63390e55c82e037fb9752d93114a80ecf16e
@@ -650,6 +638,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 2be431101b73604e64fbfffcf759336f9d8fccbb
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 
-PODFILE CHECKSUM: 0bfe43cbbf7b34abbf12d1b245ce3a91b2c85233
+PODFILE CHECKSUM: bc3accc39b7d602deadda9bd0c8060bc16ede086
 
 COCOAPODS: 1.11.3
