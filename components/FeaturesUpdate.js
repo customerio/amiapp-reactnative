@@ -48,21 +48,34 @@ const FeaturesUpdate = ({navigation}) => {
         )
       } 
 
+    const handlePushPermissionStatus = (status) => {
+      switch(status) {
+        case "Granted":
+          console.log("Push permission status is - Granted")
+          break;
+        case "Denied":
+          console.log("Push permission status is - Denied")
+          break;
+        case "NotDetermined":
+          console.log("Push permission status is - NotDetermined")
+          break;
+      }
+      alert("Permission Status -> " + status)
+    }
+
     const getPushPermissionStatus = () => {
       CustomerIO.getPushPermissionStatus().then(status => {
-        alert("Push permission status is - " + status)
-        console.log("Push permission status is - " + status)
+        handlePushPermissionStatus(status)
       })
     }
 
     const requestPushPermissionPrompt = () => {
       // Todo: change
       var options = {"ios" : {"sound" : true, "badge" : true}}
-      CustomerIO.showPromptForPushNotifications(options).then(response => {
-        alert("Permission Status -> " + response)
-        console.log("Permission status is - ", response)
+      CustomerIO.showPromptForPushNotifications(options).then(status => {
+        handlePushPermissionStatus(status)
       }).catch(error => {
-        alert("Failed to show push permission promt.")
+        alert("Failed to show push permission prompt.")
         console.log(error)
       })
     }
