@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/customerio/amiapp-reactnative/compare/1.6.0...1.7.0) (2023-03-03)
+
+
+### Features
+
+* add in-app event listeners ([#43](https://github.com/customerio/amiapp-reactnative/issues/43)) ([f6c6e1f](https://github.com/customerio/amiapp-reactnative/commit/f6c6e1fe6cc8638c32687331b2d25578bf2dff13))
+
 # [1.6.0](https://github.com/customerio/amiapp-reactnative/compare/1.5.2...1.6.0) (2023-02-01)
 
 
