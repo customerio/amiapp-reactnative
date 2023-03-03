@@ -39,21 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // firebase used for app distribution.
     // FirebaseApp.configure(options: options)
-    
-//    registerForPushNotifications()
     return true
-  }
-  
-  func registerForPushNotifications() {
-      let center  = UNUserNotificationCenter.current()
-      center.delegate = self
-      center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
-        if error == nil{
-          DispatchQueue.main.async {
-            UIApplication.shared.registerForRemoteNotifications()
-          }
-        }
-      }
   }
   
   // PUSH NOTIFICATIONS
