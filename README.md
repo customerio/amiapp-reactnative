@@ -26,6 +26,17 @@ Ami app is still a work in progress and there are a list of features that aren't
 
 Ami app already includes all the dependencies required. To run the app locally, please follow the instructions in [our development document](docs/dev-notes/DEVELOPMENT.md) to get your development environment setup and running.
 
+## Quick Start (Customer.io team)
+
+You can run the following command in the terminal and it will walk you through the steps needed to be able to build the app and test in the simulator or on device.
+
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/customerio/amiapp-reactnative/HEAD/scripts/setup.sh)"
+
+Or if you have cloned the repo already then you can
+
+    cd amiapp-reactnative
+    bash scripts/setup.sh
+
 # Testing the package using app 
 
 ### Initialising the package
