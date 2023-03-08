@@ -4,8 +4,6 @@ PODS:
     - CustomerIOMessagingInApp (~> 2.1.0-beta.2)
     - CustomerIOTracking (~> 2.1.0-beta.2)
     - React-Core
-  - CustomerIO/MessagingPushAPN (2.1.0):
-    - CustomerIOMessagingPushAPN (= 2.1.0)
   - CustomerIOCommon (2.1.0)
   - CustomerIOMessagingInApp (2.1.0):
     - CustomerIOTracking (= 2.1.0)
@@ -397,7 +395,10 @@ PODS:
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - customerio-reactnative (from `../node_modules/customerio-reactnative`)
-  - CustomerIO/MessagingPushAPN (~> 2.1)
+  - CustomerIOCommon (from `https://github.com/customerio/customerio-ios.git`, branch `levi/fix-compile-error`)
+  - CustomerIOMessagingPush (from `https://github.com/customerio/customerio-ios.git`, branch `levi/fix-compile-error`)
+  - CustomerIOMessagingPushAPN (from `https://github.com/customerio/customerio-ios.git`, branch `levi/fix-compile-error`)
+  - CustomerIOTracking (from `https://github.com/customerio/customerio-ios.git`, branch `levi/fix-compile-error`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXApplication (from `../node_modules/expo-application/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
@@ -455,12 +456,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - CustomerIO
-    - CustomerIOCommon
     - CustomerIOMessagingInApp
-    - CustomerIOMessagingPush
-    - CustomerIOMessagingPushAPN
-    - CustomerIOTracking
     - fmt
     - Gist
 
@@ -469,6 +465,18 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
   customerio-reactnative:
     :path: "../node_modules/customerio-reactnative"
+  CustomerIOCommon:
+    :branch: levi/fix-compile-error
+    :git: https://github.com/customerio/customerio-ios.git
+  CustomerIOMessagingPush:
+    :branch: levi/fix-compile-error
+    :git: https://github.com/customerio/customerio-ios.git
+  CustomerIOMessagingPushAPN:
+    :branch: levi/fix-compile-error
+    :git: https://github.com/customerio/customerio-ios.git
+  CustomerIOTracking:
+    :branch: levi/fix-compile-error
+    :git: https://github.com/customerio/customerio-ios.git
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   EXApplication:
@@ -574,9 +582,22 @@ EXTERNAL SOURCES:
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
+CHECKOUT OPTIONS:
+  CustomerIOCommon:
+    :commit: d2fb4adc24118fde07a4c7f94a60b81a822ecd22
+    :git: https://github.com/customerio/customerio-ios.git
+  CustomerIOMessagingPush:
+    :commit: d2fb4adc24118fde07a4c7f94a60b81a822ecd22
+    :git: https://github.com/customerio/customerio-ios.git
+  CustomerIOMessagingPushAPN:
+    :commit: d2fb4adc24118fde07a4c7f94a60b81a822ecd22
+    :git: https://github.com/customerio/customerio-ios.git
+  CustomerIOTracking:
+    :commit: d2fb4adc24118fde07a4c7f94a60b81a822ecd22
+    :git: https://github.com/customerio/customerio-ios.git
+
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  CustomerIO: 6c7899e4e02e81977ca7ceb85396a1ac2db33439
   customerio-reactnative: 3f6267bc684c96452c80dbf8e21669e2f2112405
   CustomerIOCommon: b0d7bb7668c12df97154bf70fe68e5c82f21f8ab
   CustomerIOMessagingInApp: 9bd4cc9a85fdb81b403c4ee099fecb347f57a688
@@ -638,6 +659,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 2be431101b73604e64fbfffcf759336f9d8fccbb
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 
-PODFILE CHECKSUM: fb3df0e7e9345b30a6034b291f4fa29fc63ddaba
+PODFILE CHECKSUM: 891255339e1ee1a7b7304cf1835faed4d2eba7d1
 
 COCOAPODS: 1.12.0
