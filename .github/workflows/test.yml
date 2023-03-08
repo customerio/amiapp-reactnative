@@ -1,12 +1,6 @@
 name: Create test builds
 
-on:  
-  # Uncomment this if build on every push is needed
-  # push:
-  #   branches-ignore: [main, beta, alpha] # skip for deployment branches. 
-  #   tags-ignore: ['*']
-  pull_request:
-    branches: ['*']
+on: [push]
 
 env:
   XCODE_VERSION: "14.0"
@@ -14,33 +8,6 @@ env:
   FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 6 # increase timeout for xcodebuild settings. We have seen this command take a bit longer to do on CI server. 
 
 jobs:
-  deploy-android-app:
-    runs-on: macos-12
-    steps:
-      - uses: actions/checkout@v3 # checkout to be able to run CI config files below
-      - name: Set up JDK
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '11' # Robolectric requires v9, but we choose LTS: https://adoptopenjdk.net/
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
-      - name: Setup environment for building and releasing app
-        uses: ./.github/actions/prepare-for-app-build
-        with:
-          GOOGLE_SERVICES_BASE64: "${{ secrets.GOOGLE_SERVICES_BASE64 }}" # cat ios/SampleApp/Google-Services.plist | base64
-          ENV_FILE_B64: "${{ secrets.ENV_FILE_B64 }}" # cat env.js | base64
-          FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH: ${{ secrets.FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH }} # cat ami_app_ci_server-google_cloud_service_account.json | base64
-          MATCH_GOOGLE_CLOUD_KEYS_B64: ${{ secrets.MATCH_GOOGLE_CLOUD_KEYS_B64 }} # cat gc_keys.json | base64                 
-          GOOGLE_SERVICES_ANDROID_BASE64: ${{ secrets.GOOGLE_SERVICES_ANDROID_BASE64 }} # cat android/app/google-services.json | base64
-      - name: Build and re-release Android app
-        uses: maierj/fastlane-action@v2.0.1
-        with:
-          lane: 'android deploy_app'
-          skip-tracking: true
-        env:
-          FIREBASE_ANDROID_APP_ID: ${{ secrets.FIREBASE_ANDROID_APP_ID }} # for firebase android app distribution
-
   deploy-ios-app:
     runs-on: macos-12
     steps:
