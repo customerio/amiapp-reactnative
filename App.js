@@ -3,9 +3,10 @@ import { StyleSheet} from 'react-native';
 import FeaturesUpdate from './components/FeaturesUpdate';
 import FeaturesTrial from './components/FeaturesTrial';
 import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import { CustomerIO } from 'customerio-reactnative';
-const Stack = createNativeStackNavigator();
+
+const Stack = createStackNavigator();
 
 export default function App() {
   useEffect(() => {
@@ -13,7 +14,7 @@ export default function App() {
   }, [])
 
   // Automatic screen tracking
-  const navigationRef = useNavigationContainerRef();
+  const navigationRef = useRef();
   const routeNameRef = useRef();
   const config = {
     screens: {
@@ -32,11 +33,11 @@ export default function App() {
         ref={navigationRef}
         linking={linking}
         onReady={() => {
-          routeNameRef.current = navigationRef.getCurrentRoute().name;
+          routeNameRef.current = navigationRef.current.name;
         }}
         onStateChange={async () => {
           const previousRouteName = routeNameRef.current;
-          const currentRouteName = navigationRef.getCurrentRoute().name;
+          const currentRouteName = navigationRef.current.name;
   
           if (previousRouteName !== currentRouteName) {
             CustomerIO.screen(currentRouteName)
