@@ -736,8 +736,8 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 27f468c5576eaf05ffb7a907528e44c75a3fcbae
   ReactCommon: e30ec17dfb1d4c4f3419eac254350d6abca6d5a2
   RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
-  RNFBApp: 3bf62629c41ef65d82e763c25aeb77cdfa63bfae
-  RNFBMessaging: c2bf85653cdb745f60d3cc43c9ec51d4edca0c52
+  RNFBApp: dd22a306a31189e99126a35962498c83b06520ab
+  RNFBMessaging: 8c6192acc48b9daacbfe9da9cacca8bee740ce46
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: e2414d403cc8da634e44103c1ec7a13e87bd6333
   RNScreens: 21b73c94c9117e1110a79ee0ee80c93ccefed8ce
@@ -747,6 +747,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 2be431101b73604e64fbfffcf759336f9d8fccbb
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 
-PODFILE CHECKSUM: ac82ad77b0d906b2a380415be884c29e01fc63ed
+PODFILE CHECKSUM: 80ea1b5e127377db0a4aa6f0f4e1b2e218d83152
 
 COCOAPODS: 1.12.0

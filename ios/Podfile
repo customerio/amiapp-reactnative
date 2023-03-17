@@ -8,7 +8,11 @@ target 'SampleApp' do
   use_unimodules!
   config = use_native_modules!
 
+  use_frameworks! :linkage => :static
+  $RNFirebaseAsStaticFramework = true
+
   use_react_native!(:path => config["reactNativePath"])  
+
   pod 'RCT-Folly', :podspec => '../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec'
   pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
   pod 'CustomerIO/MessagingPushAPN', '~> 2.1.2'
@@ -27,6 +31,8 @@ target 'SampleApp' do
 end
 
 target 'Notification Service' do
+  use_frameworks! :linkage => :static
+  $RNFirebaseAsStaticFramework = true
   pod 'CustomerIO/MessagingPushAPN', '~> 2.1.2'
 end
 
