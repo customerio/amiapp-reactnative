@@ -4,7 +4,6 @@ import { StatusBar } from 'expo-status-bar';
 import {SubHeaderText} from './common/Text'
 import { CustomerIO, CustomerioConfig, CioLogLevel, CustomerIOEnv, InAppMessageEventType, InAppMessageEvent } from "customerio-reactnative";
 import Env from "../env";
-import {PushconfigOptions} from "customerio-reactnative/types";
 import messaging from '@react-native-firebase/messaging';
 
 const FeaturesUpdate = ({navigation}) => {
@@ -66,8 +65,7 @@ const FeaturesUpdate = ({navigation}) => {
 
   useEffect(() => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
-      let data = remoteMessage.data;
-      CustomerIO.pushMessaging().onMessageReceived(data).then(handled => {
+      CustomerIO.pushMessaging().onMessageReceived(remoteMessage).then(handled => {
         console.log(`Notification handled: ${handled}`);
       });
     });
