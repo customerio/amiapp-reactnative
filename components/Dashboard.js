@@ -5,6 +5,7 @@ import CioManager from '../manager/CioManager'
 import ThemedButton from './common/Button'
 import PushNotification from "react-native-push-notification";
 import CioKeyValueStorage from '../manager/KeyValueStorage'
+import { CustomerIO } from 'customerio-reactnative'
 
 const Dashboard = ({navigation}) => {
 
@@ -54,7 +55,23 @@ const Dashboard = ({navigation}) => {
         )
     }
 
-    
+    const showPushPrompt = () => {
+        var options = {"ios" : {"sound" : true, "badge" : true}}
+
+        CustomerIO.showPromptForPushNotifications(options).then(status => {
+            alert("Push permission " + status)
+        }).catch(error => {
+            alert("Could not show prompt.")
+        })
+    }
+
+    const getCurrentPushPermission = () => {
+
+    }
+
+    const registerDeviceToken = () => {
+
+    }
 
     PushNotification.configure({
         /**
