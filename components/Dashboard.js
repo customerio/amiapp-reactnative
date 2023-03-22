@@ -60,13 +60,17 @@ const Dashboard = ({navigation}) => {
 
         CustomerIO.showPromptForPushNotifications(options).then(status => {
             alert("Push permission " + status)
+            console.log("Push permission " + status)
         }).catch(error => {
             alert("Could not show prompt.")
         })
     }
 
     const getCurrentPushPermission = () => {
-
+        CustomerIO.getPushPermissionStatus().then(status => {
+            alert("Push permission status is - " + status)
+            console.log("Push permission status is - " + status)
+          })
     }
 
     const registerDeviceToken = () => {
