@@ -1,21 +1,21 @@
 PODS:
   - boost (1.76.0)
-  - customerio-reactnative (2.0.0-beta.1):
-    - CustomerIOMessagingInApp (= 2.0.1)
-    - CustomerIOTracking (= 2.0.1)
+  - customerio-reactnative (2.2.0):
+    - CustomerIOMessagingInApp (~> 2.1.0-beta.2)
+    - CustomerIOTracking (~> 2.1.0-beta.2)
     - React-Core
-  - CustomerIO/MessagingPushAPN (2.0.1):
-    - CustomerIOMessagingPushAPN (= 2.0.1)
-  - CustomerIOCommon (2.0.1)
-  - CustomerIOMessagingInApp (2.0.1):
-    - CustomerIOTracking (= 2.0.1)
-    - Gist (~> 2.2.1)
-  - CustomerIOMessagingPush (2.0.1):
-    - CustomerIOTracking (= 2.0.1)
-  - CustomerIOMessagingPushAPN (2.0.1):
-    - CustomerIOMessagingPush (= 2.0.1)
-  - CustomerIOTracking (2.0.1):
-    - CustomerIOCommon (= 2.0.1)
+  - CustomerIO/MessagingPushAPN (2.1.2):
+    - CustomerIOMessagingPushAPN (= 2.1.2)
+  - CustomerIOCommon (2.1.2)
+  - CustomerIOMessagingInApp (2.1.2):
+    - CustomerIOTracking (= 2.1.2)
+    - Gist (~> 3.0.4)
+  - CustomerIOMessagingPush (2.1.2):
+    - CustomerIOTracking (= 2.1.2)
+  - CustomerIOMessagingPushAPN (2.1.2):
+    - CustomerIOMessagingPush (= 2.1.2)
+  - CustomerIOTracking (2.1.2):
+    - CustomerIOCommon (= 2.1.2)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.69.1)
   - FBReactNativeSpec (0.69.1):
@@ -26,7 +26,7 @@ PODS:
     - React-jsi (= 0.69.1)
     - ReactCommon/turbomodule/core (= 0.69.1)
   - fmt (6.2.1)
-  - Gist (2.2.4)
+  - Gist (3.0.4)
   - glog (0.3.5)
   - hermes-engine (0.69.1)
   - libevent (2.1.12)
@@ -371,7 +371,7 @@ PODS:
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - customerio-reactnative (from `../node_modules/customerio-reactnative`)
-  - CustomerIO/MessagingPushAPN (= 2.0.1)
+  - CustomerIO/MessagingPushAPN (= 2.1.2)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
@@ -513,18 +513,18 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  CustomerIO: 475bde679fccf3872d51d65240dc49fb208b1204
-  customerio-reactnative: fdd9752000cc016ed7bee0d42d0f37802a209c5e
-  CustomerIOCommon: e767a1043b863e4b824d2b5b764f1d75a7dfc6a6
-  CustomerIOMessagingInApp: 1f795a80a5c9f31c24e47d7f1fd2ee258815954f
-  CustomerIOMessagingPush: e0949959ad12673b906d62061db4eca5feff4b69
-  CustomerIOMessagingPushAPN: 80b410fbc3efe3f45c0fa40a3fcbf14b1eabe19d
-  CustomerIOTracking: c5e06490a11aca6161c34a8eb130eca87426c16b
+  CustomerIO: 94c4b930162d61c8126c8b265551d6a96b18a037
+  customerio-reactnative: d53c03cf1ef3d1828309671d052822262d86a475
+  CustomerIOCommon: 923dd0108e4e72cc94552e880d340bef88abfbfc
+  CustomerIOMessagingInApp: 4a02801021774f469941c6ec4cbc46dbcd567e98
+  CustomerIOMessagingPush: cb925936db7988f4fff69664896b5f405412f470
+  CustomerIOMessagingPushAPN: d29dea6a66a757b2510352727ed79b83b26e4aac
+  CustomerIOTracking: 2b1c78afc13c82c39ad6d2e430c7ac36ed45642d
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 068141206af867f72854753423d0117c4bf53419
   FBReactNativeSpec: 546a637adc797fa436dd51d1c63c580f820de31c
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  Gist: df62edf9ce6ff2a4b6dbcf2b4f7c020d3ec260a4
+  Gist: 1d680df00ff6dbcc4fac9844b90454f30778dcbc
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   hermes-engine: ece2bfa9bdb7f77f393cb2b41edf638eb086ec1a
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
@@ -563,6 +563,6 @@ SPEC CHECKSUMS:
   RNScreens: 21b73c94c9117e1110a79ee0ee80c93ccefed8ce
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 
-PODFILE CHECKSUM: 4df784d02ca13a8d3618dff938d481a73919f290
+PODFILE CHECKSUM: 517458220b2d03c871a8bdd425a4b0e6890d3a6a
 
 COCOAPODS: 1.11.3
