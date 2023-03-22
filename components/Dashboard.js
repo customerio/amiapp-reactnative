@@ -54,6 +54,8 @@ const Dashboard = ({navigation}) => {
         )
     }
 
+    
+
     PushNotification.configure({
         /**
          * (optional) default: true
@@ -90,6 +92,9 @@ const Dashboard = ({navigation}) => {
                     <View style={styles.featuresView}>
                     <FlatList
                         data={[
+                        {key: 'Show push prompt', onClick: () => showPushPrompt()},
+                        {key: 'Get current push permissions', onClick: () => getCurrentPushPermission()},
+                        {key: 'Register device token', onClick: () => registerDeviceToken()},
                         {key: 'Send Random Event', onClick: () => sendRandomEventTapped()},
                         {key: 'Send Custom Event', onClick: () => sendCustomEventTapped()},
                         {key: 'Set Device Attributes', onClick: () => setDeviceAttributesTapped()},
@@ -113,9 +118,9 @@ const styles = StyleSheet.create({
     innerContainer: {
         flex:1,
         alignItems:'center',
-        justifyContent:'center',
         alignSelf:'stretch',
-        margin:5
+        margin:5,
+        marginTop: 15
     },
     title: {
         fontSize: 22
