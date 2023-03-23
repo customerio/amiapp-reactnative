@@ -59,7 +59,6 @@ export default function App() {
     const env = new CustomerIOEnv()
     env.siteId = Env.siteId
     env.apiKey = Env.apiKey
-    env.organizationId = Env.organizationId
 
     const cioManager = new CioManager()
     cioManager.initializeCio(env, configuration)
