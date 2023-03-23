@@ -56,6 +56,7 @@ MyAppPushNotificationsHandler* pnHandlerObj = [[MyAppPushNotificationsHandler al
     rootView.backgroundColor = [UIColor whiteColor];
   }
 
+  [application registerForRemoteNotifications];
   UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
   center.delegate = self;
 

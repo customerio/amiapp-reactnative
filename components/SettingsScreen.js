@@ -137,20 +137,6 @@ useLayoutEffect(() => {
                   <View style={styles.copyToClipboardButton}></View>
                 </View>
               </View>
-              {/* Org Id */}
-              <View style={styles.rowView}>
-                <View style={styles.stackColumnView}>
-                  <Text style={styles.textLabel}>Org Id</Text>
-                  <TextInput
-                    style={styles.input}
-                    value={Env.siteId}
-                    placeholder="Gist Org id"
-                    editable={false}
-                  />
-                  <View style={styles.copyToClipboardButton}></View>
-                </View>
-              </View>
-
               {/* Section #3 */}
             <View style={[styles.rowView, {marginTop: 30}]}>
                 <View style={styles.stackColumnView}>
