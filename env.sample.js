@@ -1,7 +1,6 @@
 const Env = {
   siteId: "YourSiteId",
   apiKey: "YourApiKey",
-  organizationId: "InAppOrganizationId"
 }
 
 

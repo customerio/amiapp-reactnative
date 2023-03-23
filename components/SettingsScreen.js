@@ -143,7 +143,7 @@ useLayoutEffect(() => {
                   <Text style={styles.textLabel}>Org Id</Text>
                   <TextInput
                     style={styles.input}
-                    value={Env.organizationId}
+                    value={Env.siteId}
                     placeholder="Gist Org id"
                     editable={false}
                   />
