@@ -74,7 +74,7 @@ const Dashboard = ({navigation}) => {
     }
 
     const registerDeviceToken = () => {
-
+        alert("In progress")
     }
 
     PushNotification.configure({
