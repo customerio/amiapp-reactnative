@@ -15,7 +15,7 @@ const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(true)
 const [pushStatus, setPushStatus] = useState('')
 const [isPushEnabled, setIsPushEnabled] = useState(false)
 const [isTrackDeviceAttributesEnabled, setIsTrackDeviceAttributesEnabled] = useState(true)
-const [isTrackScreensEnabled, setIsTrackScreensEnabled] = useState(true)
+const [isTrackScreensEnabled, setIsTrackScreensEnabled] = useState(false)
 const [bgQDelay, setBgQDelay] = useState("30")
 const [bgQMinNumTasks, setBgQMinNumTasks] = useState("10")
 
@@ -29,22 +29,19 @@ useLayoutEffect(() => {
   
   useEffect(() => {
      getScreenTrackData()
-  }, [isTrackScreensEnabled])
+  }, [])
   
   const getScreenTrackData = async () => {
-    console.log("First ")
     const keyStorageObj = new CioKeyValueStorage()
     const value = await keyStorageObj.getScreenTrack()
-    console.log(value)
-    // Case 1: First time login will have null when getScreenTrack method is called
-    if (value === null) {
-      await keyStorageObj.saveScreenTrack(true)
-    }
-    else {
-      await keyStorageObj.saveScreenTrack(!value)
-    }
+    setIsTrackScreensEnabled(JSON.parse(value))
   }
 
+  const setScreenTrackData = async () => {
+    const keyStorageObj = new CioKeyValueStorage()
+    const value = await keyStorageObj.saveScreenTrack(!isTrackScreensEnabled)
+    // setIsTrackScreensEnabled(!isTrackScreensEnabled)
+  }
   const toggleSwitch = async (type) => {
     switch(type) {
       case "Push":
@@ -74,7 +71,7 @@ alert("I am called")
       case "Screens":
         setIsTrackScreensEnabled(previousState => !previousState);
         // Using useEffect to save value in Async Storage
-        
+        setScreenTrackData()
         break
     }
   }
