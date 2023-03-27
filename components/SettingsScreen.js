@@ -1,17 +1,19 @@
-import React, {useLayoutEffect, useState} from 'react'
-import { View, StyleSheet, Text, Image, Switch} from 'react-native';
+import React, {useLayoutEffect, useState, useEffect} from 'react'
+import { View, StyleSheet, Text, Alert, Image, Switch, Linking} from 'react-native';
 import { ScrollView, TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import Env from '../env';
 import PushNotification from "react-native-push-notification";
 import ThemedButton from './common/Button';
 import CioKeyValueStorage from '../manager/KeyValueStorage';
+import { CustomerIO } from 'customerio-reactnative';
 
 
 const SettingsScreen = ({navigation}) => {
 const [deviceToken, setDeviceToken] = useState('')
 const [trackUrl, setTrackUrl] = useState('')
 const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(true)
-const [isPushEnabled, setIsPushEnabled] = useState(true)
+const [pushStatus, setPushStatus] = useState('')
+const [isPushEnabled, setIsPushEnabled] = useState(false)
 const [isTrackDeviceAttributesEnabled, setIsTrackDeviceAttributesEnabled] = useState(true)
 const [isTrackScreensEnabled, setIsTrackScreensEnabled] = useState(true)
 const [bgQDelay, setBgQDelay] = useState("30")
@@ -23,10 +25,33 @@ useLayoutEffect(() => {
     })
   }, [navigation])
 
-  const toggleSwitch = (type) => {
+  useEffect(() => {
+    getPushPermissionStatus()
+  }, [])
+  
+  const toggleSwitch = async (type) => {
     switch(type) {
       case "Push":
-        setIsPushEnabled(previousState => !previousState)
+        // Case 1: If push permissions have been granted already
+        if (isPushEnabled === true) {
+          // Show Do you want to proceed to settings message.
+          const userResponse =  await showAsyncAlert()
+          // If yes, accepted - go to settings page
+          if (userResponse === true) {
+            Linking.openSettings()
+          }  
+          // If no, denied - no action required
+          return
+        }
+
+        // Case 2: If permissions have been denied earlier
+        var options = {ios : {sound : true, badge: true}}
+        CustomerIO.showPromptForPushNotifications(options).then((status) => {
+            alert("Push permission " + status)
+            console.log("Push permission " + status)
+        }).catch(error => {
+            alert("Could not show prompt.")
+        })
         break
       case "Debug":
         setIsDebugModeEnabled(previousState => !previousState);
@@ -46,6 +71,27 @@ useLayoutEffect(() => {
       setDeviceToken(token["token"])
     }
   });
+
+  const getPushPermissionStatus = () => {
+    CustomerIO.getPushPermissionStatus().then(status => {
+      setPushStatus(status)
+      status == "Granted" ? setIsPushEnabled(true) : setIsPushEnabled(false)
+    })
+  }
+
+  const showAsyncAlert = () => {
+    return new Promise((resolve, reject) => {
+        Alert.alert(
+            'Alert',
+            'You would be redirected to Settings page of the app on device to disable push notifications. Do you want to proceed?',
+            [
+                {text: 'YES', onPress: () => resolve(true) },
+                {text: 'NO', onPress: () => resolve(false) }
+            ],
+            { cancelable: false }
+        )
+    })
+}  
 
   const saveSettings = () => {
     const keyStorageObj = new CioKeyValueStorage()
