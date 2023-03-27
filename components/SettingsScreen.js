@@ -35,7 +35,7 @@ useLayoutEffect(() => {
         // Case 1: If push permissions have been granted already
         if (isPushEnabled === true) {
           // Show Do you want to proceed to settings message.
-          const userResponse =  await showAsyncAlert()
+          const userResponse =  await showAsyncAlert('disable')
           // If yes, accepted - go to settings page
           if (userResponse === true) {
             Linking.openSettings()
@@ -44,14 +44,29 @@ useLayoutEffect(() => {
           return
         }
 
-        // Case 2: If permissions have been denied earlier
-        var options = {ios : {sound : true, badge: true}}
-        CustomerIO.showPromptForPushNotifications(options).then((status) => {
-            alert("Push permission " + status)
-            console.log("Push permission " + status)
-        }).catch(error => {
-            alert("Could not show prompt.")
-        })
+        // Case 2: If permissions have been denied (or not set) earlier
+        // Check using push status state
+        
+        // If status = notdetermined then show prompt
+        if (pushStatus == "Notdetermined") {
+          var options = {ios : {sound : true, badge: true}}
+          CustomerIO.showPromptForPushNotifications(options).then((status) => {
+              alert("Push permission " + status)
+              console.log("Push permission " + status)
+          }).catch(error => {
+              alert("Could not show prompt.")
+          })
+          return
+        }
+        // If status = denied then go to settings
+        // Show Do you want to proceed to settings message.
+        const userResponse =  await showAsyncAlert('enable')
+        // If yes, accepted - go to settings page
+        if (userResponse === true) {
+          Linking.openSettings()
+        }  
+        // If no, denied - no action required
+        
         break
       case "Debug":
         setIsDebugModeEnabled(previousState => !previousState);
@@ -79,11 +94,11 @@ useLayoutEffect(() => {
     })
   }
 
-  const showAsyncAlert = () => {
+  const showAsyncAlert = (status) => {
     return new Promise((resolve, reject) => {
         Alert.alert(
             'Alert',
-            'You would be redirected to Settings page of the app on device to disable push notifications. Do you want to proceed?',
+            `You would be redirected to Settings page of the app on device to ${status} push notifications. Do you want to proceed?`,
             [
                 {text: 'YES', onPress: () => resolve(true) },
                 {text: 'NO', onPress: () => resolve(false) }
