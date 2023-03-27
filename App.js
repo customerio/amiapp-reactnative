@@ -47,11 +47,24 @@ export default function App() {
   };
 
   useEffect(() => {
-    
+    setConfigurationsInAsyncStorage()
+    console.log("welome to ami app")
     initialiseCioPackage()
   }, [])
   
+  const setConfigurationsInAsyncStorage = async () => {
+    const keyStorageObj = new CioKeyValueStorage()
+    
+    const value = await keyStorageObj.getScreenTrack()
+    alert("Meri value =" , value)
+    if (value === null) {
+      // Set to default value if this is a first time launch
+      await keyStorageObj.saveScreenTrack(true)
+    }
+  }
+
   const initialiseCioPackage = () => {
+
     const configuration = new CustomerioConfig()
     configuration.logLevel = CioLogLevel.debug
     configuration.autoTrackDeviceAttributes = true
