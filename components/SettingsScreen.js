@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useState, useEffect} from 'react'
-import { View, StyleSheet, Text, Alert, Image, Switch, Linking} from 'react-native';
+import { View, StyleSheet, Text, Alert, Image, Switch, Linking, AsyncStorage} from 'react-native';
 import { ScrollView, TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import Env from '../env';
 import PushNotification from "react-native-push-notification";
@@ -57,6 +57,8 @@ useLayoutEffect(() => {
         break
       case "Screens":
         setIsTrackScreensEnabled(previousState => !previousState);
+        // Save value in Async Storage
+
         break
     }
   }
@@ -74,21 +76,7 @@ useLayoutEffect(() => {
       status == "Granted" ? setIsPushEnabled(true) : setIsPushEnabled(false)
     })
   }
-
-  const showAsyncAlert = (status) => {
-    return new Promise((resolve, reject) => {
-        Alert.alert(
-            'Alert',
-            `You would be redirected to Settings page of the app on device to ${status} push notifications. Do you want to proceed?`,
-            [
-                {text: 'YES', onPress: () => resolve(true) },
-                {text: 'NO', onPress: () => resolve(false) }
-            ],
-            { cancelable: false }
-        )
-    })
-}  
-
+  
   const saveSettings = () => {
     const keyStorageObj = new CioKeyValueStorage()
     
