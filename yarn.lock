@@ -2600,8 +2600,9 @@ css-in-js-utils@^2.0.0:
     hyphenate-style-name "^1.0.2"
     isobject "^3.0.1"
 
-customerio-reactnative@../customerio-reactnative:
+"customerio-reactnative@git+https://github.com/customerio/customerio-reactnative#6e586cdac964e357bd63c43c78377d7ddc57bb63":
   version "2.2.0"
+  resolved "git+https://github.com/customerio/customerio-reactnative#6e586cdac964e357bd63c43c78377d7ddc57bb63"
 
 dayjs@^1.8.15:
   version "1.11.7"
