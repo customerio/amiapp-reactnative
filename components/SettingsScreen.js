@@ -6,7 +6,6 @@ import PushNotification from "react-native-push-notification";
 import ThemedButton from './common/Button';
 import CioKeyValueStorage from '../manager/KeyValueStorage';
 import { CustomerIO } from 'customerio-reactnative';
-import AsyncData from './common/AsyncData';
 
 
 const SettingsScreen = ({navigation}) => {
@@ -16,7 +15,7 @@ const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(true)
 const [pushStatus, setPushStatus] = useState('')
 const [isPushEnabled, setIsPushEnabled] = useState(false)
 const [isTrackDeviceAttributesEnabled, setIsTrackDeviceAttributesEnabled] = useState(true)
-const [isTrackScreensEnabled, setIsTrackScreensEnabled] = useState(null)
+const [isTrackScreensEnabled, setIsTrackScreensEnabled] = useState(true)
 const [bgQDelay, setBgQDelay] = useState("30")
 const [bgQMinNumTasks, setBgQMinNumTasks] = useState("10")
 
@@ -29,9 +28,23 @@ useLayoutEffect(() => {
   
   
   useEffect(() => {
-    keyStorageObj.saveScreenTrack()
-  }, [third])
+     getScreenTrackData()
+  }, [isTrackScreensEnabled])
   
+  const getScreenTrackData = async () => {
+    console.log("First ")
+    const keyStorageObj = new CioKeyValueStorage()
+    const value = await keyStorageObj.getScreenTrack()
+    console.log(value)
+    // Case 1: First time login will have null when getScreenTrack method is called
+    if (value === null) {
+      await keyStorageObj.saveScreenTrack(true)
+    }
+    else {
+      await keyStorageObj.saveScreenTrack(!value)
+    }
+  }
+
   const toggleSwitch = async (type) => {
     switch(type) {
       case "Push":
@@ -40,7 +53,7 @@ useLayoutEffect(() => {
             Linking.openSettings()
           return
         }
-
+alert("I am called")
         // Case 2: Show prompt if permissions have not been determined yet
         if (pushStatus == "Notdetermined") {
           var options = {ios : {sound : true, badge: true}}
@@ -61,6 +74,7 @@ useLayoutEffect(() => {
       case "Screens":
         setIsTrackScreensEnabled(previousState => !previousState);
         // Using useEffect to save value in Async Storage
+        
         break
     }
   }

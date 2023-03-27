@@ -77,7 +77,7 @@ class CioKeyValueStorage {
   // Track Screen
   async saveScreenTrack(value) {
     try {
-      await AsyncStorage.setItem('screen_track', value)
+      await AsyncStorage.setItem('screen_track', JSON.stringify(value))
     } catch (e) {
       console.log(e)
     }
