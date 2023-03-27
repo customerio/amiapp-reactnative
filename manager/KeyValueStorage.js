@@ -73,6 +73,24 @@ class CioKeyValueStorage {
       console.log(e)
     }
   }
+
+  // Track Screen
+  async saveScreenTrack(value) {
+    try {
+      await AsyncStorage.setItem('screen_track', value)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  async getScreenTrack(){
+    try {
+      const value = await AsyncStorage.getItem('screen_track')
+      return value
+    } catch(e) {
+      console.log(e)
+    }
+  }
 }
 
 export default CioKeyValueStorage;
