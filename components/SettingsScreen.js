@@ -34,13 +34,7 @@ useLayoutEffect(() => {
       case "Push":
         // Case 1: If push permissions have been granted already
         if (isPushEnabled === true) {
-          // Show Do you want to proceed to settings message.
-          const userResponse =  await showAsyncAlert('disable')
-          // If yes, accepted - go to settings page
-          if (userResponse === true) {
             Linking.openSettings()
-          }  
-          // If no, denied - no action required
           return
         }
 
@@ -60,11 +54,7 @@ useLayoutEffect(() => {
         }
         // If status = denied then go to settings
         // Show Do you want to proceed to settings message.
-        const userResponse =  await showAsyncAlert('enable')
-        // If yes, accepted - go to settings page
-        if (userResponse === true) {
           Linking.openSettings()
-        }  
         // If no, denied - no action required
         
         break
