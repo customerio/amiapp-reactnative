@@ -18,7 +18,7 @@ export default function App() {
 
   const [firstScreen, setFirstScreen] = useState(undefined)
   const [loading, setLoading] = useState(true);
-
+const [isScreenTrackEnabled, setIsScreenTrackEnabled] = useState(null)
   useEffect(() => {
     (async () => {
       const keyStorageObj = new CioKeyValueStorage()
@@ -47,20 +47,20 @@ export default function App() {
   };
 
   useEffect(() => {
-    setConfigurationsInAsyncStorage()
-    console.log("welome to ami app")
+    fetchScreenTrackConfig()
     initialiseCioPackage()
   }, [])
   
-  const setConfigurationsInAsyncStorage = async () => {
+  const fetchScreenTrackConfig = async () => {
     const keyStorageObj = new CioKeyValueStorage()
-    
     const value = await keyStorageObj.getScreenTrack()
-    alert("Meri value =" , value)
     if (value === null) {
       // Set to default value if this is a first time launch
       await keyStorageObj.saveScreenTrack(true)
     }
+    const screenTrackVal = await keyStorageObj.getScreenTrack()
+    setIsScreenTrackEnabled(JSON.parse(screenTrackVal))
+    console.log("This second")
   }
 
   const initialiseCioPackage = () => {
@@ -93,13 +93,15 @@ export default function App() {
           routeNameRef.current = navigationRef.getCurrentRoute().name;
         }}
         onStateChange={async () => {
-          const previousRouteName = routeNameRef.current;
-          const currentRouteName = navigationRef.getCurrentRoute().name;
-  
-          if (previousRouteName !== currentRouteName) {
-            CustomerIO.screen(currentRouteName)
+          if (isScreenTrackEnabled) {
+            const previousRouteName = routeNameRef.current;
+            const currentRouteName = navigationRef.getCurrentRoute().name;
+    
+            if (previousRouteName !== currentRouteName) {
+              CustomerIO.screen(currentRouteName)
+            }
+            routeNameRef.current = currentRouteName;
           }
-          routeNameRef.current = currentRouteName;
         }}
         // End
         >
