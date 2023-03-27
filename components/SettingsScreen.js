@@ -6,6 +6,7 @@ import PushNotification from "react-native-push-notification";
 import ThemedButton from './common/Button';
 import CioKeyValueStorage from '../manager/KeyValueStorage';
 import { CustomerIO } from 'customerio-reactnative';
+import AsyncData from './common/AsyncData';
 
 
 const SettingsScreen = ({navigation}) => {
@@ -15,7 +16,7 @@ const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(true)
 const [pushStatus, setPushStatus] = useState('')
 const [isPushEnabled, setIsPushEnabled] = useState(false)
 const [isTrackDeviceAttributesEnabled, setIsTrackDeviceAttributesEnabled] = useState(true)
-const [isTrackScreensEnabled, setIsTrackScreensEnabled] = useState(true)
+const [isTrackScreensEnabled, setIsTrackScreensEnabled] = useState(null)
 const [bgQDelay, setBgQDelay] = useState("30")
 const [bgQMinNumTasks, setBgQMinNumTasks] = useState("10")
 
@@ -25,9 +26,11 @@ useLayoutEffect(() => {
     })
   }, [navigation])
 
+  
+  
   useEffect(() => {
-    getPushPermissionStatus()
-  }, [])
+    keyStorageObj.saveScreenTrack()
+  }, [third])
   
   const toggleSwitch = async (type) => {
     switch(type) {
@@ -57,8 +60,7 @@ useLayoutEffect(() => {
         break
       case "Screens":
         setIsTrackScreensEnabled(previousState => !previousState);
-        // Save value in Async Storage
-
+        // Using useEffect to save value in Async Storage
         break
     }
   }
@@ -70,13 +72,6 @@ useLayoutEffect(() => {
     }
   });
 
-  const getPushPermissionStatus = () => {
-    CustomerIO.getPushPermissionStatus().then(status => {
-      setPushStatus(status)
-      status == "Granted" ? setIsPushEnabled(true) : setIsPushEnabled(false)
-    })
-  }
-  
   const saveSettings = () => {
     const keyStorageObj = new CioKeyValueStorage()
     
