@@ -32,16 +32,13 @@ useLayoutEffect(() => {
   const toggleSwitch = async (type) => {
     switch(type) {
       case "Push":
-        // Case 1: If push permissions have been granted already
-        if (isPushEnabled === true) {
+        // Case 1: Open settings to update push permissions
+        if (isPushEnabled === true || pushStatus == 'Denied') {
             Linking.openSettings()
           return
         }
 
-        // Case 2: If permissions have been denied (or not set) earlier
-        // Check using push status state
-        
-        // If status = notdetermined then show prompt
+        // Case 2: Show prompt if permissions have not been determined yet
         if (pushStatus == "Notdetermined") {
           var options = {ios : {sound : true, badge: true}}
           CustomerIO.showPromptForPushNotifications(options).then((status) => {
@@ -50,13 +47,7 @@ useLayoutEffect(() => {
           }).catch(error => {
               alert("Could not show prompt.")
           })
-          return
         }
-        // If status = denied then go to settings
-        // Show Do you want to proceed to settings message.
-          Linking.openSettings()
-        // If no, denied - no action required
-        
         break
       case "Debug":
         setIsDebugModeEnabled(previousState => !previousState);
