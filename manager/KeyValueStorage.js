@@ -109,6 +109,25 @@ class CioKeyValueStorage {
       console.log(e)
     }
   }
+
+// Debug mode
+async saveDebugMode(value) {
+  try {
+    await AsyncStorage.setItem('debug_mode', JSON.stringify(value))
+  } catch (e) {
+    console.log(e)
+  }
 }
+
+async getDebugMode(){
+  try {
+    const value = await AsyncStorage.getItem('debug_mode')
+    return value
+  } catch(e) {
+    console.log(e)
+  }
+}
+}
+
 
 export default CioKeyValueStorage;
