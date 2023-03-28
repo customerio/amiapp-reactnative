@@ -19,6 +19,7 @@ export default function App() {
   const [firstScreen, setFirstScreen] = useState(undefined)
   const [loading, setLoading] = useState(true);
 const [isScreenTrackEnabled, setIsScreenTrackEnabled] = useState(null)
+const [isDeviceAttrTrackEnabled, setIsDeviceAttrTrackEnabled] = useState(null)
   useEffect(() => {
     (async () => {
       const keyStorageObj = new CioKeyValueStorage()
@@ -48,6 +49,7 @@ const [isScreenTrackEnabled, setIsScreenTrackEnabled] = useState(null)
 
   useEffect(() => {
     fetchScreenTrackConfig()
+    fetchDeviceAttrTrackConfig()
     initialiseCioPackage()
   }, [])
   
@@ -58,17 +60,25 @@ const [isScreenTrackEnabled, setIsScreenTrackEnabled] = useState(null)
       // Set to default value if this is a first time launch
       await keyStorageObj.saveScreenTrack(true)
     }
-    const screenTrackVal = await keyStorageObj.getScreenTrack()
-    setIsScreenTrackEnabled(JSON.parse(screenTrackVal))
-    console.log("This second")
+    setIsScreenTrackEnabled(value === null ? true : JSON.parse(value))
+  }
+
+  const fetchDeviceAttrTrackConfig = async () => {
+    const keyStorageObj = new CioKeyValueStorage()
+    const value = await keyStorageObj.getDeviceAttributesTrack()
+    if (value === null) {
+      // Set to default value if this is a first time launch
+      await keyStorageObj.saveDeviceAttributesTrack(true)
+    }
+    setIsDeviceAttrTrackEnabled(value === null ? true : JSON.parse(value))
   }
 
   const initialiseCioPackage = () => {
 
     const configuration = new CustomerioConfig()
     configuration.logLevel = CioLogLevel.debug
-    configuration.autoTrackDeviceAttributes = true
-
+    configuration.autoTrackDeviceAttributes = isDeviceAttrTrackEnabled === null ? true : isDeviceAttrTrackEnabled 
+console.log("COnfiguring device attributes = ", isDeviceAttrTrackEnabled)
     const env = new CustomerIOEnv()
     env.siteId = Env.siteId
     env.apiKey = Env.apiKey

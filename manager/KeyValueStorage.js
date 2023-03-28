@@ -91,6 +91,24 @@ class CioKeyValueStorage {
       console.log(e)
     }
   }
+
+  // Track device attributes
+  async saveDeviceAttributesTrack(value) {
+    try {
+      await AsyncStorage.setItem('device_attributes_track', JSON.stringify(value))
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  async getDeviceAttributesTrack(){
+    try {
+      const value = await AsyncStorage.getItem('device_attributes_track')
+      return value
+    } catch(e) {
+      console.log(e)
+    }
+  }
 }
 
 export default CioKeyValueStorage;
