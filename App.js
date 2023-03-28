@@ -50,8 +50,12 @@ const [isDeviceAttrTrackEnabled, setIsDeviceAttrTrackEnabled] = useState(null)
   useEffect(() => {
     fetchScreenTrackConfig()
     fetchDeviceAttrTrackConfig()
-    initialiseCioPackage()
   }, [])
+
+  useEffect(() => {
+    if(isDeviceAttrTrackEnabled !== null && isScreenTrackEnabled !== null)
+    initialiseCioPackage()
+  }, [isDeviceAttrTrackEnabled, isScreenTrackEnabled])
   
   const fetchScreenTrackConfig = async () => {
     const keyStorageObj = new CioKeyValueStorage()
