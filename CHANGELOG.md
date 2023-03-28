@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/customerio/amiapp-reactnative/compare/1.8.0...1.8.1) (2023-03-21)
+
+
+### Bug Fixes
+
+* reproduce and fix cocoapods ios bug ([#48](https://github.com/customerio/amiapp-reactnative/issues/48)) ([5f48b0f](https://github.com/customerio/amiapp-reactnative/commit/5f48b0f894884ff6044ac05c2decfcb9d7a0403b))
+
 # [1.8.0](https://github.com/customerio/amiapp-reactnative/compare/1.7.0...1.8.0) (2023-03-03)
 
 

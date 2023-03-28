@@ -15,7 +15,7 @@ target 'SampleApp' do
 
   pod 'RCT-Folly', :podspec => '../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec'
   pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
-  pod 'CustomerIO/MessagingPushAPN', '~> 2.1.2'
+  pod 'CustomerIO/MessagingPushAPN', '~> 2.1'
   pod 'FirebaseCoreInternal', :modular_headers => true
   pod 'Firebase/Messaging', :modular_headers => true
   pod 'GoogleUtilities', :modular_headers => true
@@ -33,15 +33,8 @@ end
 target 'Notification Service' do
   use_frameworks! :linkage => :static
   $RNFirebaseAsStaticFramework = true
-  pod 'CustomerIO/MessagingPushAPN', '~> 2.1.2'
+  pod 'CustomerIO/MessagingPushAPN', '~> 2.1'
 end
-
-cio_target_names = [
-  'CustomerIOTracking',
-  'CustomerIOCommon',
-  'CustomerIOMessagingPushAPN',
-  'CustomerIOMessagingPush'
-]
 
 # workaround for xcode14 for a react native dependency: https://github.com/expo/eas-cli/issues/1432#issuecomment-1285199900
 post_install do |installer| 
@@ -49,14 +42,6 @@ post_install do |installer|
     if target.respond_to?(:product_type) and target.product_type == "com.apple.product-type.bundle"
       target.build_configurations.each do |config|
           config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
-      end
-    end
-    if cio_target_names.include? target.name 
-      puts "Modifying target #{target.name}"
-  
-      target.build_configurations.each do |config|
-        puts "Setting build config settings for #{target.name}"
-        config.build_settings['APPLICATION_EXTENSION_API_ONLY'] ||= 'NO'
       end
     end
   end
