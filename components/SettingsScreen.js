@@ -30,6 +30,7 @@ useLayoutEffect(() => {
   useEffect(() => {
      getScreenTrackData()
      getDeviceAttrTrackData()
+     getDebugModeData()
   }, [])
   
   // Screen track 
@@ -53,7 +54,19 @@ useLayoutEffect(() => {
 
   const setDeviceAttrTrackData = async () => {
     const keyStorageObj = new CioKeyValueStorage()
-    await keyStorageObj.saveDeviceAttributesTrack(!isTrackScreensEnabled)
+    await keyStorageObj.saveDeviceAttributesTrack(!isTrackDeviceAttributesEnabled)
+  }
+
+  // Debug mode
+  const getDebugModeData = async () => {
+    const keyStorageObj = new CioKeyValueStorage()
+    const value = await keyStorageObj.getDebugModeConfig()
+    setIsDebugModeEnabled(JSON.parse(value))
+  }
+
+  const setDebugModeData = async () => {
+    const keyStorageObj = new CioKeyValueStorage()
+    await keyStorageObj.saveDebugModeConfig(!isDebugModeEnabled)
   }
 
   const toggleSwitch = async (type) => {
@@ -78,6 +91,7 @@ alert("I am called")
         break
       case "Debug":
         setIsDebugModeEnabled(previousState => !previousState);
+        setDebugModeData()
         break
       case "DeviceAttr":
         setIsTrackDeviceAttributesEnabled(previousState => !previousState);

@@ -20,6 +20,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 const [isScreenTrackEnabled, setIsScreenTrackEnabled] = useState(null)
 const [isDeviceAttrTrackEnabled, setIsDeviceAttrTrackEnabled] = useState(null)
+const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(null)
   useEffect(() => {
     (async () => {
       const keyStorageObj = new CioKeyValueStorage()
@@ -50,12 +51,13 @@ const [isDeviceAttrTrackEnabled, setIsDeviceAttrTrackEnabled] = useState(null)
   useEffect(() => {
     fetchScreenTrackConfig()
     fetchDeviceAttrTrackConfig()
+    fetchDebugModeConfig()
   }, [])
 
   useEffect(() => {
-    if(isDeviceAttrTrackEnabled !== null && isScreenTrackEnabled !== null)
+    if(isDeviceAttrTrackEnabled !== null && isScreenTrackEnabled !== null && isDebugModeEnabled != null)
     initialiseCioPackage()
-  }, [isDeviceAttrTrackEnabled, isScreenTrackEnabled])
+  }, [isDeviceAttrTrackEnabled, isScreenTrackEnabled, isDebugModeEnabled])
   
   const fetchScreenTrackConfig = async () => {
     const keyStorageObj = new CioKeyValueStorage()
@@ -77,12 +79,21 @@ const [isDeviceAttrTrackEnabled, setIsDeviceAttrTrackEnabled] = useState(null)
     setIsDeviceAttrTrackEnabled(value === null ? true : JSON.parse(value))
   }
 
+  const fetchDebugModeConfig = async () => {
+    const keyStorageObj = new CioKeyValueStorage()
+    const value = await keyStorageObj.getDebugModeConfig()
+    if (value === null) {
+      // Set to default value if this is a first time launch
+      await keyStorageObj.saveDebugModeConfig(true)
+    }
+    setIsDebugModeEnabled(value === null ? true : JSON.parse(value))
+  }
+
   const initialiseCioPackage = () => {
 
     const configuration = new CustomerioConfig()
-    configuration.logLevel = CioLogLevel.debug
+    configuration.logLevel = isDebugModeEnabled === null ? CioLogLevel.debug : isDebugModeEnabled
     configuration.autoTrackDeviceAttributes = isDeviceAttrTrackEnabled === null ? true : isDeviceAttrTrackEnabled 
-console.log("COnfiguring device attributes = ", isDeviceAttrTrackEnabled)
     const env = new CustomerIOEnv()
     env.siteId = Env.siteId
     env.apiKey = Env.apiKey
