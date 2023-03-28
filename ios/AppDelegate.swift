@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window?.rootViewController = rootViewController
     self.window?.makeKeyAndVisible()
     
-    // Setting delegate for UNUserNotificationCenter
+    // Set delegate for UNUserNotificationCenter
     UNUserNotificationCenter.current().delegate = self
 
     // firebase used for app distribution.
