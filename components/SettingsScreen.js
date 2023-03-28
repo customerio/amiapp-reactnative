@@ -29,8 +29,10 @@ useLayoutEffect(() => {
   
   useEffect(() => {
      getScreenTrackData()
+     getDeviceAttrTrackData()
   }, [])
   
+  // Screen track 
   const getScreenTrackData = async () => {
     const keyStorageObj = new CioKeyValueStorage()
     const value = await keyStorageObj.getScreenTrack()
@@ -39,9 +41,21 @@ useLayoutEffect(() => {
 
   const setScreenTrackData = async () => {
     const keyStorageObj = new CioKeyValueStorage()
-    const value = await keyStorageObj.saveScreenTrack(!isTrackScreensEnabled)
-    // setIsTrackScreensEnabled(!isTrackScreensEnabled)
+    await keyStorageObj.saveScreenTrack(!isTrackScreensEnabled)
   }
+
+  // Device attribute track
+  const getDeviceAttrTrackData = async () => {
+    const keyStorageObj = new CioKeyValueStorage()
+    const value = await keyStorageObj.getDeviceAttributesTrack()
+    setIsTrackDeviceAttributesEnabled(JSON.parse(value))
+  }
+
+  const setDeviceAttrTrackData = async () => {
+    const keyStorageObj = new CioKeyValueStorage()
+    await keyStorageObj.saveDeviceAttributesTrack(!isTrackScreensEnabled)
+  }
+
   const toggleSwitch = async (type) => {
     switch(type) {
       case "Push":
@@ -67,6 +81,7 @@ alert("I am called")
         break
       case "DeviceAttr":
         setIsTrackDeviceAttributesEnabled(previousState => !previousState);
+        setDeviceAttrTrackData()
         break
       case "Screens":
         setIsTrackScreensEnabled(previousState => !previousState);
