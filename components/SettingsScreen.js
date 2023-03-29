@@ -6,6 +6,7 @@ import PushNotification from "react-native-push-notification";
 import ThemedButton from './common/Button';
 import CioKeyValueStorage from '../manager/KeyValueStorage';
 import { CustomerIO } from 'customerio-reactnative';
+import { set } from 'react-native-reanimated';
 
 
 const SettingsScreen = ({navigation}) => {
@@ -28,45 +29,48 @@ useLayoutEffect(() => {
   
   
   useEffect(() => {
-     getScreenTrackData()
-     getDeviceAttrTrackData()
-     getDebugModeData()
+    getConfigurationsFromStorage()
   }, [])
   
   // Screen track 
-  const getScreenTrackData = async () => {
-    const keyStorageObj = new CioKeyValueStorage()
-    const value = await keyStorageObj.getScreenTrack()
-    setIsTrackScreensEnabled(JSON.parse(value))
-  }
-
   const setScreenTrackData = async () => {
     const keyStorageObj = new CioKeyValueStorage()
     await keyStorageObj.saveScreenTrack(!isTrackScreensEnabled)
   }
 
   // Device attribute track
-  const getDeviceAttrTrackData = async () => {
-    const keyStorageObj = new CioKeyValueStorage()
-    const value = await keyStorageObj.getDeviceAttributesTrack()
-    setIsTrackDeviceAttributesEnabled(JSON.parse(value))
-  }
-
   const setDeviceAttrTrackData = async () => {
     const keyStorageObj = new CioKeyValueStorage()
     await keyStorageObj.saveDeviceAttributesTrack(!isTrackDeviceAttributesEnabled)
   }
 
   // Debug mode
-  const getDebugModeData = async () => {
-    const keyStorageObj = new CioKeyValueStorage()
-    const value = await keyStorageObj.getDebugModeConfig()
-    setIsDebugModeEnabled(JSON.parse(value))
-  }
-
   const setDebugModeData = async () => {
     const keyStorageObj = new CioKeyValueStorage()
     await keyStorageObj.saveDebugModeConfig(!isDebugModeEnabled)
+  }
+
+  const getConfigurationsFromStorage = async () => {
+    const keyStorageObj = new CioKeyValueStorage()
+    // Screen track
+    const screenTrackStatus = await keyStorageObj.getScreenTrack()
+    setIsTrackScreensEnabled(JSON.parse(screenTrackStatus))
+
+    // Track device attribute
+    const deviceTrackStatus = await keyStorageObj.getDeviceAttributesTrack()
+    setIsTrackDeviceAttributesEnabled(JSON.parse(deviceTrackStatus))
+
+    // Debug mode
+    const debugModeStatus = await keyStorageObj.getDebugModeConfig()
+    setIsDebugModeEnabled(JSON.parse(debugModeStatus))
+
+    // BGQ Seconds delay
+    const bgDelayValue = await keyStorageObj.getBGQSecondsDelay()
+    setBgQDelay(bgDelayValue)
+
+    // BGQ min tasks
+    const minTasksValue = await keyStorageObj.getBGQMinTasksInQueue()
+    setBgQMinNumTasks(minTasksValue)
   }
 
   const toggleSwitch = async (type) => {
@@ -77,7 +81,6 @@ useLayoutEffect(() => {
             Linking.openSettings()
           return
         }
-alert("I am called")
         // Case 2: Show prompt if permissions have not been determined yet
         if (pushStatus == "Notdetermined") {
           var options = {ios : {sound : true, badge: true}}
@@ -108,6 +111,7 @@ alert("I am called")
   PushNotification.configure({
     // (optional) Called when Token is generated (iOS and Android)
     onRegister: function (token) {
+      alert(token)
       setDeviceToken(token["token"])
     }
   });
@@ -118,6 +122,14 @@ alert("I am called")
     if (trackUrl.trim() !== "") {
       keyStorageObj.saveTrackingUrl(trackUrl.trim())
     }
+  }
+
+  const updateBGQDelay = (e) => {
+    setBgQDelay(e)
+  }
+
+  const updateBGQMinTasks = (e) => {
+    setBgQMinNumTasks(e)
   }
   
   return (
@@ -161,7 +173,7 @@ alert("I am called")
                 </View>
               </View>
 
-            {/* Gist Environment */}
+            {/* Gist Environment
               <View style={styles.rowView}>
                 <View style={styles.stackColumnView}>
                   <Text style={styles.textLabel}>Gist Environment</Text>
@@ -173,7 +185,7 @@ alert("I am called")
                 />
                 <View style={styles.copyToClipboardButton}></View>
                 </View>
-            </View>
+            </View> */}
 
 
             {/* Section #2 */}
@@ -209,7 +221,8 @@ alert("I am called")
                   <TextInput
                     style={styles.input}
                     value={bgQDelay}
-                    onChangeText={(e) => setBgQDelay(e)}
+                    editable={true}
+                    onChangeText={(e) => updateBGQDelay(e)}
                   />
                   <View style={styles.copyToClipboardButton}></View>
                 </View>
@@ -221,7 +234,7 @@ alert("I am called")
                   <TextInput
                     style={styles.input}
                     value={bgQMinNumTasks}
-                    onChangeText={(e) => setBgQMinNumTasks(e)}
+                    onChangeText={(e) => updateBGQMinTasks(e)}
                   />
                   <View style={styles.copyToClipboardButton}></View>
                 </View>
