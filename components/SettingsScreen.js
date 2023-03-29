@@ -126,10 +126,14 @@ useLayoutEffect(() => {
 
   const updateBGQDelay = (e) => {
     setBgQDelay(e)
+    const keyStorageObj = new CioKeyValueStorage()
+      keyStorageObj.saveBGQSecondsDelay(e)
   }
 
   const updateBGQMinTasks = (e) => {
     setBgQMinNumTasks(e)
+    const keyStorageObj = new CioKeyValueStorage()
+      keyStorageObj.saveBGQMinTasksInQueue(e)
   }
   
   return (
