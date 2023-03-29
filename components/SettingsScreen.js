@@ -48,6 +48,7 @@ useLayoutEffect(() => {
   const setDebugModeData = async () => {
     const keyStorageObj = new CioKeyValueStorage()
     await keyStorageObj.saveDebugModeConfig(!isDebugModeEnabled)
+    await keyStorageObj.saveDeviceAttributesTrack(!isTrackDeviceAttributesEnabled)
   }
 
   const getConfigurationsFromStorage = async () => {
@@ -111,18 +112,22 @@ useLayoutEffect(() => {
   PushNotification.configure({
     // (optional) Called when Token is generated (iOS and Android)
     onRegister: function (token) {
-      alert(token)
       setDeviceToken(token["token"])
     }
   });
 
-  const saveSettings = () => {
+  const saveSettings = async () => {
     const keyStorageObj = new CioKeyValueStorage()
     
-    keyStorageObj.saveTrackingUrl(trackUrl.trim())
-    keyStorageObj.saveBGQSecondsDelay(bgDelayValue)
-    keyStorageObj.saveBGQMinTasksInQueue(bgQMinNumTasks)
-    keyStorageObj.
+    await keyStorageObj.saveTrackingUrl(trackUrl.trim())
+    await keyStorageObj.saveBGQSecondsDelay(bgDelayValue)
+    await keyStorageObj.saveBGQMinTasksInQueue(bgQMinNumTasks)
+    await keyStorageObj.saveIsPushEnabledConfig(isPushEnabled)
+    await keyStorageObj.saveScreenTrack(!isTrackScreensEnabled)
+    await keyStorageObj.saveDebugModeConfig(!isDebugModeEnabled)
+    await keyStorageObj.saveDeviceAttributesTrack(!isTrackDeviceAttributesEnabled)
+    
+    // keyStorageObj.
 
   }
 

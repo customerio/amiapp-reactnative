@@ -127,6 +127,24 @@ async getDebugModeConfig(){
     console.log(e)
   }
 }
+
+  // Push notifications
+  async saveIsPushEnabledConfig(value) {
+    try {
+      await AsyncStorage.setItem('push_enabled', JSON.stringify(value))
+    } catch (e) {
+      console.log(e)
+    }
+  }
+  
+  async getIsPushEnabledConfig(){
+    try {
+      const value = await AsyncStorage.getItem('push_enabled')
+      return value
+    } catch(e) {
+      console.log(e)
+    }
+  }
 }
 
 
