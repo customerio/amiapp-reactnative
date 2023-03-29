@@ -21,6 +21,8 @@ export default function App() {
 const [isScreenTrackEnabled, setIsScreenTrackEnabled] = useState(null)
 const [isDeviceAttrTrackEnabled, setIsDeviceAttrTrackEnabled] = useState(null)
 const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(null)
+const [bgDelayValue, setBgDelayValue] = useState(null)
+const [bgTasksValue, setBgTasksValue] = useState(null)
   useEffect(() => {
     (async () => {
       const keyStorageObj = new CioKeyValueStorage()
@@ -49,44 +51,72 @@ const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(null)
   };
 
   useEffect(() => {
-    fetchScreenTrackConfig()
-    fetchDeviceAttrTrackConfig()
-    fetchDebugModeConfig()
+    fetchConfigsOrSetDefault()
   }, [])
 
   useEffect(() => {
-    if(isDeviceAttrTrackEnabled !== null && isScreenTrackEnabled !== null && isDebugModeEnabled != null)
+    if(isDeviceAttrTrackEnabled !== null && isScreenTrackEnabled !== null && isDebugModeEnabled != null && bgDelayValue !== null && bgTasksValue !== null)
     initialiseCioPackage()
-  }, [isDeviceAttrTrackEnabled, isScreenTrackEnabled, isDebugModeEnabled])
+  }, [isDeviceAttrTrackEnabled, isScreenTrackEnabled, isDebugModeEnabled, bgDelayValue, bgTasksValue])
   
-  const fetchScreenTrackConfig = async () => {
+  // const fetchScreenTrackConfig = async () => {
+  //   const keyStorageObj = new CioKeyValueStorage()
+  //   const value = await keyStorageObj.getScreenTrack()
+  //   if (value === null) {
+  //     // Set to default value if this is a first time launch
+  //     await keyStorageObj.saveScreenTrack(true)
+  //   }
+  //   setIsScreenTrackEnabled(value === null ? true : JSON.parse(value))
+  // }
+
+  // const fetchDeviceAttrTrackConfig = async () => {
+  //   const keyStorageObj = new CioKeyValueStorage()
+  //   const value = await keyStorageObj.getDeviceAttributesTrack()
+  //   if (value === null) {
+  //     // Set to default value if this is a first time launch
+  //     await keyStorageObj.saveDeviceAttributesTrack(true)
+  //   }
+  //   setIsDeviceAttrTrackEnabled(value === null ? true : JSON.parse(value))
+  // }
+
+  // const fetchDebugModeConfig = async () => {
+  //   const keyStorageObj = new CioKeyValueStorage()
+  //   const value = await keyStorageObj.getDebugModeConfig()
+  //   if (value === null) {
+  //     // Set to default value if this is a first time launch
+  //     await keyStorageObj.saveDebugModeConfig(true)
+  //   }
+  //   setIsDebugModeEnabled(value === null ? true : JSON.parse(value))
+  // }
+
+  const fetchConfigsOrSetDefault = async() => {
     const keyStorageObj = new CioKeyValueStorage()
-    const value = await keyStorageObj.getScreenTrack()
-    if (value === null) {
-      // Set to default value if this is a first time launch
+    const bgDelayValue  = await keyStorageObj.getBGQSecondsDelay()
+    const bgTasksValue = await keyStorageObj.getBGQMinTasksInQueue()
+    const screenTrackValue = await keyStorageObj.getScreenTrack()
+    const deviceAttrValue = await keyStorageObj.getDeviceAttributesTrack()
+    const debugModeValue = await keyStorageObj.getDebugModeConfig()
+    
+    if (screenTrackValue === null) {
       await keyStorageObj.saveScreenTrack(true)
     }
-    setIsScreenTrackEnabled(value === null ? true : JSON.parse(value))
-  }
-
-  const fetchDeviceAttrTrackConfig = async () => {
-    const keyStorageObj = new CioKeyValueStorage()
-    const value = await keyStorageObj.getDeviceAttributesTrack()
-    if (value === null) {
-      // Set to default value if this is a first time launch
+    if (bgDelayValue === null) {
+      await keyStorageObj.saveBGQSecondsDelay('30')
+    }
+    if (bgTasksValue === null) {
+      await keyStorageObj.saveBGQMinTasksInQueue('10')
+    }
+    if (deviceAttrValue === null) {
       await keyStorageObj.saveDeviceAttributesTrack(true)
     }
-    setIsDeviceAttrTrackEnabled(value === null ? true : JSON.parse(value))
-  }
-
-  const fetchDebugModeConfig = async () => {
-    const keyStorageObj = new CioKeyValueStorage()
-    const value = await keyStorageObj.getDebugModeConfig()
-    if (value === null) {
-      // Set to default value if this is a first time launch
+    if (debugModeValue === null) {
       await keyStorageObj.saveDebugModeConfig(true)
     }
-    setIsDebugModeEnabled(value === null ? true : JSON.parse(value))
+    setIsDeviceAttrTrackEnabled(deviceAttrValue === null ? true : JSON.parse(deviceAttrValue))
+    setIsScreenTrackEnabled(screenTrackValue === null ? true : JSON.parse(screenTrackValue))
+    setIsDebugModeEnabled(debugModeValue === null ? true : JSON.parse(debugModeValue))
+    setBgDelayValue(bgDelayValue === null ? 30 : parseInt(bgDelayValue))
+    setBgTasksValue(bgTasksValue === null ? 10 : parseInt(bgTasksValue))
   }
 
   const initialiseCioPackage = () => {
@@ -94,6 +124,8 @@ const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(null)
     const configuration = new CustomerioConfig()
     configuration.logLevel = isDebugModeEnabled === null ? CioLogLevel.debug : isDebugModeEnabled
     configuration.autoTrackDeviceAttributes = isDeviceAttrTrackEnabled === null ? true : isDeviceAttrTrackEnabled 
+    configuration.backgroundQueueMinNumberOfTasks = bgTasksValue
+    configuration.backgroundQueueSecondsDelay = bgDelayValue
     const env = new CustomerIOEnv()
     env.siteId = Env.siteId
     env.apiKey = Env.apiKey
