@@ -119,15 +119,17 @@ useLayoutEffect(() => {
   const saveSettings = () => {
     const keyStorageObj = new CioKeyValueStorage()
     
-    if (trackUrl.trim() !== "") {
-      keyStorageObj.saveTrackingUrl(trackUrl.trim())
-    }
+    keyStorageObj.saveTrackingUrl(trackUrl.trim())
+    keyStorageObj.saveBGQSecondsDelay(bgDelayValue)
+    keyStorageObj.saveBGQMinTasksInQueue(bgQMinNumTasks)
+    keyStorageObj.
+
   }
 
   const updateBGQDelay = (e) => {
     setBgQDelay(e)
     const keyStorageObj = new CioKeyValueStorage()
-      keyStorageObj.saveBGQSecondsDelay(e)
+      
   }
 
   const updateBGQMinTasks = (e) => {
