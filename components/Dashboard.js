@@ -37,12 +37,12 @@ const Dashboard = ({navigation}) => {
     }
 
     const logoutTapped = () => {
-        const cioManager = new CioManager()
-        cioManager.clearUserIdentity()
+        // const cioManager = new CioManager()
+        // cioManager.clearUserIdentity()
 
-        const keyStorageObj = new CioKeyValueStorage()
-        keyStorageObj.saveLoginStatus(false)
-        navigation.navigate("Login")
+        // const keyStorageObj = new CioKeyValueStorage()
+        // keyStorageObj.saveLoginStatus(false)
+        navigation.navigate("Deeplinks")
     }
 
     const renderDashboardButtons = (item) => {

@@ -10,6 +10,7 @@ import SettingsScreen from './components/SettingsScreen'
 import Env from "./env";
 import CioManager from './manager/CioManager';
 import CioKeyValueStorage from './manager/KeyValueStorage';
+import Deeplinks from './components/Deeplink';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,7 +42,7 @@ const [bgTasksValue, setBgTasksValue] = useState(null)
   const routeNameRef = useRef();
   const config = {
     screens: {
-      FeaturesTrial: 'showtrial',
+      Deeplinks: 'deeplink',
     },
   };
   const linking = {
@@ -154,11 +155,11 @@ const [bgTasksValue, setBgTasksValue] = useState(null)
             backgroundColor: '#ffffff'},
         }}
        />
-       {/* <Stack.Screen name="ViewLogsScreen" component={ViewLogs}
+       <Stack.Screen name="Deeplinks" component={Deeplinks}
        options={{
           title:"",
         }}
-       /> */}
+       />
        <Stack.Screen name="SettingsScreen" component={SettingsScreen}
        options={{
           title:"",
