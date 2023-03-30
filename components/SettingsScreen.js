@@ -110,6 +110,18 @@ useLayoutEffect(() => {
     await keyStorageObj.saveDeviceAttributesTrack(!isTrackDeviceAttributesEnabled)
 
     alert("Settings have been updated successfully")
+    
+  }
+
+  const alertUserBeforeSaving = () => {
+    Alert.alert('Info', 'Saving settings will require an app restart.', [
+      {text: 'OK', onPress: () => saveSettings()},
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Saving cancelled by the user'),
+        style: 'cancel',
+      },
+    ]);
   }
  
   return (
@@ -277,7 +289,7 @@ useLayoutEffect(() => {
               </View>
         </View> 
         <View>
-          <ThemedButton onPress={() => saveSettings()} title="SAVE"/>
+          <ThemedButton onPress={() => alertUserBeforeSaving()} title="SAVE"/>
           <Text style={styles.settingsInfoText}>Editing settings will require an app restart.</Text>
         </View>
     </ScrollView>
