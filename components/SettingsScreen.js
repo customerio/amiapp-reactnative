@@ -32,27 +32,13 @@ useLayoutEffect(() => {
     getConfigurationsFromStorage()
   }, [])
   
-  // Screen track 
-  const setScreenTrackData = async () => {
-    const keyStorageObj = new CioKeyValueStorage()
-    await keyStorageObj.saveScreenTrack(!isTrackScreensEnabled)
-  }
-
-  // Device attribute track
-  const setDeviceAttrTrackData = async () => {
-    const keyStorageObj = new CioKeyValueStorage()
-    await keyStorageObj.saveDeviceAttributesTrack(!isTrackDeviceAttributesEnabled)
-  }
-
-  // Debug mode
-  const setDebugModeData = async () => {
-    const keyStorageObj = new CioKeyValueStorage()
-    await keyStorageObj.saveDebugModeConfig(!isDebugModeEnabled)
-    await keyStorageObj.saveDeviceAttributesTrack(!isTrackDeviceAttributesEnabled)
-  }
-
   const getConfigurationsFromStorage = async () => {
     const keyStorageObj = new CioKeyValueStorage()
+
+    // Tracking url
+    const trackingUrl = await keyStorageObj.getTrackingUrl()
+    setTrackUrl(trackingUrl)
+
     // Screen track
     const screenTrackStatus = await keyStorageObj.getScreenTrack()
     setIsTrackScreensEnabled(JSON.parse(screenTrackStatus))
@@ -95,16 +81,12 @@ useLayoutEffect(() => {
         break
       case "Debug":
         setIsDebugModeEnabled(previousState => !previousState);
-        setDebugModeData()
         break
       case "DeviceAttr":
         setIsTrackDeviceAttributesEnabled(previousState => !previousState);
-        setDeviceAttrTrackData()
         break
       case "Screens":
         setIsTrackScreensEnabled(previousState => !previousState);
-        // Using useEffect to save value in Async Storage
-        setScreenTrackData()
         break
     }
   }
@@ -120,29 +102,16 @@ useLayoutEffect(() => {
     const keyStorageObj = new CioKeyValueStorage()
     
     await keyStorageObj.saveTrackingUrl(trackUrl.trim())
-    await keyStorageObj.saveBGQSecondsDelay(bgDelayValue)
+    await keyStorageObj.saveBGQSecondsDelay(bgQDelay)
     await keyStorageObj.saveBGQMinTasksInQueue(bgQMinNumTasks)
     await keyStorageObj.saveIsPushEnabledConfig(isPushEnabled)
     await keyStorageObj.saveScreenTrack(!isTrackScreensEnabled)
     await keyStorageObj.saveDebugModeConfig(!isDebugModeEnabled)
     await keyStorageObj.saveDeviceAttributesTrack(!isTrackDeviceAttributesEnabled)
-    
-    // keyStorageObj.
 
+    alert("Settings have been updated successfully")
   }
-
-  const updateBGQDelay = (e) => {
-    setBgQDelay(e)
-    const keyStorageObj = new CioKeyValueStorage()
-      
-  }
-
-  const updateBGQMinTasks = (e) => {
-    setBgQMinNumTasks(e)
-    const keyStorageObj = new CioKeyValueStorage()
-      keyStorageObj.saveBGQMinTasksInQueue(e)
-  }
-  
+ 
   return (
     <ScrollView style={styles.container}>
        <View style={styles.innerContainer}>
@@ -233,7 +202,7 @@ useLayoutEffect(() => {
                     style={styles.input}
                     value={bgQDelay}
                     editable={true}
-                    onChangeText={(e) => updateBGQDelay(e)}
+                    onChangeText={(e) => setBgQDelay(e)}
                   />
                   <View style={styles.copyToClipboardButton}></View>
                 </View>
@@ -245,7 +214,7 @@ useLayoutEffect(() => {
                   <TextInput
                     style={styles.input}
                     value={bgQMinNumTasks}
-                    onChangeText={(e) => updateBGQMinTasks(e)}
+                    onChangeText={(e) => setBgQMinNumTasks(e)}
                   />
                   <View style={styles.copyToClipboardButton}></View>
                 </View>
@@ -267,7 +236,7 @@ useLayoutEffect(() => {
                   />
                 </View>
               </View>
-            {/* CIO Track URL */}
+            {/* CIO Track Screen */}
               <View style={styles.rowView}>
                 <View style={styles.stackColumnView}>
                   <Text style={styles.textLabel}>Track Screens</Text>
@@ -309,6 +278,7 @@ useLayoutEffect(() => {
         </View> 
         <View>
           <ThemedButton onPress={() => saveSettings()} title="SAVE"/>
+          <Text style={styles.settingsInfoText}>Editing settings will require an app restart.</Text>
         </View>
     </ScrollView>
   )
@@ -374,5 +344,8 @@ const styles = StyleSheet.create({
       borderBottomColor: '#e6e6e6',
       borderRadius: 10,
     },
+    settingsInfoText: {
+      alignSelf: 'center'
+    }
 })
 export default SettingsScreen;
