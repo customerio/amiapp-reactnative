@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useState, useEffect} from 'react'
-import { View, StyleSheet, Text, Alert, Image, Switch, Linking, AsyncStorage} from 'react-native';
+import { View, StyleSheet, Text, Alert, Image, Switch, Linking, AsyncStorage, AppState} from 'react-native';
 import { ScrollView, TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import Env from '../env';
 import PushNotification from "react-native-push-notification";
@@ -26,10 +26,25 @@ useLayoutEffect(() => {
     })
   }, [navigation])
 
+  useEffect(() => {
+    // const unsubscribe = AppState.addEventListener('change', handleapp);
+    const subscription = AppState.addEventListener('change', (appState) => {
+      // alert(appState)
+      // if (appState !== 'active') {
+      //   return;
+      // }
+      getPushStatus()
+      // Run custom logic
+    
+      subscription.remove();
+    })
+    // Return the function to unsubscribe from the event so it gets removed on unmount
+  });
   
   
   useEffect(() => {
     getConfigurationsFromStorage()
+    getPushStatus()
   }, [])
   
   const getConfigurationsFromStorage = async () => {
@@ -60,9 +75,21 @@ useLayoutEffect(() => {
     setBgQMinNumTasks(minTasksValue)
   }
 
+  const getPushStatus = () => {
+    CustomerIO.getPushPermissionStatus().then((status) => {
+      setPushStatus(status)
+      if (status == "Granted") {
+        setIsPushEnabled(true)
+        return
+      }
+      setIsPushEnabled(false)
+    })
+  }
+
   const toggleSwitch = async (type) => {
     switch(type) {
       case "Push":
+        alert(pushStatus)
         // Case 1: Open settings to update push permissions
         if (isPushEnabled === true || pushStatus == 'Denied') {
             Linking.openSettings()
