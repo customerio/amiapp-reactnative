@@ -142,7 +142,6 @@ useLayoutEffect(() => {
     await keyStorageObj.saveDebugModeConfig(!isDebugModeEnabled)
     await keyStorageObj.saveDeviceAttributesTrack(!isTrackDeviceAttributesEnabled)
 
-    alert("Settings have been updated successfully")
     Alert.alert('Info', 'Settings have been updated successfully.', [
       {text: 'OK', onPress: () => navigation.goBack()},
     ]);

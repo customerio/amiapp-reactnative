@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { View, Text, FlatList, StyleSheet, Image} from 'react-native'
+import { View, Text, FlatList, StyleSheet, Image, Alert} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import CioManager from '../manager/CioManager'
 import ThemedButton from './common/Button'
@@ -9,6 +9,14 @@ import { CustomerIO } from 'customerio-reactnative'
 
 const Dashboard = ({navigation}) => {
 
+    const [deviceToken, setDeviceToken] = useState(null)
+    // To get device token
+    PushNotification.configure({
+        onRegister: function (token) {
+          setDeviceToken(token["token"])
+        }
+    });
+    
     
     const sendRandomEventTapped = () => {
         const cioManager = new CioManager()
@@ -36,12 +44,13 @@ const Dashboard = ({navigation}) => {
         })
     }
 
-    const logoutTapped = () => {
+    const logoutTapped = async() => {
         const cioManager = new CioManager()
         cioManager.clearUserIdentity()
 
         const keyStorageObj = new CioKeyValueStorage()
-        keyStorageObj.saveLoginStatus(false)
+        await keyStorageObj.saveLoginStatus(false)
+        navigation.navigate("Login")
     }
 
     const renderDashboardButtons = (item) => {
@@ -69,7 +78,21 @@ const Dashboard = ({navigation}) => {
     }
 
     const registerDeviceToken = () => {
-        alert("In progress")
+        if(deviceToken !== null) {
+            CustomerIO.registerDeviceToken(deviceToken)
+            alert("Device token registered successfully")
+            return
+        }
+        alert("Could not register device. Device token unavailable.")
+    }
+
+    const userIconTapped = async () => {
+        const keyStorageObj = new CioKeyValueStorage()
+        const userDetail = JSON.parse(await keyStorageObj.getLoginDetail())
+
+        Alert.alert('User Info', "Name - " + userDetail.name + "\n\nEmailId - " + userDetail.id, [
+            {text: 'OK'}
+          ]);
     }
 
     PushNotification.configure({
@@ -86,8 +109,20 @@ const Dashboard = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={{flex:1,backgroundColor:'white', paddingTop: 50}}>
-                <View style={{justifyContent:'space-around'}}>
-                    <View style={{height:50,alignSelf:'stretch',margin:5}}>
+                <View style={{justifyContent:'space-around', flexDirection: 'row'}}>
+                    <View style={{height:50,alignSelf:'stretch',margin:5, flex: 1}}>
+                        <View style={styles.userIconView}>
+                            <TouchableOpacity
+                                onPress={() => userIconTapped()}>
+                                    <Image 
+                                    style={styles.settingsImage}
+                                    source={require('../assets/images/userIcon.png')}>
+                                    </Image>
+                            </TouchableOpacity>
+                            </View>
+                        </View> 
+
+                            <View style={{height:50,alignSelf:'stretch',margin:5, flex: 1}}>
                         <View style={styles.settingsView}>
                             <TouchableOpacity
                                 onPress={() => settingsTapped()}>
@@ -155,15 +190,18 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         height: 50,
         flex: 1,
-        paddingRight: 30,
+        paddingRight: 10,
     },
     settingsImage: {
-        width: 50,
-        height: 50
+        width: 40,
+        height: 40
     },
     flexRow: {
         top: 75,
         flexDirection: 'row',
+    },
+    userIconView: {
+        paddingLeft: 10
     }
 })
 

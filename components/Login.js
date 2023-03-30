@@ -28,6 +28,7 @@ const Login = ({navigation}) => {
         // Save login status
         const keyStorageObj = new CioKeyValueStorage()
         keyStorageObj.saveLoginStatus(true)
+        keyStorageObj.saveLoginDetail({"name" : name.trim(), "id" : email.trim()})
         navigation.navigate("Dashboard")
     }
 

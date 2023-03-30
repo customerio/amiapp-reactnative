@@ -74,6 +74,24 @@ class CioKeyValueStorage {
     }
   }
 
+  // Login details
+  async saveLoginDetail(value) {
+    try {
+      await AsyncStorage.setItem('loginDetail', JSON.stringify(value))
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  async getLoginDetail(value) {
+    try {
+      const value = await AsyncStorage.getItem('loginDetail')
+      return value
+    } catch(e) {
+      console.log(e)
+    }
+  } 
+
   // Track Screen
   async saveScreenTrack(value) {
     try {
