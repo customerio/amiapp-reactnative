@@ -1,5 +1,6 @@
 import React, {useLayoutEffect, useState, useEffect, useRef} from 'react'
 import { View, StyleSheet, Text, Alert, Image, Switch, Linking, AppState} from 'react-native';
+import Clipboard from '@react-native-clipboard/clipboard';
 import { ScrollView, TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import Env from '../env';
 import PushNotification from "react-native-push-notification";
@@ -124,6 +125,11 @@ useLayoutEffect(() => {
     }
   }
 
+  const copyToClipboard = () => {
+    Clipboard.setString(deviceToken)
+    alert("Copied device token to clipboard.")
+  }
+
   PushNotification.configure({
     // (optional) Called when Token is generated (iOS and Android)
     onRegister: function (token) {
@@ -175,7 +181,7 @@ useLayoutEffect(() => {
                   />
                   <TouchableOpacity
                   style={styles.copyToClipboardButton}
-                      onPress={() => settingsTapped()}>
+                      onPress={() => copyToClipboard()}>
                           <Image 
                           style={styles.copyToClipboardImage}
                           source={require('../assets/images/paper.png')}>

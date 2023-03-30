@@ -21,6 +21,7 @@ const Dashboard = ({navigation}) => {
     const sendRandomEventTapped = () => {
         const cioManager = new CioManager()
         cioManager.randomEvent()
+        alert("Random event tracked successfully.")
     }
 
     const settingsTapped = () => {
