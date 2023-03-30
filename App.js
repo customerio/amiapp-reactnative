@@ -7,7 +7,6 @@ import { CustomerIO, CustomerioConfig, CioLogLevel, CustomerIOEnv } from "custom
 import Dashboard from './components/Dashboard';
 import CustomDataScreen from './components/CustomDataScreen';
 import SettingsScreen from './components/SettingsScreen'
-import ViewLogs from './components/ViewLogs';
 import Env from "./env";
 import CioManager from './manager/CioManager';
 import CioKeyValueStorage from './manager/KeyValueStorage';
@@ -155,11 +154,11 @@ const [bgTasksValue, setBgTasksValue] = useState(null)
             backgroundColor: '#ffffff'},
         }}
        />
-       <Stack.Screen name="ViewLogsScreen" component={ViewLogs}
+       {/* <Stack.Screen name="ViewLogsScreen" component={ViewLogs}
        options={{
           title:"",
         }}
-       />
+       /> */}
        <Stack.Screen name="SettingsScreen" component={SettingsScreen}
        options={{
           title:"",

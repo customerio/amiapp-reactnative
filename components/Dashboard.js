@@ -36,10 +36,6 @@ const Dashboard = ({navigation}) => {
         })
     }
 
-    const viewLogsTapped = () => {
-        navigation.navigate("ViewLogsScreen")
-    }
-
     const logoutTapped = () => {
         const cioManager = new CioManager()
         cioManager.clearUserIdentity()
@@ -120,7 +116,6 @@ const Dashboard = ({navigation}) => {
                         {key: 'Send Custom Event', onClick: () => sendCustomEventTapped()},
                         {key: 'Set Device Attributes', onClick: () => setDeviceAttributesTapped()},
                         {key: 'Set Profile Attributes', onClick: () => setProfileAttributesTapped()},
-                        {key: 'View Logs', onClick: () => viewLogsTapped()},
                         {key: 'Logout', onClick: () => logoutTapped()},
                         ]}
                         renderItem={({item}) => renderDashboardButtons(item)}
