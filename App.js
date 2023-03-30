@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import { ActivityIndicator,StyleSheet} from 'react-native';
+import { ActivityIndicator,Linking,StyleSheet} from 'react-native';
 import Login from './components/Login';
 import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -103,6 +103,21 @@ const [bgTasksValue, setBgTasksValue] = useState(null)
     const cioManager = new CioManager()
     cioManager.initializeCio(env, configuration)
   }
+
+  useEffect(() => {
+    const getUrlAsync = async () => {
+      const initialUrl = await Linking.getInitialURL();
+
+      setTimeout(() => {
+        if (initialUrl !== null) {
+          alert(initialUrl);
+        }
+        // Setting 1000 only to add some delay to show alert, otherwise pops up immediately
+      }, 1000);
+    };
+
+    getUrlAsync();
+  }, []);
 
   if (loading == true ) {
     return (

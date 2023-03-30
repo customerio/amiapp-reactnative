@@ -38,7 +38,18 @@ MyAppPushNotificationsHandler* pnHandlerObj = [[MyAppPushNotificationsHandler al
 {
   RCTAppSetupPrepareApp(application);
 
-  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+  NSMutableDictionary *modifiedLaunchOptions = [NSMutableDictionary dictionaryWithDictionary:launchOptions];
+    if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
+        NSDictionary *pushContent = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (pushContent[@"react-deep-link"]) {
+            NSString *initialURL = pushContent[@"react-deep-link"];
+            if (!launchOptions[UIApplicationLaunchOptionsURLKey]) {
+                modifiedLaunchOptions[UIApplicationLaunchOptionsURLKey] = [NSURL URLWithString:initialURL];
+            }
+        }
+    }
+
+  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:modifiedLaunchOptions];
 
 #if RCT_NEW_ARCH_ENABLED
   _contextContainer = std::make_shared<facebook::react::ContextContainer const>();
