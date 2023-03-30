@@ -1,3 +1,52 @@
+## [1.8.2](https://github.com/customerio/amiapp-reactnative/compare/1.8.1...1.8.2) (2023-03-28)
+
+
+### Bug Fixes
+
+* setting delegate for UNUserNotificationCenter ([#50](https://github.com/customerio/amiapp-reactnative/issues/50)) ([db6f9bd](https://github.com/customerio/amiapp-reactnative/commit/db6f9bdc0600eb906efa8c28067088ba3cd96abb))
+
+## [1.8.1](https://github.com/customerio/amiapp-reactnative/compare/1.8.0...1.8.1) (2023-03-21)
+
+
+### Bug Fixes
+
+* reproduce and fix cocoapods ios bug ([#48](https://github.com/customerio/amiapp-reactnative/issues/48)) ([5f48b0f](https://github.com/customerio/amiapp-reactnative/commit/5f48b0f894884ff6044ac05c2decfcb9d7a0403b))
+
+# [1.8.0](https://github.com/customerio/amiapp-reactnative/compare/1.7.0...1.8.0) (2023-03-03)
+
+
+### Features
+
+* prompt for push notification permission ([#44](https://github.com/customerio/amiapp-reactnative/issues/44)) ([dda5e2b](https://github.com/customerio/amiapp-reactnative/commit/dda5e2bff418f9dea05b324a6a75973a3a11cbbc))
+
+# [1.7.0](https://github.com/customerio/amiapp-reactnative/compare/1.6.0...1.7.0) (2023-03-03)
+
+
+### Features
+
+* add in-app event listeners ([#43](https://github.com/customerio/amiapp-reactnative/issues/43)) ([f6c6e1f](https://github.com/customerio/amiapp-reactnative/commit/f6c6e1fe6cc8638c32687331b2d25578bf2dff13))
+
+# [1.6.0](https://github.com/customerio/amiapp-reactnative/compare/1.5.2...1.6.0) (2023-02-01)
+
+
+### Features
+
+* register device from javascript using react native package ([#41](https://github.com/customerio/amiapp-reactnative/issues/41)) ([d232c9e](https://github.com/customerio/amiapp-reactnative/commit/d232c9e45f7f485e885c118ab14d22fe6c90f0fd))
+
+## [1.5.2](https://github.com/customerio/amiapp-reactnative/compare/1.5.1...1.5.2) (2023-01-31)
+
+
+### Bug Fixes
+
+* notifications runtime permission ([#36](https://github.com/customerio/amiapp-reactnative/issues/36)) ([7d6f5ed](https://github.com/customerio/amiapp-reactnative/commit/7d6f5ed00900842e5a22cee4d584d5256b16c8b2))
+
+## [1.5.1](https://github.com/customerio/amiapp-reactnative/compare/1.5.0...1.5.1) (2023-01-11)
+
+
+### Bug Fixes
+
+* added v2 support and fixed deep link ([c004c19](https://github.com/customerio/amiapp-reactnative/commit/c004c1998a49e1d0e1bdbfebeb2daae4725d0d7f))
+
 # [1.5.0](https://github.com/customerio/amiapp-reactnative/compare/1.4.2...1.5.0) (2022-09-14)
 
 
