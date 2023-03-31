@@ -29,6 +29,7 @@ useLayoutEffect(() => {
 
   const appState = useRef(AppState.currentState);
 
+  // This useEffect registeres an event listener to notify the states of the app
   useEffect(() => {
     const subscription = AppState.addEventListener('change', nextAppState => {
       if (
@@ -130,7 +131,6 @@ useLayoutEffect(() => {
   }
 
   PushNotification.configure({
-    // (optional) Called when Token is generated (iOS and Android)
     onRegister: function (token) {
       setDeviceToken(token["token"])
     }
@@ -138,8 +138,8 @@ useLayoutEffect(() => {
 
   const saveSettings = async () => {
     const keyStorageObj = new CioKeyValueStorage()
+    if(trackUrl != null) { await keyStorageObj.saveTrackingUrl(trackUrl.trim()) }
     
-    await keyStorageObj.saveTrackingUrl(trackUrl.trim())
     await keyStorageObj.saveBGQSecondsDelay(bgQDelay)
     await keyStorageObj.saveBGQMinTasksInQueue(bgQMinNumTasks)
     await keyStorageObj.saveIsPushEnabledConfig(isPushEnabled)
