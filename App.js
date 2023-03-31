@@ -23,6 +23,8 @@ const [isDeviceAttrTrackEnabled, setIsDeviceAttrTrackEnabled] = useState(null)
 const [isDebugModeEnabled, setIsDebugModeEnabled] = useState(null)
 const [bgDelayValue, setBgDelayValue] = useState(null)
 const [bgTasksValue, setBgTasksValue] = useState(null)
+const [trackingUrl, setTrackingUrl] = useState(null)
+
   useEffect(() => {
     (async () => {
       const keyStorageObj = new CioKeyValueStorage()
@@ -66,7 +68,8 @@ const [bgTasksValue, setBgTasksValue] = useState(null)
     const screenTrackValue = await keyStorageObj.getScreenTrack()
     const deviceAttrValue = await keyStorageObj.getDeviceAttributesTrack()
     const debugModeValue = await keyStorageObj.getDebugModeConfig()
-    
+    const trackUrl = await keyStorageObj.getTrackingUrl()
+
     if (screenTrackValue === null) {
       await keyStorageObj.saveScreenTrack(true)
     }
@@ -87,6 +90,7 @@ const [bgTasksValue, setBgTasksValue] = useState(null)
     setIsDebugModeEnabled(debugModeValue === null ? true : JSON.parse(debugModeValue))
     setBgDelayValue(bgDelayValue === null ? 30 : parseInt(bgDelayValue))
     setBgTasksValue(bgTasksValue === null ? 10 : parseInt(bgTasksValue))
+    setTrackingUrl(trackUrl)
   }
 
   const initialiseCioPackage = () => {
@@ -96,6 +100,10 @@ const [bgTasksValue, setBgTasksValue] = useState(null)
     configuration.autoTrackDeviceAttributes = isDeviceAttrTrackEnabled === null ? true : isDeviceAttrTrackEnabled 
     configuration.backgroundQueueMinNumberOfTasks = bgTasksValue
     configuration.backgroundQueueSecondsDelay = bgDelayValue
+    if(trackingUrl != null) {
+      configuration.trackingApiUrl = trackingUrl
+    }
+    
     const env = new CustomerIOEnv()
     env.siteId = Env.siteId
     env.apiKey = Env.apiKey
