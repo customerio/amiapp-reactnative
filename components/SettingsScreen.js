@@ -28,7 +28,6 @@ useLayoutEffect(() => {
   }, [navigation])
 
   const appState = useRef(AppState.currentState);
-  const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
   useEffect(() => {
     const subscription = AppState.addEventListener('change', nextAppState => {
@@ -39,7 +38,6 @@ useLayoutEffect(() => {
         getPushStatus()
       }
       appState.current = nextAppState;
-      setAppStateVisible(appState.current);
     });
 
     return () => {
@@ -96,7 +94,6 @@ useLayoutEffect(() => {
   const toggleSwitch = async (type) => {
     switch(type) {
       case "Push":
-        // alert(pushStatus)
         // Case 1: Open settings to update push permissions
         if (isPushEnabled === true || pushStatus == 'Denied') {
             Linking.openSettings()
@@ -121,6 +118,8 @@ useLayoutEffect(() => {
         break
       case "Screens":
         setIsTrackScreensEnabled(previousState => !previousState);
+        break
+      default:
         break
     }
   }
@@ -280,7 +279,7 @@ useLayoutEffect(() => {
                 <View style={styles.stackColumnView}>
                   <Text style={styles.textLabel}>Enable Push Notifications</Text>
                   <Switch
-                    trackColor={{ false: "#32BD54", true: "#32BD54" }}
+                    trackColor={styles.trackColor}
                     thumbColor={isPushEnabled ? "#ffffff" : "#f4f3f4"}
                     ios_backgroundColor="#3e3e3e"
                     onValueChange={() => toggleSwitch('Push')}
@@ -293,7 +292,7 @@ useLayoutEffect(() => {
                 <View style={styles.stackColumnView}>
                   <Text style={styles.textLabel}>Track Screens</Text>
                   <Switch
-                    trackColor={{ false: "#32BD54", true: "#32BD54" }}
+                    trackColor={styles.trackColor}
                     thumbColor={isTrackScreensEnabled ? "#ffffff" : "#f4f3f4"}
                     ios_backgroundColor="#3e3e3e"
                     onValueChange={() => toggleSwitch('Screens')}
@@ -306,7 +305,7 @@ useLayoutEffect(() => {
                 <View style={styles.stackColumnView}>
                   <Text style={styles.textLabel}>Track Device Attributes</Text>
                   <Switch
-                    trackColor={{ false: "#32BD54", true: "#32BD54" }}
+                    trackColor={styles.trackColor}
                     thumbColor={isTrackDeviceAttributesEnabled ? "#ffffff" : "#f4f3f4"}
                     ios_backgroundColor="#3e3e3e"
                     onValueChange={() => toggleSwitch('DeviceAttr')}
@@ -318,7 +317,7 @@ useLayoutEffect(() => {
                 <View style={styles.stackColumnView}>
                   <Text style={styles.textLabel}>Debug mode</Text>
                   <Switch
-                    trackColor={{ false: "#32BD54", true: "#32BD54" }}
+                    trackColor={styles.trackColor}
                     thumbColor={isDebugModeEnabled ? "#ffffff" : "#f4f3f4"}
                     ios_backgroundColor="#3e3e3e"
                     onValueChange={() => toggleSwitch('Debug')}
@@ -343,6 +342,10 @@ const styles = StyleSheet.create({
     sectionView: {
       flexDirection: 'row',
       marginTop: 30
+    },
+    trackColor: {
+      false: "#32BD54",
+      true: "#32BD54"
     },
     copyToClipboardButton:{
       alignContent: 'flex-end',

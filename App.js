@@ -28,7 +28,7 @@ const [bgTasksValue, setBgTasksValue] = useState(null)
       const keyStorageObj = new CioKeyValueStorage()
       const status = await keyStorageObj.getLoginStatus()
       setLoading(false)
-      if (JSON.parse(status) == true) {
+      if (JSON.parse(status)) {
         setFirstScreen("Dashboard")
         return
       }

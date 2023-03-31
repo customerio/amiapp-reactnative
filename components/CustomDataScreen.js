@@ -38,8 +38,16 @@ const CustomDataScreen = ({route, navigation}) => {
                 setShowEventName(false)  
                 setButtonText("profile attributes")
                 break
+            default: 
+                break
         }
     }, [featureType])
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+          headerShadowVisible: false,
+        })
+      }, [navigation])
     
     const sendEventTapped = () => {
         if (!IsFormValid()) {
@@ -57,6 +65,8 @@ const CustomDataScreen = ({route, navigation}) => {
                 break
             case "Profile Attributes":
                 sendProfileAttributes(cioManager)
+                break
+            default:
                 break
         }
         alert(`${featureType} sent`)
@@ -94,16 +104,8 @@ const CustomDataScreen = ({route, navigation}) => {
         }
         return true
     }
-    
-    useLayoutEffect(() => {
-        navigation.setOptions({
-          headerShadowVisible: false,
-        })
-      }, [navigation])
 
-    const getHeaderTitle = () => {
-        
-    }
+
     return (
         <View style={styles.container}>
             <View style={styles.innerContainer}>
