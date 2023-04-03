@@ -1,6 +1,5 @@
 import React, {useLayoutEffect, useState, useEffect} from 'react'
 import { View, Text, TextInput, StyleSheet} from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import CioManager from '../manager/CioManager'
 import ThemedButton from './common/Button'
 

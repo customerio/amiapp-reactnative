@@ -1,7 +1,7 @@
 import React, {useLayoutEffect, useState, useEffect, useRef} from 'react'
-import { View, StyleSheet, Text, Alert, Image, Switch, Linking, AppState} from 'react-native';
+import { View, StyleSheet, Text, Alert, Image, Switch, Linking, AppState, TouchableOpacity } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
-import { ScrollView, TextInput, TouchableOpacity} from 'react-native-gesture-handler';
+import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import Env from '../env';
 import PushNotification from "react-native-push-notification";
 import ThemedButton from './common/Button';

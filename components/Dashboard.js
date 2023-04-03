@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import { View, Text, FlatList, StyleSheet, Image, Alert} from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { View, Text, FlatList, StyleSheet, Image, Alert, TouchableOpacity} from 'react-native'
 import CioManager from '../manager/CioManager'
 import ThemedButton from './common/Button'
 import PushNotification from "react-native-push-notification";

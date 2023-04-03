@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import { View, Text, TextInput, StyleSheet, Image} from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import CioManager from '../manager/CioManager'
 import CioKeyValueStorage from '../manager/KeyValueStorage'
 
