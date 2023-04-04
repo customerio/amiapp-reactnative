@@ -6,7 +6,7 @@ import messaging from '@react-native-firebase/messaging';
 import { CustomerIO } from "customerio-reactnative";
 
 messaging().setBackgroundMessageHandler(async remoteMessage => {
-    CustomerIO.pushMessaging().onMessageReceived(remoteMessage, !remoteMessage.notification).then(handled => {
+    CustomerIO.pushMessaging().onBackgroundMessageReceived(remoteMessage).then(handled => {
         console.log(`Notification handled in the background: ${handled}`);
     });
 });
