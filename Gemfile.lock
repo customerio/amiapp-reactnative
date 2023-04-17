@@ -277,11 +277,12 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  ruby
   x86_64-darwin-19
   x86_64-darwin-20
 
 DEPENDENCIES
-  cocoapods (= 1.11.3)
+  cocoapods
   fastlane
   fastlane-plugin-firebase_app_distribution
   fastlane-plugin-versioning_android
