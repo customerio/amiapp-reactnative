@@ -5,6 +5,10 @@ node_modules
 .DS_Store
 env.js
 fastlane/report.xml
+fastlane/README.md
+
+# yarn throws error if it finds a package-lock.json file. 
+package-lock.json 
 
 # iOS
 iOS/build
@@ -17,9 +21,6 @@ android/build/
 .gradle
 local.properties
 *.iml
-
-# Google-services.json 
-# android/app/google-services.json
 
 # Gradle files
 .gradle/
