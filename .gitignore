@@ -4,8 +4,8 @@ gc_keys.json
 node_modules
 .DS_Store
 env.js
-fastlane/report.xml
-fastlane/README.md
+**/fastlane/report.xml
+**/fastlane/README.md
 
 # yarn throws error if it finds a package-lock.json file. 
 package-lock.json 

@@ -1,2 +1,0 @@
-scheme "SampleApp" # scheme in XCode workspace of React Native generated iOS app
-workspace "ios/SampleApp.xcworkspace"

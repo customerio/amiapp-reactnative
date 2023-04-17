@@ -19,6 +19,7 @@
 		70A1C0CD7AE0BE17519E378C /* libPods-Notification Service.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F69D4691C0AD460507881F /* libPods-Notification Service.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		F7052DB9287C788100560E20 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = F7052DB8287C788100560E20 /* FirebaseAppDistribution-Beta */; };
+		F7D5067529EF2010005F7657 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4698397D283E4FAD003FBBA8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -308,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7D5067529EF2010005F7657 /* GoogleService-Info.plist in Resources */,
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				465AC78C2835304A000D21D9 /* main.jsbundle in Resources */,

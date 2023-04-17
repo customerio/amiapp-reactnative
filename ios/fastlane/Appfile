@@ -2,5 +2,3 @@ app_identifier([
   "io.customer.ami", 
   "io.customer.ami.richpush",  
 ])
-
-package_name("io.customer.ami")
