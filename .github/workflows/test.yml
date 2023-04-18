@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '11' # Robolectric requires v9, but we choose LTS: https://adoptopenjdk.net/
+          java-version: '11'
 
       - name: npm install because Podfile requires files from it 
         run: yarn --frozen-lockfile
@@ -24,10 +24,16 @@ jobs:
       - name: Setup environment for building and releasing app
         run: echo "${{ secrets.ENV_FILE_B64 }}" | base64 -d > "env.js" # cat env.js | base64
 
-      - name: Build and re-release Android app
+      - name: Install tools from Gemfile (ruby language) used for building our apps with 
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true # cache tools to make builds faster in future
+
+      - name: Build app via Fastlane 
         uses: maierj/fastlane-action@v3.0.0
         with:
-          lane: 'android deploy_app'
+          lane: 'android build'
           subdirectory: "android"
         env: 
           FIREBASE_APP_DISTRIBUTION_SERVICE_ACCOUNT_CREDS_B64: ${{ secrets.FIREBASE_APP_DISTRIBUTION_SERVICE_ACCOUNT_CREDS_B64 }}

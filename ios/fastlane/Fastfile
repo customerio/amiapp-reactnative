@@ -1,3 +1,4 @@
+# Re-use iOS SDK Fastfile. It's highly suggested to only have this import function in this file and all modifications are done to iOS SDK's Fastfile
 import_from_git(
   url: "https://github.com/customerio/customerio-ios.git",
   branch: "levi/ci-build-number", # The branch to checkout on the repository.
