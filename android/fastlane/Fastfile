@@ -1,0 +1,6 @@
+# Re-use Android SDK Fastfile. It's highly suggested to only have this import function in this file and all modifications are done to Android SDK's Fastfile
+import_from_git(
+  url: "https://github.com/customerio/remotehabits-android.git", # Eventually, when sample apps are moved into Android SDK's code base, the URL will change to the SDK's git repo. 
+  branch: "main", 
+  path: "fastlane/Fastfile"
+)

@@ -1,11 +1,14 @@
 app_store_connect_creds.json
 ami_app_ci_server-google_cloud_service_account.json
 gc_keys.json
-GoogleService-Info.plist
 node_modules
 .DS_Store
 env.js
-fastlane/report.xml
+**/fastlane/report.xml
+**/fastlane/README.md
+
+# yarn throws error if it finds a package-lock.json file. 
+package-lock.json 
 
 # iOS
 iOS/build
@@ -19,12 +22,9 @@ android/build/
 local.properties
 *.iml
 
-# Google-services.json 
-android/app/google-services.json
-
 # Gradle files
 .gradle/
 build/
 
 # CocoaPods
-/ios/Pods/
+Pods/
