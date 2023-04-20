@@ -1,21 +1,21 @@
 PODS:
   - boost (1.76.0)
-  - customerio-reactnative (2.3.0):
+  - customerio-reactnative (2.2.0):
     - CustomerIOMessagingInApp (~> 2.1.0-beta.2)
     - CustomerIOTracking (~> 2.1.0-beta.2)
     - React-Core
-  - CustomerIO/MessagingPushAPN (2.1.2):
-    - CustomerIOMessagingPushAPN (= 2.1.2)
-  - CustomerIOCommon (2.1.2)
-  - CustomerIOMessagingInApp (2.1.2):
-    - CustomerIOTracking (= 2.1.2)
+  - CustomerIO/MessagingPushAPN (2.1.1):
+    - CustomerIOMessagingPushAPN (= 2.1.1)
+  - CustomerIOCommon (2.1.1)
+  - CustomerIOMessagingInApp (2.1.1):
+    - CustomerIOTracking (= 2.1.1)
     - Gist (~> 3.0.4)
-  - CustomerIOMessagingPush (2.1.2):
-    - CustomerIOTracking (= 2.1.2)
-  - CustomerIOMessagingPushAPN (2.1.2):
-    - CustomerIOMessagingPush (= 2.1.2)
-  - CustomerIOTracking (2.1.2):
-    - CustomerIOCommon (= 2.1.2)
+  - CustomerIOMessagingPush (2.1.1):
+    - CustomerIOTracking (= 2.1.1)
+  - CustomerIOMessagingPushAPN (2.1.1):
+    - CustomerIOMessagingPush (= 2.1.1)
+  - CustomerIOTracking (2.1.1):
+    - CustomerIOCommon (= 2.1.1)
   - DoubleConversion (1.1.6)
   - EXApplication (3.2.0):
     - UMCore
@@ -638,6 +638,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 75462b0d8580ec91ae23f88a4f9271a3130efb02
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 
-PODFILE CHECKSUM: c84aa188381a2bb1b5bb3ce1ec4d05339e5087f0
+PODFILE CHECKSUM: fb3df0e7e9345b30a6034b291f4fa29fc63ddaba
 
 COCOAPODS: 1.12.0
