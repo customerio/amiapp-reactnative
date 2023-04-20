@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/customerio/amiapp-reactnative/compare/1.8.1...1.8.2) (2023-03-28)
+
+
+### Bug Fixes
+
+* setting delegate for UNUserNotificationCenter ([#50](https://github.com/customerio/amiapp-reactnative/issues/50)) ([db6f9bd](https://github.com/customerio/amiapp-reactnative/commit/db6f9bdc0600eb906efa8c28067088ba3cd96abb))
+
 ## [1.8.1](https://github.com/customerio/amiapp-reactnative/compare/1.8.0...1.8.1) (2023-03-21)
 
 

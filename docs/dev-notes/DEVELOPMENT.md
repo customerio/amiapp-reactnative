@@ -21,6 +21,13 @@ To get started with the project, you might need several tools to compile on your
    - Load rbenv in your shell by running `rbenv init` and restarting the shell
    - Make sure you have the required ruby version set locally. You can do this by running `rbenv local 2.7.6`
  - Make sure you have [Xcode Command Line Tools installed](https://stackoverflow.com/a/45566089)
+ - Make sure you have [recommended JDK version (currently 11)](https://reactnative.dev/docs/environment-setup?guide=native&os=macos&platform=android#installing-dependencies:~:text=on%20your%20system%2C-,we%20recommend%20JDK,-11.%20You%20may) installed on your machine. If you encounter issues with Java/Kotlin files compilation, please upgrade/downgrade JDK version to the recommended one.
+ - Configure the `ANDROID_HOME` and `PATH` environment variables as follows
+ ```bash
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+ ```
 
 > **Warning**
 > 

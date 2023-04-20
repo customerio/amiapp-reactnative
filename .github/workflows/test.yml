@@ -1,67 +1,78 @@
 name: Create test builds
 
 on:  
-  # Uncomment this if build on every push is needed
-  # push:
-  #   branches-ignore: [main, beta, alpha] # skip for deployment branches. 
-  #   tags-ignore: ['*']
   pull_request:
-    branches: ['*']
-
-env:
-  XCODE_VERSION: "14.0"
-  GITHUB_CONTEXT: ${{ toJSON(github) }} # used by fastlane for deploying app 
-  FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 6 # increase timeout for xcodebuild settings. We have seen this command take a bit longer to do on CI server. 
 
 jobs:
   deploy-android-app:
-    runs-on: macos-12
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3 # checkout to be able to run CI config files below
+      - uses: actions/checkout@v3 
+
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '11' # Robolectric requires v9, but we choose LTS: https://adoptopenjdk.net/
+          java-version: '11'
+
+      - name: npm install because Podfile requires files from it 
+        run: yarn --frozen-lockfile
+
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
+
       - name: Setup environment for building and releasing app
-        uses: ./.github/actions/prepare-for-app-build
+        run: echo "${{ secrets.ENV_FILE_B64 }}" | base64 -d > "env.js" # cat env.js | base64
+
+      - name: Install tools from Gemfile (ruby language) used for building our apps with 
+        uses: ruby/setup-ruby@v1
         with:
-          GOOGLE_SERVICES_BASE64: "${{ secrets.GOOGLE_SERVICES_BASE64 }}" # cat ios/SampleApp/Google-Services.plist | base64
-          ENV_FILE_B64: "${{ secrets.ENV_FILE_B64 }}" # cat env.js | base64
-          FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH: ${{ secrets.FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH }} # cat ami_app_ci_server-google_cloud_service_account.json | base64
-          MATCH_GOOGLE_CLOUD_KEYS_B64: ${{ secrets.MATCH_GOOGLE_CLOUD_KEYS_B64 }} # cat gc_keys.json | base64                 
-          GOOGLE_SERVICES_ANDROID_BASE64: ${{ secrets.GOOGLE_SERVICES_ANDROID_BASE64 }} # cat android/app/google-services.json | base64
-      - name: Build and re-release Android app
-        uses: maierj/fastlane-action@v2.0.1
+          ruby-version: '3.0'
+          bundler-cache: true # cache tools to make builds faster in future
+
+      - name: Build app via Fastlane 
+        uses: maierj/fastlane-action@v3.0.0
         with:
-          lane: 'android deploy_app'
-          skip-tracking: true
-        env:
-          FIREBASE_ANDROID_APP_ID: ${{ secrets.FIREBASE_ANDROID_APP_ID }} # for firebase android app distribution
+          lane: 'android build'
+          subdirectory: "android"
+        env: 
+          FIREBASE_APP_DISTRIBUTION_SERVICE_ACCOUNT_CREDS_B64: ${{ secrets.FIREBASE_APP_DISTRIBUTION_SERVICE_ACCOUNT_CREDS_B64 }}
 
   deploy-ios-app:
     runs-on: macos-12
     steps:
       - uses: actions/checkout@v3 # checkout to be able to run CI config files below
-      - name: Setup environment for building and releasing app
-        uses: ./.github/actions/prepare-for-app-build
-        with:
-          GOOGLE_SERVICES_BASE64: "${{ secrets.GOOGLE_SERVICES_BASE64 }}" # cat ios/SampleApp/Google-Services.plist | base64
-          ENV_FILE_B64: "${{ secrets.ENV_FILE_B64 }}" # cat env.js | base64
-          FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH: ${{ secrets.FIREBASE_APP_DISTRIBUTION_GOOGLE_AUTH }} # cat ami_app_ci_server-google_cloud_service_account.json | base64
-          MATCH_GOOGLE_CLOUD_KEYS_B64: ${{ secrets.MATCH_GOOGLE_CLOUD_KEYS_B64 }} # cat gc_keys.json | base64                 
-          GOOGLE_SERVICES_ANDROID_BASE64: ${{ secrets.GOOGLE_SERVICES_ANDROID_BASE64 }} # cat android/app/google-services.json | base64
-      - name: Build and re-release iOS app
-        uses: maierj/fastlane-action@v2.0.1
-        with:
-          lane: 'ios deploy_app'
-          skip-tracking: true
-        env:
-          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }} # login to Firebase > select Ami project > project settings > select iOS app > App id. 
-          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }} # found in 1password for Ami app
-          APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }} # found in 1password for Ami app
-          APP_STORE_CONNECT_API_KEY_CONTENT_B64: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT_B64 }} # found in 1password for Ami app
 
-    # at this time, we do not send a slack notification for development builds to avoid being too noisy to the channel.
+      - name: Set up Xcode to version we determine 
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: 14
+
+      - name: Install tools from Gemfile (ruby language) used for building our apps with 
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true # cache tools to make builds faster in future
+
+      - name: Install tools for Fastlane build to use
+        run: brew install xcbeautify
+
+      - name: Setup environment for building and releasing app
+        run: echo "${{ secrets.ENV_FILE_B64 }}" | base64 -d > "env.js" # cat env.js | base64
+
+      - name: npm install because Podfile requires files from it 
+        run: yarn --frozen-lockfile
+
+      - name: pod install as React Native project requires it 
+        working-directory: ios 
+        run: pod install --repo-update
+
+      - name: Build app via Fastlane 
+        uses: maierj/fastlane-action@v3.0.0
+        with:
+          lane: "build"
+          subdirectory: "ios"
+        env: 
+          GOOGLE_CLOUD_MATCH_READONLY_SERVICE_ACCOUNT_B64: ${{ secrets.GOOGLE_CLOUD_MATCH_READONLY_SERVICE_ACCOUNT_B64 }}
+          FIREBASE_APP_DISTRIBUTION_SERVICE_ACCOUNT_CREDS_B64: ${{ secrets.FIREBASE_APP_DISTRIBUTION_SERVICE_ACCOUNT_CREDS_B64 }}
+      
