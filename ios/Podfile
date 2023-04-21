@@ -2,6 +2,11 @@ require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/react-native-unimodules/cocoapods.rb'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
+# Import Ruby functions from native SDK to more easily allow installing non-production SDK builds. 
+require 'open-uri'
+IO.copy_stream(URI.open('https://raw.githubusercontent.com/customerio/customerio-ios/main/scripts/cocoapods_override_sdk.rb'), "/tmp/override_cio_sdk.rb")
+load "/tmp/override_cio_sdk.rb"
+
 platform :ios, '13.0'
 
 target 'SampleApp' do
@@ -11,7 +16,11 @@ target 'SampleApp' do
   use_react_native!(:path => config["reactNativePath"])  
   pod 'RCT-Folly', :podspec => '../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec'
   pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
-  pod 'CustomerIO/MessagingPushAPN', '~> 2.1'
+
+  # Uncomment only 1 of the lines below to install a version of the iOS SDK 
+  pod 'CustomerIO/MessagingPushAPN', '~> 2.1' # install production build 
+  # install_non_production_ios_sdk_local_path('~/code/customerio-ios/')
+  # install_non_production_ios_sdk_git_branch('name-of-ios-sdk-branch')
   
   # Uncomment to opt-in to using Flipper
   #
@@ -24,7 +33,10 @@ target 'SampleApp' do
 end
 
 target 'Notification Service' do
-  pod 'CustomerIO/MessagingPushAPN', '~> 2.1'
+  # Uncomment only 1 of the lines below to install a version of the iOS SDK 
+  pod 'CustomerIO/MessagingPushAPN', '~> 2.1' # install production build 
+  # install_non_production_ios_sdk_local_path('~/code/customerio-ios/')
+  # install_non_production_ios_sdk_git_branch('name-of-ios-sdk-branch')
 end
 
 # workaround for xcode14 for a react native dependency: https://github.com/expo/eas-cli/issues/1432#issuecomment-1285199900
