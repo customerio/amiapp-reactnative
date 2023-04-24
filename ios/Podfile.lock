@@ -1,21 +1,25 @@
 PODS:
   - boost (1.76.0)
-  - customerio-reactnative (2.2.0):
-    - CustomerIOMessagingInApp (~> 2.1.0-beta.2)
-    - CustomerIOTracking (~> 2.1.0-beta.2)
+  - customerio-reactnative (2.3.2):
+    - CustomerIO/MessagingInApp (~> 2)
+    - CustomerIO/Tracking (~> 2)
     - React-Core
-  - CustomerIO/MessagingPushAPN (2.1.1):
-    - CustomerIOMessagingPushAPN (= 2.1.1)
-  - CustomerIOCommon (2.1.1)
-  - CustomerIOMessagingInApp (2.1.1):
-    - CustomerIOTracking (= 2.1.1)
+  - CustomerIO/MessagingInApp (2.3.0):
+    - CustomerIOMessagingInApp (= 2.3.0)
+  - CustomerIO/MessagingPushAPN (2.3.0):
+    - CustomerIOMessagingPushAPN (= 2.3.0)
+  - CustomerIO/Tracking (2.3.0):
+    - CustomerIOTracking (= 2.3.0)
+  - CustomerIOCommon (2.3.0)
+  - CustomerIOMessagingInApp (2.3.0):
+    - CustomerIOTracking (= 2.3.0)
     - Gist (~> 3.0.4)
-  - CustomerIOMessagingPush (2.1.1):
-    - CustomerIOTracking (= 2.1.1)
-  - CustomerIOMessagingPushAPN (2.1.1):
-    - CustomerIOMessagingPush (= 2.1.1)
-  - CustomerIOTracking (2.1.1):
-    - CustomerIOCommon (= 2.1.1)
+  - CustomerIOMessagingPush (2.3.0):
+    - CustomerIOTracking (= 2.3.0)
+  - CustomerIOMessagingPushAPN (2.3.0):
+    - CustomerIOMessagingPush (= 2.3.0)
+  - CustomerIOTracking (2.3.0):
+    - CustomerIOCommon (= 2.3.0)
   - DoubleConversion (1.1.6)
   - EXApplication (3.2.0):
     - UMCore
@@ -576,13 +580,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  CustomerIO: b07be5f0e1d5f2b1a5eb477c6b6f6e2f89b52a72
-  customerio-reactnative: f1666961fd3feb1e390e18930a52928a4bc9eee3
-  CustomerIOCommon: 5ef66e7255e6a26b2ebed1740d1076d589a104b5
-  CustomerIOMessagingInApp: 06392278fa4d100f4cd5ea75b952de0559f89509
-  CustomerIOMessagingPush: a67e162afcd625eb6e35107b3d4fe854ce3454c3
-  CustomerIOMessagingPushAPN: 64b5d7eb7a5e6cf3ef64d79681fb09419eeb29b8
-  CustomerIOTracking: 99ecf8599aaab7b18287f3b8d6db60216f34cc57
+  CustomerIO: 8430cd2fc48e292e99dd04fdb63b702efca2e20c
+  customerio-reactnative: bd99d79e51a8bcbce5b8ec69261c28e5150b8477
+  CustomerIOCommon: d9623d1877b8ed4c7fa3dd5a8b89a8cc38803d67
+  CustomerIOMessagingInApp: da9c83065220f6f199b6d159ce46a1efc7ddfba8
+  CustomerIOMessagingPush: 07f493c11a052d3ff750b7096b065e6bd4ab9e55
+  CustomerIOMessagingPushAPN: 322a835eabca7434a818071488b32787f1fef607
+  CustomerIOTracking: ea9738621c2397c378c5e3fbc9551780174983ff
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   EXApplication: cdc959fd8b706b039621de03585375f11a066a47
   EXConstants: d0969e870d37f824cc940751d8e7e3c50afe6063
@@ -592,9 +596,9 @@ SPEC CHECKSUMS:
   EXImageLoader: 6494524ac2b99af4edcacada0e19c71600423e59
   EXKeepAwake: db7607300383508b9ccf1da5bed4eab541f53e25
   ExpoModulesCore: 730c7158b2fb179ba5921230e56a083a2304974d
-  EXSplashScreen: 847e0d8026731c1090bf269ede3e15ac87d88958
+  EXSplashScreen: f537a41eed0ad091fa599e1591ad4f94e38c6ca9
   EXStructuredHeaders: 5c1dfd030edc0128927fe3cb7ec73bec84b73ab4
-  EXUpdates: 013d26649cb6ab4f8d8d80c35d3d4be150b47e7c
+  EXUpdates: 9d6127984b515fa2c0404b2a4662861e42b88d98
   EXUpdatesInterface: e4c4c7b7c49250314ad7137ffca09446c5b2c492
   FBLazyVector: 068141206af867f72854753423d0117c4bf53419
   FBReactNativeSpec: 546a637adc797fa436dd51d1c63c580f820de31c
@@ -615,7 +619,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 758e70947c232828a66b5ddc42d02b4d010fa26e
   React-jsinspector: 55605caf04e02f9b0e05842b786f1c12dde08f4b
   React-logger: ca970551cb7eea2fd814d0d5f6fc1a471eb53b76
-  react-native-safe-area-context: 6c12e3859b6f27b25de4fee8201cfb858432d8de
+  react-native-safe-area-context: d768fdafd416b4c0bdc7bef4240c9ee53909baf3
   React-perflogger: c9161ff0f1c769993cd11d2751e4331ff4ceb7cd
   React-RCTActionSheet: 2d885b0bea76a5254ef852939273edd8de116180
   React-RCTAnimation: 353fa4fc3c19060068832dd32e555182ec07be45
@@ -628,7 +632,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: e8b7dd6635cc95689b5db643b5a3848f1e05b30b
   React-runtimeexecutor: 27f468c5576eaf05ffb7a907528e44c75a3fcbae
   ReactCommon: e30ec17dfb1d4c4f3419eac254350d6abca6d5a2
-  RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
+  RNCPushNotificationIOS: 089da3b657e1e3d464f38195fd2e3069608ef5af
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: e2414d403cc8da634e44103c1ec7a13e87bd6333
   RNScreens: 21b73c94c9117e1110a79ee0ee80c93ccefed8ce
@@ -638,6 +642,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 75462b0d8580ec91ae23f88a4f9271a3130efb02
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 
-PODFILE CHECKSUM: fb3df0e7e9345b30a6034b291f4fa29fc63ddaba
+PODFILE CHECKSUM: f0806e40ec23ed6741cea4833dbdb30fcaca319b
 
 COCOAPODS: 1.12.0
