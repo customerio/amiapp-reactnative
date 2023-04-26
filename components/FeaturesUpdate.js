@@ -2,76 +2,10 @@ import React, {useEffect} from "react";
 import { StyleSheet, Text, FlatList, View, Image, Button, ImageBackground, Linking} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {SubHeaderText} from './common/Text'
-import { CustomerIO, CustomerioConfig, CioLogLevel, CustomerIOEnv, InAppMessageEventType, InAppMessageEvent } from "customerio-reactnative";
-import Env from "../env";
+import { CustomerIO } from "customerio-reactnative";
 import messaging from '@react-native-firebase/messaging';
 
 const FeaturesUpdate = ({navigation}) => {
-
-  useEffect(() => {
-
-    // MARK:- INITIALIZE PACKAGE WITH CONFIG
-    // MARK:- UPDATE CONFIGURATIONS
-    // MARK:- INITIALIZE IN-APP
-
-    const data = new CustomerioConfig()
-    data.logLevel = CioLogLevel.debug
-    data.autoTrackDeviceAttributes = true
-    data.enableInApp = true
-
-    const env = new CustomerIOEnv()
-    env.siteId = Env.siteId
-    env.apiKey = Env.apiKey
-
-    CustomerIO.initialize(env, data) 
-  }, [])
-  
-  useEffect(() => {
-    CustomerIO.inAppMessaging().registerEventsListener((event) => {
-      console.log(event)
-      switch (event.eventType) {
-        case InAppMessageEventType.messageShown:
-          CustomerIO.track(
-            "in-app event",
-            { "event_name": "message shown", "delivery_id": event.deliveryId ?? "NULL", "message_id": event.messageId }
-          )
-          break;
-        case InAppMessageEventType.messageDismissed:
-          CustomerIO.track(
-            "in-app event",
-            { "event_name": "message dismissed", "delivery_id": event.deliveryId ?? "NULL", "message_id": event.messageId }
-          )
-          break;
-        case InAppMessageEventType.errorWithMessage:
-          CustomerIO.track(
-            "in-app event",
-            { "event_name": "message error", "delivery_id": event.deliveryId ?? "NULL", "message_id": event.messageId }
-          )
-          break;
-        case InAppMessageEventType.messageActionTaken:
-          CustomerIO.track(
-            "in-app event",
-            { "event_name": "message action", "delivery_id": event.deliveryId ?? "NULL", "message_id": event.messageId, "action": event.actionValue, "name": event.actionName }
-          )
-          break;
-        default:
-          CustomerIO.track(
-            "in-app event",
-            { "event_name": "unsupported event", "event": event }
-          )
-      }
-    });
-  }, [])
-
-  useEffect(() => {
-    const unsubscribe = messaging().onMessage(async remoteMessage => {
-      CustomerIO.pushMessaging().onMessageReceived(remoteMessage).then(handled => {
-        console.log(`Notification handled: ${handled}`);
-      });
-    });
-  
-    return unsubscribe;
-  }, []);
 
   // Renderers
     const renderSeparator = () => {  
@@ -110,20 +44,42 @@ const FeaturesUpdate = ({navigation}) => {
       alert("Permission Status -> " + status)
     }
 
+    const handleRNPushPermissionStatus = (status) => {
+      switch(status) {
+        case "Granted":
+          console.log("Push permission status is - Granted")
+          break;
+        case "Denied":
+          console.log("Push permission status is - Denied")
+          break;
+        case "NotDetermined":
+          console.log("Push permission status is - NotDetermined")
+          break;
+      }
+      alert("Permission Status -> " + status)
+    }
+
     const getPushPermissionStatus = () => {
-      CustomerIO.getPushPermissionStatus().then(status => {
-        handlePushPermissionStatus(status)
-      })
+      messaging().hasPermission().then(status => {
+        handleRNPushPermissionStatus(status);
+      });
+      // CustomerIO.getPushPermissionStatus().then(status => {
+      //   handlePushPermissionStatus(status)
+      // })
     }
 
     const requestPushPermissionPrompt = () => {
       var options = {"ios" : {"sound" : true, "badge" : true}}
-      CustomerIO.showPromptForPushNotifications(options).then(status => {
-        handlePushPermissionStatus(status)
-      }).catch(error => {
-        alert("Failed to show push permission prompt.")
-        console.log(error)
-      })
+      messaging().requestPermission(options).then(status => {
+        handleRNPushPermissionStatus(status);
+      });
+      // var options = {"ios" : {"sound" : true, "badge" : true}}
+      // CustomerIO.showPromptForPushNotifications(options).then(status => {
+      //   handlePushPermissionStatus(status)
+      // }).catch(error => {
+      //   alert("Failed to show push permission prompt.")
+      //   console.log(error)
+      // })
     }
 
       // Navigate
