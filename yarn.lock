@@ -2525,9 +2525,10 @@ css-in-js-utils@^2.0.0:
     hyphenate-style-name "^1.0.2"
     isobject "^3.0.1"
 
-"customerio-reactnative@https://github.com/customerio/customerio-reactnative/tarball/levi/auto-update-ios":
-  version "2.3.2"
-  resolved "https://github.com/customerio/customerio-reactnative/tarball/levi/auto-update-ios#67261307542990459a3a31e05004776cd38b10cb"
+customerio-reactnative@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/customerio-reactnative/-/customerio-reactnative-2.3.3.tgz#dbb5383305c7594ef133a79bfc8a5229d1c99e3a"
+  integrity sha512-twSx2UN/1i5pY2A5AJKZUPX2wDF3WIe9cqFCpaZxYcGBs3oZEPG0Ahr2mSNQECbUUGkF+4cI+b+9e6BOh5Uu5g==
 
 dayjs@^1.8.15:
   version "1.11.3"

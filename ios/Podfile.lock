@@ -1,25 +1,25 @@
 PODS:
   - boost (1.76.0)
-  - customerio-reactnative (2.3.2):
+  - customerio-reactnative (2.3.3):
     - CustomerIO/MessagingInApp (~> 2)
     - CustomerIO/Tracking (~> 2)
     - React-Core
-  - CustomerIO/MessagingInApp (2.3.0):
-    - CustomerIOMessagingInApp (= 2.3.0)
-  - CustomerIO/Tracking (2.3.0):
-    - CustomerIOTracking (= 2.3.0)
-  - CustomerIOCommon (2.3.0)
-  - CustomerIOMessagingInApp (2.3.0):
-    - CustomerIOTracking (= 2.3.0)
-    - Gist (~> 3.0.4)
-  - CustomerIOMessagingPush (2.3.0):
-    - CustomerIOTracking (= 2.3.0)
-  - CustomerIOMessagingPushAPN (2.3.0):
-    - CustomerIOMessagingPush (= 2.3.0)
-  - CustomerIOMessagingPushFCM (2.3.0):
-    - CustomerIOMessagingPush (= 2.3.0)
-  - CustomerIOTracking (2.3.0):
-    - CustomerIOCommon (= 2.3.0)
+  - CustomerIO/MessagingInApp (2.5.0):
+    - CustomerIOMessagingInApp (= 2.5.0)
+  - CustomerIO/Tracking (2.5.0):
+    - CustomerIOTracking (= 2.5.0)
+  - CustomerIOCommon (2.5.0)
+  - CustomerIOMessagingInApp (2.5.0):
+    - CustomerIOTracking (= 2.5.0)
+    - Gist (~> 3)
+  - CustomerIOMessagingPush (2.5.0):
+    - CustomerIOTracking (= 2.5.0)
+  - CustomerIOMessagingPushAPN (2.5.0):
+    - CustomerIOMessagingPush (= 2.5.0)
+  - CustomerIOMessagingPushFCM (2.5.0):
+    - CustomerIOMessagingPush (= 2.5.0)
+  - CustomerIOTracking (2.5.0):
+    - CustomerIOCommon (= 2.5.0)
   - DoubleConversion (1.1.6)
   - EXApplication (3.2.0):
     - UMCore
@@ -69,7 +69,7 @@ PODS:
     - React-jsi (= 0.69.1)
     - ReactCommon/turbomodule/core (= 0.69.1)
   - fmt (6.2.1)
-  - Gist (3.0.4)
+  - Gist (3.1.0)
   - glog (0.3.5)
   - RCT-Folly (2021.06.28.00-v2):
     - boost
@@ -598,34 +598,34 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CustomerIOCommon:
-    :commit: ef7510a402884dbd1dfcfa23e1fc6bfbef7726d5
+    :commit: 1a5bffb058032eccb447920efc2aa513274b7251
     :git: https://github.com/customerio/customerio-ios.git
   CustomerIOMessagingInApp:
-    :commit: ef7510a402884dbd1dfcfa23e1fc6bfbef7726d5
+    :commit: 1a5bffb058032eccb447920efc2aa513274b7251
     :git: https://github.com/customerio/customerio-ios.git
   CustomerIOMessagingPush:
-    :commit: ef7510a402884dbd1dfcfa23e1fc6bfbef7726d5
+    :commit: 1a5bffb058032eccb447920efc2aa513274b7251
     :git: https://github.com/customerio/customerio-ios.git
   CustomerIOMessagingPushAPN:
-    :commit: ef7510a402884dbd1dfcfa23e1fc6bfbef7726d5
+    :commit: 1a5bffb058032eccb447920efc2aa513274b7251
     :git: https://github.com/customerio/customerio-ios.git
   CustomerIOMessagingPushFCM:
-    :commit: ef7510a402884dbd1dfcfa23e1fc6bfbef7726d5
+    :commit: 1a5bffb058032eccb447920efc2aa513274b7251
     :git: https://github.com/customerio/customerio-ios.git
   CustomerIOTracking:
-    :commit: ef7510a402884dbd1dfcfa23e1fc6bfbef7726d5
+    :commit: 1a5bffb058032eccb447920efc2aa513274b7251
     :git: https://github.com/customerio/customerio-ios.git
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  CustomerIO: 8430cd2fc48e292e99dd04fdb63b702efca2e20c
-  customerio-reactnative: ac72f45f1915686ff0a0bdcad00230cff7db266a
-  CustomerIOCommon: d9623d1877b8ed4c7fa3dd5a8b89a8cc38803d67
-  CustomerIOMessagingInApp: da9c83065220f6f199b6d159ce46a1efc7ddfba8
-  CustomerIOMessagingPush: 07f493c11a052d3ff750b7096b065e6bd4ab9e55
-  CustomerIOMessagingPushAPN: 322a835eabca7434a818071488b32787f1fef607
-  CustomerIOMessagingPushFCM: d1151186c2217080e2399c5b0652783634a74cfc
-  CustomerIOTracking: ea9738621c2397c378c5e3fbc9551780174983ff
+  CustomerIO: 7afe2c8fa13e9812f23c70ed5030cc3d1c38bf64
+  customerio-reactnative: 0a90fb824d6810a0f91c01b4aa62506126a587cb
+  CustomerIOCommon: dd2f6b621e794113ab7097e18358578e75ced678
+  CustomerIOMessagingInApp: 3fd726b057e1106604529173035e02bbc5e69513
+  CustomerIOMessagingPush: 37358b49fb66424e9eca44554c038c280acb6fdb
+  CustomerIOMessagingPushAPN: 0c6c6919bdd1d9ee5af55d7c9fcdc8773c35c16a
+  CustomerIOMessagingPushFCM: d3389058c0db1ebaffbff876c0628f033bbcf968
+  CustomerIOTracking: 320c6ff20336d6a36c88b60f69abc244393298ee
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   EXApplication: 9ff2a206009d6e55bca6c20b3f33d07986b51ef3
   EXConstants: 4cb52b6d8f636c767104a44bf7db3873e9c01a6f
@@ -642,7 +642,7 @@ SPEC CHECKSUMS:
   FBLazyVector: 068141206af867f72854753423d0117c4bf53419
   FBReactNativeSpec: 546a637adc797fa436dd51d1c63c580f820de31c
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  Gist: 1d680df00ff6dbcc4fac9844b90454f30778dcbc
+  Gist: 344915869fcf3a4bddcf3fa9b9b677029920884a
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: ae07282b2ec9c90d7eb98251603bc3f82403d239
