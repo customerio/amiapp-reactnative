@@ -1,6 +1,6 @@
 PODS:
   - boost (1.76.0)
-  - customerio-reactnative (2.3.3):
+  - customerio-reactnative (2.3.2):
     - CustomerIO/MessagingInApp (~> 2)
     - CustomerIO/Tracking (~> 2)
     - React-Core
@@ -69,7 +69,7 @@ PODS:
     - React-jsi (= 0.69.1)
     - ReactCommon/turbomodule/core (= 0.69.1)
   - fmt (6.2.1)
-  - Gist (3.1.0)
+  - Gist (3.2.0)
   - glog (0.3.5)
   - RCT-Folly (2021.06.28.00-v2):
     - boost
@@ -402,7 +402,6 @@ DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - customerio-reactnative (from `../node_modules/customerio-reactnative`)
   - CustomerIOCommon (from `https://github.com/customerio/customerio-ios.git`, branch `shahroz-old-token-fix`)
-  - CustomerIOMessagingInApp (from `https://github.com/customerio/customerio-ios.git`, branch `shahroz-old-token-fix`)
   - CustomerIOMessagingPush (from `https://github.com/customerio/customerio-ios.git`, branch `shahroz-old-token-fix`)
   - CustomerIOMessagingPushAPN (from `https://github.com/customerio/customerio-ios.git`, branch `shahroz-old-token-fix`)
   - CustomerIOMessagingPushFCM (from `https://github.com/customerio/customerio-ios.git`, branch `shahroz-old-token-fix`)
@@ -465,6 +464,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - CustomerIO
+    - CustomerIOMessagingInApp
     - fmt
     - Gist
 
@@ -474,9 +474,6 @@ EXTERNAL SOURCES:
   customerio-reactnative:
     :path: "../node_modules/customerio-reactnative"
   CustomerIOCommon:
-    :branch: shahroz-old-token-fix
-    :git: https://github.com/customerio/customerio-ios.git
-  CustomerIOMessagingInApp:
     :branch: shahroz-old-token-fix
     :git: https://github.com/customerio/customerio-ios.git
   CustomerIOMessagingPush:
@@ -600,9 +597,6 @@ CHECKOUT OPTIONS:
   CustomerIOCommon:
     :commit: 1a5bffb058032eccb447920efc2aa513274b7251
     :git: https://github.com/customerio/customerio-ios.git
-  CustomerIOMessagingInApp:
-    :commit: 1a5bffb058032eccb447920efc2aa513274b7251
-    :git: https://github.com/customerio/customerio-ios.git
   CustomerIOMessagingPush:
     :commit: 1a5bffb058032eccb447920efc2aa513274b7251
     :git: https://github.com/customerio/customerio-ios.git
@@ -619,7 +613,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   CustomerIO: 7afe2c8fa13e9812f23c70ed5030cc3d1c38bf64
-  customerio-reactnative: 0a90fb824d6810a0f91c01b4aa62506126a587cb
+  customerio-reactnative: ac72f45f1915686ff0a0bdcad00230cff7db266a
   CustomerIOCommon: dd2f6b621e794113ab7097e18358578e75ced678
   CustomerIOMessagingInApp: 3fd726b057e1106604529173035e02bbc5e69513
   CustomerIOMessagingPush: 37358b49fb66424e9eca44554c038c280acb6fdb
@@ -642,7 +636,7 @@ SPEC CHECKSUMS:
   FBLazyVector: 068141206af867f72854753423d0117c4bf53419
   FBReactNativeSpec: 546a637adc797fa436dd51d1c63c580f820de31c
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  Gist: 344915869fcf3a4bddcf3fa9b9b677029920884a
+  Gist: be2b7efaeb9fdbca9e862eedbc9293bc87a2e73e
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: ae07282b2ec9c90d7eb98251603bc3f82403d239
@@ -681,6 +675,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 2be431101b73604e64fbfffcf759336f9d8fccbb
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 
-PODFILE CHECKSUM: b751b1ae1345a35d977a4b4740244bd6a8e4f98e
+PODFILE CHECKSUM: d7a2355f187c97aab1302fa2e3a707f23262b533
 
 COCOAPODS: 1.12.0
