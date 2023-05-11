@@ -6,6 +6,8 @@ PODS:
     - React-Core
   - CustomerIO/MessagingInApp (2.5.0):
     - CustomerIOMessagingInApp (= 2.5.0)
+  - CustomerIO/MessagingPushAPN (2.5.0):
+    - CustomerIOMessagingPushAPN (= 2.5.0)
   - CustomerIO/Tracking (2.5.0):
     - CustomerIOTracking (= 2.5.0)
   - CustomerIOCommon (2.5.0)
@@ -15,8 +17,6 @@ PODS:
   - CustomerIOMessagingPush (2.5.0):
     - CustomerIOTracking (= 2.5.0)
   - CustomerIOMessagingPushAPN (2.5.0):
-    - CustomerIOMessagingPush (= 2.5.0)
-  - CustomerIOMessagingPushFCM (2.5.0):
     - CustomerIOMessagingPush (= 2.5.0)
   - CustomerIOTracking (2.5.0):
     - CustomerIOCommon (= 2.5.0)
@@ -401,11 +401,7 @@ PODS:
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - customerio-reactnative (from `../node_modules/customerio-reactnative`)
-  - CustomerIOCommon (from `https://github.com/customerio/customerio-ios.git`, branch `shahroz-old-token-fix`)
-  - CustomerIOMessagingPush (from `https://github.com/customerio/customerio-ios.git`, branch `shahroz-old-token-fix`)
-  - CustomerIOMessagingPushAPN (from `https://github.com/customerio/customerio-ios.git`, branch `shahroz-old-token-fix`)
-  - CustomerIOMessagingPushFCM (from `https://github.com/customerio/customerio-ios.git`, branch `shahroz-old-token-fix`)
-  - CustomerIOTracking (from `https://github.com/customerio/customerio-ios.git`, branch `shahroz-old-token-fix`)
+  - CustomerIO/MessagingPushAPN (~> 2)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXApplication (from `../node_modules/expo-application/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
@@ -464,7 +460,11 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - CustomerIO
+    - CustomerIOCommon
     - CustomerIOMessagingInApp
+    - CustomerIOMessagingPush
+    - CustomerIOMessagingPushAPN
+    - CustomerIOTracking
     - fmt
     - Gist
 
@@ -473,21 +473,6 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
   customerio-reactnative:
     :path: "../node_modules/customerio-reactnative"
-  CustomerIOCommon:
-    :branch: shahroz-old-token-fix
-    :git: https://github.com/customerio/customerio-ios.git
-  CustomerIOMessagingPush:
-    :branch: shahroz-old-token-fix
-    :git: https://github.com/customerio/customerio-ios.git
-  CustomerIOMessagingPushAPN:
-    :branch: shahroz-old-token-fix
-    :git: https://github.com/customerio/customerio-ios.git
-  CustomerIOMessagingPushFCM:
-    :branch: shahroz-old-token-fix
-    :git: https://github.com/customerio/customerio-ios.git
-  CustomerIOTracking:
-    :branch: shahroz-old-token-fix
-    :git: https://github.com/customerio/customerio-ios.git
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   EXApplication:
@@ -593,23 +578,6 @@ EXTERNAL SOURCES:
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
-CHECKOUT OPTIONS:
-  CustomerIOCommon:
-    :commit: 1a5bffb058032eccb447920efc2aa513274b7251
-    :git: https://github.com/customerio/customerio-ios.git
-  CustomerIOMessagingPush:
-    :commit: 1a5bffb058032eccb447920efc2aa513274b7251
-    :git: https://github.com/customerio/customerio-ios.git
-  CustomerIOMessagingPushAPN:
-    :commit: 1a5bffb058032eccb447920efc2aa513274b7251
-    :git: https://github.com/customerio/customerio-ios.git
-  CustomerIOMessagingPushFCM:
-    :commit: 1a5bffb058032eccb447920efc2aa513274b7251
-    :git: https://github.com/customerio/customerio-ios.git
-  CustomerIOTracking:
-    :commit: 1a5bffb058032eccb447920efc2aa513274b7251
-    :git: https://github.com/customerio/customerio-ios.git
-
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   CustomerIO: 7afe2c8fa13e9812f23c70ed5030cc3d1c38bf64
@@ -618,7 +586,6 @@ SPEC CHECKSUMS:
   CustomerIOMessagingInApp: 3fd726b057e1106604529173035e02bbc5e69513
   CustomerIOMessagingPush: 37358b49fb66424e9eca44554c038c280acb6fdb
   CustomerIOMessagingPushAPN: 0c6c6919bdd1d9ee5af55d7c9fcdc8773c35c16a
-  CustomerIOMessagingPushFCM: d3389058c0db1ebaffbff876c0628f033bbcf968
   CustomerIOTracking: 320c6ff20336d6a36c88b60f69abc244393298ee
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   EXApplication: 9ff2a206009d6e55bca6c20b3f33d07986b51ef3
@@ -675,6 +642,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 2be431101b73604e64fbfffcf759336f9d8fccbb
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 
-PODFILE CHECKSUM: d4139c047417e4c3577eddef7f63501291180e1d
+PODFILE CHECKSUM: 4f37691b08d2004410567d44823b8f8caf4d5fca
 
 COCOAPODS: 1.12.0
