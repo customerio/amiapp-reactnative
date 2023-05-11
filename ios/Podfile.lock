@@ -1,21 +1,25 @@
 PODS:
   - boost (1.76.0)
-  - customerio-reactnative (2.2.0):
-    - CustomerIOMessagingInApp (~> 2.1.0-beta.2)
-    - CustomerIOTracking (~> 2.1.0-beta.2)
+  - customerio-reactnative (2.3.3):
+    - CustomerIO/MessagingInApp (~> 2)
+    - CustomerIO/Tracking (~> 2)
     - React-Core
-  - CustomerIO/MessagingPushAPN (2.1.1):
-    - CustomerIOMessagingPushAPN (= 2.1.1)
-  - CustomerIOCommon (2.1.1)
-  - CustomerIOMessagingInApp (2.1.1):
-    - CustomerIOTracking (= 2.1.1)
-    - Gist (~> 3.0.4)
-  - CustomerIOMessagingPush (2.1.1):
-    - CustomerIOTracking (= 2.1.1)
-  - CustomerIOMessagingPushAPN (2.1.1):
-    - CustomerIOMessagingPush (= 2.1.1)
-  - CustomerIOTracking (2.1.1):
-    - CustomerIOCommon (= 2.1.1)
+  - CustomerIO/MessagingInApp (2.5.0):
+    - CustomerIOMessagingInApp (= 2.5.0)
+  - CustomerIO/MessagingPushAPN (2.5.0):
+    - CustomerIOMessagingPushAPN (= 2.5.0)
+  - CustomerIO/Tracking (2.5.0):
+    - CustomerIOTracking (= 2.5.0)
+  - CustomerIOCommon (2.5.0)
+  - CustomerIOMessagingInApp (2.5.0):
+    - CustomerIOTracking (= 2.5.0)
+    - Gist (~> 3)
+  - CustomerIOMessagingPush (2.5.0):
+    - CustomerIOTracking (= 2.5.0)
+  - CustomerIOMessagingPushAPN (2.5.0):
+    - CustomerIOMessagingPush (= 2.5.0)
+  - CustomerIOTracking (2.5.0):
+    - CustomerIOCommon (= 2.5.0)
   - DoubleConversion (1.1.6)
   - EXApplication (3.2.0):
     - UMCore
@@ -65,7 +69,7 @@ PODS:
     - React-jsi (= 0.69.1)
     - ReactCommon/turbomodule/core (= 0.69.1)
   - fmt (6.2.1)
-  - Gist (3.0.4)
+  - Gist (3.2.0)
   - glog (0.3.5)
   - RCT-Folly (2021.06.28.00-v2):
     - boost
@@ -397,7 +401,7 @@ PODS:
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - customerio-reactnative (from `../node_modules/customerio-reactnative`)
-  - CustomerIO/MessagingPushAPN (~> 2.1)
+  - CustomerIO/MessagingPushAPN (~> 2)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXApplication (from `../node_modules/expo-application/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
@@ -576,30 +580,30 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  CustomerIO: b07be5f0e1d5f2b1a5eb477c6b6f6e2f89b52a72
-  customerio-reactnative: f1666961fd3feb1e390e18930a52928a4bc9eee3
-  CustomerIOCommon: 5ef66e7255e6a26b2ebed1740d1076d589a104b5
-  CustomerIOMessagingInApp: 06392278fa4d100f4cd5ea75b952de0559f89509
-  CustomerIOMessagingPush: a67e162afcd625eb6e35107b3d4fe854ce3454c3
-  CustomerIOMessagingPushAPN: 64b5d7eb7a5e6cf3ef64d79681fb09419eeb29b8
-  CustomerIOTracking: 99ecf8599aaab7b18287f3b8d6db60216f34cc57
+  CustomerIO: 7afe2c8fa13e9812f23c70ed5030cc3d1c38bf64
+  customerio-reactnative: 0a90fb824d6810a0f91c01b4aa62506126a587cb
+  CustomerIOCommon: dd2f6b621e794113ab7097e18358578e75ced678
+  CustomerIOMessagingInApp: 3fd726b057e1106604529173035e02bbc5e69513
+  CustomerIOMessagingPush: 37358b49fb66424e9eca44554c038c280acb6fdb
+  CustomerIOMessagingPushAPN: 0c6c6919bdd1d9ee5af55d7c9fcdc8773c35c16a
+  CustomerIOTracking: 320c6ff20336d6a36c88b60f69abc244393298ee
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
-  EXApplication: cdc959fd8b706b039621de03585375f11a066a47
-  EXConstants: d0969e870d37f824cc940751d8e7e3c50afe6063
-  EXErrorRecovery: e092308f1fad9030d298e5116585c2d79671c8e6
-  EXFileSystem: 94496f1160b0bf7f000fe04e38ecb2aa63083a2c
-  EXFont: cb2350960187470ec54ff4668755abb74fde9839
-  EXImageLoader: 6494524ac2b99af4edcacada0e19c71600423e59
-  EXKeepAwake: db7607300383508b9ccf1da5bed4eab541f53e25
-  ExpoModulesCore: 730c7158b2fb179ba5921230e56a083a2304974d
+  EXApplication: 9ff2a206009d6e55bca6c20b3f33d07986b51ef3
+  EXConstants: 4cb52b6d8f636c767104a44bf7db3873e9c01a6f
+  EXErrorRecovery: 404d827bc7d42f306c062d58a60b06afc4d082b3
+  EXFileSystem: 0a04aba8da751b9ac954065911bcf166503f8267
+  EXFont: 9846ba1bb6f5f5aed44e20eea3ac70693323832d
+  EXImageLoader: d3531a3fe530b22925c19977cb53bb43e3821fe6
+  EXKeepAwake: f4105ef469be7b283f66ce2d7234bb71ac80cd26
+  ExpoModulesCore: 2734852616127a6c1fc23012197890a6f3763dc7
   EXSplashScreen: 847e0d8026731c1090bf269ede3e15ac87d88958
-  EXStructuredHeaders: 5c1dfd030edc0128927fe3cb7ec73bec84b73ab4
+  EXStructuredHeaders: e52b880264d15b8ad07d36670226c29476af6334
   EXUpdates: 013d26649cb6ab4f8d8d80c35d3d4be150b47e7c
-  EXUpdatesInterface: e4c4c7b7c49250314ad7137ffca09446c5b2c492
+  EXUpdatesInterface: b68e78b912a03fff7901a5f46ec200c45e3506a5
   FBLazyVector: 068141206af867f72854753423d0117c4bf53419
   FBReactNativeSpec: 546a637adc797fa436dd51d1c63c580f820de31c
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  Gist: 1d680df00ff6dbcc4fac9844b90454f30778dcbc
+  Gist: be2b7efaeb9fdbca9e862eedbc9293bc87a2e73e
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: ae07282b2ec9c90d7eb98251603bc3f82403d239
@@ -632,12 +636,12 @@ SPEC CHECKSUMS:
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: e2414d403cc8da634e44103c1ec7a13e87bd6333
   RNScreens: 21b73c94c9117e1110a79ee0ee80c93ccefed8ce
-  UMAppLoader: db2dae4bc3085e21f56d6d9cf7783d08c5999af4
-  UMCore: ad33bbda30dee343a248e3696f30502092d9842d
-  UMReactNativeAdapter: c10564ac78d5117d448b75b87862173deb043ec5
-  UMTaskManagerInterface: 75462b0d8580ec91ae23f88a4f9271a3130efb02
+  UMAppLoader: 21af63390e55c82e037fb9752d93114a80ecf16e
+  UMCore: ce3a4faa010239063b8343895b29a6d97b01069d
+  UMReactNativeAdapter: d03cefd0e4e4179ab8c490408589f1c8a6c8b785
+  UMTaskManagerInterface: 2be431101b73604e64fbfffcf759336f9d8fccbb
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 
-PODFILE CHECKSUM: fb3df0e7e9345b30a6034b291f4fa29fc63ddaba
+PODFILE CHECKSUM: 4f37691b08d2004410567d44823b8f8caf4d5fca
 
 COCOAPODS: 1.12.0
