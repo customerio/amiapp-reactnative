@@ -2525,10 +2525,9 @@ css-in-js-utils@^2.0.0:
     hyphenate-style-name "^1.0.2"
     isobject "^3.0.1"
 
-customerio-reactnative@^2.3.3:
+"customerio-reactnative@git+https://github.com/customerio/customerio-reactnative#4c25d444e666a43c64fa110869b7b6a4690733e9":
   version "2.3.3"
-  resolved "https://registry.yarnpkg.com/customerio-reactnative/-/customerio-reactnative-2.3.3.tgz#dbb5383305c7594ef133a79bfc8a5229d1c99e3a"
-  integrity sha512-twSx2UN/1i5pY2A5AJKZUPX2wDF3WIe9cqFCpaZxYcGBs3oZEPG0Ahr2mSNQECbUUGkF+4cI+b+9e6BOh5Uu5g==
+  resolved "git+https://github.com/customerio/customerio-reactnative#4c25d444e666a43c64fa110869b7b6a4690733e9"
 
 dayjs@^1.8.15:
   version "1.11.3"
