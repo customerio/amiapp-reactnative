@@ -34,10 +34,7 @@ buildscript {
 
 allprojects {
     repositories {
-        // For locally deployed builds
         mavenLocal()
-        // For snapshot builds
-        maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url("$rootDir/../node_modules/react-native/android")

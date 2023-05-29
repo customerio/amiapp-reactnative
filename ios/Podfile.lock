@@ -4,22 +4,22 @@ PODS:
     - CustomerIO/MessagingInApp (~> 2)
     - CustomerIO/Tracking (~> 2)
     - React-Core
-  - CustomerIO/MessagingInApp (2.5.0):
-    - CustomerIOMessagingInApp (= 2.5.0)
-  - CustomerIO/MessagingPushAPN (2.5.0):
-    - CustomerIOMessagingPushAPN (= 2.5.0)
-  - CustomerIO/Tracking (2.5.0):
-    - CustomerIOTracking (= 2.5.0)
-  - CustomerIOCommon (2.5.0)
-  - CustomerIOMessagingInApp (2.5.0):
-    - CustomerIOTracking (= 2.5.0)
-    - Gist (~> 3)
-  - CustomerIOMessagingPush (2.5.0):
-    - CustomerIOTracking (= 2.5.0)
-  - CustomerIOMessagingPushAPN (2.5.0):
-    - CustomerIOMessagingPush (= 2.5.0)
-  - CustomerIOTracking (2.5.0):
-    - CustomerIOCommon (= 2.5.0)
+  - CustomerIO/MessagingInApp (2.6.0):
+    - CustomerIOMessagingInApp (= 2.6.0)
+  - CustomerIO/MessagingPushAPN (2.6.0):
+    - CustomerIOMessagingPushAPN (= 2.6.0)
+  - CustomerIO/Tracking (2.6.0):
+    - CustomerIOTracking (= 2.6.0)
+  - CustomerIOCommon (2.6.0)
+  - CustomerIOMessagingInApp (2.6.0):
+    - CustomerIOTracking (= 2.6.0)
+    - Gist (= 3.2.2)
+  - CustomerIOMessagingPush (2.6.0):
+    - CustomerIOTracking (= 2.6.0)
+  - CustomerIOMessagingPushAPN (2.6.0):
+    - CustomerIOMessagingPush (= 2.6.0)
+  - CustomerIOTracking (2.6.0):
+    - CustomerIOCommon (= 2.6.0)
   - DoubleConversion (1.1.6)
   - EXApplication (3.2.0):
     - UMCore
@@ -69,7 +69,7 @@ PODS:
     - React-jsi (= 0.69.1)
     - ReactCommon/turbomodule/core (= 0.69.1)
   - fmt (6.2.1)
-  - Gist (3.2.0)
+  - Gist (3.2.2)
   - glog (0.3.5)
   - RCT-Folly (2021.06.28.00-v2):
     - boost
@@ -580,13 +580,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  CustomerIO: 7afe2c8fa13e9812f23c70ed5030cc3d1c38bf64
+  CustomerIO: fa5085e4a081e722329ad3e18f937162dea92551
   customerio-reactnative: 0a90fb824d6810a0f91c01b4aa62506126a587cb
-  CustomerIOCommon: dd2f6b621e794113ab7097e18358578e75ced678
-  CustomerIOMessagingInApp: 3fd726b057e1106604529173035e02bbc5e69513
-  CustomerIOMessagingPush: 37358b49fb66424e9eca44554c038c280acb6fdb
-  CustomerIOMessagingPushAPN: 0c6c6919bdd1d9ee5af55d7c9fcdc8773c35c16a
-  CustomerIOTracking: 320c6ff20336d6a36c88b60f69abc244393298ee
+  CustomerIOCommon: 25d88854351030220122cd33efc27e9aca6c472b
+  CustomerIOMessagingInApp: b3231a7653ae023f57ba0cdeea10102c6e96efbd
+  CustomerIOMessagingPush: 0c12349fd84b8bf1f78ab10fb920ac7f908fcf96
+  CustomerIOMessagingPushAPN: 47c4bbe7175a6ef4efd4ebcffcfea266a4595c2c
+  CustomerIOTracking: f30a27e7c4094a30d12a8f82cb5f0a503391f82c
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   EXApplication: 9ff2a206009d6e55bca6c20b3f33d07986b51ef3
   EXConstants: 4cb52b6d8f636c767104a44bf7db3873e9c01a6f
@@ -603,7 +603,7 @@ SPEC CHECKSUMS:
   FBLazyVector: 068141206af867f72854753423d0117c4bf53419
   FBReactNativeSpec: 546a637adc797fa436dd51d1c63c580f820de31c
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  Gist: be2b7efaeb9fdbca9e862eedbc9293bc87a2e73e
+  Gist: 20cc9afb7728fd584d31fb86528f19ebc087d190
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: ae07282b2ec9c90d7eb98251603bc3f82403d239
@@ -644,4 +644,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 4f37691b08d2004410567d44823b8f8caf4d5fca
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.12.1
