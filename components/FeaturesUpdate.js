@@ -49,13 +49,13 @@ const FeaturesUpdate = ({navigation}) => {
           )
           break;
         case InAppMessageEventType.messageActionTaken:
-          if (event.actionValue === "dismiss" || event.actionValue === "close") {
-            CustomerIO.inAppMessaging().dismissMessage();
-          }
           CustomerIO.track(
             "in-app event",
             { "event_name": "message action", "delivery_id": event.deliveryId ?? "NULL", "message_id": event.messageId, "action": event.actionValue, "name": event.actionName }
           )
+          if (event.actionValue === "dismiss" || event.actionValue === "close") {
+            CustomerIO.inAppMessaging().dismissMessage();
+          }
           break;
         default:
           CustomerIO.track(
