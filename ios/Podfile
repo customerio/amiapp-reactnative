@@ -8,6 +8,7 @@ IO.copy_stream(URI.open('https://raw.githubusercontent.com/customerio/customerio
 load "/tmp/override_cio_sdk.rb"
 
 platform :ios, '13.0'
+use_frameworks! :linkage => :static 
 
 target 'SampleApp' do
   use_unimodules!
@@ -18,9 +19,9 @@ target 'SampleApp' do
   pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
 
   # Uncomment only 1 of the lines below to install a version of the iOS SDK 
-  pod 'CustomerIO/MessagingPushAPN', '~> 2' # install production build 
+  # pod 'CustomerIO/MessagingPushAPN', '~> 2' # install production build 
   # install_non_production_ios_sdk_local_path('~/code/customerio-ios/')
-  # install_non_production_ios_sdk_git_branch('name-of-ios-sdk-branch')
+  install_non_production_ios_sdk_git_branch('shahroz/fix-in-app-main-thread-crash')
   
   # Uncomment to opt-in to using Flipper
   #
@@ -34,9 +35,9 @@ end
 
 target 'Notification Service' do
   # Uncomment only 1 of the lines below to install a version of the iOS SDK 
-  pod 'CustomerIO/MessagingPushAPN', '~> 2' # install production build 
+  # pod 'CustomerIO/MessagingPushAPN', '~> 2' # install production build 
   # install_non_production_ios_sdk_local_path('~/code/customerio-ios/', is_app_extension: true)
-  # install_non_production_ios_sdk_git_branch('name-of-ios-sdk-branch', is_app_extension: true)
+  install_non_production_ios_sdk_git_branch('shahroz/fix-in-app-main-thread-crash', is_app_extension: true)
 end
 
 # workaround for xcode14 for a react native dependency: https://github.com/expo/eas-cli/issues/1432#issuecomment-1285199900

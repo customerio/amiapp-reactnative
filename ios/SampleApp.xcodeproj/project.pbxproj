@@ -10,14 +10,14 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		44747C538F1A078B75DD8B8D /* libPods-SampleApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A905D4C5EE3A71C1C08253 /* libPods-SampleApp.a */; };
 		4632B4CA283E5CB800AF05BC /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4632B4C9283E5CB800AF05BC /* NotificationService.swift */; };
 		4632B4CE283E5CB800AF05BC /* Notification Service.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4632B4C7283E5CB800AF05BC /* Notification Service.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46357741283539870098BFB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AC79328353381000D21D9 /* AppDelegate.swift */; };
 		465AC78C2835304A000D21D9 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 465AC78B2835304A000D21D9 /* main.jsbundle */; };
 		465AC78D2835304E000D21D9 /* main.jsbundle in Sources */ = {isa = PBXBuildFile; fileRef = 465AC78B2835304A000D21D9 /* main.jsbundle */; };
-		70A1C0CD7AE0BE17519E378C /* libPods-Notification Service.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F69D4691C0AD460507881F /* libPods-Notification Service.a */; };
+		639A4522ED6C7A92C91F4093 /* Pods_Notification_Service.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F11520AB2414375279F39 /* Pods_Notification_Service.framework */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		C03F932E10FFC8ED3435D624 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE114EE11B38DB0AAA5C03AA /* Pods_SampleApp.framework */; };
 		F7052DB9287C788100560E20 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = F7052DB8287C788100560E20 /* FirebaseAppDistribution-Beta */; };
 		F7D5067529EF2010005F7657 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4698397D283E4FAD003FBBA8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -51,7 +51,6 @@
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SampleApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SampleApp/Info.plist; sourceTree = "<group>"; };
-		14F69D4691C0AD460507881F /* libPods-Notification Service.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Notification Service.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4632B4C7283E5CB800AF05BC /* Notification Service.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Notification Service.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4632B4C9283E5CB800AF05BC /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		4632B4CB283E5CB800AF05BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,13 +78,14 @@
 		4698397D283E4FAD003FBBA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5F86445EE4624C8075385DB3 /* Pods-Notification Service.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notification Service.release.xcconfig"; path = "Target Support Files/Pods-Notification Service/Pods-Notification Service.release.xcconfig"; sourceTree = "<group>"; };
 		5FCB99A7A0FCE6EE9E8B6542 /* Pods-Notification Service.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notification Service.debug.xcconfig"; path = "Target Support Files/Pods-Notification Service/Pods-Notification Service.debug.xcconfig"; sourceTree = "<group>"; };
+		6F8F11520AB2414375279F39 /* Pods_Notification_Service.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notification_Service.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7027D8F2719E14592AE8C5B1 /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8DBA40A64D8C8FFF7B19B979 /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = SampleApp/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		D8A905D4C5EE3A71C1C08253 /* libPods-SampleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SampleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		FE114EE11B38DB0AAA5C03AA /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7052DB9287C788100560E20 /* FirebaseAppDistribution-Beta in Frameworks */,
-				44747C538F1A078B75DD8B8D /* libPods-SampleApp.a in Frameworks */,
+				C03F932E10FFC8ED3435D624 /* Pods_SampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70A1C0CD7AE0BE17519E378C /* libPods-Notification Service.a in Frameworks */,
+				639A4522ED6C7A92C91F4093 /* Pods_Notification_Service.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,8 +148,8 @@
 				4632B4D3283E5D2200AF05BC /* libCustomerIOMessagingPushAPN.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				14F69D4691C0AD460507881F /* libPods-Notification Service.a */,
-				D8A905D4C5EE3A71C1C08253 /* libPods-SampleApp.a */,
+				6F8F11520AB2414375279F39 /* Pods_Notification_Service.framework */,
+				FE114EE11B38DB0AAA5C03AA /* Pods_SampleApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -292,7 +292,7 @@
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			packageReferences = (
-				F7052DB7287C788100560E20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F7052DB7287C788100560E20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */,
 			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
@@ -865,7 +865,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F7052DB7287C788100560E20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		F7052DB7287C788100560E20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -878,7 +878,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		F7052DB8287C788100560E20 /* FirebaseAppDistribution-Beta */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F7052DB7287C788100560E20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F7052DB7287C788100560E20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = "FirebaseAppDistribution-Beta";
 		};
 /* End XCSwiftPackageProductDependency section */

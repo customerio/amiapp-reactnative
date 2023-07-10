@@ -13,6 +13,7 @@ const TrackEvent = () => {
             case "Random" :
                 // MARK:- TRACK EVENT
                 CustomerIO.track("Button Click")
+                CustomerIO.screen("Dash")
                 break;
             case "EventWithData":
                 // MARK:- TRACK EVENT WITH DATA
