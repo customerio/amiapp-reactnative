@@ -1,3 +1,6 @@
+**Notice: This repository is deprecated and is no longer being maintained. We continue to maintain the sample app/s [in the React Native SDK repository](https://github.com/customerio/customerio-ios/tree/main/Apps). We would love for you to check out all our latest work! (We do plan to delete this repository on 5/4/2025 to reduce confusion between current and archived samples)**
+
+
 # Ami app
 
 This is a sample app using [Customer.io's React Native package](https://www.npmjs.com/package/customerio-reactnative). Ami app works for both Android and iOS.
